@@ -10,7 +10,7 @@ public class Score: MonoBehaviour {
     private int scoreNegative;
     private Text scorePositiveText;
     private Text scoreNegativeText;
-    private int MaxScore;
+    private int maxScore;
 
     //Construtores e função para manter o Singleton
 
@@ -20,7 +20,7 @@ public class Score: MonoBehaviour {
         this.scoreNegativeText = GameObject.Find(scoreNegativeText).GetComponent<UnityEngine.UI.Text>();
         UpdateScorePositive(scorePositive);
         UpdateNegativeScore(scoreNegative);
-        MaxScore = LevelController.MaxScoreGlobal;
+        maxScore = LevelController.MaxScoreGlobal;
     }
 
     public Score(string scorePositiveText, string scoreNegativeText)
@@ -29,7 +29,7 @@ public class Score: MonoBehaviour {
         this.scoreNegativeText = GameObject.Find(scoreNegativeText).GetComponent<UnityEngine.UI.Text>();
         UpdateScorePositive(0);
         UpdateNegativeScore(0);
-        MaxScore = LevelController.MaxScoreGlobal;
+        maxScore = LevelController.MaxScoreGlobal;
     }
 
     public static Score GetInstance(int scorePositive, int scoreNegative, string scorePositiveText, string scoreNegativeText)

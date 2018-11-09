@@ -167,7 +167,7 @@ public class StageManager : MonoBehaviour
             LevelController.silabasDigitadas[i] = "";//reset var after confirm button is clicked
         }
 
-        StartCoroutine(SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
+        StartCoroutine(Score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
 
         LevelController.TimeIsRunning = false;//reset var para parar timer e barra de tempo
         TimeProgressBar.fillAmount = 0;//reset barra de tempo para começar vazia
@@ -194,20 +194,6 @@ public class StageManager : MonoBehaviour
         {
             StartCoroutine(CallSilaba(0));//chama nova sílaba            
         }
-    }
-
-    public IEnumerator SetScore(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        if (LevelController.AlgumaSilabaErrada)
-        {
-            Score.UpdateNegativeScore(1);
-        }
-        else
-        {
-            Score.UpdateScorePositive(1);
-        }
-        LevelController.AlgumaSilabaErrada = false;
     }
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)

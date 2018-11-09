@@ -113,12 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &36150003 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114798345891188318, guid: 60c90360d4bf2944dba9cbbf92b23715,
-    type: 2}
-  m_PrefabInternal: {fileID: 1889175330}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &506761038
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,12 +188,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &698721533 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114497626210975902, guid: 60c90360d4bf2944dba9cbbf92b23715,
-    type: 2}
-  m_PrefabInternal: {fileID: 1889175330}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &707518520
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,9 +380,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1240923716}
   - component: {fileID: 1240923715}
+  - component: {fileID: 1240923712}
   - component: {fileID: 1240923714}
   - component: {fileID: 1240923713}
-  - component: {fileID: 1240923712}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -418,15 +406,6 @@ MonoBehaviour:
   NextLevel: 07_nivel03
   PreviousLevel: 05_nivel01
   SoundsDirectory: Sounds/Level_02
-  TelaSilabaDigitada:
-  - {fileID: 1786040802}
-  - {fileID: 1652438266}
-  RespostaCerta:
-  - {fileID: 36150003}
-  - {fileID: 1627556946}
-  RespostaErrada:
-  - {fileID: 698721533}
-  - {fileID: 2086570895}
 --- !u!82 &1240923713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -703,18 +682,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1627556946 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114220077240526882, guid: 60c90360d4bf2944dba9cbbf92b23715,
-    type: 2}
-  m_PrefabInternal: {fileID: 1889175330}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!114 &1652438266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114310771939044138, guid: 60c90360d4bf2944dba9cbbf92b23715,
-    type: 2}
-  m_PrefabInternal: {fileID: 1889175330}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1745760821
 Prefab:
   m_ObjectHideFlags: 0
@@ -757,12 +724,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 845bc912c17b6c945a04618419cc8fc5, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1786040802 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114275059456855316, guid: 60c90360d4bf2944dba9cbbf92b23715,
-    type: 2}
-  m_PrefabInternal: {fileID: 1889175330}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1889175330
 Prefab:
   m_ObjectHideFlags: 0
@@ -870,12 +831,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ConfirmaResposta
       objectReference: {fileID: 0}
+    - target: {fileID: 114824153690542604, guid: 60c90360d4bf2944dba9cbbf92b23715,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1240923712}
+    - target: {fileID: 114824153690542604, guid: 60c90360d4bf2944dba9cbbf92b23715,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AcionaDicaAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 114583539241284278, guid: 60c90360d4bf2944dba9cbbf92b23715,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1240923712}
+    - target: {fileID: 114583539241284278, guid: 60c90360d4bf2944dba9cbbf92b23715,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AcionaDicaVisual
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c90360d4bf2944dba9cbbf92b23715, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &2086570895 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114828351406481356, guid: 60c90360d4bf2944dba9cbbf92b23715,
-    type: 2}
-  m_PrefabInternal: {fileID: 1889175330}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}

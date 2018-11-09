@@ -834,11 +834,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1790539216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50585d9d2dfba5b458c08310dde54c84, type: 3}
+  m_Script: {fileID: 11500000, guid: 42bdfaf7793a76b48be56f2073538ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   imageToToggle: {fileID: 1790539219}
-  interval: 0.5
+  interval: 0.6
   startDelay: 0.5
   currentState: 1
   defaultState: 1

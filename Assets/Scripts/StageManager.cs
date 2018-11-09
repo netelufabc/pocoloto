@@ -23,14 +23,14 @@ public class StageManager : MonoBehaviour
     private GameObject GameOver;//gameobject da imagem de gameover    
     private Button BotaoConfirmaResposta;//botão para conferir a resposta
     private Button BotaoDicaAudio;
-   private Button BotaoDicaVisual;
+    private Button BotaoDicaVisual;
     private AudioClip erro;//audio do X vermelho de erro
     private AudioClip acerto;//audio das estrelas de acerto
     private AudioClip timer;//audio do relógio
     private Image TimeProgressBar;//imagem da barra de tempo
-    public Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
-    public  Image[] RespostaCerta;//imagem quando acerta a resposta
-    public  Image[] RespostaErrada;//imagem quando erra a resposta
+    private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
+    private Image[] RespostaCerta;//imagem quando acerta a resposta
+    private Image[] RespostaErrada;//imagem quando erra a resposta
     private string positiveScore = "Score Positive"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
     private string ScoreNegative = "Score Negative"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
 
@@ -40,21 +40,28 @@ public class StageManager : MonoBehaviour
     private int randomNumber;
     
     private float ProgressBarTime;//controle barra de tempo
-    private float TimeProgressBarSpeed = 0.5f;//velocidade que a barra de tempo enche
-
-    /*
-    void MontarTelaSilabaDigitada()
-    {
-        TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
-        for (int i = 0; i<TelaSilabaDigitada.Length; i++)
-        {
-            TelaSilabaDigitada[i] = GameObject.Find(string.Concat("RespostaCerta", i)).GetComponent<UnityEngine.UI.Text>();
-        }
-    }
-    */                                       
+    private float TimeProgressBarSpeed = 0.5f;//velocidade que a barra de tempo enche                                  
 
     void Awake()
     {
+        TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
+        for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
+        {
+            TelaSilabaDigitada[i] = GameObject.Find(string.Concat("Silaba Digitada ", i.ToString())).GetComponent <UnityEngine.UI.Text>();
+        }
+
+        RespostaCerta = new Image[NumeroDeSilabasDaPalavra];
+        for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
+        {
+            RespostaCerta[i] = GameObject.Find(string.Concat("RespostaCerta", i.ToString())).GetComponent<UnityEngine.UI.Image>();
+        }
+
+        RespostaErrada = new Image[NumeroDeSilabasDaPalavra];
+        for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
+        {
+            RespostaErrada[i] = GameObject.Find(string.Concat("RespostaErrada", i.ToString())).GetComponent<UnityEngine.UI.Image>();
+        }
+
         LevelClearMsg = GameObject.Find("Level Clear");
         GameOver = GameObject.Find("Level Failed");
         BotaoConfirmaResposta = GameObject.Find("Button Confirma Resposta").GetComponent<UnityEngine.UI.Button>();
@@ -68,8 +75,6 @@ public class StageManager : MonoBehaviour
         Score = Score.GetInstance(positiveScore, ScoreNegative);
 
         TimeProgressBar = GameObject.Find("Progress Time Bar").GetComponent<UnityEngine.UI.Image>();
-
-        //MontarTelaSilabaDigitada();
 
         audioFile = GetComponent<AudioSource>();
         SilabasNivelAtual = Resources.LoadAll(SoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       

@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-    private static SoundManager instance = null;
+    public static SoundManager instance = null;
     [SerializeField]
-    private AudioSource audioEfx;
+    private AudioSource audioFala;
     [SerializeField]
-    private AudioSource audioMusic;
+    private AudioSource audioTimer;
 
-    private SoundManager()
-    {
-    }
-
-    public static SoundManager GetInstance()
-    {
-        if (instance == null)
-        {
-            instance = new SoundManager();
-        }
-        return instance;
-    }
+    Timer timer;
 
     void Awake()
     {
-        if (instance == null)
+       if (instance == null)
         {
             instance = this;
         }
@@ -35,22 +24,34 @@ public class SoundManager : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        timer = Timer.instance;
+
         DontDestroyOnLoad(gameObject);
     }
 
+    /// <summary>
+    /// Toca a silaba e depois espera pelo tempo que a silaba dura antes de retornar a função.
+    /// </summary>
+    /// <param name="currentSilaba">clip a ser tocado</param>
     public void PlaySilaba(AudioClip currentSilaba)
     {
-        audioEfx.clip = currentSilaba;
-        audioEfx.Play();
+        audioFala.clip = currentSilaba;
+        audioFala.Play();
         StartCoroutine(WaitForSound(currentSilaba.length));
+        Debug.Log("Tentou entrar no SetTime");
+        //timer.SetTimeIsRunning(currentSilaba);
     }
 
+    /// <summary>
+    /// Toca todas as silabas que estão no vetor em sequência
+    /// </summary>
+    /// <param name="currentSilaba">Vetor de AudioClip das silabas</param>
     public void PlaySilaba(AudioClip [] currentSilaba)
     {
         for (int i = 0; currentSilaba.Length>i; i++)
         {
-            audioEfx.clip = currentSilaba[i];
-            audioEfx.Play();
+            audioFala.clip = currentSilaba[i];
+            audioFala.Play();
             StartCoroutine(WaitForSound(currentSilaba[i].length));
         }
     }

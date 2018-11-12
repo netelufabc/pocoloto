@@ -16,7 +16,7 @@ public class StageManager : MonoBehaviour
     [Tooltip("Nome da scene do nível anterior")]
     public string PreviousLevel;
     [Tooltip("Diretório de sons do nível")]
-    public string SoundsDirectory;
+    public string soundsDirectory;
 
     //private SoundManager SM; //Testando
     private SoundManager soundManager;
@@ -35,6 +35,7 @@ public class StageManager : MonoBehaviour
     private Image[] RespostaErrada;//imagem quando erra a resposta
     private string positiveScore = "Score Positive"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
     private string ScoreNegative = "Score Negative"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
+    private SilabaControl silabaControl;
 
     private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
     private int MaxScore = LevelController.MaxScoreGlobal;//pontuação objetivo para progredir ou regredir
@@ -43,11 +44,10 @@ public class StageManager : MonoBehaviour
     
     private float ProgressBarTime;//controle barra de tempo
     private float TimeProgressBarSpeed = 0.5f;//velocidade que a barra de tempo enche
-    public AudioClip Somzera;
 
     void Awake()
     {
-        soundManager = SoundManager.GetInstance();
+        soundManager = SoundManager.instance;
         TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
         for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
         {
@@ -66,6 +66,9 @@ public class StageManager : MonoBehaviour
             RespostaErrada[i] = GameObject.Find(string.Concat("RespostaErrada", i.ToString())).GetComponent<UnityEngine.UI.Image>();
         }
 
+        silabaControl = SilabaControl.instance;
+        silabaControl.SilabaSetup(soundsDirectory);
+
         LevelClearMsg = GameObject.Find("Level Clear");
         GameOver = GameObject.Find("Level Failed");
         BotaoConfirmaResposta = GameObject.Find("Button Confirma Resposta").GetComponent<UnityEngine.UI.Button>();
@@ -81,7 +84,7 @@ public class StageManager : MonoBehaviour
         TimeProgressBar = GameObject.Find("Progress Time Bar").GetComponent<UnityEngine.UI.Image>();
 
         audioFile = GetComponent<AudioSource>();
-        PalavrasNivelAtual = Resources.LoadAll(SoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       
+        PalavrasNivelAtual = Resources.LoadAll(soundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       
         audioFile.clip = PalavrasNivelAtual[0] as AudioClip;
         LevelController.NumeroDeSilabasDaPalavra = NumeroDeSilabasDaPalavra;
         LevelController.InitializeVars();
@@ -99,6 +102,9 @@ public class StageManager : MonoBehaviour
         LevelClearMsg.SetActive(false);
         GameOver.SetActive(false);
         StartCoroutine(CallSilaba(1f));
+        Debug.Log("Tentando chamar a função");
+        //silabaControl.CallSilaba(1f);
+
     }
 
     void Update()
@@ -143,8 +149,9 @@ public class StageManager : MonoBehaviour
         randomNumber = Random.Range(0, PalavrasNivelAtual.Length);
         LevelController.PalavraSelecionada = PalavrasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
         LevelController.SeparaSilabas();
-        audioFile.clip = PalavrasNivelAtual[randomNumber] as AudioClip;
-        audioFile.Play();//toca o áudio escolhido
+        //audioFile.clip = PalavrasNivelAtual[randomNumber] as AudioClip;
+        //audioFile.Play();//toca o áudio escolhido
+        soundManager.PlaySilaba(PalavrasNivelAtual[randomNumber] as AudioClip);
         StartCoroutine(SetTimeIsRunning());
     }
 
@@ -201,7 +208,8 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(CallSilaba(0));//chama nova sílaba            
+            StartCoroutine(CallSilaba(0));//chama nova sílaba   
+            //silabaControl.CallSilaba(1f);
         }
     }
 

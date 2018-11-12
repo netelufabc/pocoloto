@@ -7,7 +7,8 @@ public class SoundManager : MonoBehaviour {
     private static SoundManager instance = null;
     [SerializeField]
     private AudioSource audioEfx;
-    private AudioClip currentSilaba;
+    [SerializeField]
+    private AudioSource audioMusic;
 
     private SoundManager()
     {
@@ -22,9 +23,24 @@ public class SoundManager : MonoBehaviour {
         return instance;
     }
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void PlaySilaba(AudioClip currentSilaba)
     {
-        audioEfx.clip = this.currentSilaba;
+        audioEfx.clip = currentSilaba;
         audioEfx.Play();
         StartCoroutine(WaitForSound(currentSilaba.length));
     }

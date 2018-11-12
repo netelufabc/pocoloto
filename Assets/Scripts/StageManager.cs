@@ -18,7 +18,8 @@ public class StageManager : MonoBehaviour
     [Tooltip("Diretório de sons do nível")]
     public string SoundsDirectory;
 
-    //private SoundManager SM; Testando
+    //private SoundManager SM; //Testando
+    private SoundManager soundManager;
     private Score Score;
     private GameObject LevelClearMsg;//gameobject da imagem de proximo nivel ou nivel anterior
     private GameObject GameOver;//gameobject da imagem de gameover    
@@ -42,12 +43,11 @@ public class StageManager : MonoBehaviour
     
     private float ProgressBarTime;//controle barra de tempo
     private float TimeProgressBarSpeed = 0.5f;//velocidade que a barra de tempo enche
-    //public AudioClip Somzera;
+    public AudioClip Somzera;
 
     void Awake()
     {
-        //SM = SoundManager.GetInstance();
-        //SM.PlaySilaba(Somzera);
+        soundManager = SoundManager.GetInstance();
         TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
         for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
         {

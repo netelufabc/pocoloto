@@ -4,36 +4,39 @@ using UnityEngine;
 
 public class SilabaControl : MonoBehaviour {
 
+    private SoundManager soundManager;
     private static SilabaControl single_instance;
+    private Object[] silabasNivelAtual;
+    private string soundsDirectory;
 
     private int randomNumber;
 
-    //Fazendo um AudioSource
-
-    /*
-    public void TocarSilaba()//escolhe e toca uma sílaba aleatória (random nos arquivos de áudio)
+    private void Awake()
     {
-        randomNumber = Random.Range(0, SilabasNivelAtual.Length);
-        LevelController.SilabaSelecionada = SilabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
-        LevelController.SeparaSilabas();
-        audioFile.clip = SilabasNivelAtual[randomNumber] as AudioClip;
-        audioFile.Play();//toca o áudio escolhido     
-        StartCoroutine(SetTimeIsRunning());
+        soundManager = SoundManager.GetInstance();
     }
 
-    IEnumerator SetTimeIsRunning()//função para set a variavel de contar tempo e barra após a fala da palavra
-    {
-        yield return new WaitForSeconds(audioFile.clip.length);
-        LevelController.TimeIsRunning = true;
-    }
-
-    IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
+   /* IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
     {
         yield return new WaitForSeconds(seconds);
         TocarSilaba();
         BotaoDicaAudio.interactable = true;//ativa botoes de ajuda após tocar nova silaba
         BotaoDicaVisual.interactable = true;//ativa botoes de ajuda após tocar nova silaba
+    }*/
+
+
+    public void SilabaSetup (string soundsDirectory)
+    {
+        this.soundsDirectory = soundsDirectory;
+        silabasNivelAtual = Resources.LoadAll(soundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       
     }
 
-    */
+    public void TocarSilaba()//escolhe e toca uma sílaba aleatória (random nos arquivos de áudio)
+    {
+        randomNumber = Random.Range(0, silabasNivelAtual.Length);
+        LevelController.SilabaSelecionada = silabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
+        LevelController.SeparaSilabas();
+        soundManager.PlaySilaba(silabasNivelAtual[randomNumber] as AudioClip);
+    }
+
 }

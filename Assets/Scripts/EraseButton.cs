@@ -14,15 +14,15 @@ public class EraseButton : MonoBehaviour {
         click = GetComponent<AudioSource>();
     }
 
-    public void buttonPressed1()
-    {
-        click.Play(0);
-        if (LevelController.SilabaDigitada.Length >= 1)
-        {
-            LevelController.SilabaDigitada = LevelController.SilabaDigitada.Remove(LevelController.SilabaDigitada.Length - 1);
-            LevelController.BotaoConfirmaResposta = false;
-        }       
-    }
+    //public void buttonPressed1()
+    //{
+    //    click.Play(0);
+    //    if (LevelController.SilabaDigitada.Length >= 1)
+    //    {
+    //        LevelController.SilabaDigitada = LevelController.SilabaDigitada.Remove(LevelController.SilabaDigitada.Length - 1);
+    //        LevelController.BotaoConfirmaResposta = false;
+    //    }       
+    //}
 
     public void buttonPressed()
     {

@@ -5,8 +5,7 @@ using UnityEngine;
 public static class LevelController
 {
     public static int MaxScoreGlobal = 2;//pontuação objetivo para progredir ou regredir
-    public static string SilabaDigitada = "";//substituido por silabasDigitadas niveis 2 em diante
-    public static string SilabaSelecionada = "";//substituido por silabas nos niveis 2 em diante
+    public static string PalavraSelecionada = "";//palavra selecionada da lista do nível correspondente (arquivos de áudio)
     public static int CharLimitForLevel = 0;
     public static bool BotaoConfirmaResposta = false;
     public static int scorePositive = 0;
@@ -35,7 +34,7 @@ public static class LevelController
         int counter = 0;
         for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
         {
-            silabas[i] = string.Concat(SilabaSelecionada[counter + i], SilabaSelecionada[counter + i + 1]);
+            silabas[i] = string.Concat(PalavraSelecionada[counter + i], PalavraSelecionada[counter + i + 1]);
             counter++;
         }
   

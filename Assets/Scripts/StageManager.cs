@@ -36,7 +36,7 @@ public class StageManager : MonoBehaviour
     private string positiveScore = "Score Positive"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
     private string ScoreNegative = "Score Negative"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
 
-    private Object[] SilabasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
+    private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
     private int MaxScore = LevelController.MaxScoreGlobal;//pontuação objetivo para progredir ou regredir
     private AudioSource audioFile;
     private int randomNumber;
@@ -81,8 +81,8 @@ public class StageManager : MonoBehaviour
         TimeProgressBar = GameObject.Find("Progress Time Bar").GetComponent<UnityEngine.UI.Image>();
 
         audioFile = GetComponent<AudioSource>();
-        SilabasNivelAtual = Resources.LoadAll(SoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       
-        audioFile.clip = SilabasNivelAtual[0] as AudioClip;
+        PalavrasNivelAtual = Resources.LoadAll(SoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       
+        audioFile.clip = PalavrasNivelAtual[0] as AudioClip;
         LevelController.NumeroDeSilabasDaPalavra = NumeroDeSilabasDaPalavra;
         LevelController.InitializeVars();
     }
@@ -140,10 +140,10 @@ public class StageManager : MonoBehaviour
 
     public void TocarSilaba()//escolhe e toca uma sílaba aleatória (random nos arquivos de áudio)
     {
-        randomNumber = Random.Range(0, SilabasNivelAtual.Length);
-        LevelController.SilabaSelecionada = SilabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
+        randomNumber = Random.Range(0, PalavrasNivelAtual.Length);
+        LevelController.PalavraSelecionada = PalavrasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
         LevelController.SeparaSilabas();
-        audioFile.clip = SilabasNivelAtual[randomNumber] as AudioClip;
+        audioFile.clip = PalavrasNivelAtual[randomNumber] as AudioClip;
         audioFile.Play();//toca o áudio escolhido
         StartCoroutine(SetTimeIsRunning());
     }

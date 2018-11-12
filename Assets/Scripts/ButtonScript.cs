@@ -17,19 +17,19 @@ public class ButtonScript : MonoBehaviour {
 		
 	}
 
-    public void buttonPressed2()//função chamada ao apertar o botão nivel 1
-    {
-        click.Play(0);//toca som de apertando o botao (click_tecla01)
-        if (!(LevelController.SilabaDigitada.Length >= LevelController.CharLimitForLevel))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
-        {
-            LevelController.SilabaDigitada = string.Concat(LevelController.SilabaDigitada, currentButton.name);          
-        }
-        if (LevelController.SilabaDigitada.Length >= LevelController.CharLimitForLevel)//se já tem limite de caracteres digitados definido em CHARLIMITFORLEVEL, habilita botao confirmar
-        {
-            LevelController.BotaoConfirmaResposta = true;
-        }
+    //public void buttonPressed2()//função chamada ao apertar o botão nivel 1
+    //{
+    //    click.Play(0);//toca som de apertando o botao (click_tecla01)
+    //    if (!(LevelController.SilabaDigitada.Length >= LevelController.CharLimitForLevel))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
+    //    {
+    //        LevelController.SilabaDigitada = string.Concat(LevelController.SilabaDigitada, currentButton.name);          
+    //    }
+    //    if (LevelController.SilabaDigitada.Length >= LevelController.CharLimitForLevel)//se já tem limite de caracteres digitados definido em CHARLIMITFORLEVEL, habilita botao confirmar
+    //    {
+    //        LevelController.BotaoConfirmaResposta = true;
+    //    }
 
-    }
+    //}
 
     public void buttonPressed()
     {

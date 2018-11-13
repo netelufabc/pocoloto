@@ -7732,6 +7732,7 @@ GameObject:
   - component: {fileID: 1644367536}
   - component: {fileID: 1644367535}
   - component: {fileID: 1644367540}
+  - component: {fileID: 1644367541}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7852,32 +7853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2b3ed173184924aad4c0e9105b57cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelClearMsg: {fileID: 268449008}
-  GameOver: {fileID: 1398217262}
-  erro: {fileID: 8300000, guid: 8939f4696dc4a9345adeffb592213fea, type: 3}
-  acerto: {fileID: 8300000, guid: 1efe10d2e4da85b41a5e2bd62a9efaaa, type: 3}
-  timer: {fileID: 8300000, guid: 41dadd5eca9fbf246ac24b5e0307f0dc, type: 3}
-  TelaSilabaDigitada:
-  - {fileID: 1288050028}
-  - {fileID: 1864327684}
-  - {fileID: 2000142616}
-  - {fileID: 1655799492}
-  ScorePositive: {fileID: 842955235}
-  ScoreNegative: {fileID: 1320108036}
-  BotaoConfirmaResposta: {fileID: 1538297192}
-  BotaoDicaAudio: {fileID: 841860649}
-  BotaoDicaVisual: {fileID: 1226038166}
-  RespostaCerta:
-  - {fileID: 1706681142}
-  - {fileID: 602029604}
-  - {fileID: 875774407}
-  - {fileID: 283399184}
-  RespostaErrada:
-  - {fileID: 1908033566}
-  - {fileID: 1134261634}
-  - {fileID: 1837642862}
-  - {fileID: 1166691827}
-  TimeProgressBar: {fileID: 566554090}
 --- !u!20 &1644367538
 Camera:
   m_ObjectHideFlags: 0
@@ -7947,6 +7922,23 @@ MonoBehaviour:
   NextLevel: 
   PreviousLevel: 07_nivel03
   soundsDirectory: Sounds\Level_04
+--- !u!114 &1644367541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644367534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 979de4fe5665f8348b5aca6dded16ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 1411018264370580, guid: aef8728d0ff727e499b19cc4b51ee0ba, type: 2}
+  soundManager: {fileID: 1030792921957814, guid: a0a59afef4c41e14a82faba775ea5972,
+    type: 2}
+  timer: {fileID: 1543037024074770, guid: 12f49121790708e4199eb55e1303e088, type: 2}
+  silabaControl: {fileID: 1089769323314802, guid: 55694028943e36e46aea87b2889b9acf,
+    type: 2}
 --- !u!1 &1655799490
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,7 +45,6 @@ public class StageManager : MonoBehaviour
 
     void Awake()
     {
-        soundManager = SoundManager.instance;
         TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
         for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
         {
@@ -72,13 +71,10 @@ public class StageManager : MonoBehaviour
 
         erro = (AudioClip)Resources.Load("Sounds/sfx/erro_slot01");         
         acerto = (AudioClip)Resources.Load("Sounds/sfx/acerto_slot01");
-        timer = (AudioClip)Resources.Load("Sounds/sfx/timer");
 
         TimeProgressBar = GameObject.Find("Progress Time Bar").GetComponent<UnityEngine.UI.Image>();
 
         audioFile = GetComponent<AudioSource>();
-        PalavrasNivelAtual = Resources.LoadAll(soundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01       
-        audioFile.clip = PalavrasNivelAtual[0] as AudioClip;
         LevelController.NumeroDeSilabasDaPalavra = NumeroDeSilabasDaPalavra;
         LevelController.InitializeVars();
     }
@@ -90,6 +86,8 @@ public class StageManager : MonoBehaviour
 
         score = Score.instance;
         score.ScoreSetup();
+
+        soundManager = SoundManager.instance;
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
@@ -124,10 +122,6 @@ public class StageManager : MonoBehaviour
 
         if (LevelController.TimeIsRunning)//bloco da barra de tempo inicio
         {
-            if (!audioFile.isPlaying)//se já não está tocando...
-            {
-                audioFile.PlayOneShot(timer);//toca tick do timer
-            }
             if (ProgressBarTime < 10)
             {
                 ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
@@ -171,16 +165,16 @@ public class StageManager : MonoBehaviour
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {
             yield return new WaitForSeconds(segundos);
-            if (audioFile.isPlaying) { audioFile.Stop(); }//para o som do timer
-            audioFile.PlayOneShot(acerto);//toca som de acerto
+            soundManager.StopBackground();
+            soundManager.PlaySfx(acerto);//toca som de acerto
             StartCoroutine(Blinker.DoBlinks(RespostaCerta[BlockIndex], 1f, 0.2f, RespostaCerta, RespostaErrada));//pisca estrelas de acerto                  
         }
         else//caso a resposta esteja errada...
         {
             LevelController.AlgumaSilabaErrada = true;
             yield return new WaitForSeconds(segundos);
-            if (audioFile.isPlaying) { audioFile.Stop(); }//para o som do timer
-            audioFile.PlayOneShot(erro); //toca som de erro
+            soundManager.StopBackground();
+            soundManager.PlaySfx(erro); //toca som de erro
             StartCoroutine(Blinker.DoBlinks(RespostaErrada[BlockIndex], 1f, 0.2f, RespostaCerta, RespostaErrada));//pisca estrelas de acerto                   
         }
     }

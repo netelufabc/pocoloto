@@ -7,6 +7,7 @@ public static class LevelController
     public static int MaxScoreGlobal = 2;//pontuação objetivo para progredir ou regredir
     public static string PalavraSelecionada = "";//palavra selecionada da lista do nível correspondente (arquivos de áudio)
     public static int CharLimitForLevel = 0;
+    public static bool IsLoaderAlreadyLaunched = false;
     public static bool BotaoConfirmaResposta = false;
     public static int scorePositive = 0;
     public static int NegativeScore = 0;

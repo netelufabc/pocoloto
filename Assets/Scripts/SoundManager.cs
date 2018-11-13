@@ -8,7 +8,9 @@ public class SoundManager : MonoBehaviour {
     [SerializeField]
     private AudioSource audioFala;
     [SerializeField]
-    private AudioSource audioTimer;
+    private AudioSource audioBackground;
+    [SerializeField]
+    private AudioSource audioSfx;
 
     Timer timer;
 
@@ -32,6 +34,39 @@ public class SoundManager : MonoBehaviour {
     }
 
     /// <summary>
+    /// Toca música de fundo
+    /// </summary>
+    /// <param name="background"></param>
+    public void PlayBackground(AudioClip background)
+    {
+        if (!audioBackground.isPlaying) { 
+            audioBackground.clip = background;
+            audioBackground.Play();
+    }
+    }
+
+    /// <summary>
+    /// Para a música de fundo
+    /// </summary>
+    public void StopBackground()
+    {
+        if (audioBackground.isPlaying)
+        {
+            audioBackground.Stop();
+        }
+    }
+
+    /// <summary>
+    /// Toca um efeito
+    /// </summary>
+    /// <param name="sfx"></param>
+    public void PlaySfx(AudioClip sfx)
+    {
+        audioSfx.clip = sfx;
+        audioSfx.Play();
+    }
+
+    /// <summary>
     /// Toca a silaba e depois espera pelo tempo que a silaba dura antes de retornar a função.
     /// </summary>
     /// <param name="currentSilaba">clip a ser tocado</param>
@@ -43,23 +78,8 @@ public class SoundManager : MonoBehaviour {
         StartCoroutine(timer.SetTimeIsRunning(currentSilaba));
     }
 
-    /// <summary>
-    /// Toca todas as silabas que estão no vetor em sequência
-    /// </summary>
-    /// <param name="currentSilaba">Vetor de AudioClip das silabas</param>
-    public void PlaySilaba(AudioClip [] currentSilaba)
-    {
-        for (int i = 0; currentSilaba.Length>i; i++)
-        {
-            audioFala.clip = currentSilaba[i];
-            audioFala.Play();
-            StartCoroutine(WaitForSound(currentSilaba[i].length));
-        }
-    }
-
     private IEnumerator WaitForSound(float duration)
     {
         yield return new WaitForSeconds(duration);
     }
-
 }

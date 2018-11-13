@@ -66,9 +66,6 @@ public class StageManager : MonoBehaviour
             RespostaErrada[i] = GameObject.Find(string.Concat("RespostaErrada", i.ToString())).GetComponent<UnityEngine.UI.Image>();
         }
 
-        silabaControl = SilabaControl.instance;
-        silabaControl.SilabaSetup(soundsDirectory);
-
         LevelClearMsg = GameObject.Find("Level Clear");
         GameOver = GameObject.Find("Level Failed");
         BotaoConfirmaResposta = GameObject.Find("Button Confirma Resposta").GetComponent<UnityEngine.UI.Button>();
@@ -92,6 +89,9 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        silabaControl = SilabaControl.instance;
+        silabaControl.SilabaSetup(soundsDirectory);
+
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
         {
@@ -101,10 +101,8 @@ public class StageManager : MonoBehaviour
         TimeProgressBar.fillAmount = 0;//inicializa barra de tempo para começar vazia
         LevelClearMsg.SetActive(false);
         GameOver.SetActive(false);
-        StartCoroutine(CallSilaba(1f));
-        Debug.Log("Tentando chamar a função");
-        //silabaControl.CallSilaba(1f);
-
+        //StartCoroutine(CallSilaba(1f));
+        StartCoroutine(silabaControl.CallSilaba(1f));
     }
 
     void Update()
@@ -208,8 +206,8 @@ public class StageManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(CallSilaba(0));//chama nova sílaba   
-            //silabaControl.CallSilaba(1f);
+            //StartCoroutine(CallSilaba(0));//chama nova sílaba   
+            StartCoroutine(silabaControl.CallSilaba(1f));
         }
     }
 

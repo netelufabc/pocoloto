@@ -23,10 +23,12 @@ public class SoundManager : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
-        timer = Timer.instance;
-
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        timer = Timer.instance;
     }
 
     /// <summary>
@@ -39,7 +41,7 @@ public class SoundManager : MonoBehaviour {
         audioFala.Play();
         StartCoroutine(WaitForSound(currentSilaba.length));
         Debug.Log("Tentou entrar no SetTime");
-        //timer.SetTimeIsRunning(currentSilaba);
+        StartCoroutine(timer.SetTimeIsRunning(currentSilaba));
     }
 
     /// <summary>

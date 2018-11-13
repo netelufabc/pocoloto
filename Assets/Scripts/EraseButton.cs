@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EraseButton : MonoBehaviour {
+public class EraseButton : CursorChange {
 
     //Button currentButton;
     AudioSource click;

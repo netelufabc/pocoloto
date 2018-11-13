@@ -33,6 +33,8 @@ public class ButtonScript : MonoBehaviour {
 
     public void buttonPressed()
     {
+        click.Play(0);//toca som de apertando o botao (click_tecla01)
+
         if (1 == LevelController.silabasDigitadas.Length)
         {
             buttonLevel01();
@@ -53,7 +55,7 @@ public class ButtonScript : MonoBehaviour {
 
     public void buttonLevel01()
     {
-        click.Play(0);//toca som de apertando o botao (click_tecla01)
+       // click.Play(0);//toca som de apertando o botao (click_tecla01)
         if (LevelController.silabasDigitadas[0] == null || !(LevelController.silabasDigitadas[0].Length > 1))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
         {
             LevelController.silabasDigitadas[0] = string.Concat(LevelController.silabasDigitadas[0], currentButton.name);
@@ -66,7 +68,7 @@ public class ButtonScript : MonoBehaviour {
 
     public void buttonLevel02()
     {
-        click.Play(0);//toca som de apertando o botao (click_tecla01)
+       // click.Play(0);//toca som de apertando o botao (click_tecla01)
         if (LevelController.silabasDigitadas[0] == null || !(LevelController.silabasDigitadas[0].Length > 1))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
         {
             LevelController.silabasDigitadas[0] = string.Concat(LevelController.silabasDigitadas[0], currentButton.name);
@@ -84,7 +86,7 @@ public class ButtonScript : MonoBehaviour {
 
     public void buttonLevel03()
     {
-        click.Play(0);//toca som de apertando o botao (click_tecla01)
+       // click.Play(0);//toca som de apertando o botao (click_tecla01)
         if (LevelController.silabasDigitadas[0] == null || !(LevelController.silabasDigitadas[0].Length > 1))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
         {
             LevelController.silabasDigitadas[0] = string.Concat(LevelController.silabasDigitadas[0], currentButton.name);
@@ -106,7 +108,7 @@ public class ButtonScript : MonoBehaviour {
 
     public void buttonLevel04()
     {
-        click.Play(0);//toca som de apertando o botao (click_tecla01)
+       // click.Play(0);//toca som de apertando o botao (click_tecla01)
         if (LevelController.silabasDigitadas[0] == null || !(LevelController.silabasDigitadas[0].Length > 1))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
         {
             LevelController.silabasDigitadas[0] = string.Concat(LevelController.silabasDigitadas[0], currentButton.name);

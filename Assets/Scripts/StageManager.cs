@@ -20,7 +20,7 @@ public class StageManager : MonoBehaviour
 
     //private SoundManager SM; //Testando
     private SoundManager soundManager;
-    private Score Score;
+    private Score score;
     private GameObject LevelClearMsg;//gameobject da imagem de proximo nivel ou nivel anterior
     private GameObject GameOver;//gameobject da imagem de gameover    
     private Button BotaoConfirmaResposta;//botão para conferir a resposta
@@ -33,8 +33,6 @@ public class StageManager : MonoBehaviour
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
     private Image[] RespostaCerta;//imagem quando acerta a resposta
     private Image[] RespostaErrada;//imagem quando erra a resposta
-    private string positiveScore = "Score Positive"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
-    private string ScoreNegative = "Score Negative"; //Nome do elemento da GUI que irá mostrar o texto da pontuação
     private SilabaControl silabaControl;
 
     private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
@@ -76,8 +74,6 @@ public class StageManager : MonoBehaviour
         acerto = (AudioClip)Resources.Load("Sounds/sfx/acerto_slot01");
         timer = (AudioClip)Resources.Load("Sounds/sfx/timer");
 
-        Score = Score.GetInstance(positiveScore, ScoreNegative);
-
         TimeProgressBar = GameObject.Find("Progress Time Bar").GetComponent<UnityEngine.UI.Image>();
 
         audioFile = GetComponent<AudioSource>();
@@ -92,6 +88,9 @@ public class StageManager : MonoBehaviour
         silabaControl = SilabaControl.instance;
         silabaControl.SilabaSetup(soundsDirectory);
 
+        score = Score.instance;
+        score.ScoreSetup();
+
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
         {
@@ -101,7 +100,6 @@ public class StageManager : MonoBehaviour
         TimeProgressBar.fillAmount = 0;//inicializa barra de tempo para começar vazia
         LevelClearMsg.SetActive(false);
         GameOver.SetActive(false);
-        //StartCoroutine(CallSilaba(1f));
         StartCoroutine(silabaControl.CallSilaba(1f));
     }
 
@@ -142,31 +140,6 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public void TocarSilaba()//escolhe e toca uma sílaba aleatória (random nos arquivos de áudio)
-    {
-        randomNumber = Random.Range(0, PalavrasNivelAtual.Length);
-        LevelController.PalavraSelecionada = PalavrasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
-        LevelController.SeparaSilabas();
-        //audioFile.clip = PalavrasNivelAtual[randomNumber] as AudioClip;
-        //audioFile.Play();//toca o áudio escolhido
-        soundManager.PlaySilaba(PalavrasNivelAtual[randomNumber] as AudioClip);
-        StartCoroutine(SetTimeIsRunning());
-    }
-
-    IEnumerator SetTimeIsRunning()//função para set a variavel de contar tempo e barra após a fala da palavra
-    {
-        yield return new WaitForSeconds(audioFile.clip.length);
-        LevelController.TimeIsRunning = true;
-    }
-
-    IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
-    {
-        yield return new WaitForSeconds(seconds);
-        TocarSilaba();
-        BotaoDicaAudio.interactable = true;//ativa botoes de ajuda após tocar nova silaba
-        BotaoDicaVisual.interactable = true;//ativa botoes de ajuda após tocar nova silaba
-    }
-
     public void ConfirmaResposta()
     {
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)
@@ -181,34 +154,16 @@ public class StageManager : MonoBehaviour
             LevelController.silabasDigitadas[i] = "";//reset var after confirm button is clicked
         }
 
-        StartCoroutine(Score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
+        StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
 
         LevelController.TimeIsRunning = false;//reset var para parar timer e barra de tempo
         TimeProgressBar.fillAmount = 0;//reset barra de tempo para começar vazia
         ProgressBarTime = 0;//reset timer
 
 
-        StartCoroutine(CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
-    }
-
-    public IEnumerator CheckScore(float seconds)
-    {
-        yield return new WaitForSeconds(seconds + 0.2f);
-        if (Score.getScorePositive() == MaxScore)
-        {
-            StartCoroutine(Blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, audioFile, LevelClearMsg));
-            StartCoroutine(CallAnotherLevel(3, NextLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
-        }
-        else if (Score.getScoreNegative() == MaxScore)
-        {
-            StartCoroutine(Blinker.DoBlinksGameObject(erro, 0, GameOver, 2f, 0.2f, audioFile, LevelClearMsg));
-            StartCoroutine(CallAnotherLevel(3, PreviousLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
-        }
-        else
-        {
-            //StartCoroutine(CallSilaba(0));//chama nova sílaba   
-            StartCoroutine(silabaControl.CallSilaba(1f));
-        }
+        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, LevelClearMsg, GameOver, acerto, erro, audioFile, NextLevel, PreviousLevel));
+        BotaoDicaVisual.interactable = true;//ativa botoes de ajuda após tocar nova silaba Colocar no som
+        BotaoDicaAudio.interactable = true;//ativa botoes de ajuda após tocar nova silaba Colocar no som
     }
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)
@@ -238,7 +193,7 @@ public class StageManager : MonoBehaviour
 
     public void AcionaDicaAudio()//botao dica audio
     {
-        audioFile.Play();//toca silaba atual
+        silabaControl.TocarSilabaAtual();//toca silaba atual
         BotaoDicaAudio.interactable = false;//desabilita botao dica audio
     }
 

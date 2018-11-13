@@ -5,51 +5,43 @@ using UnityEngine;
 
 public class Score: MonoBehaviour {
 
-    private static Score single_instance = null;
+    public static Score instance = null;
     private int scorePositive;
     private int scoreNegative;
+    private string scorePositiveString = "Score Positive";
+    private string scoreNegativeString = "Score Negative";
     private Text scorePositiveText;
     private Text scoreNegativeText;
     private int maxScore;
 
+    SilabaControl silabaControl;
+
     //Construtores e função para manter o Singleton
 
-    public Score(int scorePositive, int scoreNegative, string scorePositiveText, string scoreNegativeText)
+    private void Awake()
     {
-        this.scorePositiveText = GameObject.Find(scorePositiveText).GetComponent<UnityEngine.UI.Text>();
-        this.scoreNegativeText = GameObject.Find(scoreNegativeText).GetComponent<UnityEngine.UI.Text>();
-        UpdateScorePositive(scorePositive);
-        UpdateNegativeScore(scoreNegative);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        silabaControl = SilabaControl.instance;
         maxScore = LevelController.MaxScoreGlobal;
     }
 
-    public Score(string scorePositiveText, string scoreNegativeText)
+    public void ScoreSetup()
     {
-        this.scorePositiveText = GameObject.Find(scorePositiveText).GetComponent<UnityEngine.UI.Text>();
-        this.scoreNegativeText = GameObject.Find(scoreNegativeText).GetComponent<UnityEngine.UI.Text>();
-        UpdateScorePositive(0);
-        UpdateNegativeScore(0);
-        maxScore = LevelController.MaxScoreGlobal;
-    }
-
-    public static Score GetInstance(int scorePositive, int scoreNegative, string scorePositiveText, string scoreNegativeText)
-    {
-        if (single_instance == null)
-        {
-            single_instance = new Score(scorePositive, scoreNegative, scorePositiveText, scoreNegativeText);
-        }
-
-        return single_instance;
-    }
-
-    public static Score GetInstance(string scorePositiveText, string scoreNegativeText)
-    {
-        if (single_instance == null)
-        {
-            single_instance = new Score(scorePositiveText, scoreNegativeText);
-        }
-
-        return single_instance;
+            this.scorePositiveText = GameObject.Find(scorePositiveString).GetComponent<UnityEngine.UI.Text>();
+            this.scoreNegativeText = GameObject.Find(scoreNegativeString).GetComponent<UnityEngine.UI.Text>();
+            ResetScore();
     }
 
     //Funções:
@@ -64,32 +56,42 @@ public class Score: MonoBehaviour {
         return scoreNegative;
     }
 
-    //Atualiza o ScorePositive:
-
+    /// <summary>
+    /// Soma ao Score Positive o número de pontos colocado.
+    /// </summary>
+    /// <param name="pontos"></param>
     public void UpdateScorePositive(int pontos)
     {
         scorePositive += pontos;
         scorePositiveText.text = scorePositive.ToString();
     }
 
-    //Atualiza o ScoreNegative:
-
+    /// <summary>
+    /// Soma ao Score Negative o número de pontos colocado.
+    /// </summary>
+    /// <param name="pontos"></param>
     public void UpdateNegativeScore(int pontos)
     {
         scoreNegative += pontos;
         scoreNegativeText.text = scoreNegative.ToString();
     }
 
-    //Reseta os dois Scores:
-
+    /// <summary>
+    /// Deixa em "0" tanto o Score Positive quanto o Score Negative
+    /// </summary>
     public void ResetScore()
     {
-        UpdateScorePositive(0);
-        UpdateNegativeScore(0);
+        scoreNegative = 0;
+        scoreNegativeText.text = scoreNegative.ToString();
+        scorePositive = 0;
+        scorePositiveText.text = scorePositive.ToString();
     }
 
-    //Espera o tempo para atualizar o Score
-
+    /// <summary>
+    /// Função que é chamada para atualizar os Score
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
     public IEnumerator SetScore(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -104,25 +106,34 @@ public class Score: MonoBehaviour {
         LevelController.AlgumaSilabaErrada = false;
     }
     
-    //Ainda implementando
-    /*
+    /// <summary>
+    /// Verifica se o jogador já está pronto para ir para o próximo nível ou se voltará para o nível anterior
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <param name="LevelClearMsg"></param>
+    /// <param name="GameOver"></param>
+    /// <param name="acerto"></param>
+    /// <param name="erro"></param>
+    /// <param name="audioFile"></param>
+    /// <param name="NextLevel"></param>
+    /// <param name="PreviousLevel"></param>
+    /// <returns></returns>
     public IEnumerator CheckScore(float seconds, GameObject LevelClearMsg, GameObject GameOver, AudioClip acerto, AudioClip erro, AudioSource audioFile, string NextLevel, string PreviousLevel)
     {
         yield return new WaitForSeconds(seconds + 0.2f);
-        if (getScorePositive() == MaxScore)
+        if (getScorePositive() == maxScore)
         {
             StartCoroutine(Blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, audioFile, LevelClearMsg));
             StartCoroutine(StageManager.CallAnotherLevel(3, NextLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
-        else if (getScoreNegative() == MaxScore)
+        else if (getScoreNegative() == maxScore)
         {
             StartCoroutine(Blinker.DoBlinksGameObject(erro, 0, GameOver, 2f, 0.2f, audioFile, LevelClearMsg));
             StartCoroutine(StageManager.CallAnotherLevel(3, PreviousLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else
         {
-            StartCoroutine(CallSilaba(0));//chama nova sílaba            
+            StartCoroutine(silabaControl.CallSilaba(0));//chama nova sílaba            
         }
     }
-    */
 }

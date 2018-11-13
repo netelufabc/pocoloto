@@ -40,7 +40,6 @@ public class SoundManager : MonoBehaviour {
         audioFala.clip = currentSilaba;
         audioFala.Play();
         StartCoroutine(WaitForSound(currentSilaba.length));
-        Debug.Log("Tentou entrar no SetTime");
         StartCoroutine(timer.SetTimeIsRunning(currentSilaba));
     }
 

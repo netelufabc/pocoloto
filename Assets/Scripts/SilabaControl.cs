@@ -11,6 +11,7 @@ public class SilabaControl : MonoBehaviour {
     private string soundsDirectory;
 
     private int randomNumber;
+    private AudioClip silabaAtual;
 
     private void Awake()
     {
@@ -50,7 +51,12 @@ public class SilabaControl : MonoBehaviour {
         randomNumber = Random.Range(0, silabasNivelAtual.Length);
         LevelController.PalavraSelecionada = silabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
         LevelController.SeparaSilabas();
+        silabaAtual = silabasNivelAtual[randomNumber] as AudioClip;
         soundManager.PlaySilaba(silabasNivelAtual[randomNumber] as AudioClip);
     }
 
+    public void TocarSilabaAtual()
+    {
+        soundManager.PlaySilaba(silabaAtual);
+    }
 }

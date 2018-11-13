@@ -640,7 +640,7 @@ RectTransform:
   - {fileID: 581899959}
   - {fileID: 1586372460}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3643,7 +3643,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1644367537}
+      - m_Target: {fileID: 1644367540}
         m_MethodName: AcionaDicaAudio
         m_Mode: 1
         m_Arguments:
@@ -4322,7 +4322,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010348753
 GameObject:
@@ -5011,7 +5011,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1644367537}
+      - m_Target: {fileID: 1644367540}
         m_MethodName: AcionaDicaVisual
         m_Mode: 1
         m_Arguments:
@@ -5810,7 +5810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359923447
 GameObject:
@@ -6482,7 +6482,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1644367537}
+      - m_Target: {fileID: 1644367540}
         m_MethodName: ConfirmaResposta
         m_Mode: 1
         m_Arguments:
@@ -7411,7 +7411,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1632413797
 GameObject:
@@ -7717,7 +7717,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1644367534
 GameObject:
@@ -7731,6 +7731,7 @@ GameObject:
   - component: {fileID: 1644367538}
   - component: {fileID: 1644367536}
   - component: {fileID: 1644367535}
+  - component: {fileID: 1644367540}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7928,8 +7929,24 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1644367540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644367534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharLimitForThisLevel: 8
+  NumeroDeSilabasDaPalavra: 4
+  NextLevel: 
+  PreviousLevel: 07_nivel03
+  soundsDirectory: Sounds\Level_04
 --- !u!1 &1655799490
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,7 +8752,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942885057
 GameObject:

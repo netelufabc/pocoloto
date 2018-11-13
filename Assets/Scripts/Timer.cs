@@ -21,7 +21,6 @@ public class Timer : MonoBehaviour {
 
     public IEnumerator SetTimeIsRunning(AudioClip silaba)//função para set a variavel de contar tempo e barra após a fala da palavra
     {
-        Debug.Log("Entrou no SetTime");
         yield return new WaitForSeconds(silaba.length);
         LevelController.TimeIsRunning = true;
     }

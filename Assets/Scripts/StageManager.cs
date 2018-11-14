@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
     [Header("Detalhes do nível")]
+    [Tooltip("Nível atual (int)")]
+    public int currentLevel;//Nível atual
     [Tooltip("Total de caracteres juntas nas sílabas deste nível")]
     public int CharLimitForThisLevel;//total de caracteres das silabas deste nivel juntas
     [Tooltip("Número de sílabas diferentes")]
@@ -45,6 +47,8 @@ public class StageManager : MonoBehaviour
 
     void Awake()
     {
+        LevelController.currentLevel = currentLevel;
+
         TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
         for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
         {

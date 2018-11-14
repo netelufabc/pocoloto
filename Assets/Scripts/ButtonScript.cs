@@ -35,21 +35,25 @@ public class ButtonScript : CursorChange {
     {
         click.Play(0);//toca som de apertando o botao (click_tecla01)
 
-        if (1 == LevelController.silabasDigitadas.Length)
+        if (1 == LevelController.currentLevel)
         {
             buttonLevel01();
         }
-        else if (2 == LevelController.silabasDigitadas.Length)
+        else if (2 == LevelController.currentLevel)
         {
             buttonLevel02();
         }
-        else if (3 == LevelController.silabasDigitadas.Length)
+        else if (3 == LevelController.currentLevel)
         {
             buttonLevel03();
         }
-        else if (4 == LevelController.silabasDigitadas.Length)
+        else if (4 == LevelController.currentLevel)
         {
             buttonLevel04();
+        }
+        else if (5 == LevelController.currentLevel)
+        {
+            buttonLevel05();
         }
     }
 
@@ -126,6 +130,24 @@ public class ButtonScript : CursorChange {
             LevelController.silabasDigitadas[3] = string.Concat(LevelController.silabasDigitadas[3], currentButton.name);
         }
         string temp = string.Concat(LevelController.silabasDigitadas[0], LevelController.silabasDigitadas[1], LevelController.silabasDigitadas[2], LevelController.silabasDigitadas[3]);
+        if (temp.Length >= LevelController.CharLimitForLevel)//se já tem limite de caracteres digitados definido em CHARLIMITFORLEVEL, habilita botao confirmar
+        {
+            LevelController.BotaoConfirmaResposta = true;
+        }
+    }
+
+    public void buttonLevel05()
+    {
+        // click.Play(0);//toca som de apertando o botao (click_tecla01)
+        if (LevelController.silabasDigitadas[0] == null || !(LevelController.silabasDigitadas[0].Length > 1))//Se não tem limite de caracteres definidos em CHARLIMITFORLEVEL, concatena o caractere digitado com o que já está na string
+        {
+            LevelController.silabasDigitadas[0] = string.Concat(LevelController.silabasDigitadas[0], currentButton.name);
+        }
+        else if (LevelController.silabasDigitadas[0].Length > 1 && (LevelController.silabasDigitadas[1] == null || LevelController.silabasDigitadas[1].Length < 3))
+        {
+            LevelController.silabasDigitadas[1] = string.Concat(LevelController.silabasDigitadas[1], currentButton.name);
+        }
+        string temp = string.Concat(LevelController.silabasDigitadas[0], LevelController.silabasDigitadas[1]);
         if (temp.Length >= LevelController.CharLimitForLevel)//se já tem limite de caracteres digitados definido em CHARLIMITFORLEVEL, habilita botao confirmar
         {
             LevelController.BotaoConfirmaResposta = true;

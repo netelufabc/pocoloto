@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// Esta classe só pode ser anexada a UI Buttons. 
+/// Quando o mouse passa por cima do objeto anexado, o cursor alterna para a imagem aqui inserida.
+/// Também pode ser herdada.
+/// </summary>
+
 public class CursorChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Texture2D cursor;

@@ -2227,6 +2227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 3
   CharLimitForThisLevel: 6
   NumeroDeSilabasDaPalavra: 3
   NextLevel: 08_nivel04

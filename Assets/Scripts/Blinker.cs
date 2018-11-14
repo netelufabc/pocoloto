@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Blinker : MonoBehaviour {
 
-
     //inicio pisca Imagem(UI) por duration à taxa de blinkTime
     public static IEnumerator DoBlinks(Image resposta, float duration, float blinkTime, Image[] RespostaCerta, Image[] RespostaErrada)
     {
@@ -25,6 +24,17 @@ public class Blinker : MonoBehaviour {
     public static void ToggleState(Image resposta)//muda o estado ligado/desligado de uma imagem (UI)
     {
         resposta.enabled = !resposta.enabled;
+    }
+
+    public static IEnumerator DoBlinksGameObject(float secondsBeforeBlink, GameObject GameObjectToBlink, float duration, float blinkTime)
+    {
+        yield return new WaitForSeconds(secondsBeforeBlink);
+        while (duration > 0f)
+        {
+            duration -= 0.3f;
+            ToggleStateGameObject(GameObjectToBlink);
+            yield return new WaitForSeconds(blinkTime);
+        }
     }
 
     //inicio pisca GameObject por duration à taxa de blinkTime, toca áudio e espera tempo antes caso necessário
@@ -53,5 +63,4 @@ public class Blinker : MonoBehaviour {
         }
     }
     //fim pisca GameObject por duration à taxa de blinkTime
-
 }

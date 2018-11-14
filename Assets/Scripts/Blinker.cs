@@ -5,8 +5,29 @@ using UnityEngine;
 
 public class Blinker : MonoBehaviour {
 
+    public static Blinker instance = null;
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
+    }
+
     //inicio pisca Imagem(UI) por duration à taxa de blinkTime
-    public static IEnumerator DoBlinks(Image resposta, float duration, float blinkTime, Image[] RespostaCerta, Image[] RespostaErrada)
+    public IEnumerator DoBlinks(Image resposta, float duration, float blinkTime, Image[] RespostaCerta, Image[] RespostaErrada)
     {
         while (duration > 0f)
         {
@@ -21,12 +42,12 @@ public class Blinker : MonoBehaviour {
         }
     }
 
-    public static void ToggleState(Image resposta)//muda o estado ligado/desligado de uma imagem (UI)
+    public void ToggleState(Image resposta)//muda o estado ligado/desligado de uma imagem (UI)
     {
         resposta.enabled = !resposta.enabled;
     }
 
-    public static IEnumerator DoBlinksGameObject(float secondsBeforeBlink, GameObject GameObjectToBlink, float duration, float blinkTime)
+    public IEnumerator DoBlinksGameObject(float secondsBeforeBlink, GameObject GameObjectToBlink, float duration, float blinkTime)
     {
         yield return new WaitForSeconds(secondsBeforeBlink);
         while (duration > 0f)
@@ -38,10 +59,10 @@ public class Blinker : MonoBehaviour {
     }
 
     //inicio pisca GameObject por duration à taxa de blinkTime, toca áudio e espera tempo antes caso necessário
-    public static IEnumerator DoBlinksGameObject(AudioClip audioclip, float secondsBeforeBlink, GameObject GameObjectToBlink, float duration, float blinkTime, AudioSource audioFile, GameObject LevelClearMsg)
+    public IEnumerator DoBlinksGameObject(AudioClip audioclip, float secondsBeforeBlink, GameObject GameObjectToBlink, float duration, float blinkTime, GameObject LevelClearMsg)
     {
         yield return new WaitForSeconds(secondsBeforeBlink);
-        audioFile.PlayOneShot(audioclip);
+        soundManager.PlaySfx(audioclip);
         while (duration > 0f)
         {
             duration -= 0.3f;
@@ -51,7 +72,7 @@ public class Blinker : MonoBehaviour {
         LevelClearMsg.SetActive(false);//garantir que o estado final seja desligado, para a imagem sumir da tela
     }
 
-    public static void ToggleStateGameObject(GameObject resposta)//muda o estado ligado/desligado de algum GameObject
+    public void ToggleStateGameObject(GameObject resposta)//muda o estado ligado/desligado de algum GameObject
     {
         if (resposta.activeSelf == true)
         {

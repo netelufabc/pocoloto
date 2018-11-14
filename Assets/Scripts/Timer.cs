@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Timer : MonoBehaviour {
@@ -7,12 +8,19 @@ public class Timer : MonoBehaviour {
     private SoundManager soundManager;
     private AudioClip tictac;
 
+    private float ProgressBarTime;
+    private float TimeProgressBarSpeed = 0.5f;
+    private Image TimeProgressBar;
+    public bool EndOfTime = false;
+
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
             tictac = (AudioClip)Resources.Load("Sounds/sfx/timer");
+            TimeProgressBar = GameObject.Find("Progress Time Bar").GetComponent<UnityEngine.UI.Image>();
         }
         else if (instance != this)
         {
@@ -25,8 +33,30 @@ public class Timer : MonoBehaviour {
     private void Start()
     {
         soundManager = SoundManager.instance;
+        TimeProgressBar.fillAmount = 0;
     }
 
+    private void Update()
+    {
+        if (LevelController.TimeIsRunning)//bloco da barra de tempo inicio
+        {
+            if (ProgressBarTime < 10)
+            {
+                ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
+                TimeProgressBar.fillAmount = ProgressBarTime / 10;
+            }
+            else
+            {
+                EndOfTime = true;
+            }
+        }
+    }
+
+    public void ResetTimeProgressBar()
+    {
+        ProgressBarTime = 0;
+        TimeProgressBar.fillAmount = 0;
+    }
 
     /// <summary>
     /// Função que aciona a barra de tempo

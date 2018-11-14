@@ -15,6 +15,7 @@ public class Score: MonoBehaviour {
     private int maxScore;
 
     SilabaControl silabaControl;
+    Blinker blinker;
 
     //Construtores e função para manter o Singleton
 
@@ -34,6 +35,7 @@ public class Score: MonoBehaviour {
     private void Start()
     {
         silabaControl = SilabaControl.instance;
+        blinker = Blinker.instance;
         maxScore = LevelController.MaxScoreGlobal;
     }
 
@@ -118,17 +120,17 @@ public class Score: MonoBehaviour {
     /// <param name="NextLevel"></param>
     /// <param name="PreviousLevel"></param>
     /// <returns></returns>
-    public IEnumerator CheckScore(float seconds, GameObject LevelClearMsg, GameObject GameOver, AudioClip acerto, AudioClip erro, AudioSource audioFile, string NextLevel, string PreviousLevel)
+    public IEnumerator CheckScore(float seconds, GameObject LevelClearMsg, GameObject GameOver, AudioClip acerto, AudioClip erro, string NextLevel, string PreviousLevel)
     {
         yield return new WaitForSeconds(seconds + 0.2f);
         if (getScorePositive() == maxScore)
         {
-            StartCoroutine(Blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, audioFile, LevelClearMsg));
+            StartCoroutine(blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, LevelClearMsg));
             StartCoroutine(StageManager.CallAnotherLevel(3, NextLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else if (getScoreNegative() == maxScore)
         {
-            StartCoroutine(Blinker.DoBlinksGameObject(erro, 0, GameOver, 2f, 0.2f, audioFile, LevelClearMsg));
+            StartCoroutine(blinker.DoBlinksGameObject(erro, 0, GameOver, 2f, 0.2f, LevelClearMsg));
             StartCoroutine(StageManager.CallAnotherLevel(3, PreviousLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else

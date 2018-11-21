@@ -1,62 +1,72 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class ButtonConfirmar : MonoBehaviour {
-/*
+public class ButtonConfirmar : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+
+    public static ButtonConfirmar instance = null;
+    private Button buttonConfirmaResposta;
+    private StageManager stageManager;
     private SoundManager soundManager;
+    private Timer timer;
     private Score score;
+    private Blinker blinker;
+    private GameObject LevelClearMsg;
+    private GameObject GameOver;
     private AudioClip acerto;
     private AudioClip erro;
-    private GameObject LevelClearMsg;//gameobject da imagem de proximo nivel ou nivel anterior
-    private GameObject GameOver;//gameobject da imagem de gameover
-    private Image[] RespostaCerta;//imagem quando acerta a resposta
-    private Image[] RespostaErrada;//imagem quando erra a resposta
-    private string NextLevel = StageManager.NextLevel;
-    private string PreviousLevel = StageManager.PreviousLevel;
-
-    Blinker blinker;
+    private Image[] RespostaCerta;
+    private Image[] RespostaErrada;
+    private Texture2D cursor;
 
     private void Awake()
     {
-        RespostaCerta = new Image[StageManager.NumeroDeSilabasDaPalavra];
-        for (int i = 0; i < StageManager.NumeroDeSilabasDaPalavra; i++)
+        if (instance == null)
         {
-            RespostaCerta[i] = GameObject.Find(string.Concat("RespostaCerta", i.ToString())).GetComponent<UnityEngine.UI.Image>();
+            instance = this;
         }
-
-        RespostaErrada = new Image[StageManager.NumeroDeSilabasDaPalavra];
-        for (int i = 0; i < StageManager.NumeroDeSilabasDaPalavra; i++)
+        else if (instance != this)
         {
-            RespostaErrada[i] = GameObject.Find(string.Concat("RespostaErrada", i.ToString())).GetComponent<UnityEngine.UI.Image>();
+            Destroy(gameObject);
         }
-
-        LevelController.CharLimitForLevel = StageManager.CharLimitForThisLevel;//define limite de caracteres para o nível atual
-        for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
-        {
-            RespostaCerta[i].enabled = false;
-            RespostaErrada[i].enabled = false;
-        }
-
-        LevelClearMsg = GameObject.Find("Level Clear");
-        GameOver = GameObject.Find("Level Failed");
-        erro = (AudioClip)Resources.Load("Sounds/sfx/erro_slot01");
-        acerto = (AudioClip)Resources.Load("Sounds/sfx/acerto_slot01");
-        LevelClearMsg.SetActive(false);
-        GameOver.SetActive(false);
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
+        buttonConfirmaResposta = this.GetComponent<UnityEngine.UI.Button>();
+        stageManager = StageManager.instance;
         soundManager = SoundManager.instance;
+        timer = Timer.instance;
         score = Score.instance;
         blinker = Blinker.instance;
 
-        for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
+        cursor = Resources.Load<Texture2D>("Images/cursor-edit-th");
+        LevelClearMsg = stageManager.GetLevelClearMsg();
+        GameOver = stageManager.GetGameOver();
+        acerto = stageManager.GetAcerto();
+        erro = stageManager.GetErro();
+        RespostaCerta = stageManager.GetRespostaCerta();
+        RespostaErrada = stageManager.GetRespostaErrada();
+    }
+
+    private void Update()
+    {
+        if (LevelController.BotaoConfirmaResposta == true)//verifica se pode ativar o botao de confirmar resposta (só ativa quando foram digitados todos os caracteres das sílabas)
         {
-            RespostaCerta[i].enabled = false;
-            RespostaErrada[i].enabled = false;
+            buttonConfirmaResposta.interactable = true;//ativa botao confirma resposta
+        }
+        else
+        {
+            buttonConfirmaResposta.interactable = false;//desativa botao confirma resposta
+        }
+
+        if (timer.endOfTime)
+        {
+            ConfirmaResposta();
         }
     }
 
@@ -75,19 +85,13 @@ public class ButtonConfirmar : MonoBehaviour {
         }
 
         StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
-
-        LevelController.TimeIsRunning = false;//reset var para parar timer e barra de tempo
-        //TimeProgressBar.fillAmount = 0;//reset barra de tempo para começar vazia
-        //ProgressBarTime = 0;//reset timer
-
-
-        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, LevelClearMsg, GameOver, acerto, erro, NextLevel, PreviousLevel));
-        //BotaoDicaVisual.interactable = true;//ativa botoes de ajuda após tocar nova silaba Colocar no som
-        //BotaoDicaAudio.interactable = true;//ativa botoes de ajuda após tocar nova silaba Colocar no som
+        timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
+        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, LevelClearMsg, GameOver, acerto, erro, stageManager.NextLevel, stageManager.PreviousLevel));
     }
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)
     {
+        timer.endOfTime = false;
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {
             yield return new WaitForSeconds(segundos);
@@ -101,8 +105,33 @@ public class ButtonConfirmar : MonoBehaviour {
             yield return new WaitForSeconds(segundos);
             soundManager.StopBackground();
             soundManager.PlaySfx(erro); //toca som de erro
-            StartCoroutine(blinker.DoBlinks(RespostaErrada[BlockIndex], 1f, 0.2f, RespostaCerta, RespostaErrada));//pisca estrelas de acerto                   
+            StartCoroutine(blinker.DoBlinks(RespostaErrada[BlockIndex], 1f, 0.2f, RespostaCerta, RespostaErrada));//pisca estrelas de acerto                 
         }
-    }*/
 
+    }
+
+    public void ActiveButton()
+    {
+        buttonConfirmaResposta.interactable = true;
+    }
+
+    public void DeactiveButton()
+    {
+        buttonConfirmaResposta.interactable = false;
+    }
+
+    /// Parte para o cursor mudar quando está em cima do ícone, porque
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (buttonConfirmaResposta.interactable)
+        {
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
 }

@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ButtonDicaVisual : MonoBehaviour {
+public class ButtonDicaVisual : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
 
     public static ButtonDicaVisual instance = null;
     private Button BotaoDicaVisual;
     private StageManager stageManager;
     private Text [] TelaSilabaDigitada;
+    private Texture2D cursor;
 
 
     private void Awake()
@@ -23,6 +26,7 @@ public class ButtonDicaVisual : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
 
+        cursor = Resources.Load<Texture2D>("Images/cursor-edit-th");
         BotaoDicaVisual = GameObject.FindGameObjectWithTag("Button Eye").GetComponent<UnityEngine.UI.Button>();
     }
 
@@ -30,6 +34,18 @@ public class ButtonDicaVisual : MonoBehaviour {
     {
         stageManager = StageManager.instance;
         TelaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
+    }
+
+
+    public void ActiveButton()
+    {
+        BotaoDicaVisual = GameObject.FindGameObjectWithTag("Button Eye").GetComponent<UnityEngine.UI.Button>(); //Como o canvas é destruído entre as scenes, é necessário reestabelecer a referência.
+        BotaoDicaVisual.interactable = true;
+    }
+
+    public void DeactiveButton()
+    {
+        BotaoDicaVisual.interactable = false;
     }
 
     public void AcionaDicaVisual()//botao dica visual
@@ -49,14 +65,18 @@ public class ButtonDicaVisual : MonoBehaviour {
         
     }
 
-    public void DesactiveButton()
+    /// Parte para o cursor mudar quando está em cima do ícone, porque
+
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        BotaoDicaVisual.interactable = false;
+        if (BotaoDicaVisual.interactable)
+        {
+            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        }
     }
 
-    public void ActiveButton()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        BotaoDicaVisual.interactable = true;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
-
 }

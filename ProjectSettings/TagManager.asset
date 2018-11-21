@@ -9,6 +9,7 @@ TagManager:
   - ButtonTips
   - Button Sound
   - Button Eye
+  - Button
   layers:
   - Default
   - TransparentFX

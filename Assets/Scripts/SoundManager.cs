@@ -12,8 +12,6 @@ public class SoundManager : MonoBehaviour {
     [SerializeField]
     private AudioSource audioSfx;
 
-    Timer timer;
-
     void Awake()
     {
        if (instance == null)
@@ -26,11 +24,6 @@ public class SoundManager : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Start()
-    {
-        timer = Timer.instance;
     }
 
     /// <summary>
@@ -74,12 +67,5 @@ public class SoundManager : MonoBehaviour {
     {
         audioFala.clip = currentSilaba;
         audioFala.Play();
-        StartCoroutine(WaitForSound(currentSilaba.length));
-        StartCoroutine(timer.SetTimeIsRunning(currentSilaba));
-    }
-
-    private IEnumerator WaitForSound(float duration)
-    {
-        yield return new WaitForSeconds(duration);
     }
 }

@@ -8,7 +8,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private Text sideBarTip;
     private Button planeta;
-    private string toolTipText = "";
+    private string toolTipText;
 
 	void Start () {
         sideBarTip = GameObject.Find("Panel Text").GetComponent<UnityEngine.UI.Text>();

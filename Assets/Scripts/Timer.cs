@@ -11,7 +11,7 @@ public class Timer : MonoBehaviour {
     private float ProgressBarTime;
     private float TimeProgressBarSpeed = 0.5f;
     private Image TimeProgressBar;
-    public bool EndOfTime = false;
+    public bool endOfTime = false;
 
 
     private void Awake()
@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour {
             }
             else
             {
-                EndOfTime = true;
+                endOfTime = true;
             }
         }
     }
@@ -56,6 +56,7 @@ public class Timer : MonoBehaviour {
     {
         ProgressBarTime = 0;
         TimeProgressBar.fillAmount = 0;
+        LevelController.TimeIsRunning = false;
     }
 
     /// <summary>
@@ -66,7 +67,8 @@ public class Timer : MonoBehaviour {
     public IEnumerator SetTimeIsRunning(AudioClip silaba)//função para set a variavel de contar tempo e barra após a fala da palavra
     {
         yield return new WaitForSeconds(silaba.length);
-        soundManager.PlayBackground(tictac);
+        ResetTimeProgressBar();
         LevelController.TimeIsRunning = true;
+        soundManager.PlayBackground(tictac);
     }
 }

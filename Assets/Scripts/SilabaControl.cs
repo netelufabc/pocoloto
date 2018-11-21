@@ -7,6 +7,8 @@ public class SilabaControl : MonoBehaviour {
     public static SilabaControl instance = null;
     private SoundManager soundManager;
     private ButtonDicaAudio buttonDicaAudio;
+    private ButtonDicaVisual buttonDicaVisual;
+    private Timer timer;
     private Object[] silabasNivelAtual;
 
     private int randomNumber;
@@ -30,6 +32,8 @@ public class SilabaControl : MonoBehaviour {
     {
         soundManager = SoundManager.instance;
         buttonDicaAudio = ButtonDicaAudio.instance;
+        buttonDicaVisual = ButtonDicaVisual.instance;
+        timer = Timer.instance;
     }
 
     /// <summary>
@@ -45,8 +49,6 @@ public class SilabaControl : MonoBehaviour {
     {
         yield return new WaitForSeconds(seconds);
         TocarSilaba();
-        //BotaoDicaAudio.interactable = true;//ativa botoes de ajuda após tocar nova silaba Colocar no som
-        //BotaoDicaVisual.interactable = true;//ativa botoes de ajuda após tocar nova silaba Colocar no som
     }
 
     /// <summary>
@@ -64,9 +66,11 @@ public class SilabaControl : MonoBehaviour {
             LevelController.SeparaSilabasLevel05();
         }
         silabaAtual = silabasNivelAtual[randomNumber] as AudioClip;
-        soundManager.PlaySilaba(silabasNivelAtual[randomNumber] as AudioClip);
+        soundManager.PlaySilaba(silabaAtual);
+        StartCoroutine(WaitForSound(silabaAtual.length));
+        StartCoroutine(timer.SetTimeIsRunning(silabaAtual));
         buttonDicaAudio.ActiveButton();
-
+        buttonDicaVisual.ActiveButton();
     }
 
     /// <summary>
@@ -75,5 +79,10 @@ public class SilabaControl : MonoBehaviour {
     public void TocarSilabaAtual()
     {
         soundManager.PlaySilaba(silabaAtual);
+    }
+
+    public IEnumerator WaitForSound(float duration)
+    {
+        yield return new WaitForSeconds(duration);
     }
 }

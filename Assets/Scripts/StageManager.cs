@@ -27,6 +27,7 @@ public class StageManager : MonoBehaviour
     private Button BotaoConfirmaResposta;//botão para conferir a resposta
 
     private Button BotaoDicaVisual;
+    private ButtonConfirmar buttonConfirmar;
 
     private AudioClip erro;//audio do X vermelho de erro
     private AudioClip acerto;//audio das estrelas de acerto
@@ -34,10 +35,6 @@ public class StageManager : MonoBehaviour
     private Image[] RespostaCerta;//imagem quando acerta a resposta
     private Image[] RespostaErrada;//imagem quando erra a resposta
     private SilabaControl silabaControl;
-
-    private ButtonDicaAudio buttonDicaAudio;
-    private ButtonDicaVisual buttonDicaVisual;
-    private ButtonConfirmar buttonConfirmar;
 
     private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
     private int randomNumber;
@@ -120,14 +117,13 @@ public class StageManager : MonoBehaviour
         silabaControl = SilabaControl.instance;
         silabaControl.SilabaSetup(soundsDirectory);
 
-        buttonConfirmar = ButtonConfirmar.instance;
-        buttonDicaAudio = ButtonDicaAudio.instance;
-        buttonDicaVisual = ButtonDicaVisual.instance;
-
         score = Score.instance;
         score.ScoreSetup();
 
+        buttonConfirmar = ButtonConfirmar.instance;
+
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
+
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
         {
             RespostaCerta[i].enabled = false;
@@ -146,6 +142,15 @@ public class StageManager : MonoBehaviour
             {
                 TelaSilabaDigitada[i].text = LevelController.silabasDigitadas[i];
             }
+        }
+
+        if (LevelController.BotaoConfirmaResposta == true)//verifica se pode ativar o botao de confirmar resposta (só ativa quando foram digitados todos os caracteres das sílabas)
+        {
+            buttonConfirmar.ActiveButton();//ativa botao confirma resposta
+        }
+        else
+        {
+            buttonConfirmar.DeactiveButton();//desativa botao confirma resposta
         }
     }
 

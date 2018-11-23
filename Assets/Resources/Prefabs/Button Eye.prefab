@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114034493618184424}
   - component: {fileID: 114116544963393090}
   - component: {fileID: 114483880261802806}
+  - component: {fileID: 114135212561755806}
   m_Layer: 9
   m_Name: Button Eye
   m_TagString: Button Eye
@@ -109,6 +110,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114135212561755806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664080625152408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114483880261802806
 MonoBehaviour:
   m_ObjectHideFlags: 1

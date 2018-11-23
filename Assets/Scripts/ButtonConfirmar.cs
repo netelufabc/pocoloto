@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
-public class ButtonConfirmar : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonConfirmar : MonoBehaviour
 {
 
     public static ButtonConfirmar instance = null;
@@ -20,7 +20,6 @@ public class ButtonConfirmar : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private AudioClip erro;
     private Image[] RespostaCerta;
     private Image[] RespostaErrada;
-    private Texture2D cursor;
 
     private void Awake()
     {
@@ -44,7 +43,6 @@ public class ButtonConfirmar : MonoBehaviour, IPointerEnterHandler, IPointerExit
         score = Score.instance;
         blinker = Blinker.instance;
 
-        cursor = Resources.Load<Texture2D>("Images/cursor-edit-th");
         LevelClearMsg = stageManager.GetLevelClearMsg();
         GameOver = stageManager.GetGameOver();
         acerto = stageManager.GetAcerto();
@@ -55,15 +53,6 @@ public class ButtonConfirmar : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     private void Update()
     {
-        if (LevelController.BotaoConfirmaResposta == true)//verifica se pode ativar o botao de confirmar resposta (só ativa quando foram digitados todos os caracteres das sílabas)
-        {
-            buttonConfirmaResposta.interactable = true;//ativa botao confirma resposta
-        }
-        else
-        {
-            buttonConfirmaResposta.interactable = false;//desativa botao confirma resposta
-        }
-
         if (timer.endOfTime)
         {
             ConfirmaResposta();
@@ -110,28 +99,17 @@ public class ButtonConfirmar : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     }
 
+    //Estava tentando desativar o botão de confirmar    
+
     public void ActiveButton()
     {
+        //buttonConfirmaResposta.gameObject.SetActive(true);
         buttonConfirmaResposta.interactable = true;
     }
 
     public void DeactiveButton()
     {
         buttonConfirmaResposta.interactable = false;
-    }
-
-    /// Parte para o cursor mudar quando está em cima do ícone, porque
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (buttonConfirmaResposta.interactable)
-        {
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        //buttonConfirmaResposta.gameObject.SetActive(false);
     }
 }

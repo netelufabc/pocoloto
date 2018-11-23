@@ -4,13 +4,12 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ButtonDicaAudio : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonDicaAudio : MonoBehaviour
 {
 
     public static ButtonDicaAudio instance = null;
     private Button botaoDicaAudio;
     private SilabaControl silabaControl;
-    private Texture2D cursor;
 
     private void Awake()
     {
@@ -23,13 +22,12 @@ public class ButtonDicaAudio : MonoBehaviour, IPointerEnterHandler, IPointerExit
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        cursor = Resources.Load<Texture2D>("Images/cursor-edit-th");
+        botaoDicaAudio = GameObject.FindGameObjectWithTag("Button Sound").GetComponent<UnityEngine.UI.Button>();
     }
 
     private void Start()
     {
         silabaControl = SilabaControl.instance;
-        botaoDicaAudio = GameObject.FindGameObjectWithTag("Button Sound").GetComponent<UnityEngine.UI.Button>();
     }
 
     public void ActiveButton()
@@ -48,20 +46,4 @@ public class ButtonDicaAudio : MonoBehaviour, IPointerEnterHandler, IPointerExit
         silabaControl.TocarSilabaAtual();//toca silaba atual
         DeactiveButton();
     }
-
-    /// Parte para o cursor mudar quando está em cima do ícone, porque
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if (botaoDicaAudio.interactable)
-        {
-            Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-    }
-
 }

@@ -58,13 +58,13 @@ public class SilabaControl : MonoBehaviour {
     {
         randomNumber = Random.Range(0, silabasNivelAtual.Length);
         LevelController.PalavraSelecionada = silabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente        
-        if (LevelController.currentLevel != 5) {
+        //if (LevelController.currentLevel != 5) {
             LevelController.SeparaSilabas();
-        }
-        else
-        {
-            LevelController.SeparaSilabasLevel05();
-        }
+        //}
+        //else
+        //{
+        //    LevelController.SeparaSilabasLevel05();
+        //}
         silabaAtual = silabasNivelAtual[randomNumber] as AudioClip;
         soundManager.PlaySilaba(silabaAtual);
         StartCoroutine(WaitForSound(silabaAtual.length));

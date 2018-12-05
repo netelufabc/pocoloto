@@ -33,18 +33,34 @@ public static class LevelController
 
     public static void SeparaSilabas()
     {
-        int counter = 0;
-        for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
+        ////int counter = 0;
+        //for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
+        //{
+        //    silabas[i] = string.Concat(PalavraSelecionada[2 * i], PalavraSelecionada[2 * i + 1]);
+        //    //counter++;
+        //}
+
+        // Separa silabas genérico
+        string vogais = "AEIOU", silabaTemp = "";
+        int k = 0;
+
+        for (int i = 0; i < CharLimitForLevel; i++)
         {
-            silabas[i] = string.Concat(PalavraSelecionada[counter + i], PalavraSelecionada[counter + i + 1]);
-            counter++;
-        }  
+            silabaTemp = string.Concat(silabaTemp, PalavraSelecionada[i]);
+            if (vogais.IndexOf(PalavraSelecionada[i]) != -1)
+            {
+                silabas[k] = silabaTemp;
+                silabaTemp = "";
+                k++;
+            }
+        }
     }
 
-    public static void SeparaSilabasLevel05()
-    {
-        silabas[0] = PalavraSelecionada.Substring(0,2);
-        silabas[1] = PalavraSelecionada.Substring(2,3);
-    }
+    // Não precisa mais
+    //public static void SeparaSilabasLevel05()
+    //{
+    //    silabas[0] = PalavraSelecionada.Substring(0,2);
+    //    silabas[1] = PalavraSelecionada.Substring(2,3);
+    //}
 
 }

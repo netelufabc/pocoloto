@@ -35,48 +35,51 @@ public class ButtonScript : CursorChange {
 
     public void buttonPressed()
     {
-        click.Play(0);//toca som de apertando o botao (click_tecla01)
-        // Seleção de botões antigas
-        //if (1 == LevelController.currentLevel)
-        //{
-        //    buttonLevel01();
-        //}
-        //else if (2 == LevelController.currentLevel)
-        //{
-        //    buttonLevel02();
-        //}
-        //else if (3 == LevelController.currentLevel)
-        //{
-        //    buttonLevel03();
-        //}
-        //else if (4 == LevelController.currentLevel)
-        //{
-        //    buttonLevel04();
-        //}
-        //else if (5 == LevelController.currentLevel)
-        //{
-        //    buttonLevel05();
-        //}
-        
-        // Tentativa De unificar tudo em uma chamada só
-        int i = 0;
-        
-        // Encontra em qual silaba está (i = silaba em que está - 1)
-        while (i < stageManager.NumeroDeSilabasDaPalavra && LevelController.silabasDigitadas[i] != null && LevelController.silabas[i].Length <= LevelController.silabasDigitadas[i].Length)
+        if (LevelController.EstaVerificandoResposta == false)
         {
-            i++;
-        }
-
-        // Verificar se a silaba em questão está completa (todas as letras) e se pode liberar o botão confirma
-        if (i < stageManager.NumeroDeSilabasDaPalavra)
-        {
-            if (LevelController.silabasDigitadas[i] == null || LevelController.silabasDigitadas[i].Length < LevelController.silabas[i].Length)
+            click.Play(0);//toca som de apertando o botao (click_tecla01)
+            // Seleção de botões antigas
+            //if (1 == LevelController.currentLevel)
+            //{
+            //    buttonLevel01();
+            //}
+            //else if (2 == LevelController.currentLevel)
+            //{
+            //    buttonLevel02();
+            //}
+            //else if (3 == LevelController.currentLevel)
+            //{
+            //    buttonLevel03();
+            //}
+            //else if (4 == LevelController.currentLevel)
+            //{
+            //    buttonLevel04();
+            //}
+            //else if (5 == LevelController.currentLevel)
+            //{
+            //    buttonLevel05();
+            //}
+        
+            // Tentativa De unificar tudo em uma chamada só
+            int i = 0;
+        
+            // Encontra em qual silaba está (i = silaba em que está - 1)
+            while (i < stageManager.NumeroDeSilabasDaPalavra && LevelController.silabasDigitadas[i] != null && LevelController.silabas[i].Length <= LevelController.silabasDigitadas[i].Length)
             {
-                LevelController.silabasDigitadas[i] = string.Concat(LevelController.silabasDigitadas[i], currentButton.name);
+                i++;
             }
-            if (stageManager.NumeroDeSilabasDaPalavra == i + 1 && LevelController.silabasDigitadas[i].Length == LevelController.silabas[i].Length)
+
+            // Verificar se a silaba em questão está completa (todas as letras) e se pode liberar o botão confirma
+            if (i < stageManager.NumeroDeSilabasDaPalavra)
             {
-                LevelController.BotaoConfirmaResposta = true;
+                if (LevelController.silabasDigitadas[i] == null || LevelController.silabasDigitadas[i].Length < LevelController.silabas[i].Length)
+                {
+                    LevelController.silabasDigitadas[i] = string.Concat(LevelController.silabasDigitadas[i], currentButton.name);
+                }
+                if (stageManager.NumeroDeSilabasDaPalavra == i + 1 && LevelController.silabasDigitadas[i].Length == LevelController.silabas[i].Length)
+                {
+                    LevelController.BotaoConfirmaResposta = true;
+                }
             }
         }
     }

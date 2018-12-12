@@ -81,8 +81,15 @@ public class SilabaControl : MonoBehaviour {
         soundManager.PlaySilaba(silabaAtual);
     }
 
+    /// <summary>
+    /// Espera o término da sílaba que está sendo tocada para liberar os botões do teclado virtual
+    /// </summary>
+    /// <param name="duration"></param>
+    /// <returns></returns>
     public IEnumerator WaitForSound(float duration)
     {
         yield return new WaitForSeconds(duration);
+
+        LevelController.EstaVerificandoResposta = false; // Libera o uso do teclado virtual
     }
 }

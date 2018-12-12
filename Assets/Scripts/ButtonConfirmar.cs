@@ -62,6 +62,8 @@ public class ButtonConfirmar : MonoBehaviour
 
     public void ConfirmaResposta()
     {
+        LevelController.EstaVerificandoResposta = true; // Iniciando a verificação da resposta
+
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)
         {
             StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.silabasDigitadas[i], LevelController.silabas[i], i, i * 1.5f));

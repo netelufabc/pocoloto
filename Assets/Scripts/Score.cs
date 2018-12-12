@@ -122,10 +122,16 @@ public class Score: MonoBehaviour {
     /// <returns></returns>
     public IEnumerator CheckScore(float seconds, GameObject LevelClearMsg, GameObject GameOver, AudioClip acerto, AudioClip erro, string NextLevel, string PreviousLevel)
     {
+        GameObject resultado;
+
         yield return new WaitForSeconds(seconds + 0.2f);
         if (getScorePositive() == maxScore)
         {
-            StartCoroutine(blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, LevelClearMsg));
+            resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject; 
+            //StartCoroutine(blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, LevelClearMsg));
+            resultado = Instantiate(resultado);
+            resultado.transform.SetParent(GameObject.Find("Canvas").transform);
+            yield return new WaitForSeconds(seconds);
             StartCoroutine(StageManager.CallAnotherLevel(3, NextLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else if (getScoreNegative() == maxScore)

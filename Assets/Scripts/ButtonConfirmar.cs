@@ -42,7 +42,6 @@ public class ButtonConfirmar : MonoBehaviour
         timer = Timer.instance;
         score = Score.instance;
 
-        LevelClearMsg = stageManager.GetLevelClearMsg();
         GameOver = stageManager.GetGameOver();
         acerto = stageManager.GetAcerto();
         erro = stageManager.GetErro();

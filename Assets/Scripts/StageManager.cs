@@ -37,7 +37,7 @@ public class StageManager : MonoBehaviour
     private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
     private int randomNumber;
 
-    public GameObject GetLevelClearMsg()
+    public GameObject GeLevelClearMsg()
     {
         return LevelClearMsg;
     }
@@ -104,7 +104,6 @@ public class StageManager : MonoBehaviour
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
 
-        LevelClearMsg.SetActive(false);
         GameOver.SetActive(false);
         StartCoroutine(silabaControl.CallSilaba(1f));
     }

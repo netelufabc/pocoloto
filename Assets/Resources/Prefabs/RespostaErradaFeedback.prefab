@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundEfx: {fileID: 8300000, guid: 8939f4696dc4a9345adeffb592213fea, type: 3}
+  efeitoRapido: 1
 --- !u!222 &222442959487749642
 CanvasRenderer:
   m_ObjectHideFlags: 1

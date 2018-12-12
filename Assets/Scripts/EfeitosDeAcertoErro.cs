@@ -5,7 +5,9 @@ using UnityEngine;
 public class EfeitosDeAcertoErro : MonoBehaviour {
 
     public AudioClip soundEfx;
+    public bool efeitoRapido;
     private SoundManager soundManager;
+
 
     void Start () {
         soundManager = SoundManager.instance;
@@ -15,7 +17,10 @@ public class EfeitosDeAcertoErro : MonoBehaviour {
     private IEnumerator PlayEfx()
     {
         soundManager.PlaySfx(soundEfx);
-        yield return new WaitForSeconds(2f);
-        Destroy(gameObject);
+        if (efeitoRapido)
+        {
+            yield return new WaitForSeconds(2f);
+            Destroy(gameObject);
+        }
     }
 }

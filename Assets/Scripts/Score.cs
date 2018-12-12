@@ -128,7 +128,6 @@ public class Score: MonoBehaviour {
         if (getScorePositive() == maxScore)
         {
             resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject; 
-            //StartCoroutine(blinker.DoBlinksGameObject(acerto, 0, LevelClearMsg, 2f, 0.2f, LevelClearMsg));
             resultado = Instantiate(resultado);
             resultado.transform.SetParent(GameObject.Find("Canvas").transform);
             yield return new WaitForSeconds(seconds);
@@ -136,7 +135,11 @@ public class Score: MonoBehaviour {
         }
         else if (getScoreNegative() == maxScore)
         {
-            StartCoroutine(blinker.DoBlinksGameObject(erro, 0, GameOver, 2f, 0.2f, LevelClearMsg));
+            resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
+            resultado = Instantiate(resultado);
+            resultado.transform.SetParent(GameObject.Find("Canvas").transform);
+            resultado.transform.position = new Vector3(1, -1, -20);
+            yield return new WaitForSeconds(seconds);
             StartCoroutine(StageManager.CallAnotherLevel(3, PreviousLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else

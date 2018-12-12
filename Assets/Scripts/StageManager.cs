@@ -22,7 +22,6 @@ public class StageManager : MonoBehaviour
 
     public static StageManager instance = null;
     private Score score;
-    private GameObject LevelClearMsg;//gameobject da imagem de proximo nivel ou nivel anterior
     private GameObject GameOver;//gameobject da imagem de gameover    
     private Button BotaoConfirmaResposta;//botão para conferir a resposta
 
@@ -36,11 +35,6 @@ public class StageManager : MonoBehaviour
 
     private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
     private int randomNumber;
-
-    public GameObject GeLevelClearMsg()
-    {
-        return LevelClearMsg;
-    }
 
     public GameObject GetGameOver()
     {
@@ -82,7 +76,6 @@ public class StageManager : MonoBehaviour
             TelaSilabaDigitada[i] = GameObject.Find(string.Concat("Silaba Digitada ", i.ToString())).GetComponent <UnityEngine.UI.Text>();
         }
 
-        LevelClearMsg = GameObject.Find("Level Clear");
         GameOver = GameObject.Find("Level Failed");
 
         erro = (AudioClip)Resources.Load("Sounds/sfx/erro_slot01");         

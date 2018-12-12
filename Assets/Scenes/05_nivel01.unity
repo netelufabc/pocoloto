@@ -2864,52 +2864,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 755266866}
   m_CullTransparentMesh: 0
---- !u!1001 &784740847
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.0491014
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.10962294
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -19.887901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458843395748354, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1673940315717584, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7502fb3f29be2bd449de7eff3d595450, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &804134633
 GameObject:
   m_ObjectHideFlags: 0

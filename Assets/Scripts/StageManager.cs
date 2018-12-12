@@ -32,8 +32,6 @@ public class StageManager : MonoBehaviour
     private AudioClip erro;//audio do X vermelho de erro
     private AudioClip acerto;//audio das estrelas de acerto
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
-    private Image[] RespostaCerta;//imagem quando acerta a resposta
-    private Image[] RespostaErrada;//imagem quando erra a resposta
     private SilabaControl silabaControl;
 
     private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
@@ -59,14 +57,9 @@ public class StageManager : MonoBehaviour
         return erro;
     }
 
-    public Image[] GetRespostaCerta()
+    public Text[] GetTelaSilabaDigitada()
     {
-        return RespostaCerta;
-    }
-
-    public Image[] GetRespostaErrada()
-    {
-        return RespostaErrada;
+        return TelaSilabaDigitada;
     }
 
     void Awake()
@@ -87,19 +80,6 @@ public class StageManager : MonoBehaviour
         for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
         {
             TelaSilabaDigitada[i] = GameObject.Find(string.Concat("Silaba Digitada ", i.ToString())).GetComponent <UnityEngine.UI.Text>();
-        }
-
-       
-        RespostaCerta = new Image[NumeroDeSilabasDaPalavra];
-        for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
-        {
-            RespostaCerta[i] = GameObject.Find(string.Concat("RespostaCerta", i.ToString())).GetComponent<UnityEngine.UI.Image>();
-        }
-
-        RespostaErrada = new Image[NumeroDeSilabasDaPalavra];
-        for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
-        {
-            RespostaErrada[i] = GameObject.Find(string.Concat("RespostaErrada", i.ToString())).GetComponent<UnityEngine.UI.Image>();
         }
 
         LevelClearMsg = GameObject.Find("Level Clear");
@@ -124,11 +104,6 @@ public class StageManager : MonoBehaviour
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
 
-        for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)//inicializa imagens de resposta certa e errada para que não apareça a princípio
-        {
-            RespostaCerta[i].enabled = false;
-            RespostaErrada[i].enabled = false;
-        }
         LevelClearMsg.SetActive(false);
         GameOver.SetActive(false);
         StartCoroutine(silabaControl.CallSilaba(1f));
@@ -152,11 +127,6 @@ public class StageManager : MonoBehaviour
         {
             buttonConfirmar.DeactiveButton();//desativa botao confirma resposta
         }
-    }
-
-    public Text[] GetTelaSilabaDigitada()
-    {
-        return TelaSilabaDigitada;
     }
 
     

@@ -13,13 +13,13 @@ public class ButtonConfirmar : MonoBehaviour
     private SoundManager soundManager;
     private Timer timer;
     private Score score;
-    private Blinker blinker;
     private GameObject LevelClearMsg;
     private GameObject GameOver;
     private AudioClip acerto;
     private AudioClip erro;
-    private Image[] RespostaCerta;
-    private Image[] RespostaErrada;
+    private Text[] telaSilabaDigitada;
+    private GameObject respostaCertaFeedback;
+    private GameObject respostaErradaFeedback;
 
     private void Awake()
     {
@@ -41,14 +41,15 @@ public class ButtonConfirmar : MonoBehaviour
         soundManager = SoundManager.instance;
         timer = Timer.instance;
         score = Score.instance;
-        blinker = Blinker.instance;
 
         LevelClearMsg = stageManager.GetLevelClearMsg();
         GameOver = stageManager.GetGameOver();
         acerto = stageManager.GetAcerto();
         erro = stageManager.GetErro();
-        RespostaCerta = stageManager.GetRespostaCerta();
-        RespostaErrada = stageManager.GetRespostaErrada();
+
+        telaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
+        respostaCertaFeedback = Resources.Load("Prefabs/RespostaCertaFeedback") as GameObject;
+        respostaErradaFeedback = Resources.Load("Prefabs/RespostaErradaFeedback") as GameObject;
     }
 
     private void Update()
@@ -80,24 +81,44 @@ public class ButtonConfirmar : MonoBehaviour
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)
     {
+
+        GameObject respostaFeedbackTemp;
+
         timer.endOfTime = false;
+        yield return new WaitForSeconds(segundos);
+        soundManager.StopBackground();
+
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {
-            yield return new WaitForSeconds(segundos);
             soundManager.StopBackground();
-            soundManager.PlaySfx(acerto);//toca som de acerto
-            StartCoroutine(blinker.DoBlinks(RespostaCerta[BlockIndex], 1f, 0.2f, RespostaCerta, RespostaErrada));//pisca estrelas de acerto                  
+            respostaFeedbackTemp = Instantiate(respostaCertaFeedback);
+            respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
+            respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
+            respostaFeedbackTemp.transform.rotation = telaSilabaDigitada[BlockIndex].transform.rotation;             
         }
+
         else//caso a resposta esteja errada...
         {
             LevelController.AlgumaSilabaErrada = true;
-            yield return new WaitForSeconds(segundos);
-            soundManager.StopBackground();
-            soundManager.PlaySfx(erro); //toca som de erro
-            StartCoroutine(blinker.DoBlinks(RespostaErrada[BlockIndex], 1f, 0.2f, RespostaCerta, RespostaErrada));//pisca estrelas de acerto                 
-        }
+            respostaFeedbackTemp = Instantiate(respostaErradaFeedback);
+            respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
+            respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
+            if (BlockIndex%2 == 0)
+            {
+                respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); ;
+            }
 
+            else
+            {
+                respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f,0f,-10.87f));
+            }
+            respostaFeedbackTemp.transform.localScale = new Vector3(1, 1, 1);                
+        }
     }
+
+
+
+
 
     //Estava tentando desativar o botão de confirmar    
 

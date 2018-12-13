@@ -33,11 +33,15 @@ public class ButtonScript : CursorChange {
 
     //}
 
+    /// <summary>
+    /// Se o teclado digita estiver liberado, recebe a letra digitada e concatena com as previamente digitadas (se não atingiu o máximo de letras)
+    /// Após concatenar, verifica se pode liberar o botão para confirmar a resposta
+    /// </summary>
     public void buttonPressed()
     {
-        if (LevelController.EstaVerificandoResposta == false)
+        if (!LevelController.bloqueiaBotao)
         {
-            click.Play(0);//toca som de apertando o botao (click_tecla01)
+            click.Play(0); // toca som de apertando o botao (click_tecla01)
             // Seleção de botões antigas
             //if (1 == LevelController.currentLevel)
             //{
@@ -60,7 +64,6 @@ public class ButtonScript : CursorChange {
             //    buttonLevel05();
             //}
         
-            // Tentativa De unificar tudo em uma chamada só
             int i = 0;
         
             // Encontra em qual silaba está (i = silaba em que está - 1)

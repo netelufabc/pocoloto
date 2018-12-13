@@ -43,7 +43,10 @@ public class ButtonDicaAudio : MonoBehaviour
     
     public void AcionaDicaAudio()//botao dica audio
     {
-        silabaControl.TocarSilabaAtual();//toca silaba atual
-        DeactiveButton();
+        if (!LevelController.bloqueiaBotao)
+        {
+            silabaControl.TocarSilabaAtual();//toca silaba atual
+            DeactiveButton();
+        }
     }
 }

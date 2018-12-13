@@ -93,7 +93,12 @@ public class StageManager : MonoBehaviour
     
     public static IEnumerator CallAnotherLevel(float secondsBefore, string levelName)//espera seconds e chama outro nivel
     {
+        GameObject transitionBetweenScene = Resources.Load("Prefabs/Hyperspace_2") as GameObject;
+
         yield return new WaitForSeconds(secondsBefore);
+        transitionBetweenScene = Instantiate(transitionBetweenScene);
+        yield return new WaitForSeconds(2f);
+
         SceneManager.LoadScene(levelName);
     }
 

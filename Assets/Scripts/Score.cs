@@ -15,7 +15,7 @@ public class Score: MonoBehaviour {
     private int maxScore;
 
     SilabaControl silabaControl;
-    Blinker blinker;
+    StageManager stageManager;
 
     //Construtores e função para manter o Singleton
 
@@ -35,8 +35,8 @@ public class Score: MonoBehaviour {
     private void Start()
     {
         silabaControl = SilabaControl.instance;
-        blinker = Blinker.instance;
         maxScore = LevelController.MaxScoreGlobal;
+        stageManager = StageManager.instance;
     }
 
     public void ScoreSetup()
@@ -112,34 +112,43 @@ public class Score: MonoBehaviour {
     /// Verifica se o jogador já está pronto para ir para o próximo nível ou se voltará para o nível anterior
     /// </summary>
     /// <param name="seconds"></param>
-    /// <param name="LevelClearMsg"></param>
-    /// <param name="GameOver"></param>
-    /// <param name="acerto"></param>
-    /// <param name="erro"></param>
-    /// <param name="audioFile"></param>
     /// <param name="NextLevel"></param>
     /// <param name="PreviousLevel"></param>
     /// <returns></returns>
-    public IEnumerator CheckScore(float seconds, GameObject LevelClearMsg, GameObject GameOver, AudioClip acerto, AudioClip erro, string NextLevel, string PreviousLevel)
+    public IEnumerator CheckScore(float seconds, string NextLevel, string PreviousLevel)
     {
         GameObject resultado;
 
         yield return new WaitForSeconds(seconds + 0.2f);
+
+        //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
         {
             resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject; 
             resultado = Instantiate(resultado);
             resultado.transform.SetParent(GameObject.Find("Canvas").transform);
-            yield return new WaitForSeconds(seconds);
+            yield return new WaitForSeconds(4);
             StartCoroutine(StageManager.CallAnotherLevel(3, NextLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
+
+        //Caso o resultado esteja errado
         else if (getScoreNegative() == maxScore)
         {
-            resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
-            resultado = Instantiate(resultado);
-            resultado.transform.SetParent(GameObject.Find("Canvas").transform);
-            resultado.transform.position = new Vector3(1, -1, -20);
-            yield return new WaitForSeconds(seconds);
+            if (stageManager.currentLevel == 1)
+            {
+                resultado = Resources.Load("Prefabs/Game Over") as GameObject;
+                resultado = Instantiate(resultado);
+                resultado.transform.SetParent(GameObject.Find("Canvas").transform);
+                resultado.transform.position = new Vector3(7, -2, 0); //Números para instanciar no meio da tela
+            }
+            else
+            {
+                resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
+                resultado.transform.SetParent(GameObject.Find("Canvas").transform);
+                resultado.transform.position = new Vector3(1, -1, -20); //Números para instanciar no meio da tela
+            }
+            
+            yield return new WaitForSeconds(4);
             StartCoroutine(StageManager.CallAnotherLevel(3, PreviousLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else

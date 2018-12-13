@@ -5,12 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
 
-    AudioSource click;
+    GameObject soundChecker;
 
-    public void PlayClick()
+    SoundManager soundManager;
+
+    private void Awake()
     {
-        click = GetComponent<AudioSource>();
-        click.Play();
+        soundChecker = Resources.Load("Prefabs/SoundManager") as GameObject;
+        if (SoundManager.instance == null)
+        {
+            soundChecker = Instantiate(soundChecker);
+        }
+    }
+
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
+    }
+
+    public void PlayClick(AudioClip click)
+    {
+        soundManager.PlaySfx(click);
     }
 
     public void ChooseScene(string sceneName)

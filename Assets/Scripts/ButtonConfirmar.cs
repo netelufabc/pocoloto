@@ -13,10 +13,6 @@ public class ButtonConfirmar : MonoBehaviour
     private SoundManager soundManager;
     private Timer timer;
     private Score score;
-    private GameObject LevelClearMsg;
-    private GameObject GameOver;
-    private AudioClip acerto;
-    private AudioClip erro;
     private Text[] telaSilabaDigitada;
     private GameObject respostaCertaFeedback;
     private GameObject respostaErradaFeedback;
@@ -41,10 +37,6 @@ public class ButtonConfirmar : MonoBehaviour
         soundManager = SoundManager.instance;
         timer = Timer.instance;
         score = Score.instance;
-
-        GameOver = stageManager.GetGameOver();
-        acerto = stageManager.GetAcerto();
-        erro = stageManager.GetErro();
 
         telaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
         respostaCertaFeedback = Resources.Load("Prefabs/RespostaCertaFeedback") as GameObject;
@@ -77,7 +69,7 @@ public class ButtonConfirmar : MonoBehaviour
 
         StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
-        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, LevelClearMsg, GameOver, acerto, erro, stageManager.NextLevel, stageManager.PreviousLevel));
+        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, stageManager.NextLevel, stageManager.PreviousLevel));
     }
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)

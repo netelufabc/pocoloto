@@ -2458,7 +2458,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &652459096
 GameObject:
@@ -4638,52 +4638,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1132962843}
   m_CullTransparentMesh: 0
---- !u!1001 &1188508891
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.0491014
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.10962294
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -19.887901
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856231178189152, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1686751701770198, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-      propertyPath: m_Name
-      value: Level Failed
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6a55c72126008ad43969e9e96e50309b, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1 &1309401764
 GameObject:
   m_ObjectHideFlags: 0
@@ -4790,7 +4744,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1397793100
 GameObject:
@@ -5181,7 +5135,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685702552
 GameObject:

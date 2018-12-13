@@ -19,37 +19,12 @@ public class StageManager : MonoBehaviour
     public string PreviousLevel;
     [Tooltip("Diretório de sons do nível")]
     public string soundsDirectory;
-
     public static StageManager instance = null;
-    private Score score;
-    private GameObject GameOver;//gameobject da imagem de gameover    
-    private Button BotaoConfirmaResposta;//botão para conferir a resposta
 
-    private Button BotaoDicaVisual;
-    private ButtonConfirmar buttonConfirmar;
-
-    private AudioClip erro;//audio do X vermelho de erro
-    private AudioClip acerto;//audio das estrelas de acerto
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
+    private Score score;
+    private ButtonConfirmar buttonConfirmar;
     private SilabaControl silabaControl;
-
-    private Object[] PalavrasNivelAtual;//array de objetos par armazenar os áudios (sílabas)
-    private int randomNumber;
-
-    public GameObject GetGameOver()
-    {
-        return GameOver;
-    }
-
-    public AudioClip GetAcerto()
-    {
-        return acerto;
-    }
-
-    public AudioClip GetErro()
-    {
-        return erro;
-    }
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -76,11 +51,6 @@ public class StageManager : MonoBehaviour
             TelaSilabaDigitada[i] = GameObject.Find(string.Concat("Silaba Digitada ", i.ToString())).GetComponent <UnityEngine.UI.Text>();
         }
 
-        GameOver = GameObject.Find("Level Failed");
-
-        erro = (AudioClip)Resources.Load("Sounds/sfx/erro_slot01");         
-        acerto = (AudioClip)Resources.Load("Sounds/sfx/acerto_slot01");
-
         LevelController.NumeroDeSilabasDaPalavra = NumeroDeSilabasDaPalavra;
         LevelController.InitializeVars();
     }
@@ -97,7 +67,6 @@ public class StageManager : MonoBehaviour
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
 
-        GameOver.SetActive(false);
         StartCoroutine(silabaControl.CallSilaba(1f));
     }
 

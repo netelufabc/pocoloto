@@ -13,7 +13,6 @@ public class Loader : MonoBehaviour {
         soundManager = Resources.Load("Prefabs/SoundManager") as GameObject;
         timer = Resources.Load("Prefabs/Timer") as GameObject;
         silabaControl = Resources.Load("Prefabs/SilabaControl") as GameObject;
-        blinker = Resources.Load("Prefabs/Blinker") as GameObject;
         dicaAudio = Resources.Load("Prefabs/Button Sound") as GameObject;
         dicaVisual = Resources.Load("Prefabs/Button Eye") as GameObject;
         buttonConfirmar = Resources.Load("Prefabs/Button Confirma Resposta") as GameObject;
@@ -38,11 +37,6 @@ public class Loader : MonoBehaviour {
         if (SilabaControl.instance == null)
         {
             Instantiate(silabaControl);
-        }
-
-        if(Blinker.instance == null)
-        {
-            Instantiate(blinker);
         }
 
         if (ButtonDicaAudio.instance == null)

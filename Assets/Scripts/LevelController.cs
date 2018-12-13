@@ -18,7 +18,7 @@ public static class LevelController
     public static bool TimeIsRunning = false;//flag para indicar que o tempo está correndo para a resposta
     public static bool DicaVisualAtiva = false;//flag para indicar que está sendo mostrada a dica visual
     
-    public static bool EstaVerificandoResposta = true; // Flag para indicar que está verificando a resposta digitada, utilizada para bloquear os botões do teclado virtual
+    public static bool bloqueiaBotao = true; // Flag para indicar que está verificando a resposta digitada, utilizada para bloquear os botões do teclado virtual
 
     public static int NumeroDeSilabasDaPalavra;
 

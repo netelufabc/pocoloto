@@ -29,24 +29,27 @@ public class EraseButton : CursorChange {
     /// </summary>
     public void buttonPressed()
     {
-        click.Play(0);
-
-        int i = LevelController.NumeroDeSilabasDaPalavra - 1;
-
-        while (i > -1)
+        if (!LevelController.bloqueiaBotao)
         {
-            if (LevelController.silabasDigitadas[i] != null)
+            click.Play(0);
+
+            int i = LevelController.NumeroDeSilabasDaPalavra - 1;
+
+            while (i > -1)
             {
-                if (LevelController.silabasDigitadas[i].Length > 0)
+                if (LevelController.silabasDigitadas[i] != null)
                 {
-                    LevelController.silabasDigitadas[i] = "";//.Remove(LevelController.silabasDigitadas[1].Length - 1);
-                    break;
+                    if (LevelController.silabasDigitadas[i].Length > 0)
+                    {
+                        LevelController.silabasDigitadas[i] = "";//.Remove(LevelController.silabasDigitadas[1].Length - 1);
+                        break;
+                    }
                 }
+
+                i--;
             }
 
-            i--;
+            LevelController.BotaoConfirmaResposta = false;
         }
-
-        LevelController.BotaoConfirmaResposta = false;
     }
 }

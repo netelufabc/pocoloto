@@ -90,6 +90,6 @@ public class SilabaControl : MonoBehaviour {
     {
         yield return new WaitForSeconds(duration);
 
-        LevelController.EstaVerificandoResposta = false; // Libera o uso do teclado virtual
+        LevelController.bloqueiaBotao = false; // Libera o uso do teclado virtual
     }
 }

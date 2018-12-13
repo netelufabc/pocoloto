@@ -53,7 +53,7 @@ public class ButtonConfirmar : MonoBehaviour
 
     public void ConfirmaResposta()
     {
-        LevelController.EstaVerificandoResposta = true; // Iniciando a verificação da resposta
+        LevelController.bloqueiaBotao = true; // Iniciando a verificação da resposta
 
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)
         {

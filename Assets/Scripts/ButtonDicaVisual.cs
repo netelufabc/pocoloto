@@ -47,8 +47,11 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
 
     public void AcionaDicaVisual()//botao dica visual
     {
-        BotaoDicaVisual.interactable = false;//desabilita dica visual
-        StartCoroutine(MostraDica());
+        if(!LevelController.bloqueiaBotao)
+        {
+            BotaoDicaVisual.interactable = false;//desabilita dica visual
+            StartCoroutine(MostraDica());
+        }
     }
 
     IEnumerator MostraDica()

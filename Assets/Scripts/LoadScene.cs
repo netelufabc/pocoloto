@@ -21,6 +21,7 @@ public class LoadScene : MonoBehaviour {
     private void Start()
     {
         soundManager = SoundManager.instance;
+        StartCoroutine(EsperaPocoloto());
     }
 
     public void PlayClick(AudioClip click)
@@ -31,5 +32,13 @@ public class LoadScene : MonoBehaviour {
     public void ChooseScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    IEnumerator EsperaPocoloto()
+    {
+        Animator anim;
+        anim = gameObject.GetComponent<Animator>();
+        yield return new WaitForSeconds(3);
+        anim.SetBool("pocolotoNaArea", true);
     }
 }

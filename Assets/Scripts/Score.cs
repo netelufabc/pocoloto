@@ -13,6 +13,8 @@ public class Score: MonoBehaviour {
     private Text scorePositiveText;
     private Text scoreNegativeText;
     private int maxScore;
+    private Animator estrelaPositivo;
+    private Animator estrelaNegativo;
 
     SilabaControl silabaControl;
     StageManager stageManager;
@@ -36,9 +38,15 @@ public class Score: MonoBehaviour {
     {
         silabaControl = SilabaControl.instance;
         maxScore = LevelController.MaxScoreGlobal;
-        stageManager = StageManager.instance;
+
+        
+
+
     }
 
+    /// <summary>
+    /// Encontra os componentes de texto e reseta o score   
+    /// </summary>
     public void ScoreSetup()
     {
             this.scorePositiveText = GameObject.Find(scorePositiveString).GetComponent<UnityEngine.UI.Text>();
@@ -66,6 +74,9 @@ public class Score: MonoBehaviour {
     {
         scorePositive += pontos;
         scorePositiveText.text = scorePositive.ToString();
+
+        estrelaPositivo = GameObject.Find("icone_pontuacao_estrela").GetComponent<Animator>();
+        estrelaPositivo.Play("PontoPositivo");
     }
 
     /// <summary>
@@ -76,6 +87,9 @@ public class Score: MonoBehaviour {
     {
         scoreNegative += pontos;
         scoreNegativeText.text = scoreNegative.ToString();
+
+        estrelaNegativo = GameObject.Find("icone_pontuacao_erro").GetComponent<Animator>();
+        estrelaNegativo.Play("PontoNegativo");
     }
 
     /// <summary>
@@ -134,6 +148,7 @@ public class Score: MonoBehaviour {
         //Caso o resultado esteja errado
         else if (getScoreNegative() == maxScore)
         {
+            stageManager = StageManager.instance; //Pega a atual instância do Stage Manager
             if (stageManager.currentLevel == 1)
             {
                 resultado = Resources.Load("Prefabs/Game Over") as GameObject;
@@ -144,6 +159,7 @@ public class Score: MonoBehaviour {
             else
             {
                 resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
+                resultado = Instantiate(resultado);
                 resultado.transform.SetParent(GameObject.Find("Canvas").transform);
                 resultado.transform.position = new Vector3(1, -1, -20); //Números para instanciar no meio da tela
             }

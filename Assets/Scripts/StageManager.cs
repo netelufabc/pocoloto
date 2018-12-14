@@ -62,7 +62,7 @@ public class StageManager : MonoBehaviour
         silabaControl.SilabaSetup(soundsDirectory);
 
         score = Score.instance;
-        score.ScoreSetup();
+        score.ScoreSetup(); 
 
         buttonConfirmar = ButtonConfirmar.instance;
 
@@ -70,7 +70,7 @@ public class StageManager : MonoBehaviour
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
 
-        StartCoroutine(silabaControl.CallSilaba(1f));
+        StartCoroutine(silabaControl.CallSilaba(1f)); //Começa a chamar as silabas
     }
 
     void Update()

@@ -45,7 +45,7 @@ public class ButtonConfirmar : MonoBehaviour
 
     private void Update()
     {
-        if (timer.endOfTime)
+        if (timer.endOfTime) //Verifica se o timer já chegou ao final
         {
             ConfirmaResposta();
         }
@@ -57,7 +57,7 @@ public class ButtonConfirmar : MonoBehaviour
 
         for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)
         {
-            StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.silabasDigitadas[i], LevelController.silabas[i], i, i * 1.5f));
+            StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.silabasDigitadas[i], LevelController.silabas[i], i, i * 1.5f)); //Para cada silaba, verifica se ela está certa ou errada
         }
 
         LevelController.BotaoConfirmaResposta = false;//disable button after click
@@ -67,10 +67,12 @@ public class ButtonConfirmar : MonoBehaviour
             LevelController.silabasDigitadas[i] = "";//reset var after confirm button is clicked
         }
 
-        StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra));
+        StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra)); //Pontua o resultado
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
-        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, stageManager.NextLevel, stageManager.PreviousLevel));
+        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
     }
+
+
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)
     {
@@ -84,7 +86,8 @@ public class ButtonConfirmar : MonoBehaviour
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {
             soundManager.StopBackground();
-            respostaFeedbackTemp = Instantiate(respostaCertaFeedback);
+            //Instancia o objeto e o coloca no lugar certo
+            respostaFeedbackTemp = Instantiate(respostaCertaFeedback); 
             respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
             respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
             respostaFeedbackTemp.transform.rotation = telaSilabaDigitada[BlockIndex].transform.rotation;             
@@ -93,10 +96,12 @@ public class ButtonConfirmar : MonoBehaviour
         else//caso a resposta esteja errada...
         {
             LevelController.AlgumaSilabaErrada = true;
+
+            //Instancia o objeto e o coloca no lugar certo
             respostaFeedbackTemp = Instantiate(respostaErradaFeedback);
             respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
             respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
-            if (BlockIndex%2 == 0)
+            if (BlockIndex%2 == 0) //Necessário para rotacionar os sinais de erros pares
             {
                 respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); ;
             }
@@ -109,21 +114,13 @@ public class ButtonConfirmar : MonoBehaviour
         }
     }
 
-
-
-
-
-    //Estava tentando desativar o botão de confirmar    
-
     public void ActiveButton()
     {
-        //buttonConfirmaResposta.gameObject.SetActive(true);
         buttonConfirmaResposta.interactable = true;
     }
 
     public void DeactiveButton()
     {
         buttonConfirmaResposta.interactable = false;
-        //buttonConfirmaResposta.gameObject.SetActive(false);
     }
 }

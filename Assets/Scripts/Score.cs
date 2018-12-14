@@ -36,7 +36,6 @@ public class Score: MonoBehaviour {
     {
         silabaControl = SilabaControl.instance;
         maxScore = LevelController.MaxScoreGlobal;
-        stageManager = StageManager.instance;
     }
 
     public void ScoreSetup()
@@ -134,6 +133,7 @@ public class Score: MonoBehaviour {
         //Caso o resultado esteja errado
         else if (getScoreNegative() == maxScore)
         {
+            stageManager = StageManager.instance; //Pega a atual instância do Stage Manager
             if (stageManager.currentLevel == 1)
             {
                 resultado = Resources.Load("Prefabs/Game Over") as GameObject;
@@ -144,6 +144,7 @@ public class Score: MonoBehaviour {
             else
             {
                 resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
+                resultado = Instantiate(resultado);
                 resultado.transform.SetParent(GameObject.Find("Canvas").transform);
                 resultado.transform.position = new Vector3(1, -1, -20); //Números para instanciar no meio da tela
             }

@@ -13,6 +13,8 @@ public class Score: MonoBehaviour {
     private Text scorePositiveText;
     private Text scoreNegativeText;
     private int maxScore;
+    private Animator estrelaPositivo;
+    private Animator estrelaNegativo;
 
     SilabaControl silabaControl;
     StageManager stageManager;
@@ -36,6 +38,10 @@ public class Score: MonoBehaviour {
     {
         silabaControl = SilabaControl.instance;
         maxScore = LevelController.MaxScoreGlobal;
+
+        
+
+
     }
 
     /// <summary>
@@ -68,6 +74,9 @@ public class Score: MonoBehaviour {
     {
         scorePositive += pontos;
         scorePositiveText.text = scorePositive.ToString();
+
+        estrelaPositivo = GameObject.Find("icone_pontuacao_estrela").GetComponent<Animator>();
+        estrelaPositivo.Play("PontoPositivo");
     }
 
     /// <summary>
@@ -78,6 +87,9 @@ public class Score: MonoBehaviour {
     {
         scoreNegative += pontos;
         scoreNegativeText.text = scoreNegative.ToString();
+
+        estrelaNegativo = GameObject.Find("icone_pontuacao_erro").GetComponent<Animator>();
+        estrelaNegativo.Play("PontoNegativo");
     }
 
     /// <summary>

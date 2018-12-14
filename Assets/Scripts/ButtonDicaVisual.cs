@@ -57,7 +57,7 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
     IEnumerator MostraDica()
     {
         LevelController.DicaVisualAtiva = true;
-        int randomNumber = Random.Range(0, LevelController.NumeroDeSilabasDaPalavra - 1);
+        int randomNumber = Random.Range(0, LevelController.NumeroDeSilabasDaPalavra);
         TelaSilabaDigitada[randomNumber].text = LevelController.silabas[randomNumber];
         yield return new WaitForSeconds(1);
         TelaSilabaDigitada[randomNumber].text = LevelController.silabasDigitadas[randomNumber];

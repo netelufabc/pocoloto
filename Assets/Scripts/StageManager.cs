@@ -25,6 +25,7 @@ public class StageManager : MonoBehaviour
     private Score score;
     private ButtonConfirmar buttonConfirmar;
     private SilabaControl silabaControl;
+    private LevelChangerAnimController levelChangerAnimController;
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -65,6 +66,8 @@ public class StageManager : MonoBehaviour
 
         buttonConfirmar = ButtonConfirmar.instance;
 
+        levelChangerAnimController = LevelChangerAnimController.instance;
+
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
 
         StartCoroutine(silabaControl.CallSilaba(1f));
@@ -91,13 +94,15 @@ public class StageManager : MonoBehaviour
     }
 
     
-    public static IEnumerator CallAnotherLevel(float secondsBefore, string levelName)//espera seconds e chama outro nivel
+    public IEnumerator CallAnotherLevel(float secondsBefore, string levelName)//espera seconds e chama outro nivel
     {
-        GameObject transitionBetweenScene = Resources.Load("Prefabs/Hyperspace_2") as GameObject;
-
+        //GameObject transitionBetweenScene = Resources.Load("Prefabs/Hyperspace_2") as GameObject;
         yield return new WaitForSeconds(secondsBefore);
-        transitionBetweenScene = Instantiate(transitionBetweenScene);
-        yield return new WaitForSeconds(2f);
+
+        levelChangerAnimController.PlayTransitionSceneAnimation();
+
+        //transitionBetweenScene = Instantiate(transitionBetweenScene);
+        yield return new WaitForSeconds(2.5f);
 
         SceneManager.LoadScene(levelName);
     }

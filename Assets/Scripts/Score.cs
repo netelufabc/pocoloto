@@ -38,6 +38,9 @@ public class Score: MonoBehaviour {
         maxScore = LevelController.MaxScoreGlobal;
     }
 
+    /// <summary>
+    /// Encontra os componentes de texto e reseta o score   
+    /// </summary>
     public void ScoreSetup()
     {
             this.scorePositiveText = GameObject.Find(scorePositiveString).GetComponent<UnityEngine.UI.Text>();

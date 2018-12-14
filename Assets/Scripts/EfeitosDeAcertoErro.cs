@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Código para colocar nas mensagens de acerto e erro, pois ela destrói o gameObject no final
+/// </summary>
 public class EfeitosDeAcertoErro : MonoBehaviour {
 
     public AudioClip soundEfx;

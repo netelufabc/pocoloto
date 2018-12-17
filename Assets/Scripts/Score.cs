@@ -134,6 +134,7 @@ public class Score: MonoBehaviour {
         GameObject resultado;
 
         yield return new WaitForSeconds(seconds + 0.2f);
+        stageManager = StageManager.instance; //Pega a atual instância do Stage Manager
 
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
@@ -148,7 +149,6 @@ public class Score: MonoBehaviour {
         //Caso o resultado esteja errado
         else if (getScoreNegative() == maxScore)
         {
-            stageManager = StageManager.instance; //Pega a atual instância do Stage Manager
             if (stageManager.currentLevel == 1)
             {
                 resultado = Resources.Load("Prefabs/Game Over") as GameObject;

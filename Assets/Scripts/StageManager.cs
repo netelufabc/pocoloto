@@ -93,15 +93,19 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    
-    public IEnumerator CallAnotherLevel(float secondsBefore, string levelName)//espera seconds e chama outro nivel
+    /// <summary>
+    /// Chama o proximo nível e informa o AnimatorManager a animação que deve ser tocada
+    /// </summary>
+    /// <param name="secondsBefore"></param>
+    /// <param name="levelName"></param>
+    /// <param name="levelClear"></param>
+    /// <returns></returns>
+    public IEnumerator CallAnotherLevel(float secondsBefore, string levelName, bool levelClear)//espera seconds e chama outro nivel
     {
-        //GameObject transitionBetweenScene = Resources.Load("Prefabs/Hyperspace_2") as GameObject;
         yield return new WaitForSeconds(secondsBefore);
 
-        levelChangerAnimController.PlayTransitionSceneAnimation();
+        levelChangerAnimController.PlayTransitionSceneAnimation(levelClear);
 
-        //transitionBetweenScene = Instantiate(transitionBetweenScene);
         yield return new WaitForSeconds(2.5f);
 
         SceneManager.LoadScene(levelName);

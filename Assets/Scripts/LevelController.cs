@@ -42,7 +42,8 @@ public static class LevelController
         //    //counter++;
         //}
 
-        // Separa silabas genérico
+        // Separa silabas - como todas as sílabas no arquivo terminam em uma vogal, concatena as letras até encontrar uma vogal
+        // CASO COLOQUEM PALAVRAS COM SÍLABAS QUE NÃO TERMINEM EM VOGAIS ESTA PARTE DEVE SER REVISADA
         string vogais = "AEIOU", silabaTemp = "";
         int k = 0;
 

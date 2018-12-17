@@ -10,6 +10,7 @@ TagManager:
   - Button Sound
   - Button Eye
   - Button
+  - AnimationManager
   layers:
   - Default
   - TransparentFX

@@ -143,7 +143,7 @@ public class Score: MonoBehaviour {
             resultado = Instantiate(resultado);
             resultado.transform.SetParent(GameObject.Find("Canvas").transform);
             yield return new WaitForSeconds(4);
-            StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
+            StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
 
         //Caso o resultado esteja errado
@@ -165,7 +165,7 @@ public class Score: MonoBehaviour {
             }
             
             yield return new WaitForSeconds(4);
-            StartCoroutine(stageManager.CallAnotherLevel(3, PreviousLevel));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
+            StartCoroutine(stageManager.CallAnotherLevel(3, PreviousLevel, false));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else
         {

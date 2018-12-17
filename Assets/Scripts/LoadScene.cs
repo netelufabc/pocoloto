@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
 
-    GameObject soundChecker;
+    GameObject soundChecker; //Basicamente um loader para a primeira tela
 
     SoundManager soundManager;
 
@@ -18,14 +18,9 @@ public class LoadScene : MonoBehaviour {
         }
     }
 
-    private void Start()
-    {
-        soundManager = SoundManager.instance;
-        StartCoroutine(EsperaPocoloto());
-    }
-
     public void PlayClick(AudioClip click)
     {
+        soundManager = SoundManager.instance;
         soundManager.PlaySfx(click);
     }
 

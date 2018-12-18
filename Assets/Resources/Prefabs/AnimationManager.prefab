@@ -51,7 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20d7bf89f78b274193d58c9523baa9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardAnimation: {fileID: 95294986809271726, guid: b567c266062200646bc9ce9b1f41096a,
-    type: 2}
-  backwardAnimation: {fileID: 95872589968974596, guid: 5c8ff4e6fe9fada48bfbafe68a158892,
-    type: 2}
+  audio: {fileID: 8300000, guid: e836b65b1b0ea394fb11e8a1d0c072d5, type: 3}

@@ -5,10 +5,11 @@ using UnityEngine;
 public class LevelChangerAnimController : MonoBehaviour {
 
     public static LevelChangerAnimController instance = null;
+    public AudioClip audio;
 
     private Animator animator;
     private GameObject animForward, animBackward, animation;
-    
+
     /// <summary>
     /// Garante a unicidade do manager e inicia as animações
     /// </summary>
@@ -50,6 +51,7 @@ public class LevelChangerAnimController : MonoBehaviour {
             animation = animBackward;
         }
         animator = animation.GetComponent<Animator>();
+        AudioSource.PlayClipAtPoint(audio, new Vector3(0, 0, 0));
         animator.SetTrigger("FadeOut");
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Button Eye
   - Button
   - AnimationManager
+  - Fade
   layers:
   - Default
   - TransparentFX

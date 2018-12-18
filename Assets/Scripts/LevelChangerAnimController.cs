@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class LevelChangerAnimController : MonoBehaviour {
 
-    public Animator forwardAnimation;
-    public Animator backwardAnimation;
     public static LevelChangerAnimController instance = null;
 
     private Animator animator;
     private GameObject animForward, animBackward, animation;
-    private bool goToNextLevel;
-
+    
     /// <summary>
     /// Garante a unicidade do manager e inicia as animações
     /// </summary>
@@ -44,8 +41,6 @@ public class LevelChangerAnimController : MonoBehaviour {
     /// <param name="levelComplete"></param>
     public void PlayTransitionSceneAnimation(bool levelComplete)
     {
-        goToNextLevel = levelComplete;
-
         if (levelComplete)
         {
             animation = animForward;

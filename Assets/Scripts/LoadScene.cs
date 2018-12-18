@@ -8,7 +8,6 @@ public class LoadScene : MonoBehaviour {
     GameObject soundChecker; //Basicamente um loader para a primeira tela
 
     SoundManager soundManager;
-    LevelChangerAnimController levelController;
 
     private void Awake()
     {
@@ -42,9 +41,18 @@ public class LoadScene : MonoBehaviour {
     /// Função para carregar uma nova fase com fade - em construção
     /// </summary>
     /// <param name="Scene"></param>
-    public void LoadSceneWithFade(string Scene)
+    public void LoadSceneWithFade(string scene)
     {
-        levelController = LevelChangerAnimController.instance;
-        levelController.PlayTransitionSceneAnimation(true);
+        StartCoroutine(Fade(scene));
+    }
+
+    IEnumerator Fade(string scene)
+    {
+        Animator animator;
+        GameObject animation = GameObject.FindGameObjectWithTag("Fade");
+        animator = animation.GetComponent<Animator>();
+        animator.SetTrigger("FadeStart");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(scene);
     }
 }

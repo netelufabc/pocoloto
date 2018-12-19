@@ -9,20 +9,23 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private Text sideBarTip;
     private Button planeta;
     private string toolTipText;
-    private string proximoPlaneta;
     private Animator planetaMouseOverAnimation;
-    private Text planetText;
+    private Text planetNameText;
     private int planetNumber;
+    private bool rotate;
 
 	void Start () {
         sideBarTip = GameObject.Find("Panel Text").GetComponent<UnityEngine.UI.Text>();
         planeta = this.GetComponent<UnityEngine.UI.Button>();
         planetaMouseOverAnimation = GameObject.Find(planeta.name).GetComponent<Animator>();
-        planetText = GetComponentInChildren<Text>();
+        planetNameText = GameObject.Find("Nome Planeta").GetComponent<UnityEngine.UI.Text>();
     }
 	
 	void Update () {
-
+        if (rotate)
+        {
+            transform.Rotate(new Vector3(0, 0, -5));
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -30,7 +33,8 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         sideBarTip.text = GetText();
         if (planeta.interactable == true)
         {
-            planetText.enabled = true;
+            rotate = true;
+            planetNameText.text = planeta.name;
             planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
         }
     }
@@ -40,7 +44,8 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         sideBarTip.text = "";
         if (planeta.interactable == true)
         {
-            planetText.enabled = false;
+            rotate = false;
+            planetNameText.text = "";
             planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOff");
         }
     }
@@ -49,8 +54,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (planeta.interactable == true)
         {
-            proximoPlaneta = "Clique para entrar no " + planeta.name + "!";
-            return proximoPlaneta;
+            return "Clique para entrar no " + planeta.name + "!";
         }
         else
         {

@@ -11,13 +11,18 @@ public class GameController : MonoBehaviour {
 
 
     private static string dataPath = string.Empty;
-    //private 
+    public static string slotsDataPath = string.Empty;
+    public static SlotsList list = new SlotsList(); 
     public static Player player = new Player();
 
     public void Awake()
     {
         dataPath = Application.persistentDataPath;
+        slotsDataPath = System.IO.Path.Combine(dataPath, "listaDeSlots.json");
+        list = SlotsListManager.loadSlotsList(slotsDataPath);
     }
+
+    #region Save&Load
 
     public void Save()
     {
@@ -31,13 +36,5 @@ public class GameController : MonoBehaviour {
         SaveData.SavePlayerData(dataPath);
     }
 
-     public void FuncaoX()
-    {
-        DirectoryInfo dir = new DirectoryInfo(dataPath);
-        FileInfo[] info = dir.GetFiles("*.*");
-        foreach (FileInfo f in info)
-        {
-            Debug.Log(f);
-        }
-    }
+    #endregion    
 }

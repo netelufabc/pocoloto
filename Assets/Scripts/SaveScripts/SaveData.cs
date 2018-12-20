@@ -11,18 +11,28 @@ public class SaveData: MonoBehaviour {
         GameController.player.nome = GameObject.Find("NomeText").GetComponent<Text>().text;
         int.TryParse(GameObject.Find("IdadeText").GetComponent<Text>().text, out GameController.player.idade);
         int.TryParse(GameObject.Find("SerieText").GetComponent<Text>().text, out GameController.player.serie);
-        GameController.player.slot = 0;
+        GameController.player.slot = SlotsListManager.SlotGiver(GameController.list);
+
     }
 
     public static void SavePlayerData(string path)
     {
-        string json = JsonUtility.ToJson(GameController.player);
+        if(GameController.player.slot == -1)
+        {
+            Debug.Log("Não foi possível criar um save");
+        }
 
-        StreamWriter sw = File.CreateText(path);
-        sw.Close();
+        else
+        {
+            SlotsListManager.RetiraKey(GameController.player.slot);
+            string json = JsonUtility.ToJson(GameController.player);
 
-        File.WriteAllText(path, json);
-        Debug.Log("Terminou de escrever");
+            StreamWriter sw = File.CreateText(path);
+            sw.Close();
+
+            File.WriteAllText(path, json);
+            Debug.Log("Terminou de escrever");
+        }
     }
 
     public static void LoadPlayerData(string path)

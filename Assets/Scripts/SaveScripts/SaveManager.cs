@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class GameController : MonoBehaviour {
+public class SaveManager : MonoBehaviour {
 
     /// <summary>
     /// Será implementado depois no LevelController
     /// </summary>
 
+    public static int slotsListSize = 6;
 
-    private static string dataPath = string.Empty;
+    public static string dataPath = string.Empty;
     public static string slotsDataPath = string.Empty;
     public static SlotsList list = new SlotsList(); 
     public static Player player = new Player();
@@ -19,7 +20,7 @@ public class GameController : MonoBehaviour {
     {
         dataPath = Application.persistentDataPath;
         slotsDataPath = System.IO.Path.Combine(dataPath, "listaDeSlots.json");
-        list = SlotsListManager.loadSlotsList(slotsDataPath);
+        list = SlotsListManager.StartList(slotsDataPath);
     }
 
     #region Save&Load

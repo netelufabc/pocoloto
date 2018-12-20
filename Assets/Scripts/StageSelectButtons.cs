@@ -9,44 +9,57 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private Text sideBarTip;
     private Button planeta;
     private string toolTipText;
+    private Animator planetaMouseOverAnimation;
+    private Text planetNameText;
+    private int planetNumber;
+    private bool rotate;
 
 	void Start () {
         sideBarTip = GameObject.Find("Panel Text").GetComponent<UnityEngine.UI.Text>();
         planeta = this.GetComponent<UnityEngine.UI.Button>();
-	}
+        planetaMouseOverAnimation = GameObject.Find(planeta.name).GetComponent<Animator>();
+        planetNameText = GameObject.Find("Nome Planeta").GetComponent<UnityEngine.UI.Text>();
+    }
 	
 	void Update () {
-
+        if (rotate)
+        {
+            transform.Rotate(new Vector3(0, 0, -5));
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         sideBarTip.text = GetText();
+        if (planeta.interactable == true)
+        {
+            rotate = true;
+            planetNameText.text = planeta.name;
+            planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         sideBarTip.text = "";
+        if (planeta.interactable == true)
+        {
+            rotate = false;
+            planetNameText.text = "";
+            planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOff");
+        }
     }
 
     public string GetText()
     {
-        switch (planeta.name)
+        if (planeta.interactable == true)
         {
-            case "Planeta 1":
-                return toolTipText = "Clique para entrar no Planeta 1!";
-
-            case "Planeta 2":
-                return toolTipText = "Para acessar o Planeta 2, primeiro passe pelo Planeta 1!";
-
-            case "Planeta 3":
-                return toolTipText = "Para acessar o Planeta 3, primeiro passe pelo Planeta 2!";
-
-            case "Planeta 4":
-                return toolTipText = "Para acessar o Planeta 4, primeiro passe pelo Planeta 3!";
-
-            default:
-                return "";
+            return "Clique para entrar no " + planeta.name + "!";
+        }
+        else
+        {
+            planetNumber = System.Int32.Parse(planeta.name.Substring(planeta.name.Length - 1));            
+            return toolTipText = "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";
         }
     }
 }

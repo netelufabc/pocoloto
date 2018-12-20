@@ -4420,7 +4420,7 @@ MonoBehaviour:
   currentLevel: 5
   CharLimitForThisLevel: 5
   NumeroDeSilabasDaPalavra: 2
-  NextLevel: 10_nivel06
+  NextLevel: SceneTeste
   PreviousLevel: 08_nivel04
   soundsDirectory: Sounds\Level_05
 --- !u!82 &1101345384

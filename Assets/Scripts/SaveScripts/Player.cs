@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Player
 {
-    public int key;
+    public int slot;
     public string nome;
     public bool genero;
     public int idade;

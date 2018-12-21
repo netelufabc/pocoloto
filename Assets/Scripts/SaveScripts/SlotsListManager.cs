@@ -6,7 +6,7 @@ using UnityEngine;
 public class SlotsListManager : MonoBehaviour {
 
     #region Save&Load
-    public static void saveSlotsList(string path, SlotsList list)
+    public static void SaveSlotsList(string path, SlotsList list)
     {
         string json = JsonUtility.ToJson(list);
 
@@ -16,7 +16,7 @@ public class SlotsListManager : MonoBehaviour {
         File.WriteAllText(path, json);
     }
 
-    public static SlotsList loadSlotsList(string path)
+    public static SlotsList LoadSlotsList(string path)
     {
         string json = File.ReadAllText(path);
 
@@ -50,10 +50,10 @@ public class SlotsListManager : MonoBehaviour {
     /// <param name="n"></param>
     public static void RetiraKey(int n)
     {
-        if (CheckSameNumber(n, GameController.list))
+        if (CheckSameNumber(n, SaveManager.list))
         {
-            GameController.list.slotsList.Remove(n);
-            saveSlotsList(GameController.slotsDataPath, GameController.list);
+            SaveManager.list.slotsList.Remove(n);
+            SaveSlotsList(SaveManager.slotsDataPath, SaveManager.list);
         }
     }
 
@@ -76,4 +76,43 @@ public class SlotsListManager : MonoBehaviour {
             return list.slotsList[0];
         }
     }
+    
+    /// <summary>
+    /// Verifica se há o arquivo das lista de slots na pasta destino, caso não exista, cria um de acordo com o tamanho definido no slotsListSize.
+    /// </summary>
+    /// <param name="path"></param>
+    /// <returns>Retorna a lista de slots que será utilizada</returns>
+    public static SlotsList StartList(string path)
+    {
+        SlotsList list = new SlotsList();
+
+        if (System.IO.File.Exists(path))
+        {
+            list = SlotsListManager.LoadSlotsList(path);
+            return list;
+        }
+
+        else
+        {
+            for (int i = 0; i<SaveManager.slotsListSize; i++)
+            {
+                list.slotsList.Add(i);
+            }
+
+            SaveSlotsList(path, list);
+
+            return list;
+        }
+    }
+
+    /// <summary>
+    /// Utilizado quando um save de um jogador é deletado
+    /// </summary>
+    /// <param name="n"></param>
+    public static void ReturnSlot(int n)
+    {
+        SaveManager.list.slotsList.Add(n);
+        SaveSlotsList(SaveManager.slotsDataPath, SaveManager.list);
+    }
+
 }

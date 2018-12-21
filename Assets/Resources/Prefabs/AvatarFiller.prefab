@@ -9,32 +9,32 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1900759857931090}
+  m_RootGameObject: {fileID: 1731377993216594}
   m_IsPrefabAsset: 1
---- !u!1 &1900759857931090
+--- !u!1 &1731377993216594
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 224541649103938042}
-  - component: {fileID: 222494506621963386}
-  - component: {fileID: 114180738696707238}
-  - component: {fileID: 114293850003255758}
+  - component: {fileID: 224786030374011862}
+  - component: {fileID: 222910993684292172}
+  - component: {fileID: 114191420118827106}
+  - component: {fileID: 114742745925679180}
   m_Layer: 5
-  m_Name: AvatarTeste02
+  m_Name: AvatarFiller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114180738696707238
+--- !u!114 &114191420118827106
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900759857931090}
+  m_GameObject: {fileID: 1731377993216594}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -48,7 +48,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bbe83e4551cbae744bc1c410d8dc7220, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 016e40d6448d75b4cbd1c21c5f63c28a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -56,12 +56,12 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114293850003255758
+--- !u!114 &114742745925679180
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900759857931090}
+  m_GameObject: {fileID: 1731377993216594}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -90,26 +90,26 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 114180738696707238}
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 114191420118827106}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &222494506621963386
+--- !u!222 &222910993684292172
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900759857931090}
+  m_GameObject: {fileID: 1731377993216594}
   m_CullTransparentMesh: 0
---- !u!224 &224541649103938042
+--- !u!224 &224786030374011862
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1900759857931090}
+  m_GameObject: {fileID: 1731377993216594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}

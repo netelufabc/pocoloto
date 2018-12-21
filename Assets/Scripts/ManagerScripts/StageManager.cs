@@ -25,7 +25,7 @@ public class StageManager : MonoBehaviour
     private Score score;
     private ButtonConfirmar buttonConfirmar;
     private SilabaControl silabaControl;
-    private LevelChangerAnimController levelChangerAnimController;
+    //private AnimationController levelChangerAnimController;
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -66,7 +66,7 @@ public class StageManager : MonoBehaviour
 
         buttonConfirmar = ButtonConfirmar.instance;
 
-        levelChangerAnimController = LevelChangerAnimController.instance;
+        //AnimationController = LevelChangerAnimController.control;
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
 
@@ -104,7 +104,8 @@ public class StageManager : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsBefore);
 
-        levelChangerAnimController.PlayTransitionSceneAnimation(levelClear);
+        //AnimationController.PlayTransitionSceneAnimation(levelClear);
+        AnimationController.control.PlayTransitionSceneAnimation(levelClear);
 
         yield return new WaitForSeconds(2.5f);
 

@@ -11,5 +11,6 @@ public class Player
     public bool genero;
     public int idade;
     public int serie;
-
+    public int avatarSelecionadoIndex;
+    public bool[] avatarBloqueado;
 }

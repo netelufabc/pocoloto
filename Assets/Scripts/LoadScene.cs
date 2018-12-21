@@ -44,15 +44,14 @@ public class LoadScene : MonoBehaviour {
     public void LoadSceneWithFade(string scene)
     {
         StartCoroutine(Fade(scene));
+        //AnimationController.control.PlaySimpleTrasitionAnimation();
+        //SceneManager.LoadScene(scene);
     }
 
     IEnumerator Fade(string scene)
     {
-        Animator animator;
-        GameObject animation = GameObject.FindGameObjectWithTag("Fade");
-        animator = animation.GetComponent<Animator>();
-        animator.SetTrigger("FadeStart");
-        yield return new WaitForSeconds(1);
+        AnimationController.control.PlaySimpleTrasitionAnimation();
+        yield return new WaitForSeconds(0.6f);
         SceneManager.LoadScene(scene);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour {
 
-    private GameObject score, soundManager, timer, silabaControl, blinker, buttonConfirmar, levelChangerAnimController, dicaAudio, dicaVisual;
+    private GameObject score, soundManager, timer, silabaControl, blinker, buttonConfirmar, animationController, dicaAudio, dicaVisual;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class Loader : MonoBehaviour {
         dicaAudio = Resources.Load("Prefabs/Button Sound") as GameObject;
         dicaVisual = Resources.Load("Prefabs/Button Eye") as GameObject;
         buttonConfirmar = Resources.Load("Prefabs/Button Confirma Resposta") as GameObject;
-        levelChangerAnimController = Resources.Load("Prefabs/AnimationManager") as GameObject;
+        animationController = Resources.Load("Prefabs/AnimationManager") as GameObject;
 
         if (Score.instance == null)
         {
@@ -56,9 +56,9 @@ public class Loader : MonoBehaviour {
         GameObject newButtonConfirmar = Instantiate(buttonConfirmar) as GameObject;
         newButtonConfirmar.transform.SetParent(GameObject.FindGameObjectWithTag("ButtonTips").transform, false);
 
-        if (LevelChangerAnimController.instance == null)
+        if (AnimationController.control == null)
         {
-            GameObject newlv = Instantiate(levelChangerAnimController) as GameObject;
+            GameObject newAnimationController = Instantiate(animationController) as GameObject;
         }
     }
 }

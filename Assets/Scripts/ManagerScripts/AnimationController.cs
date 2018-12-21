@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelChangerAnimController : MonoBehaviour {
+public class AnimationController : MonoBehaviour {
 
-    public static LevelChangerAnimController instance = null;
+    public static AnimationController control = null;
     public AudioClip audio;
 
     private Animator animator;
-    private GameObject animForward, animBackward, animation;
+    private GameObject animForward, animBackward, fade, animation;
 
     /// <summary>
     /// Garante a unicidade do manager e inicia as animações
     /// </summary>
     public void Awake()
     {
-        if (instance == null)
+        if (control == null)
         {
-            instance = this;
+            control = this;
         }
-        else if (this != instance)
+        else if (this != control)
         {
             Destroy(gameObject);
         }
@@ -27,11 +27,14 @@ public class LevelChangerAnimController : MonoBehaviour {
 
         animForward = Resources.Load("Prefabs/HyperspaceForward") as GameObject;
         animBackward = Resources.Load("Prefabs/HyperspaceBackwards") as GameObject;
+        fade = Resources.Load("Prefabs/Fade") as GameObject;
 
         animForward = Instantiate(animForward);
         animBackward = Instantiate(animBackward);
+        fade = Instantiate(fade);
         animForward.transform.SetParent(GameObject.FindGameObjectWithTag("AnimationManager").transform, false);
         animBackward.transform.SetParent(GameObject.FindGameObjectWithTag("AnimationManager").transform, false);
+        fade.transform.SetParent(GameObject.FindGameObjectWithTag("AnimationManager").transform, false);
     }
 
     /// <summary>
@@ -51,7 +54,15 @@ public class LevelChangerAnimController : MonoBehaviour {
             animation = animBackward;
         }
         animator = animation.GetComponent<Animator>();
-        AudioSource.PlayClipAtPoint(audio, new Vector3(0, 0, 0));
+        SoundManager.instance.PlaySfx(audio);
         animator.SetTrigger("FadeOut");
+    }
+
+    /// <summary>
+    /// Toca animação simples de FadeIn e FadeOut 
+    /// </summary>
+    public void PlaySimpleTrasitionAnimation()
+    {
+        fade.GetComponent<Animator>().SetTrigger("FadeStart");
     }
 }

@@ -19,7 +19,7 @@ public class AvatarSelection : MonoBehaviour {
     private bool[] avatarBloqueado;
 
 	void Start () {
-        avatarBloqueado = new bool[10] {false, false, true, true, true, true, true, true, true, true};
+        avatarBloqueado = SaveManager.player.avatarBloqueado;
         
         // Posiciona os avatares em duas linhas
 		for (int i = 0; i < numAvatarTotal; i++)

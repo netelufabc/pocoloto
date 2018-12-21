@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 222662929028210908}
   - component: {fileID: 114239459791358938}
   - component: {fileID: 114539253706923398}
-  - component: {fileID: 114225647095941112}
+  - component: {fileID: 114228833175881422}
   m_Layer: 5
   m_Name: AvatarTeste01
   m_TagString: Untagged
@@ -30,7 +30,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114225647095941112
+--- !u!114 &114228833175881422
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,11 +38,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1537903796721194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2899f9a421ca62f41ac6d6a71e54c0ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b8584106094a3f4ab93bafbd088d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numAvatarTotal: 10
-  avatarImage: []
 --- !u!114 &114239459791358938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,8 +107,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114225647095941112}
-        m_MethodName: AvatarSelecionado
+      - m_Target: {fileID: 114228833175881422}
+        m_MethodName: Avatar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

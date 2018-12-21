@@ -11,6 +11,6 @@ public class Player
     public bool genero;
     public int idade;
     public int serie;
-    public int avatarSelecionadoIndex;
-    public bool[] avatarBloqueado;
+    public int avatarSelecionadoIndex = -1;
+    public bool[] avatarBloqueado = new bool[10] { false, false, true, true, true, true, true, true, true, true };
 }

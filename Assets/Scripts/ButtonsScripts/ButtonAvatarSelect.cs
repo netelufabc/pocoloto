@@ -7,17 +7,7 @@ public class ButtonAvatarSelect : MonoBehaviour {
     // Para testes e verificação
     //public Player player = SaveManager.player;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    /// <summary>
+	/// <summary>
     /// Informa ao SaveManager qual o avatar selecionado (pelo índice do vetor de avatar)
     /// </summary>
     public void Avatar()

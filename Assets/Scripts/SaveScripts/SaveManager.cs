@@ -28,9 +28,9 @@ public class SaveManager : MonoBehaviour {
         SaveData.SavePlayerData(newDataPath);
     }
 
-    public void Load()
+    public void Load(int i)
     {
-        SaveData.SavePlayerData(dataPath);
+        //SaveData.SavePlayerData(dataPath);
     }
 
     #endregion    

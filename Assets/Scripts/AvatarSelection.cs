@@ -21,7 +21,7 @@ public class AvatarSelection : MonoBehaviour {
 	void Start () {
         avatarBloqueado = SaveManager.player.avatarBloqueado;
         
-        // Posiciona os avatares em duas linhas
+        // Posiciona os avatares
 		for (int i = 0; i < numAvatarTotal; i++)
         {
             avatarImage[i] = Instantiate(avatarImage[i], transform);

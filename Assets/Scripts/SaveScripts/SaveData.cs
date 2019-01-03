@@ -15,6 +15,9 @@ public class SaveData: MonoBehaviour {
 
         else
         {
+            //PlayerData playerData;
+            //playerData = PlayerData.instance;
+
             SlotsListManager.RetiraKey(SaveManager.player.slot);
             string json = JsonUtility.ToJson(SaveManager.player);
 
@@ -33,6 +36,8 @@ public class SaveData: MonoBehaviour {
 
     public void CreateNewPlayer()
     {
+
+        SlotsListManager.StartList(SaveManager.dataPath);
         SaveManager.player.nome = GameObject.Find("NomeText").GetComponent<Text>().text;
         int.TryParse(GameObject.Find("IdadeText").GetComponent<Text>().text, out SaveManager.player.idade);
         int.TryParse(GameObject.Find("SerieText").GetComponent<Text>().text, out SaveManager.player.serie);

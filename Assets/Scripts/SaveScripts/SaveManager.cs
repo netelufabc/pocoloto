@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour {
 
-    /// <summary>
-    /// Será implementado depois no LevelController
-    /// </summary>
-
     public static int slotsListSize = 6;
 
     public static string dataPath = string.Empty;
@@ -21,6 +17,7 @@ public class SaveManager : MonoBehaviour {
         dataPath = Application.persistentDataPath;
         slotsDataPath = System.IO.Path.Combine(dataPath, "listaDeSlots.json");
         list = SlotsListManager.StartList(slotsDataPath);
+        DontDestroyOnLoad(gameObject);
     }
 
     #region Save&Load

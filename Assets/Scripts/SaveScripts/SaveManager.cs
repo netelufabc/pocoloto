@@ -7,9 +7,9 @@ public class SaveManager : MonoBehaviour {
 
     public static int slotsListSize = 6;
 
-    public static string dataPath = string.Empty;
-    public static string slotsDataPath = string.Empty;
-    public static SlotsList list = new SlotsList(); 
+    public static string dataPath;
+    public static string slotsDataPath;
+    public static SlotsList list;
     public static Player player = new Player();
 
     public void Awake()
@@ -17,7 +17,6 @@ public class SaveManager : MonoBehaviour {
         dataPath = Application.persistentDataPath;
         slotsDataPath = System.IO.Path.Combine(dataPath, "listaDeSlots.json");
         list = SlotsListManager.StartList(slotsDataPath);
-        DontDestroyOnLoad(gameObject);
     }
 
     #region Save&Load

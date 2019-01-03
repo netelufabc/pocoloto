@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour {
 
-    private GameObject score, soundManager, timer, silabaControl, blinker, buttonConfirmar, animationController, dicaAudio, dicaVisual;
+    private GameObject score, soundManager, timer, silabaControl, buttonConfirmar, animationController, dicaAudio, dicaVisual;
 
     private void Awake()
     {

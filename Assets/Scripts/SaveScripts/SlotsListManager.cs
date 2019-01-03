@@ -72,7 +72,6 @@ public class SlotsListManager : MonoBehaviour {
         else
         {
             list.slotsList.Sort();
-            Debug.Log(list.slotsList[0]);
             return list.slotsList[0];
         }
     }

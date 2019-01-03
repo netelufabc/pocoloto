@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneTeste.unity
     guid: 8a1767d6135c6d540842bed74210faf8
+  - enabled: 1
+    path: Assets/Scenes/LoadSelection.unity
+    guid: c1c4ee8620ecf2847bc99f074689b5d9
   m_configObjects: {}

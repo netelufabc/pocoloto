@@ -12,7 +12,7 @@ public class AvatarSelection : MonoBehaviour {
     /// <summary>
     /// Vetor contendo um prefab do avatar
     /// </summary>
-    public GameObject[] avatarImage;// = new GameObject[numAvatar];
+    public GameObject[] avatarImage;
     /// <summary>
     /// Vetor com a informação de qual avatar está disponível e qual está bloqueado
     /// </summary>
@@ -38,15 +38,9 @@ public class AvatarSelection : MonoBehaviour {
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        
-	}
-
     public void AvatarSelecionado()
     {
         GridLayout gridLayout = transform.parent.GetComponent<GridLayout>();
-        //Vector3Int cellPosition = gridLayout.WorldToCell(transform.position);
         Vector3 wcellPosition = transform.position;
         Vector3Int cellPosition = gridLayout.WorldToCell(wcellPosition);
         Debug.Log(cellPosition);

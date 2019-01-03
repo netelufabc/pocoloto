@@ -30,7 +30,8 @@ public class SaveManager : MonoBehaviour {
 
     public void Load(int i)
     {
-        //SaveData.SavePlayerData(dataPath);
+        dataPath = i.ToString();
+        SaveData.LoadPlayerData(dataPath + ".json");
     }
 
     #endregion    

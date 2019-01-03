@@ -27,7 +27,16 @@ public class SaveData: MonoBehaviour {
 
     public static void LoadPlayerData(string path)
     {
-        
+        string dataPath = Path.Combine(Application.persistentDataPath, path);
+        if (File.Exists(dataPath))
+        {
+            string dataAsJson = File.ReadAllText(dataPath);
+            SaveManager.player = JsonUtility.FromJson<Player>(dataAsJson);
+        }
+        else
+        {
+            Debug.LogError("Não foi possível carregar o save!");
+        }
     }
 
     public void CreateNewPlayer()

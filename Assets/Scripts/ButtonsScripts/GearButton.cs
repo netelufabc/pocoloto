@@ -11,6 +11,10 @@ public class GearButton : MonoBehaviour {
         optionsMenu = Resources.Load("Prefabs/OptionsMenu") as GameObject;
     }
 
+    
+    /// <summary>
+    /// Verifica pop-up do menu do botão de engrenagem já está na scene, caso não esteja, ele instância a prefab
+    /// </summary>
     public void OpenMenu()
     {
         if (GameObject.Find("OptionsMenu(Clone)") == null)

@@ -13,4 +13,5 @@ public class Player
     public int serie = 0;
     public int avatarSelecionadoIndex = -1;
     public bool[] avatarBloqueado = new bool[10] { false, false, true, true, true, true, true, true, true, true };
+    public bool[] planetaLiberado = new bool[5] { true, false, false, false, false };
 }

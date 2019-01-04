@@ -68,4 +68,9 @@ public class SoundManager : MonoBehaviour {
         audioFala.clip = currentSilaba;
         audioFala.Play();
     }
+
+    public void ChangePitch(float value)
+    {
+        audioFala.pitch = value;
+    }
 }

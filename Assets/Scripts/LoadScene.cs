@@ -21,6 +21,11 @@ public class LoadScene : MonoBehaviour {
         animationController = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationController>();
     }
 
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
+    }
+
     public void PlayClick(AudioClip click)
     {
         soundManager = SoundManager.instance;
@@ -29,6 +34,12 @@ public class LoadScene : MonoBehaviour {
 
     public void ChooseScene(string sceneName)
     {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ChooseSceneStopMusic(string sceneName)
+    {
+        soundManager.StopBackground();
         SceneManager.LoadScene(sceneName);
     }
 
@@ -48,5 +59,4 @@ public class LoadScene : MonoBehaviour {
     {
         StartCoroutine(animationController.Fade(scene));
     }
-
 }

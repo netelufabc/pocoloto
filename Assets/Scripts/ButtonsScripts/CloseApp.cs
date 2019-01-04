@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GearButton : MonoBehaviour {
+public class CloseApp : LoadScene {
 
     GameObject optionsMenu;
 
@@ -11,10 +11,12 @@ public class GearButton : MonoBehaviour {
         optionsMenu = Resources.Load("Prefabs/OptionsMenu") as GameObject;
     }
 
-    
-    /// <summary>
-    /// Verifica pop-up do menu do botão de engrenagem já está na scene, caso não esteja, ele instância a prefab
-    /// </summary>
+    public void FecharAplicacao()
+    {
+        //Application.LoadLevel(sceneName);
+        Application.Quit();
+    }
+
     public void OpenMenu()
     {
         if (GameObject.Find("OptionsMenu(Clone)") == null)
@@ -23,5 +25,15 @@ public class GearButton : MonoBehaviour {
             newOptionsMenu = Instantiate(optionsMenu);
             newOptionsMenu.transform.SetParent(GameObject.Find("Canvas").transform, false);
         }
+    }
+
+    /// <summary>
+    /// Utilizado para destruir o pai do botão de fechar
+    /// </summary>
+    public void CloseMenu()
+    {
+        GameObject buttonParent;
+        buttonParent = this.transform.parent.gameObject;
+        Destroy(buttonParent);
     }
 }

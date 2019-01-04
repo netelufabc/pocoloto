@@ -8,6 +8,7 @@ public class LoadScene : MonoBehaviour {
     GameObject soundChecker; //Basicamente um loader para a primeira tela
 
     SoundManager soundManager;
+    AnimationController animationController;
 
     private void Awake()
     {
@@ -16,6 +17,8 @@ public class LoadScene : MonoBehaviour {
         {
             soundChecker = Instantiate(soundChecker);
         }
+
+        animationController = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationController>();
     }
 
     public void PlayClick(AudioClip click)
@@ -43,15 +46,7 @@ public class LoadScene : MonoBehaviour {
     /// <param name="Scene"></param>
     public void LoadSceneWithFade(string scene)
     {
-        StartCoroutine(Fade(scene));
-        //AnimationController.control.PlaySimpleTrasitionAnimation();
-        //SceneManager.LoadScene(scene);
+        StartCoroutine(animationController.Fade(scene));
     }
 
-    IEnumerator Fade(string scene)
-    {
-        AnimationController.control.PlaySimpleTrasitionAnimation();
-        yield return new WaitForSeconds(0.6f);
-        SceneManager.LoadScene(scene);
-    }
 }

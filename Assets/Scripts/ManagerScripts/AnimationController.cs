@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimationController : MonoBehaviour {
 
@@ -18,6 +19,9 @@ public class AnimationController : MonoBehaviour {
         if (control == null)
         {
             control = this;
+
+            // PARA TESTES
+            GameObject newAnimationController = Instantiate(Resources.Load("Prefabs/AnimationManager") as GameObject) as GameObject;
         }
         else if (this != control)
         {
@@ -64,5 +68,12 @@ public class AnimationController : MonoBehaviour {
     public void PlaySimpleTrasitionAnimation()
     {
         fade.GetComponent<Animator>().SetTrigger("FadeStart");
+    }
+
+    public IEnumerator Fade(string scene)
+    {
+        AnimationController.control.PlaySimpleTrasitionAnimation();
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(scene);
     }
 }

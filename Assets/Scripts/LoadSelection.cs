@@ -22,14 +22,17 @@ public class LoadSelection : MonoBehaviour {
 
         saveManager = GameObject.Find("Canvas").GetComponent<SaveManager>();
 
+        // Usado para contar quantos slots de save estão sendo usados
+        int slotsUsados = SaveManager.slotsListSize;
+
         // Percorre todos os possíveis save slots
         for (int i = 0; i < SaveManager.slotsListSize; i++)
         {
-            loadSlotButton = Instantiate(loadSlotButton, transform);
-
             // Verifica se o slot está sendo usado (não está na lista)
             if (System.IO.File.Exists(dataPath + "/listaDeSlots.json") && !SlotsListManager.CheckSameNumber(i, SaveManager.list))
             {
+                // Instancia o botão
+                loadSlotButton = Instantiate(loadSlotButton, transform);
                 // Carrega o player para obter o nome
                 saveManager.Load(i);
                 // Coloca as informações do save no botão de load
@@ -40,7 +43,10 @@ public class LoadSelection : MonoBehaviour {
                 // Encontra a imagem do botão e muda para o avatar selecionado
                 GameObject buttonImage = loadSlotButton.transform.GetChild(1).gameObject;
                 buttonImage.GetComponent<Image>().sprite = avatar;
-            }
+
+                // Se o slot está sendo usado, adiciona no contador
+                slotsUsados--;
+            }/*
             else
             {
                 // Opção de deixar visível todos os slots, mas bloqueando os que não possuem save
@@ -49,8 +55,11 @@ public class LoadSelection : MonoBehaviour {
                 // Desabilita o botão e remove a imagem do avatar
                 loadSlotButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
                 loadSlotButton.transform.GetChild(1).gameObject.SetActive(false);
-            }
+            }*/
         }
+
+        // Mostra quantos espaços de save estão livres do total
+        GameObject.Find("Slots Livres").GetComponent<Text>().text = "Espaços Livres: " + slotsUsados.ToString() + "/" + SaveManager.slotsListSize;
 	}
 	
     /// <summary>

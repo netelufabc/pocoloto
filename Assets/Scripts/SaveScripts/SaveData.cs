@@ -25,14 +25,22 @@ public class SaveData: MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Recebe o nome do arquivo que deve ser carregado
+    /// </summary>
+    /// <param name="path"></param>
     public static void LoadPlayerData(string path)
     {
-        string dataPath = Path.Combine(Application.persistentDataPath, path);
+        // Completa o caminho com o nome do arquivo
+        string dataPath = Path.Combine(SaveManager.dataPath, path);
+        // Verifica se o arquivo existe
         if (File.Exists(dataPath))
         {
+            // Se existe, carrega o arquivo no SaveManager
             string dataAsJson = File.ReadAllText(dataPath);
             SaveManager.player = JsonUtility.FromJson<Player>(dataAsJson);
         }
+        // Se não existe, avisa
         else
         {
             Debug.LogError("Não foi possível carregar o save!");

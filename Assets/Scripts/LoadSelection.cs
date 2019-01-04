@@ -18,7 +18,7 @@ public class LoadSelection : MonoBehaviour {
     void Start () {
 
         // Caminho padrão do local de save
-        dataPath = Application.persistentDataPath;
+        dataPath = SaveManager.dataPath;
 
         saveManager = GameObject.Find("Canvas").GetComponent<SaveManager>();
 
@@ -32,32 +32,33 @@ public class LoadSelection : MonoBehaviour {
             {
                 // Carrega o player para obter o nome
                 saveManager.Load(i);
+                // Coloca as informações do save no botão de load
                 loadSlotButton.GetComponentInChildren<Text>().text = "  Load Slot " + i + "\n  Player Name: " + SaveManager.player.nome;
                 loadSlotButton.GetComponentInChildren<UnityEngine.UI.Button>().interactable = true;
+                // Carrega a imagem do avatar para colocar no botão
                 Sprite avatar = Resources.Load<Image>("Prefabs/AvatarTeste0" + (SaveManager.player.avatarSelecionadoIndex + 1).ToString()).sprite;
-                loadSlotButton.GetComponentInChildren<Image>().sprite = avatar;
+                // Encontra a imagem do botão e muda para o avatar selecionado
+                GameObject buttonImage = loadSlotButton.transform.GetChild(1).gameObject;
+                buttonImage.GetComponent<Image>().sprite = avatar;
             }
             else
             {
                 // Opção de deixar visível todos os slots, mas bloqueando os que não possuem save
                 // Podemos colocar a criação do botão dentro do if e só aparece se existir save
                 loadSlotButton.GetComponentInChildren<Text>().text = "  Load Slot " + i + "\n  Vazio";
+                // Desabilita o botão e remove a imagem do avatar
                 loadSlotButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
-                loadSlotButton.GetComponentInChildren<Image>().overrideSprite = null;
+                loadSlotButton.transform.GetChild(1).gameObject.SetActive(false);
             }
-
         }
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+    /// <summary>
+    /// Função de teste para verificação da posição escolhida
+    /// </summary>
     public void AvatarSelecionado()
     {
         GridLayout gridLayout = transform.parent.GetComponent<GridLayout>();
-        //Vector3Int cellPosition = gridLayout.WorldToCell(transform.position);
         Vector3 wcellPosition = transform.position;
         Vector3Int cellPosition = gridLayout.WorldToCell(wcellPosition);
         Debug.Log(cellPosition);

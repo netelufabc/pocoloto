@@ -28,10 +28,14 @@ public class SaveManager : MonoBehaviour {
         SaveData.SavePlayerData(newDataPath);
     }
 
+    /// <summary>
+    /// Recebe um inteiro informando o slot a ser carregado
+    /// </summary>
+    /// <param name="i"></param>
     public void Load(int i)
     {
-        dataPath = i.ToString();
-        SaveData.LoadPlayerData(dataPath + ".json");
+        string tempPath = i.ToString();
+        SaveData.LoadPlayerData(tempPath + ".json");
     }
 
     #endregion    

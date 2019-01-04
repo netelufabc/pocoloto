@@ -7,14 +7,14 @@ public class AvatarSelection : MonoBehaviour {
     /// <summary>
     /// Número de avatares disponívies
     /// </summary>
-    //public int numAvatar;
     public float numAvatarTotal = 10;
     /// <summary>
-    /// Vetor contendo um prefab do avatar
+    /// Vetor contendo as prefab dos avatares
     /// </summary>
     public GameObject[] avatarImage;
     /// <summary>
     /// Vetor com a informação de qual avatar está disponível e qual está bloqueado
+    /// Obtido do save do jogador
     /// </summary>
     private bool[] avatarBloqueado;
 
@@ -37,7 +37,10 @@ public class AvatarSelection : MonoBehaviour {
             }
         }
 	}
-	
+
+    /// <summary>
+    /// Função de teste para verificação da posição escolhida
+    /// </summary>
     public void AvatarSelecionado()
     {
         GridLayout gridLayout = transform.parent.GetComponent<GridLayout>();

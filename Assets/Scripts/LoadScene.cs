@@ -18,6 +18,11 @@ public class LoadScene : MonoBehaviour {
         }
     }
 
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
+    }
+
     public void PlayClick(AudioClip click)
     {
         soundManager = SoundManager.instance;
@@ -26,6 +31,12 @@ public class LoadScene : MonoBehaviour {
 
     public void ChooseScene(string sceneName)
     {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void ChooseSceneStopMusic(string sceneName)
+    {
+        soundManager.StopBackground();
         SceneManager.LoadScene(sceneName);
     }
 
@@ -52,6 +63,7 @@ public class LoadScene : MonoBehaviour {
     {
         AnimationController.control.PlaySimpleTrasitionAnimation();
         yield return new WaitForSeconds(0.6f);
+        soundManager.StopBackground();
         SceneManager.LoadScene(scene);
     }
 }

@@ -8,14 +8,15 @@ public class LoadScene : MonoBehaviour {
     GameObject soundChecker; //Basicamente um loader para a primeira tela
 
     SoundManager soundManager;
+    AnimationController animationController;
 
     private void Awake()
-    {
+    {/*
         soundChecker = Resources.Load("Prefabs/SoundManager") as GameObject;
         if (SoundManager.instance == null)
         {
             soundChecker = Instantiate(soundChecker);
-        }
+        }*/
     }
 
     private void Start()
@@ -54,16 +55,7 @@ public class LoadScene : MonoBehaviour {
     /// <param name="Scene"></param>
     public void LoadSceneWithFade(string scene)
     {
-        StartCoroutine(Fade(scene));
-        //AnimationController.control.PlaySimpleTrasitionAnimation();
-        //SceneManager.LoadScene(scene);
-    }
-
-    IEnumerator Fade(string scene)
-    {
-        AnimationController.control.PlaySimpleTrasitionAnimation();
-        yield return new WaitForSeconds(0.6f);
-        soundManager.StopBackground();
-        SceneManager.LoadScene(scene);
+        animationController = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationController>();
+        StartCoroutine(animationController.Fade(scene));
     }
 }

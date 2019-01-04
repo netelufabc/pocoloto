@@ -20,8 +20,6 @@ public class LoadSelection : MonoBehaviour {
         // Caminho padrão do local de save
         dataPath = SaveManager.dataPath;
 
-        saveManager = GameObject.Find("Canvas").GetComponent<SaveManager>();
-
         // Percorre todos os possíveis save slots
         for (int i = 0; i < SaveManager.slotsListSize; i++)
         {
@@ -31,7 +29,7 @@ public class LoadSelection : MonoBehaviour {
             if (System.IO.File.Exists(dataPath + "/listaDeSlots.json") && !SlotsListManager.CheckSameNumber(i, SaveManager.list))
             {
                 // Carrega o player para obter o nome
-                saveManager.Load(i);
+                SaveManager.Load(i);
                 // Coloca as informações do save no botão de load
                 loadSlotButton.GetComponentInChildren<Text>().text = "  Load Slot " + i + "\n  Player Name: " + SaveManager.player.nome;
                 loadSlotButton.GetComponentInChildren<UnityEngine.UI.Button>().interactable = true;

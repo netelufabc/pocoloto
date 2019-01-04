@@ -9,6 +9,7 @@ public class ButtonChooseYourGender : MonoBehaviour {
     GameObject boy;
     Button buttonBoy;
     Button buttonGirl;
+    Button confirmar;
 
     private void Awake()
     {
@@ -16,6 +17,19 @@ public class ButtonChooseYourGender : MonoBehaviour {
         girl = GameObject.Find("Menina");
         buttonBoy = boy.GetComponent<Button>();
         buttonGirl = girl.GetComponent<Button>();
+        confirmar = GameObject.Find("Button - Confirma").GetComponent<Button>();
+    }
+
+    private void Update()
+    {
+        if ((buttonBoy.interactable && buttonGirl.interactable)||GameObject.Find("NomeText").GetComponent<Text>().text == "" || GameObject.Find("IdadeText").GetComponent<Text>().text == "" || GameObject.Find("SerieText").GetComponent<Text>().text =="")
+        {
+            confirmar.interactable = false;
+        }
+        else
+        {
+            confirmar.interactable = true;
+        }
     }
 
     /// <summary>

@@ -142,6 +142,7 @@ public class Score: MonoBehaviour {
             resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject; 
             resultado = Instantiate(resultado);
             resultado.transform.SetParent(GameObject.Find("Canvas").transform);
+            SaveManager.Save();
             yield return new WaitForSeconds(4);
             StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
@@ -163,7 +164,7 @@ public class Score: MonoBehaviour {
                 resultado.transform.SetParent(GameObject.Find("Canvas").transform);
                 resultado.transform.position = new Vector3(1, -1, -20); //Números para instanciar no meio da tela
             }
-            
+            SaveManager.Save();
             yield return new WaitForSeconds(4);
             StartCoroutine(stageManager.CallAnotherLevel(3, PreviousLevel, false));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }

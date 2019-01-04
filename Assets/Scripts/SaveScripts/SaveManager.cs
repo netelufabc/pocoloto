@@ -21,7 +21,7 @@ public class SaveManager : MonoBehaviour {
 
     #region Save&Load
 
-    public void Save()
+    public static void Save()
     {
         string nomeDoJson = string.Concat(player.slot, ".json");
         string newDataPath = System.IO.Path.Combine(dataPath, nomeDoJson);
@@ -32,7 +32,7 @@ public class SaveManager : MonoBehaviour {
     /// Recebe um inteiro informando o slot a ser carregado
     /// </summary>
     /// <param name="i"></param>
-    public void Load(int i)
+    public static void Load(int i)
     {
         string tempPath = i.ToString();
         SaveData.LoadPlayerData(tempPath + ".json");

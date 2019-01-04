@@ -11,14 +11,12 @@ public class LoadScene : MonoBehaviour {
     AnimationController animationController;
 
     private void Awake()
-    {
+    {/*
         soundChecker = Resources.Load("Prefabs/SoundManager") as GameObject;
         if (SoundManager.instance == null)
         {
             soundChecker = Instantiate(soundChecker);
-        }
-
-        animationController = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationController>();
+        }*/
     }
 
     private void Start()
@@ -57,6 +55,7 @@ public class LoadScene : MonoBehaviour {
     /// <param name="Scene"></param>
     public void LoadSceneWithFade(string scene)
     {
+        animationController = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationController>();
         StartCoroutine(animationController.Fade(scene));
     }
 }

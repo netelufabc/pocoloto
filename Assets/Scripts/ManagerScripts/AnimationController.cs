@@ -21,7 +21,7 @@ public class AnimationController : MonoBehaviour {
             control = this;
 
             // PARA TESTES
-            GameObject newAnimationController = Instantiate(Resources.Load("Prefabs/AnimationManager") as GameObject) as GameObject;
+            //GameObject newAnimationController = Instantiate(Resources.Load("Prefabs/AnimationManager") as GameObject) as GameObject;
         }
         else if (this != control)
         {

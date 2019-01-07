@@ -1309,8 +1309,8 @@ MonoBehaviour:
   currentLevel: 4
   CharLimitForThisLevel: 8
   NumeroDeSilabasDaPalavra: 4
-  NextLevel: 09_nivel05
-  PreviousLevel: 07_nivel03
+  NextLevel: 06_stageSelect
+  PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_04
 --- !u!114 &1644367541
 MonoBehaviour:

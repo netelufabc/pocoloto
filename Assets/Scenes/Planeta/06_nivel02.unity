@@ -815,8 +815,8 @@ MonoBehaviour:
   currentLevel: 2
   CharLimitForThisLevel: 4
   NumeroDeSilabasDaPalavra: 2
-  NextLevel: 07_nivel03
-  PreviousLevel: 05_nivel01
+  NextLevel: 06_stageSelect
+  PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_02
 --- !u!82 &1240923713
 AudioSource:

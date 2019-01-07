@@ -1011,8 +1011,8 @@ MonoBehaviour:
   currentLevel: 1
   CharLimitForThisLevel: 2
   NumeroDeSilabasDaPalavra: 1
-  NextLevel: stageselect
-  PreviousLevel: 01_abertura
+  NextLevel: 06_stageSelect
+  PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_01
 --- !u!114 &1275941547
 MonoBehaviour:

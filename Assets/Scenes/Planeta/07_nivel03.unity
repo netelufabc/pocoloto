@@ -1206,8 +1206,8 @@ MonoBehaviour:
   currentLevel: 3
   CharLimitForThisLevel: 6
   NumeroDeSilabasDaPalavra: 3
-  NextLevel: 08_nivel04
-  PreviousLevel: 06_nivel02
+  NextLevel: 06_stageSelect
+  PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_03
 --- !u!20 &1166454310
 Camera:

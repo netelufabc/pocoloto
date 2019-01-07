@@ -1115,8 +1115,8 @@ MonoBehaviour:
   currentLevel: 5
   CharLimitForThisLevel: 5
   NumeroDeSilabasDaPalavra: 2
-  NextLevel: SceneTeste
-  PreviousLevel: 08_nivel04
+  NextLevel: 06_stageSelect
+  PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_05
 --- !u!82 &1101345384
 AudioSource:

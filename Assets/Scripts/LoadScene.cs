@@ -10,15 +10,6 @@ public class LoadScene : MonoBehaviour {
     SoundManager soundManager;
     AnimationManager animManager;
 
-    private void Awake()
-    {/*
-        soundChecker = Resources.Load("Prefabs/SoundManager") as GameObject;
-        if (SoundManager.instance == null)
-        {
-            soundChecker = Instantiate(soundChecker);
-        }*/
-    }
-
     private void Start()
     {
         soundManager = SoundManager.instance;
@@ -29,17 +20,12 @@ public class LoadScene : MonoBehaviour {
         soundManager = SoundManager.instance;
         soundManager.PlaySfx(click);
     }
-
-    public void ChooseScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-
-    public void ChooseSceneStopMusic(string sceneName)
-    {
-        soundManager.StopBackground();
-        SceneManager.LoadScene(sceneName);
-    }
+    /*
+   public void ChooseScene(string sceneName)
+   {
+       SceneManager.LoadScene(sceneName);
+   }
+   */
 
     IEnumerator EsperaPocoloto()
     {
@@ -56,6 +42,7 @@ public class LoadScene : MonoBehaviour {
     public void LoadSceneWithFade(string scene)
     {
         animManager = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
+        soundManager.StopSilaba();
         StartCoroutine(animManager.Fade(scene));
     }
 }

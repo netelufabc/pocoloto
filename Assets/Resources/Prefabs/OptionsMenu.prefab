@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 222048101230360744}
   - component: {fileID: 114267947400153302}
   - component: {fileID: 114177975173226980}
+  - component: {fileID: 114008920953743072}
   m_Layer: 5
   m_Name: ExitGame
   m_TagString: Untagged
@@ -92,6 +93,7 @@ GameObject:
   - component: {fileID: 114045757142809000}
   - component: {fileID: 114543539043813014}
   - component: {fileID: 114828087572522450}
+  - component: {fileID: 114494772746309696}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -110,6 +112,7 @@ GameObject:
   - component: {fileID: 222946077958609242}
   - component: {fileID: 114152255652821658}
   - component: {fileID: 114904539483852098}
+  - component: {fileID: 114318916199167014}
   m_Layer: 5
   m_Name: Menu Principal
   m_TagString: Untagged
@@ -117,6 +120,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114008920953743072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582961914579834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114045757142809000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,6 +297,28 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114318916199167014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912142814594138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114494772746309696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736339266664326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114543539043813014
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,7 +8,7 @@ public class LoadScene : MonoBehaviour {
     GameObject soundChecker; //Basicamente um loader para a primeira tela
 
     SoundManager soundManager;
-    AnimationController animationController;
+    AnimationManager animManager;
 
     private void Awake()
     {/*
@@ -55,7 +55,7 @@ public class LoadScene : MonoBehaviour {
     /// <param name="Scene"></param>
     public void LoadSceneWithFade(string scene)
     {
-        animationController = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationController>();
-        StartCoroutine(animationController.Fade(scene));
+        animManager = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
+        StartCoroutine(animManager.Fade(scene));
     }
 }

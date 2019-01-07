@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AnimationController : MonoBehaviour {
+public class AnimationManager : MonoBehaviour {
 
-    public static AnimationController control = null;
+    public static AnimationManager instance = null;
     public AudioClip audio;
 
     private Animator animator;
@@ -16,26 +16,28 @@ public class AnimationController : MonoBehaviour {
     /// </summary>
     public void Awake()
     {
-        if (control == null)
+        if (instance == null)
         {
-            control = this;
-
-            // PARA TESTES
-            //GameObject newAnimationController = Instantiate(Resources.Load("Prefabs/AnimationManager") as GameObject) as GameObject;
+            instance = this;
         }
-        else if (this != control)
+        else if (instance != this)
         {
             Destroy(gameObject);
         }
+
         DontDestroyOnLoad(gameObject);
 
+        // Carrega as animações
         animForward = Resources.Load("Prefabs/HyperspaceForward") as GameObject;
         animBackward = Resources.Load("Prefabs/HyperspaceBackwards") as GameObject;
         fade = Resources.Load("Prefabs/Fade") as GameObject;
 
+        // Instancia as animações carregadas
         animForward = Instantiate(animForward);
         animBackward = Instantiate(animBackward);
         fade = Instantiate(fade);
+
+        // Coloca as animações como filhas do AnimationManager
         animForward.transform.SetParent(GameObject.FindGameObjectWithTag("AnimationManager").transform, false);
         animBackward.transform.SetParent(GameObject.FindGameObjectWithTag("AnimationManager").transform, false);
         fade.transform.SetParent(GameObject.FindGameObjectWithTag("AnimationManager").transform, false);
@@ -70,9 +72,14 @@ public class AnimationController : MonoBehaviour {
         fade.GetComponent<Animator>().SetTrigger("FadeStart");
     }
 
+    /// <summary>
+    /// Controle da animação de FadeIn e FadeOut
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <returns></returns>
     public IEnumerator Fade(string scene)
     {
-        AnimationController.control.PlaySimpleTrasitionAnimation();
+        AnimationManager.instance.PlaySimpleTrasitionAnimation();
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
     }

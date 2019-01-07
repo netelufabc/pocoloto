@@ -15,7 +15,7 @@ public class Video_Player : MonoBehaviour
     void Start()
     {
         botaoComecar = GameObject.Find("Button - Comecar").GetComponent<UnityEngine.UI.Button>();
-        botaoComecar.interactable = false;
+        //botaoComecar.interactable = false;
         rawImage.enabled = false;
         soundManager = SoundManager.instance;
         StartCoroutine(PlayVideo());

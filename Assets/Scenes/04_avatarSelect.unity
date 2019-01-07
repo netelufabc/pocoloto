@@ -262,7 +262,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0.5019608}
+    m_NormalColor: {r: 0.7764706, g: 0.7764706, b: 0.7764706, a: 0.50980395}
     m_HighlightedColor: {r: 0.504717, g: 1, b: 0.9755163, a: 1}
     m_PressedColor: {r: 0.97972727, g: 1, b: 0, a: 1}
     m_DisabledColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0.5019608}
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 457870821}
-        m_MethodName: ChooseScene
+        m_MethodName: LoadSceneWithFade
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

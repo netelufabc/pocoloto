@@ -78,6 +78,14 @@ public class SoundManager : MonoBehaviour {
         audioFala.Play();
     }
 
+    public void StopSilaba()
+    {
+        if (audioFala.isPlaying)
+        {
+            audioFala.Stop();
+        }
+    }
+
     public void ChangePitch(float value)
     {
         audioFala.pitch = value;

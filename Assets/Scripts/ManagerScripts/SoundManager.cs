@@ -32,10 +32,19 @@ public class SoundManager : MonoBehaviour {
     /// <param name="background"></param>
     public void PlayBackground(AudioClip background)
     {
-        if (!audioBackground.isPlaying) { 
+        ///Primeiro verifica se o áudio é diferente, caso seja, 
+        ///a música será substituida independente de qualquer coisa, caso seja igual, 
+        ///ele verifica se a música já não está tocando (para evitar cortes na música atual)
+        if (background != audioBackground.clip)
+        {
             audioBackground.clip = background;
             audioBackground.Play();
-    }
+        }
+
+        else if (!audioBackground.isPlaying) { 
+            audioBackground.clip = background;
+            audioBackground.Play();
+        }
     }
 
     /// <summary>

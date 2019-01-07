@@ -1117,6 +1117,7 @@ GameObject:
   - component: {fileID: 1644367538}
   - component: {fileID: 1644367536}
   - component: {fileID: 1644367535}
+  - component: {fileID: 1644367537}
   - component: {fileID: 1644367540}
   - component: {fileID: 1644367541}
   m_Layer: 0
@@ -1228,6 +1229,19 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1644367534}
   m_Enabled: 1
+--- !u!114 &1644367537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644367534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3af1375ec029a947a89b7246170749f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  song: {fileID: 0}
+  Stop: 1
 --- !u!20 &1644367538
 Camera:
   m_ObjectHideFlags: 0

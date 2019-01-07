@@ -28,13 +28,13 @@ public class SilabaControl : MonoBehaviour {
 
     }
 
-    private void Start()
+    /*private void Start()
     {
         soundManager = SoundManager.instance;
         buttonDicaAudio = ButtonDicaAudio.instance;
         buttonDicaVisual = ButtonDicaVisual.instance;
         timer = Timer.instance;
-    }
+    }*/
 
     /// <summary>
     /// Prepara a classe SilabaControl carregando todos os arquivos das silabas nelas
@@ -43,6 +43,11 @@ public class SilabaControl : MonoBehaviour {
     public void SilabaSetup(string soundsDirectory)
     {
         silabasNivelAtual = Resources.LoadAll(soundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01
+
+        soundManager = SoundManager.instance;
+        buttonDicaAudio = ButtonDicaAudio.instance;
+        buttonDicaVisual = ButtonDicaVisual.instance;
+        timer = Timer.instance;
     }
 
     public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba

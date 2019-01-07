@@ -8,36 +8,44 @@ public class Loader : MonoBehaviour {
 
     private void Awake()
     {
+        #region Colocados no LoaderManager
+        //score = Resources.Load("Prefabs/ScoreManager") as GameObject;
+        //soundManager = Resources.Load("Prefabs/SoundManager") as GameObject;
+        //silabaControl = Resources.Load("Prefabs/SilabaControl") as GameObject;
+        //animationController = Resources.Load("Prefabs/AnimationManager") as GameObject;
+        #endregion
 
-        score = Resources.Load("Prefabs/ScoreManager") as GameObject;
-        soundManager = Resources.Load("Prefabs/SoundManager") as GameObject;
         timer = Resources.Load("Prefabs/Timer") as GameObject;
-        silabaControl = Resources.Load("Prefabs/SilabaControl") as GameObject;
         dicaAudio = Resources.Load("Prefabs/Button Sound") as GameObject;
         dicaVisual = Resources.Load("Prefabs/Button Eye") as GameObject;
         buttonConfirmar = Resources.Load("Prefabs/Button Confirma Resposta") as GameObject;
-        animationController = Resources.Load("Prefabs/AnimationManager") as GameObject;
 
-        if (Score.instance == null)
+        #region Colocados no LoaderManager
+        /*if (Score.instance == null)
         {
             Instantiate(score);
-
         }
 
         if (SoundManager.instance == null)
         {
             Instantiate(soundManager);
-        }
+        }*/
+
+        /*if (SilabaControl.instance == null)
+        {
+            Instantiate(silabaControl);
+        }*/
+
+        /*if (AnimationManager.instance == null)
+        {
+            GameObject newAnimationController = Instantiate(animationController) as GameObject;
+        }*/
+        #endregion
 
         if (Timer.instance == null)
         {
             GameObject newTimer = Instantiate(timer) as GameObject;
             newTimer.transform.SetParent(GameObject.FindGameObjectWithTag("Timer").transform, false);
-        }
-
-        if (SilabaControl.instance == null)
-        {
-            Instantiate(silabaControl);
         }
 
         if (ButtonDicaAudio.instance == null)
@@ -52,13 +60,7 @@ public class Loader : MonoBehaviour {
             newDicaVisual.transform.SetParent(GameObject.FindGameObjectWithTag("ButtonTips").transform, false);
         }
 
-
         GameObject newButtonConfirmar = Instantiate(buttonConfirmar) as GameObject;
         newButtonConfirmar.transform.SetParent(GameObject.FindGameObjectWithTag("ButtonTips").transform, false);
-
-        if (AnimationController.control == null)
-        {
-            GameObject newAnimationController = Instantiate(animationController) as GameObject;
-        }
     }
 }

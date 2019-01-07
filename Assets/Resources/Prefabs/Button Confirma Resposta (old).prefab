@@ -9,45 +9,34 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1388785874037744}
+  m_RootGameObject: {fileID: 1256103274985548}
   m_IsPrefabAsset: 1
---- !u!1 &1388785874037744
+--- !u!1 &1256103274985548
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 224018666902821444}
-  - component: {fileID: 222444235676373458}
-  - component: {fileID: 114737873832902150}
-  - component: {fileID: 114805366986522558}
-  - component: {fileID: 114328666028445804}
-  - component: {fileID: 114738691053755554}
-  m_Layer: 5
-  m_Name: Button - Fechar
-  m_TagString: Untagged
+  - component: {fileID: 224999812779549902}
+  - component: {fileID: 222981720766065400}
+  - component: {fileID: 114302454434592396}
+  - component: {fileID: 114523579286230110}
+  - component: {fileID: 114467318077192658}
+  - component: {fileID: 114391621851469480}
+  m_Layer: 9
+  m_Name: Button Confirma Resposta (old)
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114328666028445804
+--- !u!114 &114302454434592396
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388785874037744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15b5ac02da7efe14b9b04370f7252cf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114737873832902150
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388785874037744}
+  m_GameObject: {fileID: 1256103274985548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -61,7 +50,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 54c519ad81d871a4d903b95d764d9e1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b886a937ca2d0644b96462cef661312, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -69,23 +58,34 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114738691053755554
+--- !u!114 &114391621851469480
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388785874037744}
+  m_GameObject: {fileID: 1256103274985548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114805366986522558
+--- !u!114 &114467318077192658
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388785874037744}
+  m_GameObject: {fileID: 1256103274985548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc44a8bb25c0974480d53eadd23232a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114523579286230110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256103274985548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.062077243, g: 0.74948215, b: 0.8773585, a: 1}
-    m_PressedColor: {r: 0.9121349, g: 0.9433962, b: 0.17354932, a: 1}
+    m_HighlightedColor: {r: 0.023985418, g: 0.5417434, b: 0.7264151, a: 1}
+    m_PressedColor: {r: 1, g: 0.9554455, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -114,13 +114,13 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 114737873832902150}
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 114302454434592396}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114328666028445804}
-        m_MethodName: OpenMenu
+      - m_Target: {fileID: 114467318077192658}
+        m_MethodName: ConfirmaResposta
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -132,28 +132,28 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!222 &222444235676373458
+--- !u!222 &222981720766065400
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388785874037744}
+  m_GameObject: {fileID: 1256103274985548}
   m_CullTransparentMesh: 0
---- !u!224 &224018666902821444
+--- !u!224 &224999812779549902
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388785874037744}
+  m_GameObject: {fileID: 1256103274985548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -340.1051}
-  m_LocalScale: {x: 0.090243004, y: 0.451757, z: 0.90324306}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.9254394, y: 1.2799872, z: 0.99999}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127, y: 127}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 14.3, y: -49.7}
+  m_SizeDelta: {x: 23, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

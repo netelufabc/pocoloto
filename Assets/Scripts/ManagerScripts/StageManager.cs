@@ -105,7 +105,7 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(secondsBefore);
 
         //AnimationController.PlayTransitionSceneAnimation(levelClear);
-        AnimationController.control.PlayTransitionSceneAnimation(levelClear);
+        AnimationManager.instance.PlayTransitionSceneAnimation(levelClear);
 
         yield return new WaitForSeconds(2.5f);
 

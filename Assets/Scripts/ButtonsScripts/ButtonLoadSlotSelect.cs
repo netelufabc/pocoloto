@@ -18,7 +18,7 @@ public class ButtonLoadSlotSelect : MonoBehaviour {
         slot = PositionToIndex(cellPos);
         GameObject.Find("Confirma").GetComponent<UnityEngine.UI.Button>().interactable = true;
 
-        Debug.Log("Slot selecionado: " + slot);
+        //Debug.Log("Slot selecionado: " + slot);
     }
 
     /// <summary>

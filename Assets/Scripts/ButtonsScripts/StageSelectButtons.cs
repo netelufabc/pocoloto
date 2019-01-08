@@ -13,8 +13,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private Text planetNameText;
     private int planetNumber;
     private bool rotate;
-
-    //
+    
     private bool[] planetList;
 
 	void Start () {
@@ -22,7 +21,6 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         planeta = this.GetComponent<UnityEngine.UI.Button>();
         planetaMouseOverAnimation = GameObject.Find(planeta.name).GetComponent<Animator>();
         planetNameText = GameObject.Find("Nome Planeta").GetComponent<UnityEngine.UI.Text>();
-
 
         planetList = SaveManager.player.planetaLiberado;
         planetNumber = System.Int32.Parse(planeta.name.Substring(planeta.name.Length - 1));

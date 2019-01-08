@@ -6,6 +6,8 @@ using System.IO;
 
 public class SaveData: MonoBehaviour {
 
+    private Player newPlayer = new Player();
+
     public static void SavePlayerData(string path)
     {
         if(SaveManager.player.slot == -1) //O número -1 é dado caso não haja mais espaços livres para salvar o jogo.
@@ -49,21 +51,24 @@ public class SaveData: MonoBehaviour {
 
     public void CreateNewPlayer()
     {
+        // Inicialização dos parametros básicos da classe Player no player do SaveManager
+        SaveManager.player.planetaLiberado = newPlayer.planetaLiberado;
+        SaveManager.player.avatarBloqueado = newPlayer.avatarBloqueado;
+        SaveManager.player.avatarSelecionadoIndex = newPlayer.avatarSelecionadoIndex;
+
         SaveManager.player.nome = GameObject.Find("NomeText").GetComponent<Text>().text;
         int.TryParse(GameObject.Find("IdadeText").GetComponent<Text>().text, out SaveManager.player.idade);
         int.TryParse(GameObject.Find("SerieText").GetComponent<Text>().text, out SaveManager.player.serie);
         SaveManager.player.slot = SlotsListManager.SlotGiver(SaveManager.list);
-
+        
     }
 
-    public void DeletePlayer(int slot)
+    public static void DeletePlayer()
     {
-        //public int slot; //Ainda temos que saber como iremos pegar o slot que queremos deletar. 
-
-        string stringSlot = (slot.ToString() + ".json");
+        string stringSlot = (SaveManager.selectedSlot.ToString() + ".json");
 
         System.IO.File.Delete(System.IO.Path.Combine(SaveManager.dataPath, stringSlot));
-        SlotsListManager.ReturnSlot(slot);
+        SlotsListManager.ReturnSlot(SaveManager.selectedSlot);
         
     } 
 }

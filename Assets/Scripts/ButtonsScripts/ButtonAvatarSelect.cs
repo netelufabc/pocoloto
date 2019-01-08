@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ButtonAvatarSelect : MonoBehaviour {
 
-    // Para testes e verificação
-    //public Player player = SaveManager.player;
-
 	/// <summary>
     /// Informa ao SaveManager qual o avatar selecionado (pelo índice do vetor de avatar)
     /// </summary>

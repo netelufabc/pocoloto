@@ -43,7 +43,9 @@ public class LoadSelection : MonoBehaviour {
 
                 // Se o slot está sendo usado, adiciona no contador
                 slotsUsados--;
-            }/*
+            }
+            #region Opção de deixar todos os slots vísiveis, bloqueando os não utilizados
+            /*
             else
             {
                 // Opção de deixar visível todos os slots, mas bloqueando os que não possuem save
@@ -53,12 +55,14 @@ public class LoadSelection : MonoBehaviour {
                 loadSlotButton.GetComponent<UnityEngine.UI.Button>().interactable = false;
                 loadSlotButton.transform.GetChild(1).gameObject.SetActive(false);
             }*/
+            #endregion
         }
 
         // Mostra quantos espaços de save estão livres do total
         GameObject.Find("Slots Livres").GetComponent<Text>().text = "Espaços Livres: " + slotsUsados.ToString() + "/" + SaveManager.slotsListSize;
 	}
-	
+
+	/*
     /// <summary>
     /// Função de teste para verificação da posição escolhida
     /// </summary>
@@ -68,5 +72,5 @@ public class LoadSelection : MonoBehaviour {
         Vector3 wcellPosition = transform.position;
         Vector3Int cellPosition = gridLayout.WorldToCell(wcellPosition);
         Debug.Log(cellPosition);
-    }
+    }*/
 }

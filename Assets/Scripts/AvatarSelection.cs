@@ -37,7 +37,7 @@ public class AvatarSelection : MonoBehaviour {
             }
         }
 	}
-
+    /*
     /// <summary>
     /// Função de teste para verificação da posição escolhida
     /// </summary>
@@ -47,5 +47,5 @@ public class AvatarSelection : MonoBehaviour {
         Vector3 wcellPosition = transform.position;
         Vector3Int cellPosition = gridLayout.WorldToCell(wcellPosition);
         Debug.Log(cellPosition);
-    }
+    }*/
 }

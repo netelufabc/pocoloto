@@ -11,6 +11,8 @@ public class SaveManager : MonoBehaviour {
     public static string slotsDataPath;
     public static SlotsList list;
     public static Player player = new Player();
+    // Para indicar o slot selecionado (usado no load)
+    public static int selectedSlot;
 
     public void Awake()
     {

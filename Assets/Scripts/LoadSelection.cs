@@ -33,7 +33,7 @@ public class LoadSelection : MonoBehaviour {
                 // Carrega o player para obter o nome
                 SaveManager.Load(i);
                 // Coloca as informações do save no botão de load
-                loadSlotButton.GetComponentInChildren<Text>().text = "  Load Slot " + i + "\n  Player Name: " + SaveManager.player.nome;
+                loadSlotButton.GetComponentInChildren<Text>().text =" "+SaveManager.player.nome + "\n Idade: "+SaveManager.player.idade + " Série: "+SaveManager.player.serie;
                 loadSlotButton.GetComponentInChildren<UnityEngine.UI.Button>().interactable = true;
                 // Carrega a imagem do avatar para colocar no botão
                 Sprite avatar = Resources.Load<Image>("Prefabs/AvatarTeste0" + (SaveManager.player.avatarSelecionadoIndex + 1).ToString()).sprite;

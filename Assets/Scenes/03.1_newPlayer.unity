@@ -271,7 +271,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 40
+  m_CharacterLimit: 22
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -1668,7 +1668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5795db21fe8946d40b6f7c277ce9dc3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNameSize: 7
 --- !u!1 &898857219
 GameObject:
   m_ObjectHideFlags: 0

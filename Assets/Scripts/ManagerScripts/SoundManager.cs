@@ -74,8 +74,22 @@ public class SoundManager : MonoBehaviour {
     /// <param name="currentSilaba">clip a ser tocado</param>
     public void PlaySilaba(AudioClip currentSilaba)
     {
+        /* Se quiser vender a alma para ter certeza que o pitch será 1
+        if (audioFala.pitch != 1)
+        {
+            audioFala.pitch = 1;
+        }*/
         audioFala.clip = currentSilaba;
         audioFala.Play();
+    }
+
+    public IEnumerator PlaySilaba(AudioClip currentSilaba, float pitch)
+    {
+        ChangePitch(pitch);
+        audioFala.clip = currentSilaba;
+        audioFala.Play();
+        yield return new WaitForSeconds(currentSilaba.length - currentSilaba.length * (pitch-1f));
+        ChangePitch(1f);
     }
 
     public void StopSilaba()

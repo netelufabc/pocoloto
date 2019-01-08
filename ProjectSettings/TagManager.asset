@@ -12,7 +12,7 @@ TagManager:
   - Button
   - AnimationManager
   - Fade
-  - AvatarWindow
+  - AvatarButton
   layers:
   - Default
   - TransparentFX

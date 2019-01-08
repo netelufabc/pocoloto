@@ -1,24 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class ButtonLoadSlotSelect : MonoBehaviour {
-
+        
     /// <summary>
     /// Informa qual o slot selecionado para carregar (load)
     /// </summary>
 	public void SlotSelected()
     {
-        // Variável criada para obter o indice do slot
-        // Deve ser uma variável publica do gamemanager ou esta função deve chamar a função de load do savemanager
-        int slot;
-
         GridLayout gridLayout = transform.parent.GetComponent<GridLayout>();
         Vector3Int cellPos = gridLayout.WorldToCell(transform.position);
-        slot = PositionToIndex(cellPos);
+        SaveManager.selectedSlot = PositionToIndex(cellPos);
         GameObject.Find("Confirma").GetComponent<UnityEngine.UI.Button>().interactable = true;
-
-        //Debug.Log("Slot selecionado: " + slot);
+        GameObject.Find("Delete").GetComponent<UnityEngine.UI.Button>().interactable = true;
     }
 
     /// <summary>
@@ -30,5 +27,22 @@ public class ButtonLoadSlotSelect : MonoBehaviour {
     {
         int y = -(pos.y + 30) / 50;
         return y;
+    }
+
+    /// <summary>
+    /// Carrega os dados armazenados no slot selecionado
+    /// </summary>
+    public void LoadSelectedSlot()
+    {
+        SaveManager.Load(SaveManager.selectedSlot);
+    }
+
+    /// <summary>
+    /// Deleta o save do slot selecionado
+    /// </summary>
+    public void DeleteSelecteSlot()
+    {
+        SaveData.DeletePlayer();
+        SceneManager.LoadScene("03.2_loadSelection");
     }
 }

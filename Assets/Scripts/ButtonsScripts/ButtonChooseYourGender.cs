@@ -10,6 +10,7 @@ public class ButtonChooseYourGender : MonoBehaviour {
     Button buttonBoy;
     Button buttonGirl;
     Button confirmar;
+    public int maxNameSize;
 
     private void Awake()
     {
@@ -22,13 +23,25 @@ public class ButtonChooseYourGender : MonoBehaviour {
 
     private void Update()
     {
-        if ((buttonBoy.interactable && buttonGirl.interactable)||GameObject.Find("NomeText").GetComponent<Text>().text == "" || GameObject.Find("IdadeText").GetComponent<Text>().text == "" || GameObject.Find("SerieText").GetComponent<Text>().text =="")
+        if ((buttonBoy.interactable && buttonGirl.interactable)||GameObject.Find("NomeText").GetComponent<Text>().text == "" || GameObject.Find("IdadeText").GetComponent<Text>().text == "" || GameObject.Find("SerieText").GetComponent<Text>().text =="" || !ValidNameSize(GameObject.Find("NomeText").GetComponent<Text>().text))
         {
             confirmar.interactable = false;
         }
         else
         {
             confirmar.interactable = true;
+        }
+    }
+
+    private bool ValidNameSize(string name)
+    {
+        if (name.Length < maxNameSize)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

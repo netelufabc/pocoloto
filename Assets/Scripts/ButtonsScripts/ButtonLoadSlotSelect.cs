@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class ButtonLoadSlotSelect : MonoBehaviour {
+
+    public GameObject confirmMenu;
         
     /// <summary>
     /// Informa qual o slot selecionado para carregar (load)
@@ -41,6 +43,16 @@ public class ButtonLoadSlotSelect : MonoBehaviour {
     /// Deleta o save do slot selecionado
     /// </summary>
     public void DeleteSelecteSlot()
+    {
+        if (GameObject.Find("ConfirmMenu(Clone)") == null)
+        {
+            GameObject newConfrimMenu;
+            newConfrimMenu = Instantiate(confirmMenu);
+            newConfrimMenu.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        }
+    }
+
+    public void ConfirmaDeletar()
     {
         SaveData.DeletePlayer();
         SceneManager.LoadScene("03.2_loadSelection");

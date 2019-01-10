@@ -27,21 +27,25 @@ public static class LevelController
     public static string[] silabas;
     public static string[] silabasDigitadas;
 
+    // Para verificar se a palavra deve ser separada em sílabas ou letras
+    public static bool eSilaba;
+    
     public static void InitializeVars()
     {
-        silabas = new string[NumeroDeSilabasDaPalavra];
+        // silabas tem o número de sílabas ou o número de letras, dependendo do eSilaba
+        if (eSilaba)
+        {
+            silabas = new string[NumeroDeSilabasDaPalavra];
+        }
+        else
+        {
+            silabas = new string[CharLimitForLevel];
+        }
         silabasDigitadas = new string[NumeroDeSilabasDaPalavra];
     }    
 
     public static void SeparaSilabas()
     {
-        ////int counter = 0;
-        //for (int i = 0; i < NumeroDeSilabasDaPalavra; i++)
-        //{
-        //    silabas[i] = string.Concat(PalavraSelecionada[2 * i], PalavraSelecionada[2 * i + 1]);
-        //    //counter++;
-        //}
-
         // Separa silabas - como todas as sílabas no arquivo terminam em uma vogal, concatena as letras até encontrar uma vogal
         // CASO COLOQUEM PALAVRAS COM SÍLABAS QUE NÃO TERMINEM EM VOGAIS ESTA PARTE DEVE SER REVISADA
         string vogais = "AEIOU", silabaTemp = "";
@@ -52,6 +56,7 @@ public static class LevelController
             silabaTemp = string.Concat(silabaTemp, PalavraSelecionada[i]);
             if (vogais.IndexOf(PalavraSelecionada[i]) != -1)
             {
+                Debug.Log(k + " " + silabaTemp);
                 silabas[k] = silabaTemp;
                 silabaTemp = "";
                 k++;
@@ -59,11 +64,14 @@ public static class LevelController
         }
     }
 
-    // Não precisa mais
-    //public static void SeparaSilabasLevel05()
-    //{
-    //    silabas[0] = PalavraSelecionada.Substring(0,2);
-    //    silabas[1] = PalavraSelecionada.Substring(2,3);
-    //}
-
+    /// <summary>
+    /// Separa as letras da PalavraSelecionada
+    /// </summary>
+    public static void SeparaLetras()
+    {
+        for (int i = 0; i < CharLimitForLevel; i++)
+        {
+            silabas[i] = PalavraSelecionada[i].ToString();
+        }
+    }
 }

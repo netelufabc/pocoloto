@@ -1014,6 +1014,7 @@ MonoBehaviour:
   NextLevel: 06_stageSelect
   PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_01
+  eSilaba: 1
 --- !u!114 &1275941547
 MonoBehaviour:
   m_ObjectHideFlags: 0

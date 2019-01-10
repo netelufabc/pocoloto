@@ -19,6 +19,8 @@ public class StageManager : MonoBehaviour
     public string PreviousLevel;
     [Tooltip("Diretório de sons do nível")]
     public string soundsDirectory;
+    [Tooltip("A fase é sílabas ou letras")]
+    public bool eSilaba = true;
     public static StageManager instance = null;
 
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
@@ -69,6 +71,8 @@ public class StageManager : MonoBehaviour
         //AnimationController = LevelChangerAnimController.control;
 
         LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
+        // Define se a palavra deve ser separada em sílabas ou letras
+        LevelController.eSilaba = eSilaba;
 
         StartCoroutine(silabaControl.CallSilaba(1f)); //Começa a chamar as silabas
     }

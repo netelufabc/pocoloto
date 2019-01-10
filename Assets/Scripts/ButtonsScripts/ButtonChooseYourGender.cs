@@ -11,6 +11,8 @@ public class ButtonChooseYourGender : MonoBehaviour {
     Button buttonGirl;
     Button confirmar;
 
+    InputField inputName;
+
     private void Awake()
     {
         boy = GameObject.Find("Menino");
@@ -18,6 +20,15 @@ public class ButtonChooseYourGender : MonoBehaviour {
         buttonBoy = boy.GetComponent<Button>();
         buttonGirl = girl.GetComponent<Button>();
         confirmar = GameObject.Find("Button - Confirma").GetComponent<Button>();
+
+        ///Parte para deixar a entrada do nome em maiúsculo
+        inputName = GameObject.Find("InputField - Nome").GetComponent<InputField>();
+        inputName.onValueChanged.AddListener(delegate { TranformToUpperCase(); });
+    }
+
+    void TranformToUpperCase()
+    {
+        inputName.text = inputName.text.ToUpper();
     }
 
     private void Update()

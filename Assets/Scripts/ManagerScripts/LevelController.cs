@@ -54,7 +54,7 @@ public static class LevelController
             silabaTemp = string.Concat(silabaTemp, PalavraSelecionada[i]);
             if (vogais.IndexOf(PalavraSelecionada[i]) != -1)
             {
-                Debug.Log(k + " " + silabaTemp);
+                //Debug.Log(k + " " + silabaTemp);
                 originalText[k] = silabaTemp;
                 silabaTemp = "";
                 k++;
@@ -70,7 +70,7 @@ public static class LevelController
         for (int i = 0; i < textSlots; i++)
         {
             originalText[i] = PalavraSelecionada[i].ToString();
-            Debug.Log(i + " " + originalText[i]);
+            //Debug.Log(i + " " + originalText[i]);
         }
     }
 }

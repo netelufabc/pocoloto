@@ -84,7 +84,7 @@ public class StageManager : MonoBehaviour
         silabaControl.SilabaSetup(soundsDirectory);
 
         score = Score.instance;
-        score.ScoreSetup(); 
+        score.ScoreSetup();
 
         buttonConfirmar = ButtonConfirmar.instance;
 

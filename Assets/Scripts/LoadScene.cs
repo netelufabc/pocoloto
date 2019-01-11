@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class LoadScene : MonoBehaviour {
 
     GameObject soundChecker; //Basicamente um loader para a primeira tela
-
+    GameObject menuOptions;
     SoundManager soundManager;
     AnimationManager animManager;
 
     private void Start()
     {
+        menuOptions = Resources.Load("Prefabs/MenuOptions") as GameObject;
         soundManager = SoundManager.instance;
     }
 
@@ -26,6 +27,16 @@ public class LoadScene : MonoBehaviour {
        SceneManager.LoadScene(sceneName);
    }
    */
+
+    public void OpenOptionsMenu()//abre menu opções menu principal
+    {
+        if (GameObject.Find("MenuOptions(Clone)") == null)
+        {
+            GameObject newOptionsMenu;
+            newOptionsMenu = Instantiate(menuOptions);
+            newOptionsMenu.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        }
+    }
 
     IEnumerator EsperaPocoloto()
     {

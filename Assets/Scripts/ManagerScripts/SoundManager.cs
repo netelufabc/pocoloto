@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour {
     private AudioSource audioBackground;
     [SerializeField]
     private AudioSource audioSfx;
+    private bool gameSoundMuted = false;
 
     void Awake()
     {
@@ -35,13 +36,13 @@ public class SoundManager : MonoBehaviour {
         ///Primeiro verifica se o áudio é diferente, caso seja, 
         ///a música será substituida independente de qualquer coisa, caso seja igual, 
         ///ele verifica se a música já não está tocando (para evitar cortes na música atual)
-        if (background != audioBackground.clip)
+        if (background != audioBackground.clip && !gameSoundMuted)
         {
             audioBackground.clip = background;
             audioBackground.Play();
         }
 
-        else if (!audioBackground.isPlaying) { 
+        else if (!audioBackground.isPlaying && !gameSoundMuted) { 
             audioBackground.clip = background;
             audioBackground.Play();
         }
@@ -55,6 +56,33 @@ public class SoundManager : MonoBehaviour {
         if (audioBackground.isPlaying)
         {
             audioBackground.Stop();
+        }
+    }
+
+    public void SetMusicOff()
+    {
+        if (audioBackground.isPlaying)
+        {
+            audioBackground.Stop();
+            gameSoundMuted = true;
+        }
+    }
+
+    public void SetMusicON(AudioClip background)
+    {
+        gameSoundMuted = false;
+        PlayBackground(background);
+    }
+
+    public bool IsBackgroundPlaying()
+    {
+        if (audioBackground.isPlaying)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

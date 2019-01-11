@@ -8,7 +8,7 @@ public class CloseApp : LoadScene {
 
     private void Awake()
     {
-        optionsMenu = Resources.Load("Prefabs/OptionsMenu") as GameObject;
+        optionsMenu = Resources.Load("Prefabs/CloseMenu") as GameObject;
     }
 
     public void FecharAplicacao()
@@ -19,7 +19,7 @@ public class CloseApp : LoadScene {
 
     public void OpenMenu()
     {
-        if (GameObject.Find("OptionsMenu(Clone)") == null)
+        if (GameObject.Find("CloseMenu(Clone)") == null)
         {
             GameObject newOptionsMenu;
             newOptionsMenu = Instantiate(optionsMenu);

@@ -9,6 +9,7 @@ public class SilabaControl : MonoBehaviour {
     private ButtonDicaAudio buttonDicaAudio;
     private ButtonDicaVisual buttonDicaVisual;
     private Timer timer;
+    private DistractorCreator distractorCreator;
     private Object[] silabasNivelAtual;
 
     private int randomNumber;
@@ -78,6 +79,7 @@ public class SilabaControl : MonoBehaviour {
         soundManager.PlaySilaba(silabaAtual);
         StartCoroutine(WaitForSound(silabaAtual.length));
         StartCoroutine(timer.SetTimeIsRunning(silabaAtual));
+
         buttonDicaAudio.ActiveButton();
         buttonDicaVisual.ActiveButton();
     }

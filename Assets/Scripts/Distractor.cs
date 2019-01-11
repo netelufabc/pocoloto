@@ -16,9 +16,16 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     /// </summary>
     private float SpinningSpeed;
 
+    /// <summary>
+    /// Número total de distradores na cena.
+    /// </summary>
+    private static int numDistractors;
+
     private void Awake()
     {
         botao = this.GetComponent<UnityEngine.UI.Button>();
+        LevelController.bloqueiaBotao = true; //Bloqueia os botões para que a pessoa seja obrigada a destruir todos distradores
+        numDistractors++;
         animator = this.GetComponent<Animator>();
         SpinningSpeed = Random.Range(-1f, 1f);
         animator.SetFloat("SpeedMultiplier", SpinningSpeed);
@@ -30,6 +37,12 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     /// </summary>
     public void DestroyDistractor()
     {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); //Muda o curso de volta ao normal, pois a função OnPointerExit não funciona quando o objeto é destruído
+        numDistractors--;
+        if (numDistractors == 0) //Verifica o número de distradores na cena para ver se pode desbloquear os botões
+        {
+            LevelController.bloqueiaBotao = false;
+        }
         Destroy(gameObject);
     }
 

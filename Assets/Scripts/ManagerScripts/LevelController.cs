@@ -33,14 +33,14 @@ public static class LevelController
     public static void InitializeVars()
     {
         // silabas tem o número de sílabas ou o número de letras, dependendo do eSilaba
-        if (eSilaba)
+       /* if (eSilaba)
         {
-            silabas = new string[NumeroDeSilabasDaPalavra];
         }
         else
         {
             silabas = new string[CharLimitForLevel];
-        }
+        }*/
+            silabas = new string[NumeroDeSilabasDaPalavra];
         silabasDigitadas = new string[NumeroDeSilabasDaPalavra];
     }    
 
@@ -56,7 +56,7 @@ public static class LevelController
             silabaTemp = string.Concat(silabaTemp, PalavraSelecionada[i]);
             if (vogais.IndexOf(PalavraSelecionada[i]) != -1)
             {
-                Debug.Log(k + " " + silabaTemp);
+                //Debug.Log(k + " " + silabaTemp);
                 silabas[k] = silabaTemp;
                 silabaTemp = "";
                 k++;

@@ -19,7 +19,7 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     /// <summary>
     /// Número total de distradores na cena.
     /// </summary>
-    private static int numDistractors;
+    public static int numDistractors;
 
     private void Awake()
     {

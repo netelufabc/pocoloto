@@ -1115,12 +1115,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
-  planetLetters: []
+  planetLetters:
+  - A
+  - O
   textSlots: 1
   NextLevel: 06_stageSelect
   PreviousLevel: 06_stageSelect
-  soundsDirectory: Sounds\Level_01
-  eSilaba: 1
+  soundsDirectory: Sounds\P1\P1A1
+  eSilaba: 0
   palavraSelecionada: 
 --- !u!114 &1275941547
 MonoBehaviour:

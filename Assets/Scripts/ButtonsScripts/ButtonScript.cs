@@ -86,6 +86,16 @@ public class ButtonScript : CursorChange {
                     LevelController.BotaoConfirmaResposta = true;
                 }
             }
+
+            // Verifica se há mais algum espaço a ser preenchido
+            while (i < LevelController.textSlots && LevelController.inputText[i] != null && LevelController.originalText[i].Length <= LevelController.inputText[i].Length)
+            {
+                i++;
+            }
+            if (i == LevelController.textSlots)
+            {
+                LevelController.BotaoConfirmaResposta = true;
+            }
         }
     }
 

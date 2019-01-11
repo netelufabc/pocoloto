@@ -9,6 +9,8 @@ public class StageManager : MonoBehaviour
     [Header("Detalhes do nível")]
     [Tooltip("Nível atual (int)")]
     public int currentLevel;//Nível atual
+    [Tooltip("Letras foco para aprendizadono nível")]
+    public string[] planetLetters;
     /*
     [Tooltip("Total de caracteres juntas nas sílabas deste nível")]
     public int CharLimitForThisLevel;//total de caracteres das silabas deste nivel juntas
@@ -34,12 +36,8 @@ public class StageManager : MonoBehaviour
     private SilabaControl silabaControl;
     //private AnimationController levelChangerAnimController;
 
-        // Para testes
+    // Para testes
     public string palavraSelecionada;
-    public int tamsilaba;
-    public int tamsildig;
-    public int tampalselecionada;
-    public int tamtelasildig;
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -84,7 +82,7 @@ public class StageManager : MonoBehaviour
         silabaControl.SilabaSetup(soundsDirectory);
 
         score = Score.instance;
-        score.ScoreSetup(); 
+        score.ScoreSetup();
 
         buttonConfirmar = ButtonConfirmar.instance;
 
@@ -97,10 +95,6 @@ public class StageManager : MonoBehaviour
     {
         // para testes
         palavraSelecionada = LevelController.PalavraSelecionada;
-        tamsilaba = LevelController.originalText.Length;
-        tampalselecionada = LevelController.PalavraSelecionada.Length;
-        tamsildig = LevelController.inputText.Length;
-        tamtelasildig = TelaSilabaDigitada.Length;
 
         if (!LevelController.DicaVisualAtiva)
         {
@@ -139,5 +133,4 @@ public class StageManager : MonoBehaviour
 
         SceneManager.LoadScene(levelName);
     }
-
 }

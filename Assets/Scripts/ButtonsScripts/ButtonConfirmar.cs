@@ -55,21 +55,21 @@ public class ButtonConfirmar : MonoBehaviour
     {
         LevelController.bloqueiaBotao = true; // Iniciando a verificação da resposta
 
-        for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)
+        for (int i = 0; i < LevelController.textSlots; i++)
         {
-            StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.silabasDigitadas[i], LevelController.silabas[i], i, i * 1.5f)); //Para cada silaba, verifica se ela está certa ou errada
+            StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.inputText[i], LevelController.originalText[i], i, i * 1.5f)); //Para cada silaba, verifica se ela está certa ou errada
         }
 
         LevelController.BotaoConfirmaResposta = false;//disable button after click
 
-        for (int i = 0; i < LevelController.NumeroDeSilabasDaPalavra; i++)
+        for (int i = 0; i < LevelController.textSlots; i++)
         {
-            LevelController.silabasDigitadas[i] = "";//reset var after confirm button is clicked
+            LevelController.inputText[i] = "";//reset var after confirm button is clicked
         }
 
-        StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra)); //Pontua o resultado
+        StartCoroutine(score.SetScore(1.5f * LevelController.textSlots)); //Pontua o resultado
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
-        StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
+        StartCoroutine(score.CheckScore(1.5f * LevelController.textSlots, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
     }
 
 

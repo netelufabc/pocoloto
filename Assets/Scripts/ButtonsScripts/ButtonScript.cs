@@ -42,7 +42,8 @@ public class ButtonScript : CursorChange {
         if (!LevelController.bloqueiaBotao)
         {
             click.Play(0); // toca som de apertando o botao (click_tecla01)
-            // Seleção de botões antigas
+
+            #region Seleção de botões antigas
             //if (1 == LevelController.currentLevel)
             //{
             //    buttonLevel01();
@@ -63,23 +64,24 @@ public class ButtonScript : CursorChange {
             //{
             //    buttonLevel05();
             //}
-        
+            #endregion
+
             int i = 0;
         
             // Encontra em qual silaba está (i = silaba em que está - 1)
-            while (i < stageManager.NumeroDeSilabasDaPalavra && LevelController.silabasDigitadas[i] != null && LevelController.silabas[i].Length <= LevelController.silabasDigitadas[i].Length)
+            while (i < LevelController.textSlots && LevelController.inputText[i] != null && LevelController.originalText[i].Length <= LevelController.inputText[i].Length)
             {
                 i++;
             }
 
             // Verificar se a silaba em questão está completa (todas as letras) e se pode liberar o botão confirma
-            if (i < stageManager.NumeroDeSilabasDaPalavra)
+            if (i < LevelController.textSlots)
             {
-                if (LevelController.silabasDigitadas[i] == null || LevelController.silabasDigitadas[i].Length < LevelController.silabas[i].Length)
+                if (LevelController.inputText[i] == null || LevelController.inputText[i].Length < LevelController.originalText[i].Length)
                 {
-                    LevelController.silabasDigitadas[i] = string.Concat(LevelController.silabasDigitadas[i], currentButton.name);
+                    LevelController.inputText[i] = string.Concat(LevelController.inputText[i], currentButton.name);
                 }
-                if (stageManager.NumeroDeSilabasDaPalavra == i + 1 && LevelController.silabasDigitadas[i].Length == LevelController.silabas[i].Length)
+                if (stageManager.textSlots == i + 1 && LevelController.inputText[i].Length == LevelController.originalText[i].Length)
                 {
                     LevelController.BotaoConfirmaResposta = true;
                 }

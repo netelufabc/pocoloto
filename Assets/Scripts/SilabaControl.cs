@@ -63,7 +63,17 @@ public class SilabaControl : MonoBehaviour {
     {
         randomNumber = Random.Range(0, silabasNivelAtual.Length);
         LevelController.PalavraSelecionada = silabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente
-        LevelController.SeparaSilabas();
+
+        // Verifica se a PalavraSelecionada deve ser separada em sílabas ou letras
+        if (LevelController.eSilaba)
+        {
+            LevelController.SeparaSilabas();
+        }
+        else
+        {
+            LevelController.SeparaLetras();
+        }
+
         silabaAtual = silabasNivelAtual[randomNumber] as AudioClip;
         soundManager.PlaySilaba(silabaAtual);
         StartCoroutine(WaitForSound(silabaAtual.length));
@@ -90,5 +100,25 @@ public class SilabaControl : MonoBehaviour {
         yield return new WaitForSeconds(duration);
 
         LevelController.bloqueiaBotao = false; // Libera o uso do teclado virtual
+    }
+
+    /// <summary>
+    /// Pega as vogais da PalavraSelecionada e as retorna em uma string
+    /// </summary>
+    /// <returns></returns>
+    public string VogaisDaPalavra()
+    {
+        string vogaisDaPalavra = "";
+        string vogais = "AEIOU";
+
+        for (int i = 0; i < LevelController.textSlots; i++)
+        {
+            if (vogais.IndexOf(LevelController.PalavraSelecionada[i]) != -1)
+            {
+                vogaisDaPalavra = string.Concat(vogaisDaPalavra, LevelController.PalavraSelecionada[i]);
+            }
+        }
+
+        return vogaisDaPalavra;
     }
 }

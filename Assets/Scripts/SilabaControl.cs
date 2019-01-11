@@ -14,6 +14,8 @@ public class SilabaControl : MonoBehaviour {
     private int randomNumber;
     private AudioClip silabaAtual;
 
+    private StageManager stageManager;
+
     private void Awake()
     {
         if (instance == null)
@@ -48,6 +50,7 @@ public class SilabaControl : MonoBehaviour {
         buttonDicaAudio = ButtonDicaAudio.instance;
         buttonDicaVisual = ButtonDicaVisual.instance;
         timer = Timer.instance;
+        stageManager = StageManager.instance;
     }
 
     public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
@@ -120,5 +123,32 @@ public class SilabaControl : MonoBehaviour {
         }
 
         return vogaisDaPalavra;
+    }
+
+    /// <summary>
+    /// Completa as lacunas com as letras que não estão em foco de estudo
+    /// </summary>
+    public void CompleteEmptyTextSlots()
+    {
+        for (int i = 0; i < LevelController.textSlots; i++)
+        {
+            bool focoEncontrado = false;
+
+            for (int j = 0; j < stageManager.planetLetters.Length; j++)
+            {
+                /*int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
+                Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);*/
+                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
+                {
+                    focoEncontrado = true;
+                    break;
+                }
+            }
+
+            if (!focoEncontrado)
+            {
+                LevelController.inputText[i] = LevelController.originalText[i];
+            }
+        }
     }
 }

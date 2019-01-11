@@ -9,10 +9,15 @@ public class StageManager : MonoBehaviour
     [Header("Detalhes do nível")]
     [Tooltip("Nível atual (int)")]
     public int currentLevel;//Nível atual
+    /*
     [Tooltip("Total de caracteres juntas nas sílabas deste nível")]
     public int CharLimitForThisLevel;//total de caracteres das silabas deste nivel juntas
     [Tooltip("Número de sílabas diferentes")]
     public int NumeroDeSilabasDaPalavra;
+    */
+    [Tooltip("Quantidade de 'quadrados brancos' a serem preenchidos")]
+    public int textSlots;
+
     [Tooltip("Nome da scene do próximo nível")]
     public string NextLevel;
     [Tooltip("Nome da scene do nível anterior")]
@@ -28,6 +33,13 @@ public class StageManager : MonoBehaviour
     private ButtonConfirmar buttonConfirmar;
     private SilabaControl silabaControl;
     //private AnimationController levelChangerAnimController;
+
+        // Para testes
+    public string palavraSelecionada;
+    public int tamsilaba;
+    public int tamsildig;
+    public int tampalselecionada;
+    public int tamtelasildig;
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -47,14 +59,22 @@ public class StageManager : MonoBehaviour
         }
 
         LevelController.currentLevel = currentLevel;
-
-        TelaSilabaDigitada = new Text[NumeroDeSilabasDaPalavra];
-        for (int i =0; i < NumeroDeSilabasDaPalavra; i++)
+        TelaSilabaDigitada = new Text[textSlots];
+        for (int i = 0; i < textSlots; i++)
         {
             TelaSilabaDigitada[i] = GameObject.Find(string.Concat("Silaba Digitada ", i.ToString())).GetComponent <UnityEngine.UI.Text>();
         }
 
+        LevelController.textSlots = textSlots;
+
+        // Define se a palavra deve ser separada em sílabas ou letras
+        LevelController.eSilaba = eSilaba;
+        
+        /*
+        LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
         LevelController.NumeroDeSilabasDaPalavra = NumeroDeSilabasDaPalavra;
+        */
+
         LevelController.InitializeVars();
     }
 
@@ -70,20 +90,23 @@ public class StageManager : MonoBehaviour
 
         //AnimationController = LevelChangerAnimController.control;
 
-        LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
-        // Define se a palavra deve ser separada em sílabas ou letras
-        LevelController.eSilaba = eSilaba;
-
         StartCoroutine(silabaControl.CallSilaba(1f)); //Começa a chamar as silabas
     }
 
     void Update()
     {
+        // para testes
+        palavraSelecionada = LevelController.PalavraSelecionada;
+        tamsilaba = LevelController.originalText.Length;
+        tampalselecionada = LevelController.PalavraSelecionada.Length;
+        tamsildig = LevelController.inputText.Length;
+        tamtelasildig = TelaSilabaDigitada.Length;
+
         if (!LevelController.DicaVisualAtiva)
         {
-            for (int i = 0; i<NumeroDeSilabasDaPalavra; i++)
+            for (int i = 0; i < textSlots; i++)
             {
-                TelaSilabaDigitada[i].text = LevelController.silabasDigitadas[i];
+                TelaSilabaDigitada[i].text = LevelController.inputText[i];
             }
         }
 
@@ -95,6 +118,7 @@ public class StageManager : MonoBehaviour
         {
             buttonConfirmar.DeactiveButton();//desativa botao confirma resposta
         }
+
     }
 
     /// <summary>

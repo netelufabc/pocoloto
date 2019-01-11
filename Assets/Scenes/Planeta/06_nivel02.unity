@@ -720,7 +720,7 @@ Prefab:
     - target: {fileID: 224018666902821444, guid: 3ec35e889a5eeeb40a06e70ea278d78f,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224018666902821444, guid: 3ec35e889a5eeeb40a06e70ea278d78f,
         type: 2}
@@ -791,7 +791,6 @@ GameObject:
   - component: {fileID: 1240923715}
   - component: {fileID: 1240923714}
   - component: {fileID: 1240923713}
-  - component: {fileID: 1240923719}
   - component: {fileID: 1240923712}
   - component: {fileID: 1240923717}
   - component: {fileID: 1240923718}
@@ -814,12 +813,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 2
-  CharLimitForThisLevel: 4
-  NumeroDeSilabasDaPalavra: 2
+  textSlots: 2
   NextLevel: 06_stageSelect
   PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_02
-  eSilaba: 1
+  eSilaba: 0
+  palavraSelecionada: 
+  tamsilaba: 0
+  tamsildig: 0
+  tampalselecionada: 0
+  tamtelasildig: 0
 --- !u!82 &1240923713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -999,17 +1002,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   song: {fileID: 0}
   Stop: 1
---- !u!114 &1240923719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1240923711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700730ca2b793d048876c9cf02104920, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1333573084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1494,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290004856975816, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}

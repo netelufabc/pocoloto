@@ -35,19 +35,19 @@ public class EraseButton : CursorChange {
             click.Play(0);
 
             // Encontra o máximo de sílabas existentes menos 1 - vetor inicia em 0
-            int i = LevelController.NumeroDeSilabasDaPalavra - 1;
+            int i = LevelController.textSlots - 1;
 
             // Varre o vetor a partir do final procurando a última sílaba digitada
             while (i > -1)
             {
                 // Se o vetor é vazio, não faz nada
-                if (LevelController.silabasDigitadas[i] != null)
+                if (LevelController.inputText[i] != null)
                 {
                     // Se não for vazio, verifica se existe alguma letra na posição i do vetor
-                    if (LevelController.silabasDigitadas[i].Length > 0)
+                    if (LevelController.inputText[i].Length > 0)
                     {
                         // Se tem letra, apaga e sai
-                        LevelController.silabasDigitadas[i] = "";//.Remove(LevelController.silabasDigitadas[1].Length - 1);
+                        LevelController.inputText[i] = "";//.Remove(LevelController.silabasDigitadas[1].Length - 1);
                         break;
                     }
                 }

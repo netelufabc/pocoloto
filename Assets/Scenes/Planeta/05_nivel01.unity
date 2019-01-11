@@ -1009,12 +1009,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
-  CharLimitForThisLevel: 2
-  NumeroDeSilabasDaPalavra: 1
+  textSlots: 1
   NextLevel: 06_stageSelect
   PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_01
   eSilaba: 1
+  palavraSelecionada: 
+  tamsilaba: 0
+  tamsildig: 0
+  tampalselecionada: 0
+  tamtelasildig: 0
 --- !u!114 &1275941547
 MonoBehaviour:
   m_ObjectHideFlags: 0

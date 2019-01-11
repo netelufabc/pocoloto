@@ -38,8 +38,6 @@ public class StageManager : MonoBehaviour
 
     // Para testes
     public string palavraSelecionada;
-    public int tamplanlet;
-    public int[] tamcadaplanlet;
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -97,12 +95,6 @@ public class StageManager : MonoBehaviour
     {
         // para testes
         palavraSelecionada = LevelController.PalavraSelecionada;
-        tamplanlet = planetLetters.Length;
-        tamcadaplanlet = new int[tamplanlet];
-        for(int i = 0; i < tamplanlet; i++)
-        {
-            tamcadaplanlet[i] = planetLetters[i].Length;
-        }
 
         if (!LevelController.DicaVisualAtiva)
         {

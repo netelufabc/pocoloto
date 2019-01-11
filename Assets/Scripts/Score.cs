@@ -37,11 +37,7 @@ public class Score: MonoBehaviour {
     private void Start()
     {
         silabaControl = SilabaControl.instance;
-        maxScore = LevelController.MaxScoreGlobal;
-
-        
-
-
+        maxScore = LevelController.MaxScoreGlobal;       
     }
 
     /// <summary>
@@ -74,7 +70,6 @@ public class Score: MonoBehaviour {
     {
         scorePositive += pontos;
         scorePositiveText.text = scorePositive.ToString();
-
         estrelaPositivo = GameObject.Find("icone_pontuacao_estrela").GetComponent<Animator>();
         estrelaPositivo.Play("PontoPositivo");
     }
@@ -110,7 +105,9 @@ public class Score: MonoBehaviour {
     /// <returns></returns>
     public IEnumerator SetScore(float seconds)
     {
+        
         yield return new WaitForSeconds(seconds);
+        silabaControl.TocarSilabaAtual();
         if (LevelController.AlgumaSilabaErrada)
         {
             UpdateNegativeScore(1);
@@ -122,6 +119,7 @@ public class Score: MonoBehaviour {
         LevelController.AlgumaSilabaErrada = false;
     }
     
+
     /// <summary>
     /// Verifica se o jogador já está pronto para ir para o próximo nível ou se voltará para o nível anterior
     /// </summary>
@@ -171,7 +169,7 @@ public class Score: MonoBehaviour {
         }
         else
         {
-            StartCoroutine(silabaControl.CallSilaba(0));//chama nova sílaba            
+            StartCoroutine(silabaControl.CallSilaba(1.5f * LevelController.NumeroDeSilabasDaPalavra));//chama nova sílaba            
         }
     }
 }

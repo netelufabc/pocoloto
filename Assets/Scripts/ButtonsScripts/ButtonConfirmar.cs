@@ -66,7 +66,6 @@ public class ButtonConfirmar : MonoBehaviour
         {
             LevelController.silabasDigitadas[i] = "";//reset var after confirm button is clicked
         }
-
         StartCoroutine(score.SetScore(1.5f * LevelController.NumeroDeSilabasDaPalavra)); //Pontua o resultado
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
         StartCoroutine(score.CheckScore(1.5f * LevelController.NumeroDeSilabasDaPalavra, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
@@ -100,14 +99,14 @@ public class ButtonConfirmar : MonoBehaviour
             //Instancia o objeto e o coloca no lugar certo
             respostaFeedbackTemp = Instantiate(respostaErradaFeedback);
             respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
-            respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
+            respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;            
             if (BlockIndex%2 == 0) //Necessário para rotacionar os sinais de erros pares
             {
                 respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); ;
             }
 
             else
-            {
+            {                
                 respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f,0f,-10.87f));
             }
             respostaFeedbackTemp.transform.localScale = new Vector3(1, 1, 1);                

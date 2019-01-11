@@ -819,7 +819,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50.8, y: 22.4}
+  m_AnchoredPosition: {x: -49.3, y: 22.4}
   m_SizeDelta: {x: 60, y: 108.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1288050027
@@ -1312,6 +1312,7 @@ MonoBehaviour:
   NextLevel: 06_stageSelect
   PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\Level_04
+  eSilaba: 1
 --- !u!114 &1644367541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -13.9, y: 22.400002}
+  m_AnchoredPosition: {x: -12.9, y: 22.400002}
   m_SizeDelta: {x: 60, y: 108.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1864327683
@@ -1538,7 +1539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.7, y: 22.400002}
+  m_AnchoredPosition: {x: 24.7, y: 22.400002}
   m_SizeDelta: {x: 60, y: 108.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2000142615

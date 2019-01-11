@@ -33,14 +33,14 @@ public static class LevelController
     public static void InitializeVars()
     {
         // silabas tem o número de sílabas ou o número de letras, dependendo do eSilaba
-        if (eSilaba)
-        {
+        //if (eSilaba)
+        //{
+        //}
+        //else
+        //{
+        //    silabas = new string[CharLimitForLevel];
+        //}
             silabas = new string[NumeroDeSilabasDaPalavra];
-        }
-        else
-        {
-            silabas = new string[CharLimitForLevel];
-        }
         silabasDigitadas = new string[NumeroDeSilabasDaPalavra];
     }    
 

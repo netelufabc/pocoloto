@@ -21,9 +21,11 @@ public class CloseApp : LoadScene {
     {
         if (GameObject.Find("CloseMenu(Clone)") == null)
         {
+            soundManager.StopBackground();
             GameObject newOptionsMenu;
             newOptionsMenu = Instantiate(optionsMenu);
             newOptionsMenu.transform.SetParent(GameObject.Find("Canvas").transform, false);
+            LevelController.TimePause = true;
         }
     }
 
@@ -32,8 +34,11 @@ public class CloseApp : LoadScene {
     /// </summary>
     public void CloseMenu()
     {
+        
+        soundManager.PlayBackground();
         GameObject buttonParent;
         buttonParent = this.transform.parent.gameObject;
+        LevelController.TimePause = false;
         Destroy(buttonParent);
     }
 }

@@ -5,9 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
 
-    GameObject soundChecker; //Basicamente um loader para a primeira tela
     GameObject menuOptions;
-    SoundManager soundManager;
+    protected SoundManager soundManager;
     AnimationManager animManager;
 
     private void Start()

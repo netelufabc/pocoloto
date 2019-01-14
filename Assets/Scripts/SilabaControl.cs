@@ -31,14 +31,6 @@ public class SilabaControl : MonoBehaviour {
 
     }
 
-    /*private void Start()
-    {
-        soundManager = SoundManager.instance;
-        buttonDicaAudio = ButtonDicaAudio.instance;
-        buttonDicaVisual = ButtonDicaVisual.instance;
-        timer = Timer.instance;
-    }*/
-
     /// <summary>
     /// Prepara a classe SilabaControl carregando todos os arquivos das silabas nelas
     /// </summary>
@@ -56,6 +48,13 @@ public class SilabaControl : MonoBehaviour {
 
     public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
     {
+        if (GameObject.Find("Distractor Creator"))
+        {
+            DistractorCreator distractorCreator;
+            distractorCreator = DistractorCreator.instance;
+            StartCoroutine(distractorCreator.StartDistractors());
+        }
+
         yield return new WaitForSeconds(seconds);
         TocarSilaba();
     }

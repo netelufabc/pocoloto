@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SilabaControl : MonoBehaviour {
 
     public static SilabaControl instance = null;
@@ -84,6 +85,11 @@ public class SilabaControl : MonoBehaviour {
 
         buttonDicaAudio.ActiveButton();
         buttonDicaVisual.ActiveButton();
+
+        if (stageManager.blockTextSlot)
+        {
+            BloqueiaEmptyTextSlots();
+        }
     }
 
     /// <summary>
@@ -149,6 +155,33 @@ public class SilabaControl : MonoBehaviour {
             if (!focoEncontrado)
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
+            }
+        }
+    }
+
+    /// <summary>
+    /// Bloqueia os slots que não devem ser preenchidos (serão preenchidos automaticamente depois)
+    /// </summary>
+    public void BloqueiaEmptyTextSlots()
+    {
+        for (int i = 0; i < LevelController.textSlots; i++)
+        {
+            bool focoEncontrado = false;
+
+            for (int j = 0; j < stageManager.planetLetters.Length; j++)
+            {
+                /*int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
+                Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);*/
+                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
+                {
+                    focoEncontrado = true;
+                    break;
+                }
+            }
+
+            if (!focoEncontrado)
+            {
+                LevelController.inputText[i] = "     ";
             }
         }
     }

@@ -28,6 +28,8 @@ public class StageManager : MonoBehaviour
     public string soundsDirectory;
     [Tooltip("A fase é sílabas ou letras")]
     public bool eSilaba = true;
+    [Tooltip("Alguem campo deve ser bloqueado (i.e. não ser digitado)?")]
+    public bool blockTextSlot = false;
     public static StageManager instance = null;
 
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário

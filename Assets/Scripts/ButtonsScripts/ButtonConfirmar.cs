@@ -52,7 +52,21 @@ public class ButtonConfirmar : MonoBehaviour
 
     public void ConfirmaResposta()
     {
+        StartCoroutine(ConfirmandoResposta());
+    }
+
+    IEnumerator ConfirmandoResposta()
+    {
         LevelController.bloqueiaBotao = true; // Iniciando a verificação da resposta
+
+        // Verifica se havia algum textSlot bloqueado e completa com as letras corretas
+        if (stageManager.blockTextSlot)
+        {
+            SilabaControl silabaControl = SilabaControl.instance;
+            silabaControl.CompleteEmptyTextSlots();
+            // Espera antes de verificar se a resposta está correta
+            yield return new WaitForSeconds(2f);
+        }
 
         for (int i = 0; i < LevelController.textSlots; i++)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SilabaControl : MonoBehaviour {
 
     public static SilabaControl instance = null;
@@ -28,16 +29,7 @@ public class SilabaControl : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-
     }
-
-    /*private void Start()
-    {
-        soundManager = SoundManager.instance;
-        buttonDicaAudio = ButtonDicaAudio.instance;
-        buttonDicaVisual = ButtonDicaVisual.instance;
-        timer = Timer.instance;
-    }*/
 
     /// <summary>
     /// Prepara a classe SilabaControl carregando todos os arquivos das silabas nelas
@@ -56,6 +48,13 @@ public class SilabaControl : MonoBehaviour {
 
     public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
     {
+        if (GameObject.Find("Distractor Creator"))
+        {
+            DistractorCreator distractorCreator;
+            distractorCreator = DistractorCreator.instance;
+            StartCoroutine(distractorCreator.StartDistractors());
+        }
+
         yield return new WaitForSeconds(seconds);
         TocarSilaba();
     }
@@ -85,6 +84,11 @@ public class SilabaControl : MonoBehaviour {
 
         buttonDicaAudio.ActiveButton();
         buttonDicaVisual.ActiveButton();
+
+        if (stageManager.blockTextSlot)
+        {
+            BloqueiaEmptyTextSlots();
+        }
     }
 
     /// <summary>
@@ -150,6 +154,33 @@ public class SilabaControl : MonoBehaviour {
             if (!focoEncontrado)
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
+            }
+        }
+    }
+
+    /// <summary>
+    /// Bloqueia os slots que não devem ser preenchidos (serão preenchidos automaticamente depois)
+    /// </summary>
+    public void BloqueiaEmptyTextSlots()
+    {
+        for (int i = 0; i < LevelController.textSlots; i++)
+        {
+            bool focoEncontrado = false;
+
+            for (int j = 0; j < stageManager.planetLetters.Length; j++)
+            {
+                /*int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
+                Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);*/
+                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
+                {
+                    focoEncontrado = true;
+                    break;
+                }
+            }
+
+            if (!focoEncontrado)
+            {
+                LevelController.inputText[i] = "     ";
             }
         }
     }

@@ -23,7 +23,6 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
         BotaoDicaVisual = GameObject.FindGameObjectWithTag("Button Eye").GetComponent<UnityEngine.UI.Button>();
     }
 

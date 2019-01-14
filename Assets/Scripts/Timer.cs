@@ -26,8 +26,6 @@ public class Timer : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -38,16 +36,19 @@ public class Timer : MonoBehaviour {
 
     private void Update()
     {
-        if (LevelController.TimeIsRunning)//bloco da barra de tempo inicio
+        if (!LevelController.TimePause) //Serve para pausar o timer quando abre o menu
         {
-            if (ProgressBarTime < 10)
+            if (LevelController.TimeIsRunning)//bloco da barra de tempo inicio
             {
-                ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
-                TimeProgressBar.fillAmount = ProgressBarTime / 10;
-            }
-            else
-            {
-                endOfTime = true;
+                if (ProgressBarTime < 10)
+                {
+                    ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
+                    TimeProgressBar.fillAmount = ProgressBarTime / 10;
+                }
+                else
+                {
+                    endOfTime = true;
+                }
             }
         }
     }

@@ -48,6 +48,11 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
+    public void PlayBackground()
+    {
+        audioBackground.Play();
+    }
+
     /// <summary>
     /// Para a música de fundo
     /// </summary>

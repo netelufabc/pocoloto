@@ -28,10 +28,10 @@ public class DistractorCreator : MonoBehaviour {
     private void Start()
     {
         stageManager = StageManager.instance;
-        StartCoroutine(StartDistractors());
+        //StartCoroutine(StartDistractors());
     }
 
-    private IEnumerator StartDistractors()
+    public IEnumerator StartDistractors()
     {
         yield return new WaitUntil(() => LevelController.TimeIsRunning); //Espera até o tempo começar a rodar para instanciar os distradores
         GameObject silabaDigitada;

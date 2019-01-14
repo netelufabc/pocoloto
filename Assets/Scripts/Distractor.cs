@@ -8,6 +8,7 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     [Tooltip("Imagem que o cursor terá quando entrar no espaço do distrator")]
     public Texture2D cursor;
+    SilabaControl silabaControl;
     //private Vector2 cursorHotSpot;
     private Button botao;
     private Animator animator;
@@ -32,6 +33,11 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         //cursorHotSpot = new Vector2 (cursor.width / 2, cursor.height / 2);
     }
 
+    private void Start()
+    {
+        silabaControl = SilabaControl.instance;
+    }
+
     /// <summary>
     /// Destrói o distrator
     /// </summary>
@@ -42,6 +48,8 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (numDistractors == 0) //Verifica o número de distradores na cena para ver se pode desbloquear os botões
         {
             LevelController.bloqueiaBotao = false;
+            silabaControl.CompleteEmptyTextSlots();
+
         }
         Destroy(gameObject);
     }

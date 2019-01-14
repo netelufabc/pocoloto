@@ -29,7 +29,6 @@ public class SilabaControl : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-
     }
 
     /// <summary>

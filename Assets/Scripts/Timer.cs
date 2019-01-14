@@ -26,8 +26,6 @@ public class Timer : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

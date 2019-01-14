@@ -27,7 +27,6 @@ public class ButtonConfirmar : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()

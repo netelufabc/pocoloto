@@ -31,5 +31,6 @@ public class CursorChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerExit(PointerEventData eventData)
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }

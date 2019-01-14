@@ -132,4 +132,10 @@ public class SoundManager : MonoBehaviour {
     {
         audioFala.pitch = value;
     }
+
+    public void ChangeVolumeAudioBackground(float volume)
+    {
+        audioBackground.volume = volume;
+    }
 }
+

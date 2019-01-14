@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseApp : LoadScene {
+public class CloseButton : LoadScene
+{
 
     GameObject optionsMenu;
 
@@ -25,21 +26,7 @@ public class CloseApp : LoadScene {
         if (Input.GetKeyDown("escape"))
         {
             OpenMenu();
-            PauseGame();          
         }
-    }
-
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-       // optionsMenu.SetActive(true);
-        //Disable scripts that still work while timescale is set to 0
-    }
-    private void ContinueGame()
-    {
-        Time.timeScale = 1;
-       // optionsMenu.SetActive(false);
-        //enable the scripts again
     }
 
     void FocusButton()
@@ -51,11 +38,11 @@ public class CloseApp : LoadScene {
     }
 
 
-    public void FecharAplicacao()
-    {
-        //Application.LoadLevel(sceneName);
-        Application.Quit();
-    }
+    //public void FecharAplicacao()
+    //{
+    //    //Application.LoadLevel(sceneName);
+    //    Application.Quit();
+    //}
 
     public void OpenMenu()
     {
@@ -70,11 +57,11 @@ public class CloseApp : LoadScene {
     /// <summary>
     /// Utilizado para destruir o pai do botão de fechar
     /// </summary>
-    public void CloseMenu()
-    {
-        GameObject buttonParent;
-        buttonParent = this.transform.parent.gameObject;
-        Destroy(buttonParent);
-        FocusButton();
-    }
+    //public void CloseMenu()
+    //{
+    //    GameObject buttonParent;
+    //    buttonParent = this.transform.parent.gameObject;
+    //    Destroy(buttonParent);
+    //    FocusButton();
+    //}
 }

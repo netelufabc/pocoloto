@@ -9,6 +9,14 @@ public class FirstScreenConfirmar : LoadScene {
         StartCoroutine(EsperaPocoloto());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("enter"))
+        {
+            LoadSceneWithFade("02_mainMenu");
+        }
+    }
+
     IEnumerator EsperaPocoloto()
     {
         Animator anim;

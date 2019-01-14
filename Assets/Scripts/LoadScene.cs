@@ -52,6 +52,7 @@ public class LoadScene : MonoBehaviour {
     /// <param name="Scene"></param>
     public void LoadSceneWithFade(string scene)
     {
+        soundManager = SoundManager.instance;
         animManager = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         soundManager.StopSilaba();
         soundManager.ChangePitch(1);

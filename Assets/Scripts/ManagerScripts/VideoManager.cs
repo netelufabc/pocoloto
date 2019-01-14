@@ -38,6 +38,9 @@ public class VideoManager : MonoBehaviour {
             yield return waitForSeconds;
             break;
         }
+        soundManager.ChangeVolumeAudioBackground(0.5f);
+        videoPlayer.loopPointReached += VolumeBackToNormal;
+        rawImage.enabled = true;
         rawImage.texture = videoPlayer.texture;
         videoPlayer.Play();
         soundManager.PlaySilaba(audio);
@@ -53,17 +56,23 @@ public class VideoManager : MonoBehaviour {
             yield return waitForSeconds;
             break;
         }
+        soundManager.ChangeVolumeAudioBackground(0.5f);
+        videoPlayer.loopPointReached += VolumeBackToNormal;
         rawImage.enabled = true;
         rawImage.texture = videoPlayer.texture;
         videoPlayer.Play();
         StartCoroutine(soundManager.PlaySilaba(audio, pitch));
     }
 
+    void VolumeBackToNormal(VideoPlayer vp)
+    {
+        soundManager.ChangeVolumeAudioBackground(1);
+    }
 
     public void StopVideo()
     {
         videoPlayer.Stop();
-        
+        soundManager.ChangeVolumeAudioBackground(1);
         soundManager.StopSilaba();
     }
 }

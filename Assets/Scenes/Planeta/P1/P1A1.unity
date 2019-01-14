@@ -1119,7 +1119,7 @@ MonoBehaviour:
   - A
   - O
   textSlots: 1
-  NextLevel: 06_stageSelect
+  NextLevel: P1A2
   PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\P1\P1A1
   eSilaba: 0

@@ -49,19 +49,27 @@ public class AnimationManager : MonoBehaviour {
     /// False - Toca a animação de retorno
     /// </summary>
     /// <param name="levelComplete"></param>
-    public void PlayTransitionSceneAnimation(bool levelComplete)
+    public void PlayTransitionSceneAnimation(bool levelComplete, string levelName)
     {
-        if (levelComplete)
+        if (levelName == "06_stageSelect")
         {
-            animation = animForward;
+            if (levelComplete)
+            {
+                animation = animForward;
+            }
+            else
+            {
+                animation = animBackward;
+            }
+            SoundManager.instance.PlaySfx(audio);
         }
         else
         {
-            animation = animBackward;
+            animation = fade;
         }
+
         animator = animation.GetComponent<Animator>();
-        SoundManager.instance.PlaySfx(audio);
-        animator.SetTrigger("FadeOut");
+        animator.SetTrigger("FadeStart");
     }
 
     /// <summary>

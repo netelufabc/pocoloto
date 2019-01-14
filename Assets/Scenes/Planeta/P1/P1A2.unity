@@ -1342,8 +1342,8 @@ MonoBehaviour:
   - A
   - O
   textSlots: 4
-  NextLevel: 06_stageSelect
-  PreviousLevel: 06_stageSelect
+  NextLevel: P1A3
+  PreviousLevel: P1A1_explicacao
   soundsDirectory: Sounds\P1\P1A2
   eSilaba: 0
   palavraSelecionada: 

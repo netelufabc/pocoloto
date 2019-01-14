@@ -33,6 +33,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Planeta/05_nivel01.unity
     guid: d9b89fa91cf9f3840939a858d43ddebf
   - enabled: 1
+    path: Assets/Scenes/Planeta/P1/P1A1.unity
+    guid: 5e8d9894cc2fce543981e4764d1a71f8
+  - enabled: 1
+    path: Assets/Scenes/Planeta/P1/P1A2.unity
+    guid: 4bdf764a293b3e74693bbf7ea5041fe9
+  - enabled: 1
+    path: Assets/Scenes/Planeta/P1/P1A3.unity
+    guid: 7685d359f3b241d449fd4ca1fe4a50b9
+  - enabled: 1
     path: Assets/Scenes/Planeta/06_nivel02.unity
     guid: d66e5ddfc76c56346a0ed1b1b56c9fbd
   - enabled: 1

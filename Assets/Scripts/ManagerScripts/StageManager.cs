@@ -125,11 +125,20 @@ public class StageManager : MonoBehaviour
     public IEnumerator CallAnotherLevel(float secondsBefore, string levelName, bool levelClear)//espera seconds e chama outro nivel
     {
         yield return new WaitForSeconds(secondsBefore);
+        float animTime;
 
         //AnimationController.PlayTransitionSceneAnimation(levelClear);
-        AnimationManager.instance.PlayTransitionSceneAnimation(levelClear);
+        AnimationManager.instance.PlayTransitionSceneAnimation(levelClear, levelName);
+        if (levelName == "06_stageSelect")
+        {
+            animTime = 2.5f;
+        }
+        else
+        {
+            animTime = 0.5f;
+        }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(animTime);
 
         SceneManager.LoadScene(levelName);
     }

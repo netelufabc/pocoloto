@@ -36,6 +36,12 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private void Start()
     {
         silabaControl = SilabaControl.instance;
+        StartCoroutine(TimeOver());
+    }
+
+    private IEnumerator TimeOver() {
+        yield return new WaitUntil(() => !LevelController.TimeIsRunning);
+        DestroyDistractor();
     }
 
     /// <summary>
@@ -45,7 +51,7 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); //Muda o curso de volta ao normal, pois a função OnPointerExit não funciona quando o objeto é destruído
         numDistractors--;
-        if (numDistractors == 0) //Verifica o número de distradores na cena para ver se pode desbloquear os botões
+        if (numDistractors == 0 && LevelController.TimeIsRunning) //Verifica o número de distradores na cena para ver se pode desbloquear os botões
         {
             LevelController.bloqueiaBotao = false;
             silabaControl.CompleteEmptyTextSlots();

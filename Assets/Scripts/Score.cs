@@ -139,7 +139,7 @@ public class Score: MonoBehaviour {
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
         {
-            resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject;
+            resultado = Resources.Load("Prefabs/Feedback/Level Clear Message") as GameObject;
 
             resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
 
@@ -158,11 +158,11 @@ public class Score: MonoBehaviour {
         {
             if (stageManager.currentAct == 1)
             {
-                resultado = Resources.Load("Prefabs/Game Over") as GameObject;
+                resultado = Resources.Load("Prefabs/Feedback/Game Over") as GameObject;
             }
             else
             {
-                resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
+                resultado = Resources.Load("Prefabs/Feedback/Level Failed Message") as GameObject;
             }
 
             resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);

@@ -41,16 +41,16 @@ public class ButtonConfirmar : MonoBehaviour
         score = Score.instance;
 
         telaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
-        respostaCertaFeedback = Resources.Load("Prefabs/RespostaCertaFeedback") as GameObject;
-        respostaErradaFeedback = Resources.Load("Prefabs/RespostaErradaFeedback") as GameObject;
+        respostaCertaFeedback = Resources.Load("Prefabs/Feedback/RespostaCertaFeedback") as GameObject;
+        respostaErradaFeedback = Resources.Load("Prefabs/Feedback/RespostaErradaFeedback") as GameObject;
         StartCoroutine(WaitForEndOfTime());
     }
 
     // Espera o tempo acabar e chama ConfirmaResposta quando isto acontece
     IEnumerator WaitForEndOfTime()
     {
-        yield return new WaitUntil(() => timer.endOfTime == true);
-        ConfirmaResposta();
+        yield return new WaitUntil(() => timer.endOfTime);
+        ConfirmaRespostaButton();
         timer.endOfTime = false;
         yield return new WaitForSeconds(2);
         StartCoroutine(WaitForEndOfTime());

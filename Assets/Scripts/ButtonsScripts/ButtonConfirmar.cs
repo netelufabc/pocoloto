@@ -31,6 +31,7 @@ public class ButtonConfirmar : MonoBehaviour
 
     private void Start()
     {
+        StopAllCoroutines();
         buttonConfirmaResposta = this.GetComponent<UnityEngine.UI.Button>();
         stageManager = StageManager.instance;
         soundManager = SoundManager.instance;
@@ -40,14 +41,25 @@ public class ButtonConfirmar : MonoBehaviour
         telaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
         respostaCertaFeedback = Resources.Load("Prefabs/RespostaCertaFeedback") as GameObject;
         respostaErradaFeedback = Resources.Load("Prefabs/RespostaErradaFeedback") as GameObject;
+        StartCoroutine(WaitForEndOfTime());
     }
 
+    /*
     private void Update()
     {
         if (timer.endOfTime) //Verifica se o timer já chegou ao final
         {
             ConfirmaResposta();
         }
+    }*/
+
+    IEnumerator WaitForEndOfTime()
+    {
+        yield return new WaitUntil(() => timer.endOfTime == true);
+        ConfirmaResposta();
+        timer.endOfTime = false;
+        yield return new WaitForSeconds(2);
+        StartCoroutine(WaitForEndOfTime());
     }
 
     public void ConfirmaResposta()

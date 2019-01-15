@@ -1605,6 +1605,7 @@ MonoBehaviour:
   PreviousLevel: P1A1_explicacao
   soundsDirectory: Sounds\P1\P1A2
   eSilaba: 0
+  blockTextSlot: 1
   palavraSelecionada: 
 --- !u!1 &1655799490
 GameObject:

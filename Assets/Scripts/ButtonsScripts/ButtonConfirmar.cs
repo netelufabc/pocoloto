@@ -64,6 +64,7 @@ public class ButtonConfirmar : MonoBehaviour
 
     public void ConfirmaResposta()
     {
+        timer.ResetTimeProgressBar();
         StartCoroutine(ConfirmandoResposta());
     }
 

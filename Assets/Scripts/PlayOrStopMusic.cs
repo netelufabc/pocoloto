@@ -17,6 +17,7 @@ public class PlayOrStopMusic : MonoBehaviour {
         if (Stop)
         {
             soundManager.StopBackground();
+            soundManager.StopSfxLoop();
         }
         else
         {

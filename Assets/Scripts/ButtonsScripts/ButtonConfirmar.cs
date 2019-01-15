@@ -106,11 +106,11 @@ public class ButtonConfirmar : MonoBehaviour
 
         timer.endOfTime = false;
         yield return new WaitForSeconds(segundos);
-        soundManager.StopBackground();
+        soundManager.StopSfxLoop();
 
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {
-            soundManager.StopBackground();
+            soundManager.StopSfxLoop();
             //Instancia o objeto e o coloca no lugar certo
             respostaFeedbackTemp = Instantiate(respostaCertaFeedback); 
             respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);

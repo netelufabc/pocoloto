@@ -13,19 +13,20 @@ public class CloseApp : LoadScene {
 
     public void FecharAplicacao()
     {
-        //Application.LoadLevel(sceneName);
         Application.Quit();
     }
 
+    /// <summary>
+    /// Verifica se já há um menu aberto, caso não, instância um novo e aciona o PauseGame
+    /// </summary>
     public void OpenMenu()
     {
         if (GameObject.Find("CloseMenu(Clone)") == null)
         {
-            soundManager.StopBackground();
+            PauseGame();
             GameObject newOptionsMenu;
             newOptionsMenu = Instantiate(optionsMenu);
             newOptionsMenu.transform.SetParent(GameObject.Find("Canvas").transform, false);
-            LevelController.TimePause = true;
         }
     }
 
@@ -34,11 +35,27 @@ public class CloseApp : LoadScene {
     /// </summary>
     public void CloseMenu()
     {
-        
-        soundManager.PlayBackground();
+        ContinueGame();
         GameObject buttonParent;
         buttonParent = this.transform.parent.gameObject;
-        LevelController.TimePause = false;
         Destroy(buttonParent);
+    }
+
+    /// <summary>
+    /// Muta o tictac e pausa o contador de tempo.
+    /// </summary>
+    private void PauseGame()
+    {
+        soundManager.MuteSfxLoop();
+        LevelController.TimePause = true;
+    }
+
+    /// <summary>
+    /// Desmuta o titac e faz o contador rodar de onde parou
+    /// </summary>
+    private void ContinueGame()
+    {
+        soundManager.UnmuteSfxLoop();
+        LevelController.TimePause = false;
     }
 }

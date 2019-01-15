@@ -1282,6 +1282,7 @@ MonoBehaviour:
   PreviousLevel: 06_stageSelect
   soundsDirectory: Sounds\P1\P1A1
   eSilaba: 0
+  blockTextSlot: 0
   palavraSelecionada: 
 --- !u!1 &1347510376
 GameObject:

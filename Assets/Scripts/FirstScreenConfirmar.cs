@@ -7,6 +7,7 @@ public class FirstScreenConfirmar : LoadScene {
     private void Start()
     {
         StartCoroutine(EsperaPocoloto());
+        soundManager = SoundManager.instance;
     }
 
     private void Update()

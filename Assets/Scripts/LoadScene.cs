@@ -11,7 +11,7 @@ public class LoadScene : MonoBehaviour {
 
     private void Start()
     {
-        menuOptions = Resources.Load("Prefabs/MenuOptions") as GameObject;
+        menuOptions = Resources.Load("Prefabs/Sub Menus/MenuOptions") as GameObject;
         soundManager = SoundManager.instance;
     }
 

@@ -28,9 +28,9 @@ public class AnimationManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         // Carrega as animações
-        animForward = Resources.Load("Prefabs/HyperspaceForward") as GameObject;
-        animBackward = Resources.Load("Prefabs/HyperspaceBackwards") as GameObject;
-        fade = Resources.Load("Prefabs/Fade") as GameObject;
+        animForward = Resources.Load("Prefabs/Animations/HyperspaceForward") as GameObject;
+        animBackward = Resources.Load("Prefabs/Animations/HyperspaceBackwards") as GameObject;
+        fade = Resources.Load("Prefabs/Animations/Fade") as GameObject;
 
         // Instancia as animações carregadas
         animForward = Instantiate(animForward);

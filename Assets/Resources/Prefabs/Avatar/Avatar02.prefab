@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114830538066108608}
   - component: {fileID: 114977694625194324}
   m_Layer: 5
-  m_Name: AvatarTeste02
+  m_Name: Avatar02
   m_TagString: AvatarButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

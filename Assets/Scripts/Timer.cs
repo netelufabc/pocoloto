@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour {
         soundManager = SoundManager.instance;
         TimeProgressBar.fillAmount = 0;
     }
-
+    
     private void Update()
     {
         if (!LevelController.TimePause) //Serve para pausar o timer quando abre o menu
@@ -52,7 +52,7 @@ public class Timer : MonoBehaviour {
             }
         }
     }
-
+    
     public void ResetTimeProgressBar()
     {
         ProgressBarTime = 0;

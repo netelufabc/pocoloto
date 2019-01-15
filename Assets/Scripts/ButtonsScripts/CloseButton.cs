@@ -9,7 +9,7 @@ public class CloseButton : LoadScene
 
     private void Awake()
     {
-        optionsMenu = Resources.Load("Prefabs/CloseMenu") as GameObject;
+        optionsMenu = Resources.Load("Prefabs/Sub Menus/CloseMenu") as GameObject;
     }
 
     private void Start()

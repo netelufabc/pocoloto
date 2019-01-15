@@ -36,6 +36,7 @@ public class EraseButton : CursorChange {
 
             // Encontra o máximo de sílabas existentes menos 1 - vetor inicia em 0
             int i = LevelController.textSlots - 1;
+            SilabaControl silabaControl = SilabaControl.instance;
 
             // Varre o vetor a partir do final procurando a última sílaba digitada
             while (i > -1)
@@ -46,9 +47,13 @@ public class EraseButton : CursorChange {
                     // Se não for vazio, verifica se existe alguma letra na posição i do vetor
                     if (LevelController.inputText[i].Length > 0)
                     {
-                        // Se tem letra, apaga e sai
-                        LevelController.inputText[i] = "";//.Remove(LevelController.silabasDigitadas[1].Length - 1);
-                        break;
+                        // Se tem letra, ve se pode apagar
+                        if (silabaControl.isPlanetLetter[i])
+                        {
+                            // Apaga e sai
+                            LevelController.inputText[i] = "";//.Remove(LevelController.silabasDigitadas[1].Length - 1);
+                            break;
+                        }
                     }
                 }
 

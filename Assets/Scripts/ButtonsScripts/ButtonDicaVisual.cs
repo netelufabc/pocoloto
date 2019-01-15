@@ -11,7 +11,7 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
     private Button BotaoDicaVisual;
     private StageManager stageManager;
     private Text [] TelaSilabaDigitada;
-
+    private SilabaControl silabaControl;
 
     private void Awake()
     {
@@ -30,6 +30,7 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
     {
         stageManager = StageManager.instance;
         TelaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
+        silabaControl = SilabaControl.instance;
     }
 
 
@@ -56,10 +57,29 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
     IEnumerator MostraDica()
     {
         LevelController.DicaVisualAtiva = true;
-        int randomNumber = Random.Range(0, LevelController.textSlots);
-        TelaSilabaDigitada[randomNumber].text = LevelController.originalText[randomNumber];
+        // Sorteia um numero aleátorio entre todos os valores possíveis válidos
+        int randomNumber = Random.Range(0, silabaControl.numberOfValidSlots);
+        // A var posDica mostra o local da dica na tela (posRelDica é utilizado para verificar a posição randomica gerada)
+        int posDica = 0, posRelDica = 0;
+        // Varre todos os textSlots a procura da posição correta
+        for (posDica = 0; posDica < stageManager.textSlots; posDica++)
+        {
+            if (silabaControl.isPlanetLetter[posDica])
+            {
+                if (posRelDica == randomNumber)
+                {
+                    break;
+                }
+                else
+                {
+                    posRelDica++;
+                }
+            }
+        }
+        // Mostra a dica, espera por um tempo e apaga a dica
+        TelaSilabaDigitada[posDica].text = LevelController.originalText[posDica];
         yield return new WaitForSeconds(1);
-        TelaSilabaDigitada[randomNumber].text = LevelController.inputText[randomNumber];
+        TelaSilabaDigitada[posDica].text = LevelController.inputText[posDica];
         LevelController.DicaVisualAtiva = false;
         
     }

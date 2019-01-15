@@ -46,6 +46,7 @@ public class ButtonConfirmar : MonoBehaviour
         StartCoroutine(WaitForEndOfTime());
     }
 
+    // Espera o tempo acabar e chama ConfirmaResposta quando isto acontece
     IEnumerator WaitForEndOfTime()
     {
         yield return new WaitUntil(() => timer.endOfTime == true);

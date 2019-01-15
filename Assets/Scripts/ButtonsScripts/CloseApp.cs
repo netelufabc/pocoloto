@@ -11,46 +11,6 @@ public class CloseApp : LoadScene {
         optionsMenu = Resources.Load("Prefabs/CloseMenu") as GameObject;
     }
 
-    private void Start()
-    {
-        FocusButton();
-        if (GameObject.Find("Menu Principal") != null)
-        {
-            GameObject.Find("Menu Principal").GetComponent<UnityEngine.UI.Button>().Select();
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown("escape"))
-        {
-            OpenMenu();
-            PauseGame();          
-        }
-    }
-
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-       // optionsMenu.SetActive(true);
-        //Disable scripts that still work while timescale is set to 0
-    }
-    private void ContinueGame()
-    {
-        Time.timeScale = 1;
-       // optionsMenu.SetActive(false);
-        //enable the scripts again
-    }
-
-    void FocusButton()
-    {
-        if (GameObject.Find("Botao Novo Jogo") != null)
-        {
-            GameObject.Find("Botao Novo Jogo").GetComponent<UnityEngine.UI.Button>().Select();
-        }
-    }
-
-
     public void FecharAplicacao()
     {
         //Application.LoadLevel(sceneName);
@@ -80,6 +40,5 @@ public class CloseApp : LoadScene {
         buttonParent = this.transform.parent.gameObject;
         LevelController.TimePause = false;
         Destroy(buttonParent);
-        FocusButton();
     }
 }

@@ -17,7 +17,6 @@ public class LoadScene : MonoBehaviour {
 
     public void PlayClick(AudioClip click)
     {
-        soundManager = SoundManager.instance;
         soundManager.PlaySfx(click);
     }
     /*

@@ -22,7 +22,7 @@ public class DistractorCreator : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        distractor = Resources.Load("Prefabs/Distractor") as GameObject;
+        distractor = Resources.Load("Prefabs/Distractor/Distractor") as GameObject;
     }
 
     private void Start()

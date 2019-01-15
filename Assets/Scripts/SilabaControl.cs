@@ -18,8 +18,12 @@ public class SilabaControl : MonoBehaviour {
 
     private StageManager stageManager;
 
+    public float wordTime;
+
     // Indica se o textSlot contém uma planetLetter
     public bool[] isPlanetLetter;
+    public int numberOfValidSlots;
+    
 
     private void Awake()
     {
@@ -85,6 +89,7 @@ public class SilabaControl : MonoBehaviour {
         IsPlanetLetterSetup();
 
         silabaAtual = silabasNivelAtual[randomNumber] as AudioClip;
+        wordTime = silabaAtual.length;
         soundManager.PlaySilaba(silabaAtual);
         StartCoroutine(WaitForSound(silabaAtual.length));
         StartCoroutine(timer.SetTimeIsRunning(silabaAtual));
@@ -143,6 +148,7 @@ public class SilabaControl : MonoBehaviour {
     /// </summary>
     public void IsPlanetLetterSetup()
     {
+        numberOfValidSlots = 0;
         for (int i = 0; i < LevelController.textSlots; i++)
         {
             if (stageManager.planetLetters.Length != 0)
@@ -154,6 +160,7 @@ public class SilabaControl : MonoBehaviour {
                     if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
                     {
                         isPlanetLetter[i] = true;
+                        numberOfValidSlots++;
                         break;
                     }
                 }
@@ -161,6 +168,7 @@ public class SilabaControl : MonoBehaviour {
             else
             {
                 isPlanetLetter[i] = true;
+                numberOfValidSlots = LevelController.textSlots;
             }
         }
     }

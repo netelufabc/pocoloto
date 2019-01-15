@@ -46,15 +46,6 @@ public class ButtonConfirmar : MonoBehaviour
         StartCoroutine(WaitForEndOfTime());
     }
 
-    /*
-    private void Update()
-    {
-        if (timer.endOfTime) //Verifica se o timer já chegou ao final
-        {
-            ConfirmaResposta();
-        }
-    }*/
-
     IEnumerator WaitForEndOfTime()
     {
         yield return new WaitUntil(() => timer.endOfTime == true);
@@ -64,7 +55,12 @@ public class ButtonConfirmar : MonoBehaviour
         StartCoroutine(WaitForEndOfTime());
     }
 
-    public void ConfirmaResposta()
+    public void ConfirmaRespostaButton()
+    {
+        StartCoroutine(ConfirmaResposta());
+    }
+
+    public IEnumerator ConfirmaResposta()
     {
         timer.ResetTimeProgressBar();
 
@@ -75,6 +71,10 @@ public class ButtonConfirmar : MonoBehaviour
         {
             silabaControl.CompleteEmptyTextSlots();
         }
+
+        silabaControl.TocarSilabaAtual();
+        soundManager.StopSfxLoop();
+        yield return new WaitForSeconds(silabaControl.wordTime);
 
         int temp = 0;
         for (int i = 0; i < LevelController.textSlots; i++)
@@ -87,10 +87,9 @@ public class ButtonConfirmar : MonoBehaviour
         }
 
         LevelController.BotaoConfirmaResposta = false;//disable button after click
-        
-        StartCoroutine(score.SetScore(1.5f * stageManager.planetLetters.Length)); //Pontua o resultado
+        StartCoroutine(score.SetScore(1.5f * silabaControl.numberOfValidSlots)); //Pontua o resultado
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
-        StartCoroutine(score.CheckScore(1.5f * stageManager.planetLetters.Length, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
+        StartCoroutine(score.CheckScore(1.5f * silabaControl.numberOfValidSlots, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
     }
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)
@@ -99,7 +98,7 @@ public class ButtonConfirmar : MonoBehaviour
 
         timer.endOfTime = false;
         yield return new WaitForSeconds(segundos);
-        soundManager.StopSfxLoop();
+        //soundManager.StopSfxLoop();
         
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {

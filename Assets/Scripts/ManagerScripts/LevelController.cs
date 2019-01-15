@@ -6,6 +6,7 @@ public static class LevelController
 {
     public static int MaxScoreGlobal = 2;//pontuação objetivo para progredir ou regredir
     public static int currentLevel;
+    public static int currentAct;
     public static string PalavraSelecionada = "";//palavra selecionada da lista do nível correspondente (arquivos de áudio)
 
     /* Troca das duas variáveis pelo número de quadrados que devem ser preenchidos

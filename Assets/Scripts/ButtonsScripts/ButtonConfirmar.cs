@@ -113,8 +113,7 @@ public class ButtonConfirmar : MonoBehaviour
         {
             soundManager.StopSfxLoop();
             //Instancia o objeto e o coloca no lugar certo
-            respostaFeedbackTemp = Instantiate(respostaCertaFeedback); 
-            respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
+            respostaFeedbackTemp = Instantiate(respostaCertaFeedback, GameObject.Find("Canvas").transform);
             respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
             respostaFeedbackTemp.transform.rotation = telaSilabaDigitada[BlockIndex].transform.rotation;             
         }
@@ -124,8 +123,7 @@ public class ButtonConfirmar : MonoBehaviour
             LevelController.AlgumaSilabaErrada = true;
 
             //Instancia o objeto e o coloca no lugar certo
-            respostaFeedbackTemp = Instantiate(respostaErradaFeedback);
-            respostaFeedbackTemp.transform.SetParent(GameObject.Find("Canvas").transform);
+            respostaFeedbackTemp = Instantiate(respostaErradaFeedback, GameObject.Find("Canvas").transform);
             respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
             if (BlockIndex%2 == 0) //Necessário para rotacionar os sinais de erros pares
             {
@@ -135,8 +133,7 @@ public class ButtonConfirmar : MonoBehaviour
             else
             {
                 respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f,0f,-10.87f));
-            }
-            respostaFeedbackTemp.transform.localScale = new Vector3(1, 1, 1);                
+            }               
         }
     }
 

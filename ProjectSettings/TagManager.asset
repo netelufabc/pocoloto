@@ -53,6 +53,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PopUp
+    uniqueID: 3882879875
+    locked: 0
   - name: Top Layer
     uniqueID: 2155537635
     locked: 0

@@ -139,10 +139,15 @@ public class Score: MonoBehaviour {
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
         {
-            resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject; 
-            resultado = Instantiate(resultado);
-            resultado.transform.SetParent(GameObject.Find("Canvas").transform);
-            SaveManager.player.planetaLiberado[stageManager.currentLevel] = true;
+            resultado = Resources.Load("Prefabs/Level Clear Message") as GameObject;
+
+            resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
+
+            if (stageManager.NextLevel.Equals("06_stageSelect"))
+            {
+                SaveManager.player.planetaLiberado[stageManager.currentLevel] = true;
+            }
+
             SaveManager.Save();
             yield return new WaitForSeconds(4);
             StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
@@ -151,20 +156,17 @@ public class Score: MonoBehaviour {
         //Caso o resultado esteja errado
         else if (getScoreNegative() == maxScore)
         {
-            if (stageManager.currentLevel == 1)
+            if (stageManager.currentAct == 1)
             {
                 resultado = Resources.Load("Prefabs/Game Over") as GameObject;
-                resultado = Instantiate(resultado);
-                resultado.transform.SetParent(GameObject.Find("Canvas").transform);
-                resultado.transform.position = new Vector3(7, -2, 0); //Números para instanciar no meio da tela
             }
             else
             {
                 resultado = Resources.Load("Prefabs/Level Failed Message") as GameObject;
-                resultado = Instantiate(resultado);
-                resultado.transform.SetParent(GameObject.Find("Canvas").transform);
-                resultado.transform.position = new Vector3(1, -1, -20); //Números para instanciar no meio da tela
             }
+
+            resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
+
             SaveManager.Save();
             yield return new WaitForSeconds(4);
             StartCoroutine(stageManager.CallAnotherLevel(3, PreviousLevel, false));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima

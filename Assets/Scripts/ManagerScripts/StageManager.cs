@@ -7,10 +7,15 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
     [Header("Detalhes do nível")]
-    [Tooltip("Nível atual (int)")]
+    [Tooltip("Nível atual")]
     public int currentLevel;//Nível atual
+    [Tooltip("Ato atual")]
+    public int currentAct;
+    /*[Tooltip("Quantidade de atos desse planeta")]
+    public int maxAct;*/
     [Tooltip("Letras foco para aprendizado no nível (se for 0, todas as letras serão as letras foco)")]
     public string[] planetLetters;
+
     /*
     [Tooltip("Total de caracteres juntas nas sílabas deste nível")]
     public int CharLimitForThisLevel;//total de caracteres das silabas deste nivel juntas
@@ -59,6 +64,7 @@ public class StageManager : MonoBehaviour
         }
 
         LevelController.currentLevel = currentLevel;
+        LevelController.currentAct = currentAct;
         TelaSilabaDigitada = new Text[textSlots];
         for (int i = 0; i < textSlots; i++)
         {

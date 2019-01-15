@@ -1491,6 +1491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
+  currentAct: 2
   planetLetters:
   - A
   - O

@@ -70,6 +70,6 @@ public class Timer : MonoBehaviour {
         yield return new WaitForSeconds(silaba.length);
         ResetTimeProgressBar();
         LevelController.TimeIsRunning = true;
-        soundManager.PlayBackground(tictac);
+        soundManager.PlaySfxLoop(tictac);
     }
 }

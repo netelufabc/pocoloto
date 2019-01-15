@@ -11,6 +11,9 @@ public class SoundManager : MonoBehaviour {
     private AudioSource audioBackground;
     [SerializeField]
     private AudioSource audioSfx;
+    [SerializeField]
+    private AudioSource audioSfxLoop;
+
     private bool gameSoundMuted = false;
 
     void Awake()
@@ -27,30 +30,46 @@ public class SoundManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
+    public void PlaySfxLoop(AudioClip sfx)
+    {
+        audioSfxLoop.clip = sfx;
+        audioSfxLoop.Play();
+    }
+
+    public void MuteSfxLoop()
+    {
+        audioSfxLoop.mute = true;
+    }
+
+    public void UnmuteSfxLoop()
+    {
+        audioSfxLoop.mute = false;
+    }
+
+    public void StopSfxLoop()
+    {
+        audioSfxLoop.Stop();
+    }
+
     /// <summary>
     /// Toca música de fundo
     /// </summary>
     /// <param name="background"></param>
     public void PlayBackground(AudioClip background)
     {
+        audioBackground.clip = background;
+        
         ///Primeiro verifica se o áudio é diferente, caso seja, 
         ///a música será substituida independente de qualquer coisa, caso seja igual, 
         ///ele verifica se a música já não está tocando (para evitar cortes na música atual)
         if (background != audioBackground.clip && !gameSoundMuted)
         {
-            audioBackground.clip = background;
             audioBackground.Play();
         }
 
         else if (!audioBackground.isPlaying && !gameSoundMuted) { 
-            audioBackground.clip = background;
             audioBackground.Play();
         }
-    }
-
-    public void PlayBackground()
-    {
-        audioBackground.Play();
     }
 
     /// <summary>
@@ -107,11 +126,6 @@ public class SoundManager : MonoBehaviour {
     /// <param name="currentSilaba">clip a ser tocado</param>
     public void PlaySilaba(AudioClip currentSilaba)
     {
-        /* Se quiser vender a alma para ter certeza que o pitch será 1
-        if (audioFala.pitch != 1)
-        {
-            audioFala.pitch = 1;
-        }*/
         audioFala.clip = currentSilaba;
         audioFala.Play();
     }

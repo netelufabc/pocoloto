@@ -11,6 +11,7 @@ public class ButtonConfirmar : MonoBehaviour
     private Button buttonConfirmaResposta;
     private StageManager stageManager;
     private SoundManager soundManager;
+    private SilabaControl silabaControl;
     private Timer timer;
     private Score score;
     private Text[] telaSilabaDigitada;
@@ -35,6 +36,7 @@ public class ButtonConfirmar : MonoBehaviour
         buttonConfirmaResposta = this.GetComponent<UnityEngine.UI.Button>();
         stageManager = StageManager.instance;
         soundManager = SoundManager.instance;
+        silabaControl = SilabaControl.instance;
         timer = Timer.instance;
         score = Score.instance;
 
@@ -65,50 +67,40 @@ public class ButtonConfirmar : MonoBehaviour
     public void ConfirmaResposta()
     {
         timer.ResetTimeProgressBar();
-        StartCoroutine(ConfirmandoResposta());
-    }
 
-    IEnumerator ConfirmandoResposta()
-    {
         LevelController.bloqueiaBotao = true; // Iniciando a verificação da resposta
 
         // Verifica se havia algum textSlot bloqueado e completa com as letras corretas
         if (stageManager.blockTextSlot)
         {
-            SilabaControl silabaControl = SilabaControl.instance;
             silabaControl.CompleteEmptyTextSlots();
-            // Espera antes de verificar se a resposta está correta
-            yield return new WaitForSeconds(2f);
         }
 
+        int temp = 0;
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.inputText[i], LevelController.originalText[i], i, i * 1.5f)); //Para cada silaba, verifica se ela está certa ou errada
+            if (silabaControl.isPlanetLetter[i])
+            {
+                StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.inputText[i], LevelController.originalText[i], i, temp * 1.5f)); //Para cada silaba, verifica se ela está certa ou errada
+                temp++;
+            }
         }
 
         LevelController.BotaoConfirmaResposta = false;//disable button after click
-
-        for (int i = 0; i < LevelController.textSlots; i++)
-        {
-            LevelController.inputText[i] = "";//reset var after confirm button is clicked
-        }
-
-        StartCoroutine(score.SetScore(1.5f * LevelController.textSlots)); //Pontua o resultado
+        
+        StartCoroutine(score.SetScore(1.5f * stageManager.planetLetters.Length)); //Pontua o resultado
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
-        StartCoroutine(score.CheckScore(1.5f * LevelController.textSlots, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
+        StartCoroutine(score.CheckScore(1.5f * stageManager.planetLetters.Length, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
     }
-
-
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)
     {
-
         GameObject respostaFeedbackTemp;
 
         timer.endOfTime = false;
         yield return new WaitForSeconds(segundos);
         soundManager.StopSfxLoop();
-
+        
         if (silabaDigitada.Equals(silabaSelecionada))//verifica se o que foi digitado é o mesmo que foi escolhido pelo sistema (falado para o usuário)
         {
             soundManager.StopSfxLoop();

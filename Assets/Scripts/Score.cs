@@ -171,6 +171,12 @@ public class Score: MonoBehaviour {
         }
         else
         {
+            // Limpa os TextSlots para a proxima palavra
+            for (int i = 0; i < LevelController.textSlots; i++)
+            {
+                LevelController.inputText[i] = "";//reset var after confirm button is clicked
+            }
+
             StartCoroutine(silabaControl.CallSilaba(0));//chama nova sílaba            
         }
     }

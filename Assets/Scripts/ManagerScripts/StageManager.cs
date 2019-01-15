@@ -9,7 +9,7 @@ public class StageManager : MonoBehaviour
     [Header("Detalhes do nível")]
     [Tooltip("Nível atual (int)")]
     public int currentLevel;//Nível atual
-    [Tooltip("Letras foco para aprendizadono nível")]
+    [Tooltip("Letras foco para aprendizado no nível (se for 0, todas as letras serão as letras foco)")]
     public string[] planetLetters;
     /*
     [Tooltip("Total de caracteres juntas nas sílabas deste nível")]

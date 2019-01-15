@@ -18,6 +18,9 @@ public class SilabaControl : MonoBehaviour {
 
     private StageManager stageManager;
 
+    // Indica se o textSlot contém uma planetLetter
+    public bool[] isPlanetLetter;
+
     private void Awake()
     {
         if (instance == null)
@@ -44,6 +47,8 @@ public class SilabaControl : MonoBehaviour {
         buttonDicaVisual = ButtonDicaVisual.instance;
         timer = Timer.instance;
         stageManager = StageManager.instance;
+
+        isPlanetLetter = new bool[stageManager.textSlots];
     }
 
     public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
@@ -76,6 +81,8 @@ public class SilabaControl : MonoBehaviour {
         {
             LevelController.SeparaLetras();
         }
+
+        IsPlanetLetterSetup();
 
         silabaAtual = silabasNivelAtual[randomNumber] as AudioClip;
         soundManager.PlaySilaba(silabaAtual);
@@ -132,18 +139,45 @@ public class SilabaControl : MonoBehaviour {
     }
 
     /// <summary>
+    /// Preenche o vetor isPlanetLetter
+    /// </summary>
+    public void IsPlanetLetterSetup()
+    {
+        for (int i = 0; i < LevelController.textSlots; i++)
+        {
+            if (stageManager.planetLetters.Length != 0)
+            {
+                isPlanetLetter[i] = false;
+
+                for (int j = 0; j < stageManager.planetLetters.Length; j++)
+                {
+                    if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
+                    {
+                        isPlanetLetter[i] = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                isPlanetLetter[i] = true;
+            }
+        }
+    }
+
+    /// <summary>
     /// Completa as lacunas com as letras que não estão em foco de estudo
     /// </summary>
     public void CompleteEmptyTextSlots()
     {
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            bool focoEncontrado = false;
+            /*bool focoEncontrado = false;
 
             for (int j = 0; j < stageManager.planetLetters.Length; j++)
             {
-                /*int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
-                Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);*/
+                //int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
+                //Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);
                 if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
                 {
                     focoEncontrado = true;
@@ -152,6 +186,10 @@ public class SilabaControl : MonoBehaviour {
             }
 
             if (!focoEncontrado)
+            {
+                LevelController.inputText[i] = LevelController.originalText[i];
+            }*/
+            if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
             }
@@ -165,12 +203,12 @@ public class SilabaControl : MonoBehaviour {
     {
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            bool focoEncontrado = false;
+            /*bool focoEncontrado = false;
 
             for (int j = 0; j < stageManager.planetLetters.Length; j++)
             {
-                /*int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
-                Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);*/
+                //int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
+                //Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);
                 if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
                 {
                     focoEncontrado = true;
@@ -179,6 +217,10 @@ public class SilabaControl : MonoBehaviour {
             }
 
             if (!focoEncontrado)
+            {
+                LevelController.inputText[i] = "     ";
+            }*/
+            if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = "     ";
             }

@@ -15,10 +15,10 @@ public class Loader : MonoBehaviour {
         //animationController = Resources.Load("Prefabs/AnimationManager") as GameObject;
         #endregion
 
-        timer = Resources.Load("Prefabs/Timer") as GameObject;
-        dicaAudio = Resources.Load("Prefabs/Button Sound") as GameObject;
-        dicaVisual = Resources.Load("Prefabs/Button Eye") as GameObject;
-        buttonConfirmar = Resources.Load("Prefabs/Button Confirma Resposta") as GameObject;
+        timer = Resources.Load("Prefabs/Stage Prefabs/Timer") as GameObject;
+        dicaAudio = Resources.Load("Prefabs/Stage Prefabs/Button Sound") as GameObject;
+        dicaVisual = Resources.Load("Prefabs/Stage Prefabs/Button Eye") as GameObject;
+        buttonConfirmar = Resources.Load("Prefabs/Stage Prefabs/Button Confirma Resposta") as GameObject;
 
         #region Colocados no LoaderManager
         /*if (Score.instance == null)

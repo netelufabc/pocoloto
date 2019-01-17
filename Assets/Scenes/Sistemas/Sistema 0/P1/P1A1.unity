@@ -1174,10 +1174,11 @@ MonoBehaviour:
   - O
   textSlots: 1
   NextLevel: P1A2
-  PreviousLevel: 06_stageSelect
-  soundsDirectory: Sounds\P1\P1A1
+  PreviousLevel: 07_stageSelect 0
+  soundsDirectory: Sounds\Sistema 0\P1\P1A1
   eSilaba: 0
   blockTextSlot: 0
+  eRevisao: 0
   palavraSelecionada: 
 --- !u!1 &1347510376
 GameObject:

@@ -51,7 +51,7 @@ public class AnimationManager : MonoBehaviour {
     /// <param name="levelComplete"></param>
     public void PlayTransitionSceneAnimation(bool levelComplete, string levelName)
     {
-        if (levelName == "06_stageSelect")
+        if (levelName.Contains("stageSelect"))
         {
             if (levelComplete)
             {

@@ -24,33 +24,60 @@ EditorBuildSettings:
     path: Assets/Scenes/05_apresentacao.unity
     guid: 97cef7f9d819d6941924cb8519d33c2e
   - enabled: 1
-    path: Assets/Scenes/06_stageSelect.unity
+    path: Assets/Scenes/06_systemSelect.unity
     guid: 5ffa223fa4a24724ea898e7e283891ee
   - enabled: 1
-    path: Assets/Scenes/Planeta/P1/P1A1_explicacao.unity
+    path: Assets/Scenes/Sistemas/Sistema 0/07_stageSelect 0.unity
+    guid: d1a60afbb89f0704595ac0979b13cbb0
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/P1/P1A1_explicacao.unity
     guid: 723a820c6b11bb74084dc0bb21f61f92
   - enabled: 1
-    path: Assets/Scenes/Planeta/P1/P1A1.unity
+    path: Assets/Scenes/Sistemas/Sistema 0/P1/P1A1.unity
     guid: 5e8d9894cc2fce543981e4764d1a71f8
   - enabled: 1
-    path: Assets/Scenes/Planeta/P1/P1A2.unity
+    path: Assets/Scenes/Sistemas/Sistema 0/P1/P1A2.unity
     guid: 4bdf764a293b3e74693bbf7ea5041fe9
   - enabled: 1
-    path: Assets/Scenes/Planeta/P1/P1A3.unity
+    path: Assets/Scenes/Sistemas/Sistema 0/P1/P1A3.unity
     guid: 7685d359f3b241d449fd4ca1fe4a50b9
   - enabled: 1
-    path: Assets/Scenes/Planeta/05_nivel01.unity
+    path: Assets/Scenes/Sistemas/Sistema 0/P2/P2A1.unity
+    guid: 5bfa21226e6630f4180c60335346ed66
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/P2/P2A2.unity
+    guid: af4a980e42576484ca1e296ef3e5f21a
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/P2/P2A3.unity
+    guid: 9a5489e6b91a0b54d92ff6d8d7358755
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/P3/P3A1.unity
+    guid: 75501fd088b2a144b8b6ffe73d5d8918
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/P3/P3A2.unity
+    guid: a4ef3b033d621c341a49360a258ad6df
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/P3/P3A3.unity
+    guid: b878f2fb95f807340bdf287b95d51485
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 0/RS1.unity
+    guid: bcfc3c920da04a14fb5a93a5630d8960
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/07_stageSelect 1.unity
+    guid: 36210786ab4067043b5069d45f421bc8
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/05_nivel01.unity
     guid: d9b89fa91cf9f3840939a858d43ddebf
   - enabled: 1
-    path: Assets/Scenes/Planeta/06_nivel02.unity
+    path: Assets/Scenes/Sistemas/06_nivel02.unity
     guid: d66e5ddfc76c56346a0ed1b1b56c9fbd
   - enabled: 1
-    path: Assets/Scenes/Planeta/07_nivel03.unity
+    path: Assets/Scenes/Sistemas/07_nivel03.unity
     guid: 2cfb4791ae230254a86766f2d8fb9c69
   - enabled: 1
-    path: Assets/Scenes/Planeta/08_nivel04.unity
+    path: Assets/Scenes/Sistemas/08_nivel04.unity
     guid: 4d3b4168e8ca829479f8fc7bb574b49f
   - enabled: 1
-    path: Assets/Scenes/Planeta/09_nivel05.unity
+    path: Assets/Scenes/Sistemas/09_nivel05.unity
     guid: d38e0692dca242d43a9a1411644226bc
   m_configObjects: {}

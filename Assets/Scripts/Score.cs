@@ -143,9 +143,10 @@ public class Score: MonoBehaviour {
 
             resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
 
-            if (stageManager.NextLevel.Equals("06_stageSelect"))
+            // Se ganhar uma fase de revisão e for o último ato (caso tenha mais que um), libera o próximo sistema
+            if (stageManager.NextLevel.Contains("stageSelect") && stageManager.eRevisao)
             {
-                SaveManager.player.planetaLiberado[stageManager.currentLevel] = true;
+                SaveManager.player.sistemaLiberado[stageManager.currentLevel] = true;
             }
 
             SaveManager.Save();

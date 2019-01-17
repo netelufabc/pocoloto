@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class SystemSelectButtons : MonoBehaviour {
+public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
 
     private bool[] sistemasLiberados;
     private int systemNumber;
@@ -19,4 +20,14 @@ public class SystemSelectButtons : MonoBehaviour {
             this.GetComponent<UnityEngine.UI.Button>().interactable = true;
         }
 	}
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        
+    }
 }

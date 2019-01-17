@@ -185,23 +185,6 @@ public class SilabaControl : MonoBehaviour {
     {
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            /*bool focoEncontrado = false;
-
-            for (int j = 0; j < stageManager.planetLetters.Length; j++)
-            {
-                //int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
-                //Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);
-                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
-                {
-                    focoEncontrado = true;
-                    break;
-                }
-            }
-
-            if (!focoEncontrado)
-            {
-                LevelController.inputText[i] = LevelController.originalText[i];
-            }*/
             if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
@@ -216,23 +199,6 @@ public class SilabaControl : MonoBehaviour {
     {
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            /*bool focoEncontrado = false;
-
-            for (int j = 0; j < stageManager.planetLetters.Length; j++)
-            {
-                //int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
-                //Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);
-                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
-                {
-                    focoEncontrado = true;
-                    break;
-                }
-            }
-
-            if (!focoEncontrado)
-            {
-                LevelController.inputText[i] = "     ";
-            }*/
             if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = "     ";
@@ -246,7 +212,6 @@ public class SilabaControl : MonoBehaviour {
         {
             if (!LevelController.inputText[i].Equals(LevelController.originalText[i]))
             {
-                ///Toca animação bolada
                 LevelController.inputText[i] = LevelController.originalText[i];
             }
         }

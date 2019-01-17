@@ -55,7 +55,12 @@ public class SilabaControl : MonoBehaviour {
         isPlanetLetter = new bool[stageManager.textSlots];
     }
 
-    public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
+    /// <summary>
+    /// Procura se a fase possui um criador de distratores, depois chama o Tocar Silaba. 
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    public IEnumerator CallSilaba(float seconds)
     {
         if (GameObject.Find("Distractor Creator"))
         {
@@ -231,6 +236,18 @@ public class SilabaControl : MonoBehaviour {
             if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = "     ";
+            }
+        }
+    }
+
+    public void CorrigeSlots()
+    {
+        for (int i = 0; i<LevelController.textSlots; i++)
+        {
+            if (!LevelController.inputText[i].Equals(LevelController.originalText[i]))
+            {
+                ///Toca animação bolada
+                LevelController.inputText[i] = LevelController.originalText[i];
             }
         }
     }

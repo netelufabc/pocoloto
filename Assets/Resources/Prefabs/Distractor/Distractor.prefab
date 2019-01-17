@@ -88,6 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 2800000, guid: af32d7fd0ac11b54aab1879c37a5dee1, type: 3}
+  explosion: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 2}
 --- !u!114 &114548888250087108
 MonoBehaviour:
   m_ObjectHideFlags: 1

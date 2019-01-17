@@ -16,11 +16,13 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     /// Velocidade em que o distrator vai girar
     /// </summary>
     private float SpinningSpeed;
+    public GameObject explosion;
 
     /// <summary>
     /// Número total de distradores na cena.
     /// </summary>
     public static int numDistractors;
+    Vector3 gameObjectPosition;
 
     private void Awake()
     {
@@ -57,6 +59,8 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             silabaControl.CompleteEmptyTextSlots();
 
         }
+        gameObjectPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+        Instantiate(explosion, gameObjectPosition, Quaternion.identity);
         Destroy(gameObject);
     }
 

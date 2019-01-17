@@ -153,4 +153,10 @@ public class StageManager : MonoBehaviour
 
         SceneManager.LoadScene(levelName);
     }
+
+    private void OnDestroy()
+    {
+        LevelController.TimeIsRunning = false;
+        LevelController.TimePause = false;
+    }
 }

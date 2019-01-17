@@ -73,9 +73,6 @@ public class ButtonConfirmar : MonoBehaviour
             silabaControl.CompleteEmptyTextSlots();
         }
 
-        silabaControl.TocarSilabaAtual();
-        soundManager.StopSfxLoop();
-        yield return new WaitForSeconds(silabaControl.wordTime);
 
         int temp = 0;
         for (int i = 0; i < LevelController.textSlots; i++)
@@ -89,8 +86,14 @@ public class ButtonConfirmar : MonoBehaviour
 
         LevelController.BotaoConfirmaResposta = false;//disable button after click
         StartCoroutine(score.SetScore(1.5f * silabaControl.numberOfValidSlots)); //Pontua o resultado
+        soundManager.StopSfxLoop();
+
+        yield return new WaitForSeconds(1.5f * silabaControl.numberOfValidSlots);
+        silabaControl.CorrigeSlots();
+        silabaControl.TocarSilabaAtual();
+
         timer.ResetTimeProgressBar(); //reset var para parar timer e barra de tempo
-        StartCoroutine(score.CheckScore(1.5f * silabaControl.numberOfValidSlots, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
+        StartCoroutine(score.CheckScore(silabaControl.numberOfValidSlots, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
     }
 
     public IEnumerator VerificaRespostaCertaOuErrada(string silabaSelecionada, string silabaDigitada, int BlockIndex, float segundos)

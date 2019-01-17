@@ -75,7 +75,7 @@ public class Score: MonoBehaviour {
         scorePositive += pontos;
         scorePositiveText.text = scorePositive.ToString();
 
-        estrelaPositivo = GameObject.Find("icone_pontuacao_estrela").GetComponent<Animator>();
+        estrelaPositivo = GameObject.Find("icone_pontuacao_acerto").GetComponent<Animator>();
         estrelaPositivo.Play("PontoPositivo");
     }
 

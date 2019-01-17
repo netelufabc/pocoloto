@@ -55,7 +55,12 @@ public class SilabaControl : MonoBehaviour {
         isPlanetLetter = new bool[stageManager.textSlots];
     }
 
-    public IEnumerator CallSilaba(float seconds)//espera seconds e chama tocar silaba
+    /// <summary>
+    /// Procura se a fase possui um criador de distratores, depois chama o Tocar Silaba. 
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    public IEnumerator CallSilaba(float seconds)
     {
         if (GameObject.Find("Distractor Creator"))
         {
@@ -180,23 +185,6 @@ public class SilabaControl : MonoBehaviour {
     {
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            /*bool focoEncontrado = false;
-
-            for (int j = 0; j < stageManager.planetLetters.Length; j++)
-            {
-                //int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
-                //Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);
-                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
-                {
-                    focoEncontrado = true;
-                    break;
-                }
-            }
-
-            if (!focoEncontrado)
-            {
-                LevelController.inputText[i] = LevelController.originalText[i];
-            }*/
             if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
@@ -211,26 +199,20 @@ public class SilabaControl : MonoBehaviour {
     {
         for (int i = 0; i < LevelController.textSlots; i++)
         {
-            /*bool focoEncontrado = false;
-
-            for (int j = 0; j < stageManager.planetLetters.Length; j++)
-            {
-                //int a = LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]);
-                //Debug.Log(stageManager.planetLetters[j] + " " + LevelController.originalText[i] + " " + a);
-                if (LevelController.originalText[i].IndexOf(stageManager.planetLetters[j]) != -1)
-                {
-                    focoEncontrado = true;
-                    break;
-                }
-            }
-
-            if (!focoEncontrado)
-            {
-                LevelController.inputText[i] = "     ";
-            }*/
             if (!isPlanetLetter[i])
             {
                 LevelController.inputText[i] = "     ";
+            }
+        }
+    }
+
+    public void CorrigeSlots()
+    {
+        for (int i = 0; i<LevelController.textSlots; i++)
+        {
+            if (!LevelController.inputText[i].Equals(LevelController.originalText[i]))
+            {
+                LevelController.inputText[i] = LevelController.originalText[i];
             }
         }
     }

@@ -36,21 +36,20 @@ public class Timer : MonoBehaviour {
     
     private void Update()
     {
-        if (!LevelController.TimePause) //Serve para pausar o timer quando abre o menu
+
+        if (LevelController.TimeIsRunning && !LevelController.TimePause)//bloco da barra de tempo inicio
         {
-            if (LevelController.TimeIsRunning)//bloco da barra de tempo inicio
+            if (ProgressBarTime < 10)
             {
-                if (ProgressBarTime < 10)
-                {
-                    ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
-                    TimeProgressBar.fillAmount = ProgressBarTime / 10;
-                }
-                else
-                {
-                    endOfTime = true;
-                }
+                ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
+                TimeProgressBar.fillAmount = ProgressBarTime / 10;
+            }
+            else
+            {
+                endOfTime = true;
             }
         }
+
     }
     
     public void ResetTimeProgressBar()
@@ -70,6 +69,7 @@ public class Timer : MonoBehaviour {
         yield return new WaitForSeconds(silaba.length);
         ResetTimeProgressBar();
         LevelController.TimeIsRunning = true;
+        soundManager.UnmuteSfxLoop();
         soundManager.PlaySfxLoop(tictac);
     }
 }

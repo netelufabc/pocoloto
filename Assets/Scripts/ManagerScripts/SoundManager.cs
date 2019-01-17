@@ -58,19 +58,24 @@ public class SoundManager : MonoBehaviour {
     public void PlayBackground(AudioClip background)
     {
         audioBackground.clip = background;
-        
+
         ///Primeiro verifica se o áudio é diferente, caso seja, 
         ///a música será substituida independente de qualquer coisa, caso seja igual, 
         ///ele verifica se a música já não está tocando (para evitar cortes na música atual)
-        if (background != audioBackground.clip && !gameSoundMuted)
-        {
-            audioBackground.Play();
+        if (!gameSoundMuted) {
+
+            if (background != audioBackground.clip)
+            {
+                audioBackground.Play();
+            }
+
+            else if (!audioBackground.isPlaying) { 
+                audioBackground.Play();
+            }
         }
 
-        else if (!audioBackground.isPlaying && !gameSoundMuted) { 
-            audioBackground.Play();
-        }
     }
+
 
     /// <summary>
     /// Para a música de fundo
@@ -89,6 +94,7 @@ public class SoundManager : MonoBehaviour {
         {
             audioBackground.Stop();
             gameSoundMuted = true;
+            Debug.Log(gameSoundMuted);
         }
     }
 
@@ -96,18 +102,12 @@ public class SoundManager : MonoBehaviour {
     {
         gameSoundMuted = false;
         PlayBackground(background);
+        Debug.Log(gameSoundMuted);
     }
 
     public bool IsBackgroundPlaying()
     {
-        if (audioBackground.isPlaying)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return audioBackground.isPlaying;
     }
 
     /// <summary>

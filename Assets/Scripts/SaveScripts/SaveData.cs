@@ -52,7 +52,7 @@ public class SaveData: MonoBehaviour {
     public void CreateNewPlayer()
     {
         // Inicialização dos parametros básicos da classe Player no player do SaveManager
-        SaveManager.player.planetaLiberado = newPlayer.planetaLiberado;
+        SaveManager.player.sistemaLiberado = newPlayer.sistemaLiberado;
         SaveManager.player.avatarBloqueado = newPlayer.avatarBloqueado;
         SaveManager.player.avatarSelecionadoIndex = newPlayer.avatarSelecionadoIndex;
 

@@ -48,6 +48,7 @@ public class StageManager : MonoBehaviour
 
     // Para testes
     public string palavraSelecionada;
+    public Player player;
 
     public Text[] GetTelaSilabaDigitada()
     {

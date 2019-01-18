@@ -26,4 +26,44 @@ public class Player
             }
         }
     }
+
+    public Row[] pontuacaoTeste;
+
+    public void TesteCriarPontuacao()
+    {
+        pontuacaoTeste = new Row[22];
+        pontuacaoTeste[0].initRow(4);
+        pontuacaoTeste[1].initRow(4);
+        pontuacaoTeste[2].initRow(4);
+        pontuacaoTeste[3].initRow(2);
+        pontuacaoTeste[4].initRow(4);
+        pontuacaoTeste[5].initRow(4);
+        pontuacaoTeste[6].initRow(4);
+        pontuacaoTeste[7].initRow(4);
+        pontuacaoTeste[8].initRow(4);
+        pontuacaoTeste[9].initRow(4);
+        pontuacaoTeste[10].initRow(4);
+        pontuacaoTeste[11].initRow(4);
+        pontuacaoTeste[12].initRow(4);
+        pontuacaoTeste[13].initRow(4);
+        pontuacaoTeste[14].initRow(4);
+        pontuacaoTeste[15].initRow(4);
+        pontuacaoTeste[16].initRow(4);
+        pontuacaoTeste[17].initRow(4);
+        pontuacaoTeste[18].initRow(4);
+        pontuacaoTeste[19].initRow(4);
+        pontuacaoTeste[20].initRow(4);
+        pontuacaoTeste[21].initRow(4);
+    }
+}
+
+[Serializable]
+public struct Row
+{
+    public int[] rowData;
+
+    public void initRow(int i)
+    {
+        rowData = new int[i];
+    }
 }

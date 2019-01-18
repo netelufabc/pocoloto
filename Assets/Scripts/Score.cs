@@ -12,12 +12,13 @@ public class Score: MonoBehaviour {
     private string scoreNegativeString = "Score Negative";
     private Text scorePositiveText;
     private Text scoreNegativeText;
-    private int maxScore;
     private Animator estrelaPositivo;
     private Animator estrelaNegativo;
+    private int maxScore; //Número de acertos ou erros necessário para passar de fase
 
     SilabaControl silabaControl;
     StageManager stageManager;
+
 
     //Construtores e função para manter o Singleton
 
@@ -38,10 +39,6 @@ public class Score: MonoBehaviour {
     {
         silabaControl = SilabaControl.instance;
         maxScore = LevelController.MaxScoreGlobal;
-
-        
-
-
     }
 
     /// <summary>
@@ -183,4 +180,75 @@ public class Score: MonoBehaviour {
             StartCoroutine(silabaControl.CallSilaba(0));//chama nova sílaba            
         }
     }
+
+    #region FunçõesEstrelas
+
+    private float timePlaying = 0; //Quanto tempo total até o ponto X que o jogador gastou
+    private int numberErrors; //Quantos erros foram feitos pelo jogador.
+    private Timer timer;
+
+    public void AddTimePlaying(float time)
+    {
+        timePlaying += time;
+    }
+
+    /// <summary>
+    /// Ele verifica o tempo e a quantidade erros do jogador, o fator limitante que será dado como resultado
+    /// </summary>
+    private void GiveStars()
+    {
+        SaveManager.player.pontuacao[stageManager.currentLevel-1, stageManager.currentAct-1] = Mathf.Min(CheckTime(), CheckError());
+    }
+
+    /// <summary>
+    /// Verifica o tempo jogado pelo jogador e o tempo total que ele poderia gastar, a porcentagem disso é verificada para saber quão rápido o jogador foi
+    /// </summary>
+    /// <returns>Um inteiro com o número de estrelas que ele ganharia só dependendo do tempo</returns>
+    private int CheckTime()
+    {
+        timer = Timer.instance;
+        float totalTime = (scoreNegative + scorePositive) * timer.totalTime; //Esse é o 100% do tempo gasto do jogador;
+        float timeLimit1 = 60; //Se gastou mais do que essa porcentagem
+        float timeLimit2 = 20; //Se gastou mais do que essa porcentagem
+        float myTimePorCent = (timePlaying * 100) / totalTime;
+
+        if (timeLimit1 < myTimePorCent)
+        {
+            return 1;
+        }
+        else if (timeLimit2 < myTimePorCent)
+        {
+            return 2;
+        }
+        else
+        {
+            return 3;
+        }
+    }
+
+    /// <summary>
+    /// Checa a quantidade de erros e compara eles com os critérios estabelecidos
+    /// </summary>
+    /// <returns>Um inteiro com o número de estrelas que ele ganharia só dependendo da quantidade de erros</returns>
+    private int CheckError()
+    {
+        int errorStar1 = 10; //Se tem mais que 10 erros, ganha uma estrela
+        int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
+
+        if (numberErrors > errorStar1)
+        {
+            return 1;
+        }
+        
+        else if (numberErrors > errorStar2)
+        {
+            return 2;
+        }
+
+        else
+        {
+            return 3;
+        }
+    }
+    #endregion
 }

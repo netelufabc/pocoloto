@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Timer : MonoBehaviour {
+public class Timer: MonoBehaviour {
     public static Timer instance = null;
     private SoundManager soundManager;
     private AudioClip tictac;
 
     private float ProgressBarTime;
-    private float TimeProgressBarSpeed = 0.5f;
+    private float TimeProgressBarSpeed = 1f;
     private Image TimeProgressBar;
+    public float totalTime = 20; //Tempo total em segundos
     public bool endOfTime = false;
 
+    public float GetTimeUntilHere()
+    {
+        return ProgressBarTime;
+    }
 
     private void Awake()
     {
@@ -33,16 +38,18 @@ public class Timer : MonoBehaviour {
         soundManager = SoundManager.instance;
         TimeProgressBar.fillAmount = 0;
     }
+
+    
     
     private void Update()
     {
 
         if (LevelController.TimeIsRunning && !LevelController.TimePause)//bloco da barra de tempo inicio
         {
-            if (ProgressBarTime < 10)
+            if (ProgressBarTime < totalTime)
             {
                 ProgressBarTime += TimeProgressBarSpeed * Time.deltaTime;
-                TimeProgressBar.fillAmount = ProgressBarTime / 10;
+                TimeProgressBar.fillAmount = ProgressBarTime / totalTime;
             }
             else
             {

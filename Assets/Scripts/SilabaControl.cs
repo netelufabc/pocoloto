@@ -210,7 +210,7 @@ public class SilabaControl : MonoBehaviour {
     {
         for (int i = 0; i<LevelController.textSlots; i++)
         {
-            if (!LevelController.inputText[i].Equals(LevelController.originalText[i]))
+            if (LevelController.inputText[i] == null || !LevelController.inputText[i].Equals(LevelController.originalText[i]))
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
             }

@@ -60,7 +60,7 @@ public class SaveData: MonoBehaviour {
         int.TryParse(GameObject.Find("IdadeText").GetComponent<Text>().text, out SaveManager.player.idade);
         int.TryParse(GameObject.Find("SerieText").GetComponent<Text>().text, out SaveManager.player.serie);
         SaveManager.player.slot = SlotsListManager.SlotGiver(SaveManager.list);
-        
+        SaveManager.player.CriarPontuacaoInicial();
     }
 
     public static void DeletePlayer()

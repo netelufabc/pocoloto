@@ -11,6 +11,21 @@ public class CloseApp : LoadScene {
         optionsMenu = Resources.Load("Prefabs/Sub Menus/CloseMenu") as GameObject;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            if (this.name == "Exit")
+            {
+                CloseMenu();
+            }
+            else
+            {
+                OpenMenu();
+            }
+        }                 
+    }
+
     public void FecharAplicacao()
     {
         Application.Quit();
@@ -45,7 +60,7 @@ public class CloseApp : LoadScene {
     /// Muta o tictac e pausa o contador de tempo.
     /// </summary>
     private void PauseGame()
-    {
+    {        
         soundManager.MuteSfxLoop();
         LevelController.TimePause = true;
     }

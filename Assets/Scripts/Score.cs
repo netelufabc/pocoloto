@@ -150,7 +150,29 @@ public class Score: MonoBehaviour {
             }
 
             SaveManager.Save();
-            yield return new WaitForSeconds(4);
+            yield return new WaitForSeconds(2);
+
+            GameObject feedbackEstrelas;
+
+            if (stars == 1)
+            {
+                feedbackEstrelas = Resources.Load("Prefabs/Feedback/GanhaUmaEstrela") as GameObject;
+                Instantiate(feedbackEstrelas, GameObject.Find("Canvas").transform);
+                yield return new WaitForSeconds(1);
+            }
+            else if (stars == 2)
+            {
+                feedbackEstrelas = Resources.Load("Prefabs/Feedback/GanhaDuasEstrela") as GameObject;
+                Instantiate(feedbackEstrelas, GameObject.Find("Canvas").transform);
+                yield return new WaitForSeconds(2);
+            }
+            else if (stars == 3)
+            {
+                feedbackEstrelas = Resources.Load("Prefabs/Feedback/GanhaTresEstrela") as GameObject;
+                Instantiate(feedbackEstrelas, GameObject.Find("Canvas").transform);
+                yield return new WaitForSeconds(2);
+            }
+
             StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
 
@@ -170,6 +192,7 @@ public class Score: MonoBehaviour {
 
             SaveManager.Save();
             yield return new WaitForSeconds(4);
+
             StartCoroutine(stageManager.CallAnotherLevel(3, PreviousLevel, false));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
         }
         else
@@ -189,6 +212,7 @@ public class Score: MonoBehaviour {
     private float timePlaying = 0; //Quanto tempo total até o ponto X que o jogador gastou
     private int numberErrors; //Quantos erros foram feitos pelo jogador.
     private Timer timer;
+    private int stars;
 
     [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha uma estrela")]
     public float timeLimit1 = 60; //Se gastou mais do que essa porcentagem
@@ -209,16 +233,24 @@ public class Score: MonoBehaviour {
         timePlaying = 0;
     }
 
+    public void UpdateTextStars()
+    {
+        Text starsTotal;
+        starsTotal = GameObject.Find("Stars Total").GetComponent<Text>();
+        starsTotal.text = SaveManager.player.totalEstrelas.ToString();
+    }
+
     /// <summary>
     /// Ele verifica o tempo e a quantidade erros do jogador, o fator limitante que será dado como resultado
     /// </summary>
     private void GiveStars()
     {
-        int stars = Mathf.Min(CheckTime(), CheckError());
+        stars = Mathf.Min(CheckTime(), CheckError());
 
         if (stars > SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1])
         {
             SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1] = stars;
+            SaveManager.player.totalEstrelas += stars;
         }
     }
 

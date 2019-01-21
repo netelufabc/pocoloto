@@ -104,6 +104,7 @@ public class StageManager : MonoBehaviour
 
         score = Score.instance;
         score.ScoreSetup();
+        score.UpdateTextStars();
 
         buttonConfirmar = ButtonConfirmar.instance;
 

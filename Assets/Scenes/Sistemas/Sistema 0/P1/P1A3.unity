@@ -1414,6 +1414,7 @@ MonoBehaviour:
   eSilaba: 0
   blockTextSlot: 0
   eRevisao: 0
+  pathAct: []
   palavraSelecionada: 
   player:
     slot: -1
@@ -1422,6 +1423,8 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    dinheiro: 0
+    totalEstrelas: 0
     avatarBloqueado: 00000101010101010101
     sistemaLiberado: 0100000000
     planeta: []

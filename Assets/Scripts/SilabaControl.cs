@@ -61,14 +61,12 @@ public class SilabaControl : MonoBehaviour {
         Object[] newSilabasNivelAtual;
 
         silabasNivelAtual = Resources.LoadAll(string.Concat(soundsDirectory, pathActs[0]), typeof(AudioClip));
-        Debug.Log(silabasNivelAtual.Length);
 
         for (int i = 1; i<pathActs.Length; i++)
         {
             string newSoundsDirectory = string.Concat(soundsDirectory, pathActs[i]);
             newSilabasNivelAtual = Resources.LoadAll(newSoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01
             silabasNivelAtual = silabasNivelAtual.Concat(newSilabasNivelAtual).ToArray();
-            Debug.Log(silabasNivelAtual.Length);
         }
 
         soundManager = SoundManager.instance;

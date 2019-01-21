@@ -15,13 +15,13 @@ public class CloseApp : LoadScene {
     {
         if (Input.GetKeyDown("escape"))
         {
-            if (this.name == "Exit")
-            {
-                CloseMenu();
-            }
-            else
+            if (GameObject.FindGameObjectWithTag("PauseMenu") == null)
             {
                 OpenMenu();
+            }
+            else if(this.name == "Exit")
+            {                
+                CloseMenu();                                
             }
         }                 
     }

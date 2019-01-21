@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -45,6 +46,28 @@ public class SilabaControl : MonoBehaviour {
     public void SilabaSetup(string soundsDirectory)
     {
         silabasNivelAtual = Resources.LoadAll(soundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01
+
+        soundManager = SoundManager.instance;
+        buttonDicaAudio = ButtonDicaAudio.instance;
+        buttonDicaVisual = ButtonDicaVisual.instance;
+        timer = Timer.instance;
+        stageManager = StageManager.instance;
+
+        isPlanetLetter = new bool[stageManager.textSlots];
+    }
+
+    public void SilabaSetup(string soundsDirectory, string[] pathActs)
+    {
+        Object[] newSilabasNivelAtual;
+
+        silabasNivelAtual = Resources.LoadAll(string.Concat(soundsDirectory, pathActs[0]), typeof(AudioClip));
+
+        for (int i = 1; i<pathActs.Length; i++)
+        {
+            string newSoundsDirectory = string.Concat(soundsDirectory, pathActs[i]);
+            newSilabasNivelAtual = Resources.LoadAll(newSoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01
+            silabasNivelAtual = silabasNivelAtual.Concat(newSilabasNivelAtual).ToArray();
+        }
 
         soundManager = SoundManager.instance;
         buttonDicaAudio = ButtonDicaAudio.instance;

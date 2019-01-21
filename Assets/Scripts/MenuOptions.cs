@@ -58,10 +58,10 @@ public class MenuOptions : MonoBehaviour
     /// <summary>
     /// Utilizado para destruir o pai do botão de fechar
     /// </summary>
-    public void CloseMenu()
-    {
-        GameObject buttonParent;
-        buttonParent = this.transform.parent.gameObject;
-        Destroy(buttonParent);
-    }
+    //public void CloseMenu()
+    //{
+    //    GameObject buttonParent;
+    //    buttonParent = this.transform.parent.gameObject;
+    //    Destroy(buttonParent);
+    //}
 }

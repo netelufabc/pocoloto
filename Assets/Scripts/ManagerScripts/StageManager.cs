@@ -37,7 +37,8 @@ public class StageManager : MonoBehaviour
     public bool blockTextSlot = false;
     [Tooltip("Indica se a fase é de revisão")]
     public bool eRevisao = false;
-
+    [Tooltip("Indicar quantos planetas tem no size, e os caminhos a partir do Sistema X de cada um")]
+    public string[] pathAct;
     public static StageManager instance = null;
 
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
@@ -91,10 +92,19 @@ public class StageManager : MonoBehaviour
     void Start()
     {
         silabaControl = SilabaControl.instance;
-        silabaControl.SilabaSetup(soundsDirectory);
+
+        if (eRevisao)
+        {
+            silabaControl.SilabaSetup(soundsDirectory, pathAct);
+        }
+        else
+        {
+            silabaControl.SilabaSetup(soundsDirectory);
+        }
 
         score = Score.instance;
         score.ScoreSetup();
+        score.UpdateTextStars();
 
         buttonConfirmar = ButtonConfirmar.instance;
 

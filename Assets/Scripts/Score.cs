@@ -136,6 +136,9 @@ public class Score: MonoBehaviour {
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
         {
+            GiveStars();
+            ResetTimePlaying();
+
             resultado = Resources.Load("Prefabs/Feedback/Level Clear Message") as GameObject;
 
             resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
@@ -187,9 +190,23 @@ public class Score: MonoBehaviour {
     private int numberErrors; //Quantos erros foram feitos pelo jogador.
     private Timer timer;
 
+    [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha uma estrela")]
+    public float timeLimit1 = 60; //Se gastou mais do que essa porcentagem
+    [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha duas estrela")]
+    public float timeLimit2 = 20; //Se gastou mais do que essa porcentagem
+    [Tooltip("Se errou mais que esse número de perguntas, ganha uma estrela")]
+    public int errorStar1 = 10; //Se tem mais que 10 erros, ganha uma estrela
+    [Tooltip("Se errou mais que esse número de perguntas, ganha duas estrela")]
+    public int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
+
     public void AddTimePlaying(float time)
     {
         timePlaying += time;
+    }
+
+    public void ResetTimePlaying()
+    {
+        timePlaying = 0;
     }
 
     /// <summary>
@@ -197,7 +214,12 @@ public class Score: MonoBehaviour {
     /// </summary>
     private void GiveStars()
     {
-        SaveManager.player.pontuacao[stageManager.currentLevel-1, stageManager.currentAct-1] = Mathf.Min(CheckTime(), CheckError());
+        int stars = Mathf.Min(CheckTime(), CheckError());
+
+        if (stars > SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1])
+        {
+            SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1] = stars;
+        }
     }
 
     /// <summary>
@@ -208,8 +230,6 @@ public class Score: MonoBehaviour {
     {
         timer = Timer.instance;
         float totalTime = (scoreNegative + scorePositive) * timer.totalTime; //Esse é o 100% do tempo gasto do jogador;
-        float timeLimit1 = 60; //Se gastou mais do que essa porcentagem
-        float timeLimit2 = 20; //Se gastou mais do que essa porcentagem
         float myTimePorCent = (timePlaying * 100) / totalTime;
 
         if (timeLimit1 < myTimePorCent)
@@ -232,8 +252,6 @@ public class Score: MonoBehaviour {
     /// <returns>Um inteiro com o número de estrelas que ele ganharia só dependendo da quantidade de erros</returns>
     private int CheckError()
     {
-        int errorStar1 = 10; //Se tem mais que 10 erros, ganha uma estrela
-        int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
 
         if (numberErrors > errorStar1)
         {

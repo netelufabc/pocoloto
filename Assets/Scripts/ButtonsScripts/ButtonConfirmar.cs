@@ -63,7 +63,7 @@ public class ButtonConfirmar : MonoBehaviour
 
     public IEnumerator ConfirmaResposta()
     {
-        score.AddTimePlaying(timer.GetTimeUntilHere());
+        score.AddTimePlaying(timer.GetTimeUntilHere()); //Adiciona tempo corrido desde de que o tempo começou até apertar o botão confirma.
         timer.ResetTimeProgressBar();
 
         LevelController.bloqueiaBotao = true; // Iniciando a verificação da resposta

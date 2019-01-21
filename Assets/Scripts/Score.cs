@@ -197,7 +197,7 @@ public class Score: MonoBehaviour {
     /// </summary>
     private void GiveStars()
     {
-        SaveManager.player.pontuacao[stageManager.currentLevel-1, stageManager.currentAct-1] = Mathf.Min(CheckTime(), CheckError());
+        //SaveManager.player.planeta[stageManager.currentLevel-1, stageManager.currentAct-1] = Mathf.Min(CheckTime(), CheckError());
     }
 
     /// <summary>

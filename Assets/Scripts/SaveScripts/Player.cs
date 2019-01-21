@@ -17,7 +17,7 @@ public class Player
 
     public Row[] planeta;
 
-    public void CriatPontuacao()
+    public void CriarPontuacaoInicial()
     {
         planeta = new Row[22];
         planeta[0].initRow(4);

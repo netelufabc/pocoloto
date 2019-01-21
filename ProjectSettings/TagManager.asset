@@ -13,6 +13,7 @@ TagManager:
   - AnimationManager
   - Fade
   - AvatarButton
+  - Planetas
   layers:
   - Default
   - TransparentFX

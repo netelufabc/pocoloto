@@ -13,6 +13,7 @@ TagManager:
   - AnimationManager
   - Fade
   - AvatarButton
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

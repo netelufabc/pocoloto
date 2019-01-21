@@ -12,8 +12,17 @@ public class CFX_AutoDestructShuriken : MonoBehaviour
 {
 	// If true, deactivate the object instead of destroying it
 	public bool OnlyDeactivate;
-	
-	void OnEnable()
+    private SoundManager soundManager;
+    private AudioClip explosion1;
+
+    private void Start()
+    {
+        soundManager = SoundManager.instance;
+        explosion1 = (AudioClip)Resources.Load("Sounds/sfx/explosion1");
+        soundManager.PlaySfx(explosion1);
+    }
+
+    void OnEnable()
 	{
 		StartCoroutine("CheckIfAlive");
 	}

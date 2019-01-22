@@ -247,10 +247,12 @@ public class Score: MonoBehaviour {
     {
         stars = Mathf.Min(CheckTime(), CheckError());
 
-        if (stars > SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1])
+        int starsHadOnCurrentAct = SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct - 1]; //Estrelas que eu já tinha nesse ato
+
+        if (stars > starsHadOnCurrentAct)
         {
             SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1] = stars;
-            SaveManager.player.totalEstrelas += stars;
+            SaveManager.player.totalEstrelas += stars - starsHadOnCurrentAct; //Só soma as estrelas que eu ainda não tenho.
         }
     }
 

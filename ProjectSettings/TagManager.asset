@@ -14,6 +14,7 @@ TagManager:
   - Fade
   - AvatarButton
   - Planetas
+  - Star
   layers:
   - Default
   - TransparentFX

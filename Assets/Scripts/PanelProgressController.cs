@@ -14,6 +14,7 @@ public class PanelProgressController : MonoBehaviour {
     private Button startPlanet;
     public static PanelProgressController instance = null;
     private LoadScene loadScene;
+    public Image starPoint;
 
     private void Awake()
     {
@@ -60,17 +61,43 @@ public class PanelProgressController : MonoBehaviour {
     /// Atuializa o texto do Panel Progress para o string fornecida
     /// </summary>
     /// <param name="newText"></param>
-    public void UpdateInfoText(string newText)
+    public void UpdateInfoText(string newText, int planetNumber)
     {
-        infoText.text = newText;
+        infoText.text = ActInfo(planetNumber) + newText;
     }
 
     /// <summary>
-    ///  Retorna o texto do Panel Progress para a string guardada na memória
+    ///  Retorna a informação ao Panel Progress, dependeno do estado anterior
     /// </summary>
     public void RestoreInfoText()
     {
-        infoText.text = previousInfoText;
+        string tempInfoText = "";
+        int chosenPlanetNumber = FindChosenPlanet();
+        DestroyStars();
+
+        if (chosenPlanetNumber != -1)
+        {
+            tempInfoText = ActInfo(chosenPlanetNumber);
+        }
+        infoText.text = tempInfoText + previousInfoText;
+    }
+
+    /// <summary>
+    /// Função que retorna a posição no vetor planets do planeta que está selecionado
+    /// </summary>
+    /// <returns></returns>
+    public int FindChosenPlanet()
+    {
+        for (int i = 1; i <= planets.Length; i++)
+        {
+            if (IsPlanetChosen(i))
+            {
+                return i;
+            }
+        }
+
+        Debug.LogError("Nenhum planeta escolhido!");
+        return -1;
     }
 
     /// <summary>
@@ -91,10 +118,13 @@ public class PanelProgressController : MonoBehaviour {
     {
         for (int i = 0; i < planets.Length; i++)
         {
+            // Verifica se o número do planeta no objeto é igual ao número passado a função
+            // Se for, coloca true no vetor chosenPlanet
             if (planets[i].GetComponent<StageSelectButtons>().GetPlanetNumber() == planetNumber)
             {
                 chosenPlanet[i] = true;
             }
+            // Caso contrário coloca false
             else
             {
                 chosenPlanet[i] = false;
@@ -112,13 +142,15 @@ public class PanelProgressController : MonoBehaviour {
     {
         for (int i = 0; i < chosenPlanet.Length; i++)
         {
+            // Verifica se o número do planeta no objeto é igual ao número passado a função
             if (planets[i].GetComponent<StageSelectButtons>().GetPlanetNumber() == planetNumber)
             {
                 return chosenPlanet[i];
+
             }
         }
 
-        Debug.Log("Planeta não encontrado!");
+        Debug.LogError("Planeta não encontrado!");
         return false;
     }
 
@@ -144,13 +176,38 @@ public class PanelProgressController : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Destroi as estrelas criadas para indicar a pontuação
+    /// </summary>
+    public void DestroyStars()
+    {
+        GameObject[] starsToDestroy = GameObject.FindGameObjectsWithTag("Star");
+
+        for (int i = 0; i < starsToDestroy.Length; i++)
+        {
+            Destroy(starsToDestroy[i]);
+        }
+    }
+
+    /// <summary>
+    /// Retorna a informação de cada ato (pontuação) para o planeta selecionado
+    /// </summary>
+    /// <param name="planetNumber"></param>
+    /// <returns></returns>
     public string ActInfo(int planetNumber)
     {
+        Image tempStarPoint;
         string actInfo = "";
 
         for (int i = 0; i < SaveManager.player.planeta[planetNumber - 1].ato.Length; i++)
         {
-            actInfo += "Ato " + (i + 1) + ": \n";
+            actInfo = actInfo + "Ato " + (i + 1) + ": \n\n";
+            for (int j = 0; j < SaveManager.player.planeta[planetNumber - 1].ato[i]; j++)
+            {
+                tempStarPoint = Instantiate(starPoint, transform);
+                tempStarPoint.transform.localPosition = new Vector3 (12f*j - 12f, -22.5f*i + 27f, 0);
+                tempStarPoint.transform.localScale = new Vector3 (0.1f, 0.1f, 0.1f);
+            }
         }
         return actInfo;
     }

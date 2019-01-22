@@ -2011,6 +2011,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114893510713473178, guid: 84242b1090547be4992f839433382ea4,
+        type: 2}
+      propertyPath: starPoint
+      value: 
+      objectReference: {fileID: 114642955314401974, guid: 3bfeec44d77d3264aa627e65eac2ae85,
+        type: 2}
+    - target: {fileID: 114131551399281374, guid: 84242b1090547be4992f839433382ea4,
+        type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84242b1090547be4992f839433382ea4, type: 2}
   m_IsPrefabAsset: 0

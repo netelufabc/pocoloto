@@ -37,30 +37,25 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //sideBarTip.text = GetText();
-        panelProgressController.UpdateInfoText(GetText());
-        if (planeta.interactable == true)
+        if (!panelProgressController.IsPlanetChosen(planetNumber))
         {
-            StartPlanetAnimation();
-            //rotate = true;
-            //planetNameText.text = planeta.name;
-            //planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
+            panelProgressController.DestroyStars();
+            panelProgressController.UpdateInfoText(GetText(), planetNumber);
+            if (planeta.interactable == true)
+            {
+                StartPlanetAnimation();
+            }
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // Se o planeta não é o escolhido, para a nimação
         if (!panelProgressController.IsPlanetChosen(planetNumber))
         {
-            //sideBarTip.text = "";
             panelProgressController.RestoreInfoText();
             if (planeta.interactable == true)
             {
                 StopPlanetAnimation();
-                //rotate = false;
-                //planetNameText.text = "";
-                //planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOff");
             }
         }
     }
@@ -89,16 +84,16 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         //sideBarTip.text = GetText();
         string tempText = GetText();
-        panelProgressController.UpdateInfoText(tempText);
+        panelProgressController.UpdateInfoText(tempText, planetNumber);
         panelProgressController.ReplaceInfoText(tempText);
         panelProgressController.ChoosePlanet(planetNumber, eventData);
-        if (planeta.interactable == true)
-        {
-            StartPlanetAnimation();
-            //rotate = true;
-            //planetNameText.text = planeta.name;
-            //planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
-        }
+        //if (planeta.interactable == true)
+        //{
+        //    StartPlanetAnimation();
+        //    //rotate = true;
+        //    //planetNameText.text = planeta.name;
+        //    //planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
+        //}
         panelProgressController.ReadyToGo();
     }
 

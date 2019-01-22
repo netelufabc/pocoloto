@@ -546,6 +546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetLevel: 
 --- !u!114 &219259315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -954,6 +955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetLevel: 
 --- !u!114 &485138934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,6 +2331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d578ef0a9a816f840baecbbe4a7e1779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starPoint: {fileID: 114642955314401974, guid: 3bfeec44d77d3264aa627e65eac2ae85,
+    type: 2}
 --- !u!114 &1948288022
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,8 @@ using UnityEngine.EventSystems;
 public class ButtonLoadSlotSelect : MonoBehaviour {
 
     public GameObject confirmMenu;
-        
+    private int selectedSlotButton;
+
     /// <summary>
     /// Informa qual o slot selecionado para carregar (load)
     /// </summary>
@@ -15,7 +16,27 @@ public class ButtonLoadSlotSelect : MonoBehaviour {
     {
         GridLayout gridLayout = transform.parent.GetComponent<GridLayout>();
         Vector3Int cellPos = gridLayout.WorldToCell(transform.position);
-        SaveManager.selectedSlot = PositionToIndex(cellPos);
+        selectedSlotButton = PositionToIndex(cellPos);
+
+        // Verifica de qual save é o slot selecionado
+        int count = 0, i;
+        for (i = 0; i < SaveManager.slotsListSize; i++)
+        {
+            if (System.IO.File.Exists(SaveManager.dataPath + "/listaDeSlots.json") && !SlotsListManager.CheckSameNumber(i, SaveManager.list))
+            {
+                if (count == selectedSlotButton)
+                {
+                    break;
+                }
+                else
+                {
+                    count++;
+                }
+            }
+        }
+
+        SaveManager.selectedSlot = i;
+        //Debug.Log(selectedSlotButton + " " + i + " "+ SaveManager.player.slot);
         GameObject.Find("Confirma").GetComponent<UnityEngine.UI.Button>().interactable = true;
         GameObject.Find("Delete").GetComponent<UnityEngine.UI.Button>().interactable = true;
     }

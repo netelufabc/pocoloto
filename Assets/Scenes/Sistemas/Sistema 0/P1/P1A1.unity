@@ -1204,6 +1204,7 @@ MonoBehaviour:
   eSilaba: 0
   blockTextSlot: 0
   eRevisao: 0
+  pathAct: []
   palavraSelecionada: 
   player:
     slot: -1
@@ -1212,6 +1213,8 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    dinheiro: 0
+    totalEstrelas: 0
     avatarBloqueado: 00000101010101010101
     sistemaLiberado: 0100000000
     planeta: []
@@ -1249,7 +1252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.400001, y: 22.4}
+  m_AnchoredPosition: {x: 17, y: 22.4}
   m_SizeDelta: {x: 60, y: 108.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347510378

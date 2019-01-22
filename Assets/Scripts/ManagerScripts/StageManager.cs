@@ -111,6 +111,7 @@ public class StageManager : MonoBehaviour
         //AnimationController = LevelChangerAnimController.control;
 
         StartCoroutine(silabaControl.CallSilaba(1f)); //Começa a chamar as silabas
+
     }
 
     void Update()

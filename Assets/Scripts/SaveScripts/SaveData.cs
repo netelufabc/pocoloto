@@ -68,6 +68,7 @@ public class SaveData: MonoBehaviour {
         string stringSlot = (SaveManager.selectedSlot.ToString() + ".json");
 
         System.IO.File.Delete(System.IO.Path.Combine(SaveManager.dataPath, stringSlot));
+        Debug.Log(SaveManager.selectedSlot);
         SlotsListManager.ReturnSlot(SaveManager.selectedSlot);
         
     } 

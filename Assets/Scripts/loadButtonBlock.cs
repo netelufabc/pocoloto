@@ -16,7 +16,7 @@ public class loadButtonBlock : MonoBehaviour, IPointerClickHandler {
     {
         GameObject.Find("Confirma").GetComponent<UnityEngine.UI.Button>().interactable = false;
         GameObject.Find("Delete").GetComponent<UnityEngine.UI.Button>().interactable = false;
-        foreach (Button button in Button.allSelectables)
+        foreach (Selectable button in Selectable.allSelectables)
         {
             if (button.CompareTag("Button"))
             {

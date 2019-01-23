@@ -21,6 +21,8 @@ public class Player
 
     public void CriarPontuacaoInicial()
     {
+        totalEstrelas = 0;
+        dinheiro = 0;
         planeta = new Row[22];
         planeta[0].initRow(3);
         planeta[1].initRow(3);

@@ -17,7 +17,7 @@ public class ToggleButton : MonoBehaviour {
 
     public void BlankAllTheOthers()
     {
-        foreach (Button button in Button.allSelectables)
+        foreach (Selectable button in Selectable.allSelectables)
         {
             if (button.CompareTag("Button"))
             {

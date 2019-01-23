@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 19038740}
   - component: {fileID: 19038739}
   - component: {fileID: 19038738}
+  - component: {fileID: 19038744}
   m_Layer: 5
   m_Name: Planeta 2
   m_TagString: Planetas
@@ -234,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 0
   planetFirstScene: P2A1
 --- !u!114 &19038741
 MonoBehaviour:
@@ -280,6 +282,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 19038736}
   m_CullTransparentMesh: 0
+--- !u!114 &19038744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19038736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &44333825
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +414,7 @@ GameObject:
   - component: {fileID: 165892280}
   - component: {fileID: 165892279}
   - component: {fileID: 165892278}
+  - component: {fileID: 165892282}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -524,6 +538,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 165892276}
   m_CullTransparentMesh: 0
+--- !u!114 &165892282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 165892276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &271622457
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +700,7 @@ GameObject:
   - component: {fileID: 352171944}
   - component: {fileID: 352171943}
   - component: {fileID: 352171942}
+  - component: {fileID: 352171948}
   m_Layer: 5
   m_Name: Planeta 3
   m_TagString: Planetas
@@ -782,6 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 0
   planetFirstScene: P3A1
 --- !u!114 &352171945
 MonoBehaviour:
@@ -828,6 +855,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352171940}
   m_CullTransparentMesh: 0
+--- !u!114 &352171948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352171940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &480773879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1352,6 +1390,7 @@ GameObject:
   - component: {fileID: 988208345}
   - component: {fileID: 988208350}
   - component: {fileID: 988208349}
+  - component: {fileID: 988208351}
   m_Layer: 5
   m_Name: Planeta 4
   m_TagString: Planetas
@@ -1504,7 +1543,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 0
   planetFirstScene: RS0
+--- !u!114 &988208351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 988208343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1083945536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1569,7 @@ GameObject:
   - component: {fileID: 1083945539}
   - component: {fileID: 1083945538}
   - component: {fileID: 1083945542}
+  - component: {fileID: 1083945543}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -1650,6 +1702,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4ff323a21b07514a8b6dfb51d7d592f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1083945543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083945536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1489994829
@@ -2025,6 +2088,22 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84242b1090547be4992f839433382ea4, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1697670476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1710132616425328, guid: 84242b1090547be4992f839433382ea4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1697670475}
+--- !u!114 &1697670477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697670476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1897724132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2039,6 +2118,7 @@ GameObject:
   - component: {fileID: 1897724139}
   - component: {fileID: 1897724137}
   - component: {fileID: 1897724138}
+  - component: {fileID: 1897724140}
   m_Layer: 5
   m_Name: Planeta 1
   m_TagString: Planetas
@@ -2172,6 +2252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 0
   planetFirstScene: P1A1
 --- !u!95 &1897724139
 Animator:
@@ -2191,6 +2272,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1897724140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1897724132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907186331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,6 +2445,7 @@ GameObject:
   - component: {fileID: 1987628731}
   - component: {fileID: 1987628730}
   - component: {fileID: 1987628729}
+  - component: {fileID: 1987628733}
   m_Layer: 5
   m_Name: ToGalaxy
   m_TagString: Untagged
@@ -2476,6 +2569,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1987628727}
   m_CullTransparentMesh: 0
+--- !u!114 &1987628733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987628727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1994642297
 GameObject:
   m_ObjectHideFlags: 0

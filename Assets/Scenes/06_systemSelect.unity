@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 37609188}
   - component: {fileID: 37609187}
   - component: {fileID: 37609191}
+  - component: {fileID: 37609192}
   m_Layer: 5
   m_Name: Sistema 0
   m_TagString: Untagged
@@ -258,6 +259,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4f1ffc4fd0c19418288fa3f78a982f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &37609192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 37609185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &44333825
@@ -518,6 +530,7 @@ GameObject:
   - component: {fileID: 256171964}
   - component: {fileID: 256171963}
   - component: {fileID: 256171962}
+  - component: {fileID: 256171967}
   m_Layer: 5
   m_Name: Sistema 2
   m_TagString: Untagged
@@ -652,6 +665,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256171960}
   m_CullTransparentMesh: 0
+--- !u!114 &256171967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256171960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &271622457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1111,7 @@ GameObject:
   - component: {fileID: 956657447}
   - component: {fileID: 956657446}
   - component: {fileID: 956657450}
+  - component: {fileID: 956657451}
   m_Layer: 5
   m_Name: Sistema 1
   m_TagString: Untagged
@@ -1219,6 +1244,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d4f1ffc4fd0c19418288fa3f78a982f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &956657451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956657444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1651271857
@@ -1700,7 +1736,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: SELECIONE O PLANETA!
+  m_Text: SELECIONE O SISTEMA!
 --- !u!222 &1976679403
 CanvasRenderer:
   m_ObjectHideFlags: 0

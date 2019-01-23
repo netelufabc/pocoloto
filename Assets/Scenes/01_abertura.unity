@@ -1003,18 +1003,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1737197875}
-        m_MethodName: PlayClick
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: de23c69f57f62e84e90994a18abe5351,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 02_voceeh
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1737197875}
         m_MethodName: LoadSceneWithFade
         m_Mode: 5
         m_Arguments:

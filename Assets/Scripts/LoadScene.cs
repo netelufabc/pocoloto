@@ -15,10 +15,10 @@ public class LoadScene : MonoBehaviour {
         soundManager = SoundManager.instance;
     }
 
-    public void PlayClick(AudioClip click)
-    {
-        soundManager.PlaySfx(click);
-    }
+    //public void PlayClick(AudioClip click)
+    //{
+    //    soundManager.PlaySfx(click);
+    //}
     /*
    public void ChooseScene(string sceneName)
    {

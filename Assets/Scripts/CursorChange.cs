@@ -7,6 +7,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Esta classe só pode ser anexada a UI Buttons. 
 /// Quando o mouse passa por cima do objeto anexado, o cursor alterna para a imagem aqui inserida.
+/// O botão ao qual este script estiver anexado vai tocar um CLICK quando for apertado.
 /// Também pode ser herdada.
 /// </summary>
 
@@ -14,11 +15,20 @@ public class CursorChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     private Texture2D cursor;
     private Button botao;
+    SoundManager soundManager;
+    AudioClip clickSound;
 
     private void Awake()
     {
+        soundManager = SoundManager.instance;
         cursor = Resources.Load<Texture2D>("Images/cursor-edit-th");
+        clickSound = (AudioClip)Resources.Load("Sounds/sfx/click_tecla01");
         botao = this.GetComponent<UnityEngine.UI.Button>();
+    }
+
+    public void Start()
+    {
+        botao.onClick.AddListener(delegate() { soundManager.PlaySfx(clickSound); });
     }
 
     public void OnPointerEnter(PointerEventData eventData)

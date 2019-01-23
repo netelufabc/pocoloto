@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class ButtonLoadSlotSelect : MonoBehaviour {
 
     public GameObject confirmMenu;
     private int selectedSlotButton;
-
+    
     /// <summary>
     /// Informa qual o slot selecionado para carregar (load)
     /// </summary>

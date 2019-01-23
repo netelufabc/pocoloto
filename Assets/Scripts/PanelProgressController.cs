@@ -15,6 +15,8 @@ public class PanelProgressController : MonoBehaviour {
     public static PanelProgressController instance = null;
     private LoadScene loadScene;
     public Image starPoint;
+    [Tooltip("Número do planeta correspondente a fase de revisão do sistema anterior")]
+    public int numPlanetaRSAnterior = 0;
 
     private void Awake()
     {
@@ -77,7 +79,7 @@ public class PanelProgressController : MonoBehaviour {
 
         if (chosenPlanetNumber != -1)
         {
-            tempInfoText = ActInfo(chosenPlanetNumber);
+            tempInfoText = ActInfo(chosenPlanetNumber + numPlanetaRSAnterior);
         }
         infoText.text = tempInfoText + previousInfoText;
     }
@@ -90,13 +92,13 @@ public class PanelProgressController : MonoBehaviour {
     {
         for (int i = 1; i <= planets.Length; i++)
         {
-            if (IsPlanetChosen(i))
+            if (IsPlanetChosen(i + numPlanetaRSAnterior))
             {
                 return i;
             }
         }
 
-        Debug.LogError("Nenhum planeta escolhido!");
+        //Debug.LogError("Nenhum planeta escolhido!");
         return -1;
     }
 
@@ -142,11 +144,11 @@ public class PanelProgressController : MonoBehaviour {
     {
         for (int i = 0; i < chosenPlanet.Length; i++)
         {
+            //Debug.Log(planetNumber + " " + planets[i].GetComponent<StageSelectButtons>().GetPlanetNumber() + " IsPlanetChosen: " + i);
             // Verifica se o número do planeta no objeto é igual ao número passado a função
             if (planets[i].GetComponent<StageSelectButtons>().GetPlanetNumber() == planetNumber)
             {
                 return chosenPlanet[i];
-
             }
         }
 
@@ -202,6 +204,7 @@ public class PanelProgressController : MonoBehaviour {
         for (int i = 0; i < SaveManager.player.planeta[planetNumber - 1].ato.Length; i++)
         {
             actInfo = actInfo + "Ato " + (i + 1) + ": \n\n";
+            //Debug.Log("Planeta " + planetNumber + " Ato " + i);
             for (int j = 0; j < SaveManager.player.planeta[planetNumber - 1].ato[i]; j++)
             {
                 tempStarPoint = Instantiate(starPoint, transform);

@@ -60,7 +60,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Sistemas/Sistema 0/P3/P3A3.unity
     guid: b878f2fb95f807340bdf287b95d51485
   - enabled: 1
-    path: Assets/Scenes/Sistemas/Sistema 0/RS1.unity
+    path: Assets/Scenes/Sistemas/Sistema 0/RS0.unity
     guid: bcfc3c920da04a14fb5a93a5630d8960
   - enabled: 1
     path: Assets/Scenes/Sistemas/Sistema 1/07_stageSelect 1.unity

@@ -1396,12 +1396,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 5
-  currentAct: 0
+  currentLevel: 6
+  currentAct: 1
   planetLetters: []
   textSlots: 2
-  NextLevel: 06_stageSelect
-  PreviousLevel: 06_stageSelect
+  NextLevel: 07_stageSelect 1
+  PreviousLevel: 07_stageSelect 1
   soundsDirectory: Sounds\Level_05
   eSilaba: 1
   blockTextSlot: 0

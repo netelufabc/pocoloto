@@ -61,8 +61,8 @@ public class LoadSelection : MonoBehaviour {
         // Mostra quantos espaços de save estão livres do total
         GameObject.Find("Slots Livres").GetComponent<Text>().text = "Espaços Livres: " + slotsUsados.ToString() + "/" + SaveManager.slotsListSize;
 	}
-
-	/*
+    
+    /*
     /// <summary>
     /// Função de teste para verificação da posição escolhida
     /// </summary>

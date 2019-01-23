@@ -146,7 +146,8 @@ public class Score: MonoBehaviour {
             // Se ganhar uma fase de revisão e for o último ato (caso tenha mais que um), libera o próximo sistema
             if (stageManager.NextLevel.Contains("stageSelect") && stageManager.eRevisao)
             {
-                SaveManager.player.sistemaLiberado[stageManager.currentLevel] = true;
+                // Pega o inteiro no final do stageSelect (indica qual sistema está) e libera o proximo sistema (+1)
+                SaveManager.player.sistemaLiberado[System.Int32.Parse(stageManager.NextLevel.Substring(stageManager.NextLevel.Length - 1)) + 1] = true;
             }
 
             SaveManager.Save();

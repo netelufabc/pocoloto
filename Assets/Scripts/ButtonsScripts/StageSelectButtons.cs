@@ -11,11 +11,11 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private string toolTipText;
     private Animator planetaMouseOverAnimation;
     private Text planetNameText;
-    private int planetNumber;
+    public int planetNumber;
     private bool rotate;
 
     private PanelProgressController panelProgressController;
-    public string planetLevel;
+    public string planetFirstScene;
 
 	void Start () {
         //sideBarTip = GameObject.Find("Panel Text").GetComponent<UnityEngine.UI.Text>();
@@ -128,6 +128,6 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public string GetPlanetLevel()
     {
-        return planetLevel;
+        return planetFirstScene;
     }
 }

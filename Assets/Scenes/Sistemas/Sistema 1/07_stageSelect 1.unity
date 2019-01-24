@@ -473,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNumber: 0
   planetFirstScene: 08_nivel04
+  goToPlanet: 0
 --- !u!114 &219259315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planetNumber: 0
   planetFirstScene: 09_nivel05
+  goToPlanet: 0
 --- !u!114 &485138934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1570,6 +1572,12 @@ Prefab:
       propertyPath: numPlanetaRSAnterior
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114153396501639188, guid: 84242b1090547be4992f839433382ea4,
+        type: 2}
+      propertyPath: imagemIniciarPlaneta
+      value: 
+      objectReference: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84242b1090547be4992f839433382ea4, type: 2}
   m_IsPrefabAsset: 0

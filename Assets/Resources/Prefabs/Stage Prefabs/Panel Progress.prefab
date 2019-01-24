@@ -113,6 +113,8 @@ MonoBehaviour:
   starPoint: {fileID: 114642955314401974, guid: 3bfeec44d77d3264aa627e65eac2ae85,
     type: 2}
   numPlanetaRSAnterior: 0
+  imagemIniciarPlaneta: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
+    type: 2}
 --- !u!114 &114277166931128914
 MonoBehaviour:
   m_ObjectHideFlags: 1

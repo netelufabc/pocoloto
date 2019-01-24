@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler{
-
-    //private Text sideBarTip;
+    
     private Button planeta;
     private string toolTipText;
     private Animator planetaMouseOverAnimation;
@@ -17,8 +16,9 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private PanelProgressController panelProgressController;
     public string planetFirstScene;
 
+    public bool goToPlanet;
+
 	void Start () {
-        //sideBarTip = GameObject.Find("Panel Text").GetComponent<UnityEngine.UI.Text>();
         planeta = this.GetComponent<UnityEngine.UI.Button>();
         planetaMouseOverAnimation = GameObject.Find(planeta.name).GetComponent<Animator>();
         planetNameText = GameObject.Find("Nome Planeta").GetComponent<UnityEngine.UI.Text>();
@@ -26,6 +26,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         planetNumber = System.Int32.Parse(planeta.name.Substring(planeta.name.Length - 1));
 
         panelProgressController = PanelProgressController.instance;
+        goToPlanet = false;
     }
 	
 	void Update () {
@@ -63,7 +64,6 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     public string GetText()
     {
         string tempText = "";
-        //tempText = panelProgressController.ActInfo(planetNumber);
 
         if (planeta.interactable == true)
         {
@@ -82,19 +82,18 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     /// <param name="eventData"></param>
     public void OnPointerClick (PointerEventData eventData)
     {
-        //sideBarTip.text = GetText();
-        string tempText = GetText();
-        panelProgressController.UpdateInfoText(tempText, planetNumber);
-        panelProgressController.ReplaceInfoText(tempText);
-        panelProgressController.ChoosePlanet(planetNumber, eventData);
-        //if (planeta.interactable == true)
-        //{
-        //    StartPlanetAnimation();
-        //    //rotate = true;
-        //    //planetNameText.text = planeta.name;
-        //    //planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
-        //}
-        panelProgressController.ReadyToGo();
+        if (goToPlanet)
+        {
+            panelProgressController.GoToPlanet();
+        }
+        else
+        {
+            string tempText = GetText();
+            panelProgressController.UpdateInfoText(tempText, planetNumber);
+            panelProgressController.ReplaceInfoText(tempText);
+            panelProgressController.ChoosePlanet(planetNumber, eventData);
+            panelProgressController.ReadyToGo();
+        }
     }
 
     /// <summary>
@@ -126,6 +125,10 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         return planetNumber;
     }
 
+    /// <summary>
+    /// Informa qual a primeira scene que deve ser carregada para o planeta
+    /// </summary>
+    /// <returns></returns>
     public string GetPlanetLevel()
     {
         return planetFirstScene;

@@ -17,6 +17,8 @@ public class PanelProgressController : MonoBehaviour {
     public Image starPoint;
     [Tooltip("Número do planeta correspondente a fase de revisão do sistema anterior")]
     public int numPlanetaRSAnterior = 0;
+    public GameObject imagemIniciarPlaneta;
+    private GameObject initImage;
 
     private void Awake()
     {
@@ -125,12 +127,17 @@ public class PanelProgressController : MonoBehaviour {
             if (planets[i].GetComponent<StageSelectButtons>().GetPlanetNumber() == planetNumber)
             {
                 chosenPlanet[i] = true;
+                planets[i].GetComponent<StageSelectButtons>().goToPlanet = true;
+                Destroy(initImage);
+                initImage = Instantiate(imagemIniciarPlaneta, GameObject.Find("Canvas").transform);
+                initImage.transform.position = planets[i].transform.position;
             }
             // Caso contrário coloca false
             else
             {
                 chosenPlanet[i] = false;
                 planets[i].GetComponent<StageSelectButtons>().StopPlanetAnimation();
+                planets[i].GetComponent<StageSelectButtons>().goToPlanet = false;
             }
         }
     }

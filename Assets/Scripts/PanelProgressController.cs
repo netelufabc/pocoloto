@@ -17,7 +17,9 @@ public class PanelProgressController : MonoBehaviour {
     public Image starPoint;
     [Tooltip("Número do planeta correspondente a fase de revisão do sistema anterior")]
     public int numPlanetaRSAnterior = 0;
+    [Tooltip("Imagem que aparece quando se seleciona o planeta pela primeira vez")]
     public GameObject imagemIniciarPlaneta;
+    // Var para instanciar a imagem
     private GameObject initImage;
 
     private void Awake()
@@ -55,10 +57,13 @@ public class PanelProgressController : MonoBehaviour {
             chosenPlanet[i] = false;
         }
 
+        // Desabilita o botão que está no painel para entrar no planeta
         startPlanet = GameObject.Find("StartPlanet").GetComponent<Button>();
         startPlanet.interactable = false;
-
+        
+        // Exibe o total de estrelas 
         loadScene = infoPanel.GetComponent<LoadScene>();
+        GameObject.Find("TotalStars").GetComponent<Text>().text = "x" + SaveManager.player.totalEstrelas.ToString();
     }
 
     /// <summary>
@@ -215,7 +220,7 @@ public class PanelProgressController : MonoBehaviour {
             for (int j = 0; j < SaveManager.player.planeta[planetNumber - 1].ato[i]; j++)
             {
                 tempStarPoint = Instantiate(starPoint, transform);
-                tempStarPoint.transform.localPosition = new Vector3 (12f*j - 12f, -22.5f*i + 27f, 0);
+                tempStarPoint.transform.localPosition = new Vector3 (12f*j - 12f, -22.5f*i + 7f, 0);
                 tempStarPoint.transform.localScale = new Vector3 (0.1f, 0.1f, 0.1f);
             }
         }

@@ -206,7 +206,7 @@ RectTransform:
   - {fileID: 523723299}
   - {fileID: 110320973}
   - {fileID: 781065180}
-  - {fileID: 1258596064}
+  - {fileID: 1006189352}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1395,6 +1395,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224018666902821444, guid: 3ec35e889a5eeeb40a06e70ea278d78f,
     type: 2}
   m_PrefabInternal: {fileID: 949973919}
+--- !u!224 &1006189352 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224798068645922104, guid: 84242b1090547be4992f839433382ea4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1258596063}
 --- !u!1 &1048771315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,14 +1583,19 @@ Prefab:
       value: 
       objectReference: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
         type: 2}
+    - target: {fileID: 224798068645922104, guid: 84242b1090547be4992f839433382ea4,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114430328009160274, guid: 84242b1090547be4992f839433382ea4,
+        type: 2}
+      propertyPath: numPlanetaRSAnterior
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84242b1090547be4992f839433382ea4, type: 2}
   m_IsPrefabAsset: 0
---- !u!224 &1258596064 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224368129740558590, guid: 84242b1090547be4992f839433382ea4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1258596063}
 --- !u!1 &1352851143
 GameObject:
   m_ObjectHideFlags: 0

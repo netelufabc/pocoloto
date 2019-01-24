@@ -180,15 +180,7 @@ public class Score: MonoBehaviour {
         //Caso o resultado esteja errado
         else if (getScoreNegative() == maxScore)
         {
-            if (stageManager.currentAct == 1)
-            {
-                resultado = Resources.Load("Prefabs/Feedback/Game Over") as GameObject;
-            }
-            else
-            {
-                resultado = Resources.Load("Prefabs/Feedback/Level Failed Message") as GameObject;
-            }
-
+            resultado = Resources.Load("Prefabs/Feedback/Level Failed Message") as GameObject;
             resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
 
             SaveManager.Save();
@@ -254,7 +246,19 @@ public class Score: MonoBehaviour {
         {
             SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1] = stars;
             SaveManager.player.totalEstrelas += stars - starsHadOnCurrentAct; //Só soma as estrelas que eu ainda não tenho.
+            GiveStarsForSystem(stars - starsHadOnCurrentAct);
+            
         }
+    }
+
+    /// <summary>
+    /// Coloca as estrelas ganhas no contador de cada um dos sistemas
+    /// </summary>
+    /// <param name="stars"></param>
+    private void GiveStarsForSystem(int stars)
+    {
+        int system = (stageManager.currentAct-1) / 4; //*REVISAR* Só funciona se cada sistema tiver somente 4 mundos; 
+        SaveManager.player.estrelaSistema[system] += stars;
     }
 
     /// <summary>

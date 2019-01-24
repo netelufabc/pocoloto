@@ -37,6 +37,9 @@ public static class LevelController
 
     // Para verificar se a palavra deve ser separada em sílabas ou letras
     public static bool eSilaba;
+
+    //Número total de estrelas que podem ser obtidas em cada sistema
+    public static int[] estrelaSistemaTotal = new int [5] {30, 30, 30, 30, 30};
     
     public static void InitializeVars()
     {

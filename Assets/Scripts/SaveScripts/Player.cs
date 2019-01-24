@@ -16,6 +16,7 @@ public class Player
     public int totalEstrelas;
     public bool[] avatarBloqueado = new bool[10] { false, false, true, true, true, true, true, true, true, true };
     public bool[] sistemaLiberado = new bool[5] { true, false, false, false, false };
+    public int[] estrelaSistema = new int[5] { 0, 0, 0, 0, 0 };
 
     public Row[] planeta;
 

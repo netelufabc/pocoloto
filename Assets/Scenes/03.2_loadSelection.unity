@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3cb44ff9fb63d44bad1578bcf86506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadSlotButton: {fileID: 1010239052336452, guid: ae94ef890be5ad847b5e818e696abc3c,
+  loadSlotButton: {fileID: 1914468309782122, guid: 82a3a99b81f1d6a428873a548d44538e,
     type: 2}
 --- !u!156049354 &435476954
 Grid:

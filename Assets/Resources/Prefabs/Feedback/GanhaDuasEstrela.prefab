@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224949269740850108}
   - component: {fileID: 95381903217850922}
+  - component: {fileID: 114636804964627256}
   m_Layer: 5
   m_Name: GanhaDuasEstrela
   m_TagString: Untagged
@@ -77,6 +78,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114636804964627256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113821454349684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f0f4ba8f1b3b6458e28a5f2e4c6c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212485691083474246
 SpriteRenderer:
   m_ObjectHideFlags: 1

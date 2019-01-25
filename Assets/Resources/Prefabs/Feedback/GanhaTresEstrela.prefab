@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224724181580887602}
   - component: {fileID: 95631320414637352}
+  - component: {fileID: 114468847269115398}
   m_Layer: 5
   m_Name: GanhaTresEstrela
   m_TagString: Untagged
@@ -93,6 +94,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114468847269115398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212088247004106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f0f4ba8f1b3b6458e28a5f2e4c6c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212123380986208378
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -257,7 +269,7 @@ RectTransform:
   m_GameObject: {fileID: 1382455077091280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.67, z: 1}
   m_Children: []
   m_Father: {fileID: 224724181580887602}
   m_RootOrder: 1
@@ -275,7 +287,7 @@ RectTransform:
   m_GameObject: {fileID: 1632029131702830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.67, z: 1}
   m_Children: []
   m_Father: {fileID: 224724181580887602}
   m_RootOrder: 0

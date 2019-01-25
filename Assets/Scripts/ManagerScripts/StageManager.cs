@@ -8,7 +8,7 @@ public class StageManager : MonoBehaviour
 {
     [Header("Detalhes do nível")]
     [Tooltip("Nível atual")]
-    public int currentLevel;//Nível atual
+    public int currentPlanet;//Nível atual
     [Tooltip("Ato atual")]
     public int currentAct;
     /*[Tooltip("Quantidade de atos desse planeta")]
@@ -71,7 +71,7 @@ public class StageManager : MonoBehaviour
         LevelController.TimePause = false;
         LevelController.TimeIsRunning = false;
 
-        LevelController.currentLevel = currentLevel;
+        LevelController.currentPlanet = currentPlanet;
         LevelController.currentAct = currentAct;
         TelaSilabaDigitada = new Text[textSlots];
         for (int i = 0; i < textSlots; i++)

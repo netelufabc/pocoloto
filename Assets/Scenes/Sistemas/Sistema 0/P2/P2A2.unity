@@ -1516,11 +1516,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 2
+  currentPlanet: 2
   currentAct: 2
   planetLetters:
   - E
   - U
+  - A
+  - O
   textSlots: 4
   NextLevel: P2A3
   PreviousLevel: P2A1
@@ -1540,7 +1542,8 @@ MonoBehaviour:
     dinheiro: 0
     totalEstrelas: 0
     avatarBloqueado: 00000101010101010101
-    sistemaLiberado: 0100000000
+    sistemaLiberado: 0
+    estrelaSistema: 0000000000000000000000000000000000000000
     planeta: []
 --- !u!1 &1655799490
 GameObject:

@@ -143,12 +143,23 @@ public class Score: MonoBehaviour {
 
             resultado = Instantiate(resultado, GameObject.Find("Canvas").transform);
 
-            // Se ganhar uma fase de revisão e for o último ato (caso tenha mais que um), libera o próximo sistema
-            if (stageManager.NextLevel.Contains("stageSelect") && stageManager.eRevisao)
+            // Se for o último ato do planeta, libera o próximo planeta.
+            if (stageManager.currentAct == 3)
             {
-                // Pega o inteiro no final do stageSelect (indica qual sistema está) e libera o proximo sistema (+1)
-                SaveManager.player.sistemaLiberado[System.Int32.Parse(stageManager.NextLevel.Substring(stageManager.NextLevel.Length - 1)) + 1] = true;
+                SaveManager.player.planeta[stageManager.currentPlanet].liberado = true;
             }
+            // Caso seja a revisão do sistema 0, libera todos os outros sistemas
+            if (!SaveManager.player.sistemaLiberado && stageManager.eRevisao)
+            {
+                SaveManager.player.sistemaLiberado = true;
+            }
+
+            //// Se ganhar uma fase de revisão e for o último ato (caso tenha mais que um), libera o próximo sistema
+            //if (stageManager.NextLevel.Contains("stageSelect") && stageManager.eRevisao)
+            //{
+            //    // Pega o inteiro no final do stageSelect (indica qual sistema está) e libera o proximo sistema (+1)
+            //    SaveManager.player.sistemaLiberado[System.Int32.Parse(stageManager.NextLevel.Substring(stageManager.NextLevel.Length - 1)) + 1] = true;
+            //}
 
             SaveManager.Save();
             yield return new WaitForSeconds(2);
@@ -240,11 +251,11 @@ public class Score: MonoBehaviour {
     {
         stars = Mathf.Min(CheckTime(), CheckError());
 
-        int starsHadOnCurrentAct = SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct - 1]; //Estrelas que eu já tinha nesse ato
+        int starsHadOnCurrentAct = SaveManager.player.planeta[stageManager.currentPlanet - 1].ato[stageManager.currentAct - 1]; //Estrelas que eu já tinha nesse ato
 
         if (stars > starsHadOnCurrentAct)
         {
-            SaveManager.player.planeta[stageManager.currentLevel - 1].ato[stageManager.currentAct-1] = stars;
+            SaveManager.player.planeta[stageManager.currentPlanet - 1].ato[stageManager.currentAct-1] = stars;
             SaveManager.player.totalEstrelas += stars - starsHadOnCurrentAct; //Só soma as estrelas que eu ainda não tenho.
             GiveStarsForSystem(stars - starsHadOnCurrentAct);
             

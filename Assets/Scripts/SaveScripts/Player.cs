@@ -15,7 +15,7 @@ public class Player
     public int dinheiro;
     public int totalEstrelas;
     public bool[] avatarBloqueado = new bool[10] { false, false, true, true, true, true, true, true, true, true };
-    public bool[] sistemaLiberado = new bool[5] { true, false, false, false, false };
+    public bool sistemaLiberado = false;
     public int[] estrelaSistema = new int[5] { 0, 0, 0, 0, 0 };
 
     public Row[] planeta;
@@ -24,7 +24,8 @@ public class Player
     {
         totalEstrelas = 0;
         dinheiro = 0;
-        planeta = new Row[22];
+        planeta = new Row[23];
+        #region Inicialização das variáveis ato de planeta
         planeta[0].initRow(3);
         planeta[1].initRow(3);
         planeta[2].initRow(3);
@@ -33,27 +34,46 @@ public class Player
         planeta[5].initRow(3);
         planeta[6].initRow(3);
         planeta[7].initRow(3);
-        planeta[8].initRow(3);
+        planeta[8].initRow(1);
         planeta[9].initRow(3);
         planeta[10].initRow(3);
         planeta[11].initRow(3);
         planeta[12].initRow(3);
-        planeta[13].initRow(3);
+        planeta[13].initRow(1);
         planeta[14].initRow(3);
         planeta[15].initRow(3);
         planeta[16].initRow(3);
         planeta[17].initRow(3);
-        planeta[18].initRow(3);
+        planeta[18].initRow(1);
         planeta[19].initRow(3);
         planeta[20].initRow(3);
         planeta[21].initRow(3);
+        planeta[22].initRow(1);
+        #endregion
+
+        // Inicializando os planetas liberados (primeiro planeta de cada sistema)
+        planeta[0].liberado = true;
+        for (int i = 1; i < planeta.Length; i++)
+        {
+            if((i + 1) % 5 == 0)
+            {
+                planeta[i].liberado = true;
+            }
+            else
+            {
+                planeta[i].liberado = false;
+            }
+        }
     }
 }
 
 [Serializable]
 public struct Row
 {
+    // Pontuação de cada ato
     public int[] ato;
+    // Informa se o planeta está liberado para ser jogado
+    public bool liberado;
 
     public void initRow(int i)
     {

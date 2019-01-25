@@ -161,26 +161,6 @@ public class SilabaControl : MonoBehaviour {
     }
 
     /// <summary>
-    /// Pega as vogais da PalavraSelecionada e as retorna em uma string
-    /// </summary>
-    /// <returns></returns>
-    public string VogaisDaPalavra()
-    {
-        string vogaisDaPalavra = "";
-        string vogais = "AEIOU";
-
-        for (int i = 0; i < LevelController.textSlots; i++)
-        {
-            if (vogais.IndexOf(LevelController.PalavraSelecionada[i]) != -1)
-            {
-                vogaisDaPalavra = string.Concat(vogaisDaPalavra, LevelController.PalavraSelecionada[i]);
-            }
-        }
-
-        return vogaisDaPalavra;
-    }
-
-    /// <summary>
     /// Preenche o vetor isPlanetLetter
     /// </summary>
     public void IsPlanetLetterSetup()

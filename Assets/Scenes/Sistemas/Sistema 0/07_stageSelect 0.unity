@@ -206,7 +206,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 19038741}
   m_OnClick:
     m_PersistentCalls:
@@ -235,7 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetNumber: 0
   planetFirstScene: P2A1
   goToPlanet: 0
 --- !u!114 &19038741
@@ -775,7 +774,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 352171945}
   m_OnClick:
     m_PersistentCalls:
@@ -804,7 +803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetNumber: 0
   planetFirstScene: P3A1
   goToPlanet: 0
 --- !u!114 &352171945
@@ -1459,7 +1457,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 988208347}
   m_OnClick:
     m_PersistentCalls:
@@ -1540,7 +1538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetNumber: 0
   planetFirstScene: RS0
   goToPlanet: 0
 --- !u!114 &988208351
@@ -2154,7 +2151,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1897724135}
   m_OnClick:
     m_PersistentCalls:
@@ -2228,7 +2225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetNumber: 0
   planetFirstScene: P1A1
   goToPlanet: 0
 --- !u!95 &1897724139

@@ -10,7 +10,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private string toolTipText;
     private Animator planetaMouseOverAnimation;
     private Text planetNameText;
-    public int planetNumber;
+    private int planetNumber;
     private bool rotate;
 
     private PanelProgressController panelProgressController;
@@ -27,6 +27,10 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         panelProgressController = PanelProgressController.instance;
         goToPlanet = false;
+        if (SaveManager.player.planeta[planetNumber - 1].liberado)
+        {
+            this.GetComponent<Button>().interactable = true;
+        }
     }
 	
 	void Update () {

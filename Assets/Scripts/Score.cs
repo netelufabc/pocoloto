@@ -19,6 +19,20 @@ public class Score: MonoBehaviour {
     SilabaControl silabaControl;
     StageManager stageManager;
 
+    private float timePlaying = 0; //Quanto tempo total até o ponto X que o jogador gastou
+    private int numberErrors; //Quantos erros foram feitos pelo jogador.
+    private Timer timer;
+    private int stars; //Numero de estrelas que irão ser ganhas
+
+    [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha uma estrela")]
+    public float timeLimit1 = 60; //Se gastou mais do que essa porcentagem
+    [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha duas estrela")]
+    public float timeLimit2 = 20; //Se gastou mais do que essa porcentagem
+    [Tooltip("Se errou mais que esse número de perguntas, ganha uma estrela")]
+    public int errorStar1 = 10; //Se tem mais que 10 erros, ganha uma estrela
+    [Tooltip("Se errou mais que esse número de perguntas, ganha duas estrela")]
+    public int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
+
 
     //Construtores e função para manter o Singleton
 
@@ -201,20 +215,6 @@ public class Score: MonoBehaviour {
     }
 
     #region FunçõesEstrelas
-
-    private float timePlaying = 0; //Quanto tempo total até o ponto X que o jogador gastou
-    private int numberErrors; //Quantos erros foram feitos pelo jogador.
-    private Timer timer;
-    private int stars;
-
-    [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha uma estrela")]
-    public float timeLimit1 = 60; //Se gastou mais do que essa porcentagem
-    [Tooltip("Se gastou mais que essa porcentagem de tempo, ganha duas estrela")]
-    public float timeLimit2 = 20; //Se gastou mais do que essa porcentagem
-    [Tooltip("Se errou mais que esse número de perguntas, ganha uma estrela")]
-    public int errorStar1 = 10; //Se tem mais que 10 erros, ganha uma estrela
-    [Tooltip("Se errou mais que esse número de perguntas, ganha duas estrela")]
-    public int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
 
     public void AddTimePlaying(float time)
     {

@@ -9,6 +9,8 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
     private bool[] sistemasLiberados;
     private int systemNumber;
     private string systemName;
+    public bool clicked = false;
+    private GameObject anotherSystem;
 
     // Libera a seleção do sistema no systemSelect
 	void Start () {
@@ -22,6 +24,26 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
         }
 	}
 
+    public void OnClick()
+    {
+        if (clicked)
+        {
+            this.GetComponent<LoadScene>().LoadSceneWithFade(string.Concat("07_stageSelect ", systemNumber.ToString()));
+        }
+        else
+        {
+            for (int i = 0; i < SystemRecognizer.numberOfSystems; i++)
+            {
+                anotherSystem = GameObject.Find(string.Concat("Sistema ", i.ToString()));
+                anotherSystem.GetComponent<SystemSelectButtons>().clicked = false;
+                anotherSystem.transform.GetChild(0).gameObject.SetActive(false);
+            }
+            this.clicked = true;
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (gameObject.GetComponent<Button>().interactable)
@@ -32,7 +54,7 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (gameObject.GetComponent<Button>().interactable)
+        if (gameObject.GetComponent<Button>().interactable && !clicked)
         {
             this.transform.GetChild(0).gameObject.SetActive(false);
         }

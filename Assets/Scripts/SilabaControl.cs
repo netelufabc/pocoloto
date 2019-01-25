@@ -140,6 +140,15 @@ public class SilabaControl : MonoBehaviour {
     }
 
     /// <summary>
+    /// Retorna tempo, em segs, do silabaAtual
+    /// </summary>
+    /// <returns>Float com o tempo em segundos</returns>
+    public float TimeSilabaAtual()
+    {
+        return silabaAtual.length;
+    }
+
+    /// <summary>
     /// Espera o término da sílaba que está sendo tocada para liberar os botões do teclado virtual
     /// </summary>
     /// <param name="duration"></param>

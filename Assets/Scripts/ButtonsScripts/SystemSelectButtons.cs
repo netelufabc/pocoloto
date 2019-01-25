@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -23,11 +24,17 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
+        if (gameObject.GetComponent<Button>().interactable)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        
+        if (gameObject.GetComponent<Button>().interactable)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 }

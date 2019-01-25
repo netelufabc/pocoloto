@@ -68,6 +68,9 @@ public class StageManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        LevelController.TimePause = false;
+        LevelController.TimeIsRunning = false;
+
         LevelController.currentLevel = currentLevel;
         LevelController.currentAct = currentAct;
         TelaSilabaDigitada = new Text[textSlots];
@@ -164,11 +167,5 @@ public class StageManager : MonoBehaviour
         yield return new WaitForSeconds(animTime);
 
         SceneManager.LoadScene(levelName);
-    }
-
-    private void OnDestroy()
-    {
-        LevelController.TimeIsRunning = false;
-        LevelController.TimePause = false;
     }
 }

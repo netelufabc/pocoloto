@@ -97,6 +97,9 @@ public class ButtonConfirmar : MonoBehaviour
         StartCoroutine(score.CheckScore(silabaControl.numberOfValidSlots, stageManager.NextLevel, stageManager.PreviousLevel)); //Verifica se o resultado atual é o suficiente para avançar ou retroceder
     }
 
+    /// <summary>
+    /// Mostra a tela de correção
+    /// </summary>
     private void CorrigeResposta()
     {
         silabaControl.CorrigeSlots();

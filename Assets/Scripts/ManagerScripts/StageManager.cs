@@ -42,6 +42,7 @@ public class StageManager : MonoBehaviour
     public static StageManager instance = null;
 
     private Text[] TelaSilabaDigitada;//caixa onde vão as letras digitadas pelo usuário
+    private Color telaSilabaDigitadaDefaulColor;
     private Score score;
     private ButtonConfirmar buttonConfirmar;
     private SilabaControl silabaControl;
@@ -54,6 +55,27 @@ public class StageManager : MonoBehaviour
     public Text[] GetTelaSilabaDigitada()
     {
         return TelaSilabaDigitada;
+    }
+
+    public void ChangeColorTelaSilibaDigitada(int index, Color color)
+    {
+        TelaSilabaDigitada[index].color = color;
+    }
+
+    public void ChangeColorTelaSilabaDigitada(Color color)
+    {
+        foreach (Text silabaDigitada in TelaSilabaDigitada)
+        {
+            silabaDigitada.color = color;
+        }
+    }
+
+    public void ResetColorSilabaDigitada()
+    {
+        foreach(Text silabaDigitada in TelaSilabaDigitada)
+        {
+            silabaDigitada.color = telaSilabaDigitadaDefaulColor;
+        }
     }
 
     void Awake()
@@ -78,7 +100,7 @@ public class StageManager : MonoBehaviour
         {
             TelaSilabaDigitada[i] = GameObject.Find(string.Concat("Silaba Digitada ", i.ToString())).GetComponent <UnityEngine.UI.Text>();
         }
-
+        telaSilabaDigitadaDefaulColor = TelaSilabaDigitada[0].color;
         LevelController.textSlots = textSlots;
 
         // Define se a palavra deve ser separada em sílabas ou letras

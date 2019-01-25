@@ -51,3 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee52a3326d71e84893d13658d6a285c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordTime: 0
+  isPlanetLetter: 
+  numberOfValidSlots: 0
+  correctColor: {r: 0.032306872, g: 0.6226415, b: 0.21444441, a: 0}
+  mistakeColor: {r: 1, g: 0.057113312, b: 0, a: 0}

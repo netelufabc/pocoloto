@@ -24,7 +24,9 @@ public class SilabaControl : MonoBehaviour {
     // Indica se o textSlot contém uma planetLetter
     public bool[] isPlanetLetter;
     public int numberOfValidSlots;
-    
+
+    public Color correctColor; //Cor que o texto fica quando se acerta a palavra
+    public Color mistakeColor; //Cor que o texto fica quando se erra a palavra
 
     private void Awake()
     {
@@ -91,8 +93,8 @@ public class SilabaControl : MonoBehaviour {
             distractorCreator = DistractorCreator.instance;
             StartCoroutine(distractorCreator.StartDistractors());
         }
-
         yield return new WaitForSeconds(seconds);
+        stageManager.ResetColorSilabaDigitada();
         TocarSilaba();
     }
 
@@ -220,12 +222,23 @@ public class SilabaControl : MonoBehaviour {
 
     public void CorrigeSlots()
     {
+        bool errou = false;
         for (int i = 0; i<LevelController.textSlots; i++)
         {
             if (LevelController.inputText[i] == null || !LevelController.inputText[i].Equals(LevelController.originalText[i]))
             {
                 LevelController.inputText[i] = LevelController.originalText[i];
+                errou = true;
             }
+        }
+
+        if (errou)
+        {
+            stageManager.ChangeColorTelaSilabaDigitada(Color.red);
+        }
+        else
+        {
+            stageManager.ChangeColorTelaSilabaDigitada(Color.green);
         }
     }
 }

@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 289588540}
   - component: {fileID: 289588539}
   m_Layer: 0
-  m_Name: planeta_05
+  m_Name: planeta_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -253,8 +253,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: bcd915d951a8d854c8e62f5fe53a3ace, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8b7400cdd4c757e4d9c8ac787e509b28, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 5.1
+  m_Text: 11.1
 --- !u!222 &333920277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1701,7 +1701,7 @@ GameObject:
   - component: {fileID: 1819458131}
   - component: {fileID: 1819458130}
   m_Layer: 0
-  m_Name: alien05
+  m_Name: alien11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1760,8 +1760,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 3d7a24d72aca32b42a86e0e638b9d44a, type: 3}
-  m_Color: {r: 0, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bbe83e4551cbae744bc1c410d8dc7220, type: 3}
+  m_Color: {r: 1, g: 0.07738851, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

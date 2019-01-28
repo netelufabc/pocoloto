@@ -268,7 +268,29 @@ public class Score: MonoBehaviour {
     /// <param name="stars"></param>
     private void GiveStarsForSystem(int stars)
     {
-        int system = (stageManager.currentAct-1) / 4; //*REVISAR* Só funciona se cada sistema tiver somente 4 mundos; 
+        int system = stageManager.currentPlanet/5;
+
+        /*
+        if (stageManager.currentPlanet < 5)
+        {
+            system = 0;
+        }
+        else if (stageManager.currentPlanet < 10)
+        {
+            system = 1;
+        }
+        else if (stageManager.currentPlanet < 15)
+        {
+            system = 2;
+        }
+        else if (stageManager.currentPlanet < 20)
+        {
+            system = 3;
+        }
+        else if (stageManager.currentPlanet < 25)
+        {
+            system = 4;
+        }*/
         SaveManager.player.estrelaSistema[system] += stars;
     }
 

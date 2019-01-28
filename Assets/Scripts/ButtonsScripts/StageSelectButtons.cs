@@ -23,7 +23,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         planetaMouseOverAnimation = GameObject.Find(planeta.name).GetComponent<Animator>();
         planetNameText = GameObject.Find("Nome Planeta").GetComponent<UnityEngine.UI.Text>();
 
-        planetNumber = System.Int32.Parse(planeta.name.Substring(planeta.name.Length - 1));
+        planetNumber = System.Int32.Parse(planeta.name.Substring(7)); //planeta.name.Length - 1));
 
         panelProgressController = PanelProgressController.instance;
         goToPlanet = false;
@@ -44,11 +44,19 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (!panelProgressController.IsPlanetChosen(planetNumber))
         {
-            panelProgressController.DestroyStars();
-            panelProgressController.UpdateInfoText(GetText(), planetNumber);
-            if (planeta.interactable == true)
+            if (planeta.interactable == false)
             {
-                StartPlanetAnimation();
+                panelProgressController.UpdateInfoText(GetText());
+            }
+            else
+            {
+                //Debug.Log(planetNumber);
+                panelProgressController.DestroyStars();
+                panelProgressController.UpdateInfoText(GetText(), planetNumber);
+                if (planeta.interactable == true)
+                {
+                    StartPlanetAnimation();
+                }
             }
         }
     }
@@ -67,16 +75,14 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     
     public string GetText()
     {
-        string tempText = "";
-
         if (planeta.interactable == true)
         {
-            return tempText + "Clique para entrar no " + planeta.name + "!";
+            return "Clique para entrar no " + planeta.name + "!";
         }
         else
         {
-            planetNumber = System.Int32.Parse(planeta.name.Substring(planeta.name.Length - 1));            
-            return tempText + "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";
+            //planetNumber = System.Int32.Parse(planeta.name.Substring(7));            
+            return "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";
         }
     }
 

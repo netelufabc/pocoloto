@@ -1412,7 +1412,7 @@ MonoBehaviour:
   - O
   textSlots: 4
   NextLevel: 07_stageSelect 0
-  PreviousLevel: P3A2
+  PreviousLevel: P3A3
   soundsDirectory: Sounds\Sistema 0\P3\P3A3
   eSilaba: 0
   blockTextSlot: 0

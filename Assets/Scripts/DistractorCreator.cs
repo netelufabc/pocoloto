@@ -28,7 +28,6 @@ public class DistractorCreator : MonoBehaviour {
     private void Start()
     {
         stageManager = StageManager.instance;
-        //StartCoroutine(StartDistractors());
     }
 
     public IEnumerator StartDistractors()

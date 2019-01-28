@@ -67,12 +67,22 @@ public class PanelProgressController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Atuializa o texto do Panel Progress para o string fornecida
+    /// Atuializa o texto do Panel Progress para o string fornecida e com a informação extra do planeta
     /// </summary>
     /// <param name="newText"></param>
     public void UpdateInfoText(string newText, int planetNumber)
     {
+        //Debug.Log(planetNumber);
         infoText.text = ActInfo(planetNumber) + newText;
+    }
+    
+    /// <summary>
+    /// Atuializa o texto do Panel Progress para o string fornecida
+    /// </summary>
+    /// <param name="newText"></param>
+    public void UpdateInfoText(string newText)
+    {
+        infoText.text = newText;
     }
 
     /// <summary>
@@ -210,6 +220,7 @@ public class PanelProgressController : MonoBehaviour {
     /// <returns></returns>
     public string ActInfo(int planetNumber)
     {
+        //Debug.Log(planetNumber);
         Image tempStarPoint;
         string actInfo = "";
 

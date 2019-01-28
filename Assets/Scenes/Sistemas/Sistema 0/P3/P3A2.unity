@@ -1524,7 +1524,7 @@ MonoBehaviour:
   - A
   textSlots: 4
   NextLevel: P3A3
-  PreviousLevel: P3A1
+  PreviousLevel: P3A2
   soundsDirectory: Sounds\Sistema 0\P3\P3A2
   eSilaba: 0
   blockTextSlot: 1

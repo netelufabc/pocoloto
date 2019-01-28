@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlanet: 3
+  currentPlanet: 7
   currentAct: 3
   planetLetters:
   - A
@@ -1391,10 +1391,11 @@ MonoBehaviour:
   - U
   - E
   - O
+  - G
   textSlots: 4
   NextLevel: 07_stageSelect 0
-  PreviousLevel: P3A2
-  soundsDirectory: Sounds\Sistema 0\P3\P3A3
+  PreviousLevel: P7A3
+  soundsDirectory: Sounds\Sistema 1\P7\P7A3
   eSilaba: 0
   blockTextSlot: 0
   eRevisao: 0

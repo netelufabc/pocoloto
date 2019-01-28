@@ -1516,16 +1516,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlanet: 3
+  currentPlanet: 7
   currentAct: 2
   planetLetters:
+  - A
+  - E
   - I
   - O
-  - A
+  - U
+  - G
   textSlots: 4
-  NextLevel: P3A3
-  PreviousLevel: P3A1
-  soundsDirectory: Sounds\Sistema 0\P3\P3A2
+  NextLevel: P7A3
+  PreviousLevel: P7A2
+  soundsDirectory: Sounds\Sistema 1\P7\P7A2
   eSilaba: 0
   blockTextSlot: 1
   eRevisao: 0

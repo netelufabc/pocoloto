@@ -1481,11 +1481,15 @@ MonoBehaviour:
   currentAct: 3
   planetLetters:
   - A
+  - E
+  - I
   - O
+  - U
+  - F
   textSlots: 4
   NextLevel: 07_stageSelect 0
   PreviousLevel: P1A2
-  soundsDirectory: Sounds\Sistema 0\P1\P1A3
+  soundsDirectory: Sounds\Sistema 0\P5\P5A3
   eSilaba: 0
   blockTextSlot: 0
   eRevisao: 0

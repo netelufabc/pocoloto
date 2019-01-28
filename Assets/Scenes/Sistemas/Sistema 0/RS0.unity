@@ -1195,7 +1195,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 4.0
+  m_Text: R0
 --- !u!222 &1521757759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1599,8 +1599,8 @@ MonoBehaviour:
   - E
   - O
   textSlots: 4
-  NextLevel: 07_stageSelect 0
-  PreviousLevel: 07_stageSelect 0
+  NextLevel: 07_stageSelect 1
+  PreviousLevel: RS0
   soundsDirectory: Sounds\Sistema 0
   eSilaba: 0
   blockTextSlot: 0

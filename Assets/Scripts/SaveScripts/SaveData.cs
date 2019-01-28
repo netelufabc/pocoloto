@@ -52,9 +52,10 @@ public class SaveData: MonoBehaviour {
     public void CreateNewPlayer()
     {
         // Inicialização dos parametros básicos da classe Player no player do SaveManager
-        SaveManager.player.sistemaLiberado = newPlayer.sistemaLiberado;
-        SaveManager.player.avatarBloqueado = newPlayer.avatarBloqueado;
-        SaveManager.player.avatarSelecionadoIndex = newPlayer.avatarSelecionadoIndex;
+        SaveManager.player = newPlayer;
+        //SaveManager.player.sistemaLiberado = newPlayer.sistemaLiberado;
+        //SaveManager.player.avatarBloqueado = newPlayer.avatarBloqueado;
+        //SaveManager.player.avatarSelecionadoIndex = newPlayer.avatarSelecionadoIndex;
 
         SaveManager.player.nome = GameObject.Find("NomeText").GetComponent<Text>().text;
         int.TryParse(GameObject.Find("IdadeText").GetComponent<Text>().text, out SaveManager.player.idade);

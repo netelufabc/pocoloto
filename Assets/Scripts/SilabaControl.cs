@@ -64,7 +64,7 @@ public class SilabaControl : MonoBehaviour {
 
         silabasNivelAtual = Resources.LoadAll(string.Concat(soundsDirectory, pathActs[0]), typeof(AudioClip));
 
-        for (int i = 1; i<pathActs.Length; i++)
+        for (int i = 1; i < pathActs.Length; i++)
         {
             string newSoundsDirectory = string.Concat(soundsDirectory, pathActs[i]);
             newSilabasNivelAtual = Resources.LoadAll(newSoundsDirectory, typeof(AudioClip));//carrega todos áudios dentro de Resources/Sounds/Level_01
@@ -130,7 +130,18 @@ public class SilabaControl : MonoBehaviour {
         if (stageManager.blockTextSlot)
         {
             BloqueiaEmptyTextSlots();
+            StartCoroutine(WaitAndWriteEmptySlots());
         }
+    }
+
+    /// <summary>
+    /// Aguarda um tempo antes de completar as lacunas em ranco com as letras que não são o foco do planeta
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator WaitAndWriteEmptySlots()
+    {
+        yield return new WaitForSeconds(1.5f);
+        CompleteEmptyTextSlots();
     }
 
     /// <summary>

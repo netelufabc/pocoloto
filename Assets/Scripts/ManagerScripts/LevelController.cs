@@ -49,8 +49,7 @@ public static class LevelController
 
     public static void SeparaSilabas()
     {
-        // Separa silabas - como todas as sílabas no arquivo terminam em uma vogal, concatena as letras até encontrar uma vogal
-        // CASO COLOQUEM PALAVRAS COM SÍLABAS QUE NÃO TERMINEM EM VOGAIS ESTA PARTE DEVE SER REVISADA
+        // Separa silabas - separa a palavra nas vogais (concatena até encontrar uma volgal, aí parte pra proxima
         string vogais = "AEIOU", silabaTemp = "";
         int k = 0;
 

@@ -66,6 +66,123 @@ EditorBuildSettings:
     path: Assets/Scenes/Sistemas/Sistema 1/07_stageSelect 1.unity
     guid: 36210786ab4067043b5069d45f421bc8
   - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P5/P5A1.unity
+    guid: c0ce4c0d96cbffc4b9a4add8349ee2e8
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P5/P5A2.unity
+    guid: b8a8a9cf248653148af710d52ce48acc
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P5/P5A3.unity
+    guid: 24dc59adde0925f4b9883967822dd70f
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P6/P6A1.unity
+    guid: abad025f330a7864fbb8bf61a334de62
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P6/P6A2.unity
+    guid: 3f2cc61dd8597f94988b50b6f4d6a124
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P6/P6A3.unity
+    guid: b61cee169091937489a79c4db59d66fb
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P7/P7A1.unity
+    guid: 8d1fff68927e29040afc17265ce16fba
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P7/P7A2.unity
+    guid: dfb809cf7209ffd4087cf09a545f1f6f
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P7/P7A3.unity
+    guid: 6ba457e3c2fabf547b1b396698e0e314
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P8/P8A1.unity
+    guid: 327947b28cf8607419135378f88abd25
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P8/P8A2.unity
+    guid: 437efbc4b81ed3947b90d2e097889442
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/P8/P8A3.unity
+    guid: 53db9879d15c507448f1f99d422c9ede
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 1/RS1.unity
+    guid: b1a9b1b15e9c6984bbfb84da1cf97450
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/07_stageSelect 2.unity
+    guid: 291af773ecf8cfb4da8b0f068e4e2d4b
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P10/P10A1.unity
+    guid: 690d91dbbc165034088e9ca9366e614f
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P10/P10A2.unity
+    guid: 6db5f599d40b0ba4eb15d499394dd49b
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P10/P10A3.unity
+    guid: 8be283ba62ce8a243ba506ca4225d881
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P11/P11A1.unity
+    guid: e2c047489766f73419a7a63c20895d11
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P11/P11A2.unity
+    guid: de54be38d5e27974b8140b577e20a8e8
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P11/P11A3.unity
+    guid: cc7374c5098e354458bcd2974ed8c084
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P12/P12A1.unity
+    guid: d4c976fde9db15645bfb8edeaa2583a9
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P12/P12A2.unity
+    guid: 550f405459ebb3145ad7093b5d00afa8
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P12/P12A3.unity
+    guid: c339ffeca40ba4f4d85af0b0c583ef3d
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P13/P13A1.unity
+    guid: dd941a05e3690de4e8066a65438e867f
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P13/P13A2.unity
+    guid: 6221c645181fb5141a5388752d48b280
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/P13/P13A3.unity
+    guid: 675455cbfe751f74a8ad7b219711c765
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 2/RS2.unity
+    guid: 371567022e9938e428b5864f3837886a
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/07_stageSelect 3.unity
+    guid: 09c02a5e9004cd9448cb1946df1f9fd3
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/07_stageSelect 4.unity
+    guid: aa6cfb81b0f3ab74aa31fae89ccd4a4d
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P20/P20A1.unity
+    guid: 67d571f963617af4dbd22a278e9f084f
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P20/P20A2.unity
+    guid: b18757757832d1248a2d1a826979d57d
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P20/P20A3.unity
+    guid: a98a509dfce14af4795e48109a3dfd59
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P21/P21A1.unity
+    guid: ed4ba19b00a2bf3409be78860b437e3c
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P21/P21A2.unity
+    guid: 79547197683c0cb40a742cc9af5376db
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P21/P21A3.unity
+    guid: e026853dd43bc9b4789931a09ed2cc06
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P22/P22A1.unity
+    guid: 6e56e43972dcf354198bdbdf622632c5
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P22/P22A2.unity
+    guid: addbf89104855cb468c08d56c00e5d74
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/P22/P22A3.unity
+    guid: 080116410f64fe54d8c85948a01f88b9
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 4/RS4.unity
+    guid: 941c5c2e7db6df14c9c1b33df41f8f05
+  - enabled: 1
     path: Assets/Scenes/Sistemas/05_nivel01.unity
     guid: d9b89fa91cf9f3840939a858d43ddebf
   - enabled: 1

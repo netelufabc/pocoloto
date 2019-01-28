@@ -204,10 +204,10 @@ RectTransform:
   - {fileID: 485138930}
   - {fileID: 2080675203}
   - {fileID: 520719454}
-  - {fileID: 746931017}
+  - {fileID: 517403155}
   - {fileID: 1585674526}
-  - {fileID: 523723299}
   - {fileID: 1006189352}
+  - {fileID: 523723299}
   - {fileID: 110320973}
   - {fileID: 781065180}
   m_Father: {fileID: 0}
@@ -314,7 +314,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 07_stageSelect 0
+          m_StringArgument: 07_stageSelect 2
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 219259313}
   - component: {fileID: 219259312}
   m_Layer: 5
-  m_Name: Planeta 5
+  m_Name: Planeta 15
   m_TagString: Planetas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 27.285004}
+  m_AnchoredPosition: {x: -10.3, y: 39}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &219259312
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetFirstScene: P5A1
+  planetFirstScene: P15A1
   goToPlanet: 0
 --- !u!114 &219259315
 MonoBehaviour:
@@ -495,7 +495,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d71c4e76d20c66c478a53a95b9aa58d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49d2d524b2efa0641962b0b57b8e6052, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 485138932}
   - component: {fileID: 485138931}
   m_Layer: 5
-  m_Name: Planeta 6
+  m_Name: Planeta 16
   m_TagString: Planetas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -875,7 +875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16.1, y: -35.7}
+  m_AnchoredPosition: {x: -32, y: -30.57}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &485138931
@@ -959,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetFirstScene: P6A1
+  planetFirstScene: P16A1
   goToPlanet: 0
 --- !u!114 &485138934
 MonoBehaviour:
@@ -1006,6 +1006,120 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485138929}
   m_CullTransparentMesh: 0
+--- !u!1001 &517403154
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 44333829}
+    m_Modifications:
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.07482998
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9971963
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 50.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 52.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 54.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204217594342302, guid: 23e17be269adfac489fb8133255d5650, type: 2}
+      propertyPath: m_Name
+      value: Planeta 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114472474965049170, guid: 23e17be269adfac489fb8133255d5650,
+        type: 2}
+      propertyPath: planetFirstScene
+      value: RS3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23e17be269adfac489fb8133255d5650, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!224 &517403155 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
+    type: 2}
+  m_PrefabInternal: {fileID: 517403154}
 --- !u!1 &520719453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1135,7 @@ GameObject:
   - component: {fileID: 520719456}
   - component: {fileID: 520719455}
   m_Layer: 5
-  m_Name: Planeta 8
+  m_Name: Planeta 18
   m_TagString: Planetas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.6, y: -8.2}
+  m_AnchoredPosition: {x: 112.86, y: -40.2}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &520719455
@@ -1127,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetFirstScene: P8A1
+  planetFirstScene: P18A1
   goToPlanet: 0
 --- !u!114 &520719458
 MonoBehaviour:
@@ -1202,7 +1316,7 @@ RectTransform:
   m_LocalScale: {x: 0.099998996, y: 0.099998996, z: 0.099998996}
   m_Children: []
   m_Father: {fileID: 44333829}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1399,120 +1513,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &746931016
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 44333829}
-    m_Modifications:
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.07482998
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.9971963
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 122
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 20.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 52.73
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 54.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204217594342302, guid: 23e17be269adfac489fb8133255d5650, type: 2}
-      propertyPath: m_Name
-      value: Planeta 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114472474965049170, guid: 23e17be269adfac489fb8133255d5650,
-        type: 2}
-      propertyPath: planetFirstScene
-      value: RS1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 23e17be269adfac489fb8133255d5650, type: 2}
-  m_IsPrefabAsset: 0
---- !u!224 &746931017 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 224857448656493550, guid: 23e17be269adfac489fb8133255d5650,
-    type: 2}
-  m_PrefabInternal: {fileID: 746931016}
 --- !u!1 &781065179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,7 +2287,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 07_stageSelect 2
+          m_StringArgument: 07_stageSelect 4
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2603,7 +2603,7 @@ GameObject:
   - component: {fileID: 2080675205}
   - component: {fileID: 2080675204}
   m_Layer: 5
-  m_Name: Planeta 7
+  m_Name: Planeta 17
   m_TagString: Planetas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2625,7 +2625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.3, y: -67.6}
+  m_AnchoredPosition: {x: 45.95, y: -77}
   m_SizeDelta: {x: 67.5, y: 36.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &2080675204
@@ -2709,7 +2709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planetFirstScene: P7A1
+  planetFirstScene: P17A1
   goToPlanet: 0
 --- !u!114 &2080675207
 MonoBehaviour:

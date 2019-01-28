@@ -2024,7 +2024,7 @@ Prefab:
     - target: {fileID: 114430328009160274, guid: 84242b1090547be4992f839433382ea4,
         type: 2}
       propertyPath: numPlanetaRSAnterior
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84242b1090547be4992f839433382ea4, type: 2}

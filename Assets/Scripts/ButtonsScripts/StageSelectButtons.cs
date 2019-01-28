@@ -92,17 +92,20 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     /// <param name="eventData"></param>
     public void OnPointerClick (PointerEventData eventData)
     {
-        if (goToPlanet)
+        if (planeta.interactable == true)
         {
-            panelProgressController.GoToPlanet();
-        }
-        else
-        {
-            string tempText = GetText();
-            panelProgressController.UpdateInfoText(tempText, planetNumber);
-            panelProgressController.ReplaceInfoText(tempText);
-            panelProgressController.ChoosePlanet(planetNumber, eventData);
-            panelProgressController.ReadyToGo();
+            if (goToPlanet)
+            {
+                panelProgressController.GoToPlanet();
+            }
+            else
+            {
+                string tempText = GetText();
+                panelProgressController.UpdateInfoText(tempText, planetNumber);
+                panelProgressController.ReplaceInfoText(tempText);
+                panelProgressController.ChoosePlanet(planetNumber, eventData);
+                panelProgressController.ReadyToGo();
+            }
         }
     }
 

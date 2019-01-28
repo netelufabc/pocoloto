@@ -150,6 +150,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Sistemas/Sistema 3/07_stageSelect 3.unity
     guid: 09c02a5e9004cd9448cb1946df1f9fd3
   - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P15/P15A1.unity
+    guid: 673a6a64cb116a04b9ae0774be7bd1f6
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P15/P15A2.unity
+    guid: 546e2e651b0437c42bd04fcb7c83fe6d
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P15/P15A3.unity
+    guid: 313bdc1cc92f4fa4194b6b8cab9272d2
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P16/P16A1.unity
+    guid: 6e3a9e7fbdfe9964aab3f077c9ce6020
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P16/P16A2.unity
+    guid: cdd6fc876cac0be439636b2e0aefe5e4
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P16/P16A3.unity
+    guid: b13675d24b7442e40bb5942c0037a45e
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P17/P17A1.unity
+    guid: 6474459ad74386447a06a10984b22fa9
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P17/P17A2.unity
+    guid: 75cfed50cb7cc254cb3a5e3a449641e5
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P17/P17A3.unity
+    guid: 61e80f1b310b1194892c3ed13037b2b8
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/RS3.unity
+    guid: 968aed8c08ae30c4da3790392dd0f4c5
+  - enabled: 1
     path: Assets/Scenes/Sistemas/Sistema 4/07_stageSelect 4.unity
     guid: aa6cfb81b0f3ab74aa31fae89ccd4a4d
   - enabled: 1

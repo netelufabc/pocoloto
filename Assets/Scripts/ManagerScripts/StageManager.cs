@@ -117,6 +117,8 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        LevelController.ButtonFecharBloqueado = true;
+
         silabaControl = SilabaControl.instance;
 
         if (eRevisao)
@@ -167,9 +169,9 @@ public class StageManager : MonoBehaviour
 
     public IEnumerator BloquearMenu(float tempo)
     {
-        closeButton.GetComponent<Button>().enabled = false;
+        LevelController.ButtonFecharBloqueado = true;
         yield return new WaitForSeconds(tempo);
-        closeButton.GetComponent<Button>().enabled = true;
+        LevelController.ButtonFecharBloqueado = false;
     }
 
     /// <summary>

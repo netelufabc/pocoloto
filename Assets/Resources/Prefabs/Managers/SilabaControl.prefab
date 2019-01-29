@@ -54,5 +54,5 @@ MonoBehaviour:
   wordTime: 0
   isPlanetLetter: 
   numberOfValidSlots: 0
-  correctColor: {r: 0.032306872, g: 0.6226415, b: 0.21444441, a: 0}
-  mistakeColor: {r: 1, g: 0.057113312, b: 0, a: 0}
+  correctColor: {r: 0, g: 0.7264151, b: 0.10644691, a: 1}
+  mistakeColor: {r: 0.8113208, g: 0.026788909, b: 0.026788909, a: 1}

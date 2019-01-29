@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 37609192}
   m_Layer: 5
   m_Name: Sistema 0
-  m_TagString: Untagged
+  m_TagString: Sistemas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3890060829823c49949659ca0e200ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemNumber: 0
   clicked: 0
 --- !u!114 &37609192
 MonoBehaviour:
@@ -766,7 +767,7 @@ GameObject:
   - component: {fileID: 256171967}
   m_Layer: 5
   m_Name: Sistema 2
-  m_TagString: Untagged
+  m_TagString: Sistemas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,6 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3890060829823c49949659ca0e200ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemNumber: 0
   clicked: 0
 --- !u!114 &256171963
 MonoBehaviour:
@@ -1499,7 +1501,7 @@ GameObject:
   - component: {fileID: 712865492}
   m_Layer: 5
   m_Name: Sistema 4
-  m_TagString: Untagged
+  m_TagString: Sistemas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1545,6 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3890060829823c49949659ca0e200ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemNumber: 0
   clicked: 0
 --- !u!114 &712865494
 MonoBehaviour:
@@ -1839,7 +1842,7 @@ GameObject:
   - component: {fileID: 956657451}
   m_Layer: 5
   m_Name: Sistema 1
-  m_TagString: Untagged
+  m_TagString: Sistemas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1971,6 +1974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3890060829823c49949659ca0e200ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemNumber: 0
   clicked: 0
 --- !u!114 &956657451
 MonoBehaviour:
@@ -2111,7 +2115,7 @@ GameObject:
   - component: {fileID: 1307669665}
   m_Layer: 5
   m_Name: Sistema 3
-  m_TagString: Untagged
+  m_TagString: Sistemas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2157,6 +2161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3890060829823c49949659ca0e200ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  systemNumber: 0
   clicked: 0
 --- !u!114 &1307669667
 MonoBehaviour:
@@ -2641,6 +2646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd5fc1fe908a944984c44acc97d54ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imagemIniciarSystema: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
+    type: 2}
 --- !u!1 &1976679400
 GameObject:
   m_ObjectHideFlags: 0

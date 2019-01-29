@@ -15,6 +15,7 @@ TagManager:
   - AvatarButton
   - Planetas
   - Star
+  - Sistemas
   layers:
   - Default
   - TransparentFX

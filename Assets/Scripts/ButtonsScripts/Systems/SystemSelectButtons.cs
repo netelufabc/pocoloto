@@ -8,7 +8,7 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
 
 
     private bool sistemasLiberados;
-    private int systemNumber;
+    public int systemNumber;
     private string systemName;
     public bool clicked = false;
     private GameObject anotherSystem;
@@ -41,6 +41,7 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
             }
             this.clicked = true;
             this.transform.GetChild(0).gameObject.SetActive(true);
+            SystemRecognizer.ReadyToGoToSystem(systemNumber);
         }
     }
 

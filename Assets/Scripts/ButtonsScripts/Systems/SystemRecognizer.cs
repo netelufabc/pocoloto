@@ -44,10 +44,11 @@ public class SystemRecognizer : MonoBehaviour {
             Debug.Log(tempSystems[i].name + " " + tempSystems[i].GetComponent<SystemSelectButtons>().systemNumber + "-" + i);
         }
 
+        /*
         for (int i = 0; i < systems.Length; i++)
         {
             Debug.Log(systems[i].GetComponent<SystemSelectButtons>().systemNumber + "-" + i);
-        }
+        }*/
     }
 
     /// <summary>

@@ -52,6 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit1: 60
-  timeLimit2: 20
+  timeLimit2: 30
   errorStar1: 10
   errorStar2: 2

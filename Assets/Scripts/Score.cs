@@ -304,7 +304,7 @@ public class Score: MonoBehaviour {
     private int CheckTime()
     {
         timer = Timer.instance;
-        float totalTime = (scoreNegative + scorePositive) * timer.totalTime; //Esse é o 100% do tempo gasto do jogador;
+        float totalTime = (/*scoreNegative +*/ scorePositive) * timer.totalTime; //Esse é o 100% do tempo gasto do jogador;
         float myTimePorCent = (timePlaying * 100) / totalTime;
 
         if (timeLimit1 < myTimePorCent)
@@ -370,13 +370,13 @@ public class Score: MonoBehaviour {
         int dinheiro = LevelController.baseMoney;
 
         dinheiro += LevelController.bonusMoney * MoneyModifierByPlanet(); //Aplica o bônus pelo planeta
-        
+
+        dinheiro = dinheiro + ((dinheiro * stageManager.currentAct) / 5); //Aplica o bônus pelo ato
+
         if (ESistema0()) //Divide o dinheiro por 2 caso seja sistema 0
         {
             dinheiro = (dinheiro / 2);
         }
-
-        dinheiro = dinheiro + (dinheiro * (stageManager.currentAct / 5)); //Aplica o bônus pelo ato
 
         return dinheiro;
     }

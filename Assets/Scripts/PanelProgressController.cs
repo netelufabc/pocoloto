@@ -11,7 +11,7 @@ public class PanelProgressController : MonoBehaviour {
     private string previousInfoText = "";
     private GameObject[] planets;
     private bool[] chosenPlanet;
-    private Button startPlanet;
+    //private Button startPlanet;
     public static PanelProgressController instance = null;
     private LoadScene loadScene;
     public Image starPoint;
@@ -58,8 +58,8 @@ public class PanelProgressController : MonoBehaviour {
         }
 
         // Desabilita o botão que está no painel para entrar no planeta
-        startPlanet = GameObject.Find("StartPlanet").GetComponent<Button>();
-        startPlanet.interactable = false;
+        //startPlanet = GameObject.Find("StartPlanet").GetComponent<Button>();
+        //startPlanet.interactable = false;
         
         // Exibe o total de estrelas 
         loadScene = infoPanel.GetComponent<LoadScene>();
@@ -183,7 +183,7 @@ public class PanelProgressController : MonoBehaviour {
     /// </summary>
     public void ReadyToGo()
     {
-        startPlanet.interactable = true;
+        //startPlanet.interactable = true;
     }
 
     /// <summary>

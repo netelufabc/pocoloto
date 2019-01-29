@@ -263,6 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemNumber: 0
   clicked: 0
+  textoSystema: 'Systema 0: Vogais.'
 --- !u!114 &37609192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,6 +805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemNumber: 0
   clicked: 0
+  textoSystema: 'Sistema 2: M, C, J e N.'
 --- !u!114 &256171963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1549,6 +1551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemNumber: 0
   clicked: 0
+  textoSystema: 'Sistema 4: B, Z, e P.'
 --- !u!114 &712865494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,8 +1977,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3890060829823c49949659ca0e200ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  systemNumber: 0
+  systemNumber: 1
   clicked: 0
+  textoSystema: 'Sistema 1: F, L, G e V.'
 --- !u!114 &956657451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,6 +2167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   systemNumber: 0
   clicked: 0
+  textoSystema: 'Sistema 3: D, S, R e T.'
 --- !u!114 &1307669667
 MonoBehaviour:
   m_ObjectHideFlags: 0

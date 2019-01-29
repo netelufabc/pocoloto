@@ -13,6 +13,8 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private int planetNumber;
     private bool rotate;
 
+    public string textoPlanetaLiberado;
+
     private PanelProgressController panelProgressController;
     public string planetFirstScene;
 
@@ -46,13 +48,12 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             if (planeta.interactable == false)
             {
-                panelProgressController.UpdateInfoText(GetText());
+                //panelProgressController.UpdateInfoText(GetText());
             }
             else
             {
-                //Debug.Log(planetNumber);
-                panelProgressController.DestroyStars();
-                panelProgressController.UpdateInfoText(GetText(), planetNumber);
+                //panelProgressController.DestroyStars();
+                //panelProgressController.UpdateInfoText(GetText(), planetNumber);
                 if (planeta.interactable == true)
                 {
                     StartPlanetAnimation();
@@ -77,12 +78,14 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (planeta.interactable == true)
         {
-            return "Clique para entrar no " + planeta.name + "!";
+            return textoPlanetaLiberado;
         }
         else
         {
             //planetNumber = System.Int32.Parse(planeta.name.Substring(7));            
-            return "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";
+            //return "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";           
+            panelProgressController.DestroyStars();
+            return "";
         }
     }
 
@@ -101,10 +104,12 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
             else
             {
                 string tempText = GetText();
+                panelProgressController.DestroyStars();
                 panelProgressController.UpdateInfoText(tempText, planetNumber);
                 panelProgressController.ReplaceInfoText(tempText);
                 panelProgressController.ChoosePlanet(planetNumber, eventData);
                 panelProgressController.ReadyToGo();
+                ShowPlanetName();
             }
         }
     }
@@ -115,8 +120,16 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void StartPlanetAnimation()
     {
         rotate = true;
-        planetNameText.text = planeta.name;
         planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOn");
+    }
+
+    public void ShowPlanetName()
+    {
+        planetNameText.text = planeta.name;
+    }
+    public void HidePlanetName()
+    {
+        planetNameText.text = "";
     }
 
     /// <summary>
@@ -124,8 +137,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     /// </summary>
     public void StopPlanetAnimation()
     {
-        rotate = false;
-        planetNameText.text = "";
+        rotate = false;       
         planetaMouseOverAnimation.Play("PlanetaSelecaoMouseOff");
     }
 

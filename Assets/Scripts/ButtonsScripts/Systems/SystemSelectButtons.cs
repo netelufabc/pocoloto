@@ -12,12 +12,15 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
     private string systemName;
     public bool clicked = false;
     private GameObject anotherSystem;
+    private Text textoPainelInferior;
+    public string textoSystema;
 
     // Libera a seleção do sistema no systemSelect
 	void Start () {
         sistemasLiberados = SaveManager.player.sistemaLiberado;
         systemName = this.GetComponent<UnityEngine.UI.Button>().name;
         systemNumber = System.Int32.Parse(systemName.Substring(systemName.Length - 1));
+        textoPainelInferior = GameObject.Find("Panel Text").GetComponent<UnityEngine.UI.Text>();
 
         if (sistemasLiberados)
         {
@@ -45,12 +48,12 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
         }
     }
 
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (gameObject.GetComponent<Button>().interactable)
         {
             this.transform.GetChild(0).gameObject.SetActive(true);
+            textoPainelInferior.text = textoSystema;
         }
     }
 
@@ -59,6 +62,7 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
         if (gameObject.GetComponent<Button>().interactable && !clicked)
         {
             this.transform.GetChild(0).gameObject.SetActive(false);
+            textoPainelInferior.text = "";
         }
     }
 }

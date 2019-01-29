@@ -2646,7 +2646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd5fc1fe908a944984c44acc97d54ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imagemIniciarSystema: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
+  imagemIniciarSistema: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
     type: 2}
 --- !u!1 &1976679400
 GameObject:

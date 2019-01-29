@@ -103,6 +103,7 @@ public class SilabaControl : MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         stageManager.ResetColorSilabaDigitada();
         TocarSilaba();
+        StartCoroutine(stageManager.BloquearMenu(wordTime));
     }
 
     /// <summary>
@@ -253,11 +254,11 @@ public class SilabaControl : MonoBehaviour {
 
         if (errou)
         {
-            stageManager.ChangeColorTelaSilabaDigitada(Color.red);
+            stageManager.ChangeColorTelaSilabaDigitada(mistakeColor);
         }
         else
         {
-            stageManager.ChangeColorTelaSilabaDigitada(Color.green);
+            stageManager.ChangeColorTelaSilabaDigitada(correctColor);
         }
     }
 

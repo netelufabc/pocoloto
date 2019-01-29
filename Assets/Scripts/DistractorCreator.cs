@@ -52,7 +52,6 @@ public class DistractorCreator : MonoBehaviour {
         GameObject newDistractor;
         newDistractor = Instantiate(distractor, GameObject.Find("Canvas").transform); //Instancia o distrador como filho do canvas
         newDistractor.transform.position = silabaDigitada.transform.position; //E na posição do silaba digitada[i]
-        newDistractor.transform.SetAsFirstSibling();
     }
 
 }

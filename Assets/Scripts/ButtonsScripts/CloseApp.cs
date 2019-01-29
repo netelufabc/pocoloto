@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CloseApp : LoadScene {
@@ -23,7 +24,16 @@ public class CloseApp : LoadScene {
             {                
                 CloseMenu();                                
             }
-        }                 
+        }
+
+        if (LevelController.ButtonFecharBloqueado)
+        {
+            this.GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            this.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void FecharAplicacao()

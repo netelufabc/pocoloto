@@ -15,6 +15,8 @@ public static class LevelController
     */
     public static int textSlots;
 
+    public static int baseMoney = 5;
+    public static int bonusMoney = 5;
     public static bool IsLoaderAlreadyLaunched = false;
     public static bool BotaoConfirmaResposta = false;
     public static int scorePositive = 0;

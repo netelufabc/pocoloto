@@ -11,8 +11,7 @@ public class StageManager : MonoBehaviour
     public int currentPlanet;//Nível atual
     [Tooltip("Ato atual")]
     public int currentAct;
-    /*[Tooltip("Quantidade de atos desse planeta")]
-    public int maxAct;*/
+    public int moneyModifier; //Discutir como modificar isso
     [Tooltip("Letras foco para aprendizado no nível (se for 0, todas as letras serão as letras foco)")]
     public string[] planetLetters;
 
@@ -133,6 +132,7 @@ public class StageManager : MonoBehaviour
         score = Score.instance;
         score.ScoreSetup();
         score.UpdateTextStars();
+        score.UpdateTextMoney();
 
         buttonConfirmar = ButtonConfirmar.instance;
         closeButton = GameObject.Find("Button - Fechar");

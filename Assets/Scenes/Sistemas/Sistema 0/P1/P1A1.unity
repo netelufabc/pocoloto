@@ -1084,7 +1084,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4290004856975816, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}
@@ -1269,6 +1269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 1
   currentAct: 1
+  moneyModifier: 1
   planetLetters:
   - A
   - O

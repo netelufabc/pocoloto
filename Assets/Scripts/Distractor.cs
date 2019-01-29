@@ -57,6 +57,7 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             LevelController.bloqueiaBotao = false;
             silabaControl.CompleteEmptyTextSlots();
+            Debug.Log("Ta parando tudo");
 
         }
         gameObjectPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);

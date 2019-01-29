@@ -12,6 +12,7 @@ public class Score: MonoBehaviour {
     private string scoreNegativeString = "Score Negative";
     private Text scorePositiveText;
     private Text scoreNegativeText;
+    private Text moneyText;
     private Animator estrelaPositivo;
     private Animator estrelaNegativo;
     private int maxScore; //Número de acertos ou erros necessário para passar de fase
@@ -60,9 +61,10 @@ public class Score: MonoBehaviour {
     /// </summary>
     public void ScoreSetup()
     {
-            this.scorePositiveText = GameObject.Find(scorePositiveString).GetComponent<UnityEngine.UI.Text>();
-            this.scoreNegativeText = GameObject.Find(scoreNegativeString).GetComponent<UnityEngine.UI.Text>();
-            ResetScore();
+        this.scorePositiveText = GameObject.Find(scorePositiveString).GetComponent<UnityEngine.UI.Text>();
+        this.scoreNegativeText = GameObject.Find(scoreNegativeString).GetComponent<UnityEngine.UI.Text>();
+        this.moneyText = GameObject.Find("Money").GetComponent<Text>();
+        ResetScore();
     }
 
     //Funções:
@@ -151,6 +153,7 @@ public class Score: MonoBehaviour {
         if (getScorePositive() == maxScore)
         {
             GiveStars();
+            GiveMoney();
             ResetTimePlaying();
 
             resultado = Resources.Load("Prefabs/Feedback/Level Clear Message") as GameObject;
@@ -339,6 +342,64 @@ public class Score: MonoBehaviour {
         {
             return 3;
         }
+    }
+    #endregion
+
+    #region FunçõesDinheiro
+
+    public void GiveMoney()
+    {
+        int dinheiroEarned = MoneyCalculation();
+        SaveManager.player.dinheiro += dinheiroEarned;
+        Dinheiro.CreateGain(dinheiroEarned, moneyText.transform.position);
+        UpdateTextMoney();
+    }
+
+    private bool ESistema0()
+    {
+        if (stageManager.currentPlanet < 5)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private int MoneyCalculation()
+    {
+
+        int dinheiro = LevelController.baseMoney;
+
+        dinheiro += LevelController.bonusMoney * MoneyModifierByPlanet(); //Aplica o bônus pelo planeta
+        
+        if (ESistema0()) //Divide o dinheiro por 2 caso seja sistema 0
+        {
+            dinheiro = (dinheiro / 2);
+        }
+
+        dinheiro = dinheiro + (dinheiro * (stageManager.currentAct / 5)); //Aplica o bônus pelo ato
+
+        return dinheiro;
+    }
+
+    private int MoneyModifierByPlanet()
+    {
+        int planet = stageManager.currentPlanet;
+
+        if (ESistema0())
+        {
+            return planet;
+        }
+
+        while (planet > 9) //Deixa o planeta na faixa do 5 até o 9
+        {
+            planet -= 5;
+        }
+        return (planet - 4); //Resultado dá 1, 2, 3, 4, 5, dependendo do planeta
+    }
+
+    public void UpdateTextMoney()
+    {
+        moneyText.text = SaveManager.player.dinheiro.ToString();
     }
     #endregion
 }

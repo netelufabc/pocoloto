@@ -28,6 +28,13 @@ public class SilabaControl : MonoBehaviour {
     public Color correctColor; //Cor que o texto fica quando se acerta a palavra
     public Color mistakeColor; //Cor que o texto fica quando se erra a palavra
 
+    // Indica quantas vezes a mesma palavra pode ser escolhida em sequência
+    private int repeatMax = 1;
+    // Utilizado para verificar quantas vezes o mesmo número saiu em sequencia no random
+    private int repeatCount = 0;
+    // Guarda o número random anterior
+    private int prevRandom = -1;
+
     private void Awake()
     {
         if (instance == null)
@@ -103,7 +110,8 @@ public class SilabaControl : MonoBehaviour {
     /// </summary>
     public void TocarSilaba()//escolhe e toca uma sílaba aleatória (random nos arquivos de áudio)
     {
-        randomNumber = Random.Range(0, silabasNivelAtual.Length);
+        //randomNumber = Random.Range(0, silabasNivelAtual.Length);
+        randomNumber = RandomNotSoRandom();
         LevelController.PalavraSelecionada = silabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente
 
         // Verifica se a PalavraSelecionada deve ser separada em sílabas ou letras
@@ -251,5 +259,34 @@ public class SilabaControl : MonoBehaviour {
         {
             stageManager.ChangeColorTelaSilabaDigitada(Color.green);
         }
+    }
+
+    /// <summary>
+    /// Sorteia um número aleatório, mas respeitando um número máximo de repetições do mesmo número
+    /// </summary>
+    /// <returns></returns>
+    public int RandomNotSoRandom()
+    {
+        int tempRandom;
+        do
+        {
+            tempRandom = Random.Range(0, silabasNivelAtual.Length);
+            if (prevRandom == tempRandom)
+            {
+                if (repeatCount < repeatMax)
+                {
+                    repeatCount++;
+                    break;
+                }
+            }
+            else
+            {
+                prevRandom = tempRandom;
+                repeatCount = 0;
+                break;
+            }
+        } while (true);
+
+        return tempRandom;
     }
 }

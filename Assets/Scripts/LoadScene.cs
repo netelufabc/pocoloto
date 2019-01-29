@@ -50,19 +50,10 @@ public class LoadScene : MonoBehaviour {
     /// <param name="Scene"></param>
     public void LoadSceneWithFade(string scene)
     {
-        SoundManagerOnTransition();
+        soundManager = SoundManager.instance;
+        soundManager.SoundManagerOnTransition();
+        StopAllCoroutines();
         animManager = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         StartCoroutine(animManager.Fade(scene));
-    }
-
-    /// <summary>
-    /// Realiza as mudanças que devem serem feitas no SoundManager quando uma tela é carregada. Ou seja, caso alguma fala esteja sendo tocada, é parada, para o som de tictac e retorna o pitch para 1.
-    /// </summary>
-    private void SoundManagerOnTransition()
-    {
-        soundManager = SoundManager.instance;
-        soundManager.StopSilaba();
-        soundManager.StopSfxLoop();
-        soundManager.ChangePitch(1);
     }
 }

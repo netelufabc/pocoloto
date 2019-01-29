@@ -45,6 +45,7 @@ public class StageManager : MonoBehaviour
     private Color telaSilabaDigitadaDefaulColor;
     private Score score;
     private ButtonConfirmar buttonConfirmar;
+    private GameObject closeButton;
     private SilabaControl silabaControl;
     //private AnimationController levelChangerAnimController;
 
@@ -132,6 +133,7 @@ public class StageManager : MonoBehaviour
         score.UpdateTextStars();
 
         buttonConfirmar = ButtonConfirmar.instance;
+        closeButton = GameObject.Find("Button - Fechar");
 
         //AnimationController = LevelChangerAnimController.control;
 
@@ -161,6 +163,13 @@ public class StageManager : MonoBehaviour
             buttonConfirmar.DeactiveButton();//desativa botao confirma resposta
         }
 
+    }
+
+    public IEnumerator BloquearMenu(float tempo)
+    {
+        closeButton.GetComponent<Button>().enabled = false;
+        yield return new WaitForSeconds(tempo);
+        closeButton.GetComponent<Button>().enabled = true;
     }
 
     /// <summary>

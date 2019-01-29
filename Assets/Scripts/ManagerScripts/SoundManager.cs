@@ -156,5 +156,15 @@ public class SoundManager : MonoBehaviour {
     {
         audioBackground.volume = volume;
     }
+
+    /// <summary>
+    /// Realiza as mudanças que devem serem feitas no SoundManager quando uma tela é carregada. Ou seja, caso alguma fala esteja sendo tocada, é parada, para o som de tictac e retorna o pitch para 1.
+    /// </summary>
+    public void SoundManagerOnTransition()
+    {
+        StopSilaba();
+        StopSfxLoop();
+        ChangePitch(1);
+    }
 }
 

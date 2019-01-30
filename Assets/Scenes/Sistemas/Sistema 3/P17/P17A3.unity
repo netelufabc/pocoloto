@@ -1479,6 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 17
   currentAct: 3
+  moneyModifier: 0
   planetLetters:
   - A
   - I
@@ -1489,7 +1490,7 @@ MonoBehaviour:
   - S
   - R
   textSlots: 4
-  NextLevel: 08_stageSelect3
+  NextLevel: 07_stageSelect 3
   PreviousLevel: P17A3
   soundsDirectory: Sounds\Sistema 3\P17\P17A3
   eSilaba: 0

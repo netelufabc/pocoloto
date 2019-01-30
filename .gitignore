@@ -35,3 +35,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Scenes/06_systemSelect.unity
+Assets/Scripts/ButtonsScripts/Systems/SystemRecognizer.cs
+Assets/Scripts/ButtonsScripts/Systems/SystemRecognizer.cs

@@ -1592,6 +1592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 4
   currentAct: 1
+  moneyModifier: 0
   planetLetters:
   - A
   - I
@@ -1599,7 +1600,7 @@ MonoBehaviour:
   - E
   - O
   textSlots: 4
-  NextLevel: 07_stageSelect 1
+  NextLevel: 07_stageSelect 0
   PreviousLevel: RS0
   soundsDirectory: Sounds\Sistema 0
   eSilaba: 0

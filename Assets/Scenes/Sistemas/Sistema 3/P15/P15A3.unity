@@ -1385,6 +1385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 15
   currentAct: 3
+  moneyModifier: 0
   planetLetters:
   - A
   - I
@@ -1393,7 +1394,7 @@ MonoBehaviour:
   - O
   - D
   textSlots: 4
-  NextLevel: 08_stageSelect3
+  NextLevel: 07_stageSelect 3
   PreviousLevel: P15A3
   soundsDirectory: Sounds\Sistema 3\P15\P15A3
   eSilaba: 0

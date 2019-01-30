@@ -41,6 +41,7 @@ public class SystemRecognizer : MonoBehaviour {
         for (int i = 0; i < tempSystems.Length; i++)
         {
             systems[tempSystems[i].GetComponent<SystemSelectButtons>().systemNumber] = tempSystems[i];
+           // Debug.Log(tempSystems[i].name + " " + tempSystems[i].GetComponent<SystemSelectButtons>().systemNumber + "-" + i);
         }
 
         /*

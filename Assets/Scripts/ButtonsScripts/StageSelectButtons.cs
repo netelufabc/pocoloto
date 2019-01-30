@@ -12,7 +12,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     private Text planetNameText;
     private int planetNumber;
     private bool rotate;
-
+    private GameObject levelDoneFlag;
     public string textoPlanetaLiberado;
 
     private PanelProgressController panelProgressController;
@@ -20,7 +20,12 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public bool goToPlanet;
 
-	void Start () {
+    private void Awake()
+    {
+        levelDoneFlag = Resources.Load("Prefabs/LevelDoneFlag") as GameObject;
+    }
+
+    void Start () {
         planeta = this.GetComponent<UnityEngine.UI.Button>();
         planetaMouseOverAnimation = GameObject.Find(planeta.name).GetComponent<Animator>();
         planetNameText = GameObject.Find("Nome Planeta").GetComponent<UnityEngine.UI.Text>();
@@ -32,6 +37,17 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         if (SaveManager.player.planeta[planetNumber - 1].liberado)
         {
             this.GetComponent<Button>().interactable = true;
+        }
+
+        if (SaveManager.player.CompletouPlaneta(planetNumber))
+        {
+            GameObject newLevelDoneFlag;
+            newLevelDoneFlag = Instantiate(levelDoneFlag, GameObject.Find("Canvas").transform); //Instancia o distrador como filho do canvas
+            newLevelDoneFlag.transform.position = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z); //E na posição do planeta
+            if (SaveManager.player.ZerouPlaneta(planetNumber))
+            {
+                newLevelDoneFlag.transform.GetChild(1).gameObject.SetActive(true);
+            }
         }
     }
 	

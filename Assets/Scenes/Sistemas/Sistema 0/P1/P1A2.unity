@@ -1518,11 +1518,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 1
   currentAct: 2
+  moneyModifier: 0
   planetLetters:
   - A
   - O
   textSlots: 4
-  NextLevel: P1A3
+  NextLevel: P1A3_explicacao
   PreviousLevel: P1A2
   soundsDirectory: Sounds\Sistema 0\P1\P1A2
   eSilaba: 0

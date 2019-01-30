@@ -378,6 +378,11 @@ public class Score: MonoBehaviour {
             dinheiro = (dinheiro / 2);
         }
 
+        if (SaveManager.player.CompletouPlaneta(stageManager.currentPlanet))
+        {
+            dinheiro = (dinheiro / 2);
+        }
+
         return dinheiro;
     }
 

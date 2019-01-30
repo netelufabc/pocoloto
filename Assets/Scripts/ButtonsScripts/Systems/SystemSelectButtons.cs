@@ -14,9 +14,11 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
     private GameObject anotherSystem;
     private Text textoPainelInferior;
     public string textoSystema;
+    private GameObject levelDoneFlag;
 
     // Libera a seleção do sistema no systemSelect
-	void Start () {
+    void Start () {
+        levelDoneFlag = Resources.Load("Prefabs/LevelDoneFlag") as GameObject;
         sistemasLiberados = SaveManager.player.sistemaLiberado;
         systemName = this.GetComponent<UnityEngine.UI.Button>().name;
         systemNumber = System.Int32.Parse(systemName.Substring(systemName.Length - 1));
@@ -26,7 +28,19 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
         {
             this.GetComponent<UnityEngine.UI.Button>().interactable = true;
         }
-	}
+
+        if (SaveManager.player.CompletouSistema(systemNumber))
+        {            
+            GameObject newLevelDoneFlag;
+            newLevelDoneFlag = Instantiate(levelDoneFlag, GameObject.Find("Canvas").transform); //Instancia o distrador como filho do canvas
+            newLevelDoneFlag.transform.position = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z); //E na posição do planeta
+            Instantiate(levelDoneFlag, new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z),new Quaternion(0,0,0,0), GameObject.Find("Canvas").transform);
+            if (SaveManager.player.ZerouSistema(systemNumber))
+            {
+                newLevelDoneFlag.transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
+    }
 
     public void OnClick()
     {

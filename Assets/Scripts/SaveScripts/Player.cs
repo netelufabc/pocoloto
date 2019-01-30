@@ -65,6 +65,84 @@ public class Player
             }
         }
     }
+
+    public bool CompletouPlaneta(int p)
+    {
+        for (int i = 0; i<planeta[p-1].ato.Length; i++)
+        { 
+            if (planeta[p-1].ato[i] == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool ZerouPlaneta(int p)
+    {
+        for (int i = 0; i < planeta[p-1].ato.Length; i++)
+        {
+            if (planeta[p-1].ato[i] != 3)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool CompletouSistema(int s)
+    {
+        if (s == 0)
+        {
+            if (CompletouPlaneta(1) && CompletouPlaneta(2) && CompletouPlaneta(3) && CompletouPlaneta(4))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        else
+        {
+            if (CompletouPlaneta(5 + (s-1)*5) && CompletouPlaneta(6 + (s - 1) * 5) && CompletouPlaneta(7 + (s - 1) * 5) && CompletouPlaneta(8 + (s - 1) * 5) && CompletouPlaneta(9 + (s - 1) * 5))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool ZerouSistema(int s)
+    {
+        if (s == 0)
+        {
+            if (ZerouPlaneta(1) && ZerouPlaneta(2) && ZerouPlaneta(3) && ZerouPlaneta(4))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        else
+        {
+            if (ZerouPlaneta(5 + (s - 1) * 5) && ZerouPlaneta(6 + (s - 1) * 5) && ZerouPlaneta(7 + (s - 1) * 5) && ZerouPlaneta(8 + (s - 1) * 5) && ZerouPlaneta(9 + (s - 1) * 5))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }
 
 [Serializable]

@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 114297351313632008}
   m_Layer: 5
   m_Name: Shop Item
-  m_TagString: Untagged
+  m_TagString: ShopItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,6 +247,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa11e3d4485e32743ae1de2e50334071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInfo:
+    itemInfo: 
+    itemPrice: 200
+    itemSprite: {fileID: 0}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
 --- !u!114 &114644972440765802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,7 +352,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198555627910588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -405,7 +411,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114117027501176720}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114297351313632008}
+        m_MethodName: BuyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114973009395333956

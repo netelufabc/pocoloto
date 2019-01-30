@@ -213,6 +213,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Sistemas/Sistema 4/RS4.unity
     guid: 941c5c2e7db6df14c9c1b33df41f8f05
   - enabled: 1
+    path: Assets/Scenes/08_shop.unity
+    guid: e67d9550bcf09ee4c9648e4b1541b9d9
+  - enabled: 1
     path: Assets/Scenes/Sistemas/05_nivel01.unity
     guid: d9b89fa91cf9f3840939a858d43ddebf
   - enabled: 1

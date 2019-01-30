@@ -83,4 +83,12 @@ public class CloseApp : LoadScene {
         soundManager.UnmuteSfxLoop();
         LevelController.TimePause = false;
     }
+
+    public void CloseMenuNBlocker()
+    {
+        ContinueGame();
+        GameObject buttonGrandParent;
+        buttonGrandParent = this.transform.parent.transform.parent.gameObject;
+        Destroy(buttonGrandParent);
+    }
 }

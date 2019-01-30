@@ -16,6 +16,7 @@ TagManager:
   - Planetas
   - Star
   - Sistemas
+  - ShopItem
   layers:
   - Default
   - TransparentFX

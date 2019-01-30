@@ -7,7 +7,7 @@ public class AvatarSelection : MonoBehaviour {
     /// <summary>
     /// Número de avatares disponívies
     /// </summary>
-    public float numAvatarTotal = 10;
+    public float numAvatarExibidos = 2;
     /// <summary>
     /// Vetor contendo as prefab dos avatares
     /// </summary>
@@ -19,21 +19,21 @@ public class AvatarSelection : MonoBehaviour {
     private bool[] avatarBloqueado;
 
 	void Start () {
-        avatarBloqueado = SaveManager.player.avatarBloqueado;
+        avatarBloqueado = SaveManager.player.avatares;
         
         // Posiciona os avatares
-		for (int i = 0; i < numAvatarTotal; i++)
+		for (int i = 0; i < numAvatarExibidos; i++)
         {
             avatarImage[i] = Instantiate(avatarImage[i], transform);
             
             // Bloqueio dos avatares não liberados
             if (avatarBloqueado[i])
             {
-                avatarImage[i].GetComponent<UnityEngine.UI.Button>().interactable = false;
+                avatarImage[i].GetComponent<UnityEngine.UI.Button>().interactable = true;
             }
             else
             {
-                avatarImage[i].GetComponent<UnityEngine.UI.Button>().interactable = true;
+                avatarImage[i].GetComponent<UnityEngine.UI.Button>().interactable = false;
             }
         }
 	}

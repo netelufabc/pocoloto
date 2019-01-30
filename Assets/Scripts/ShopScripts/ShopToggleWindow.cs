@@ -8,16 +8,17 @@ using System.Linq;
 public class ShopToggleWindow : MonoBehaviour, IPointerClickHandler {
 
     private ToggleGroup toggleGroup;
+    private ShopManager shopManager;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         toggleGroup = FindObjectOfType<ToggleGroup>();
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        shopManager = FindObjectOfType<ShopManager>();
+    }
 
     public void OnPointerClick(PointerEventData pointerClick)
     {
@@ -30,16 +31,21 @@ public class ShopToggleWindow : MonoBehaviour, IPointerClickHandler {
 
     private void AvatarToggleSelected()
     {
-        Debug.Log("Avatar");
+        shopManager.AvatarToggleShopWindow();
     }
 
     private void CoresToggleSelected()
     {
-        Debug.Log("Cores");
+        shopManager.CoresToggleShopWindow();
     }
 
     private void ExtrasToggleSelected()
     {
-        Debug.Log("Extras");
+        shopManager.ExtrasToggleShopWindow();
+    }
+
+    public string SelectedToggle()
+    {
+        return toggleGroup.ActiveToggles().FirstOrDefault().name;
     }
 }

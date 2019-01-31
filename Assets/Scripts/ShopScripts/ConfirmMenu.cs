@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class ShopConfirmMenu : MonoBehaviour {
 
+    #region Variáveis Globais
     private ShopManager shopManager;
+    #endregion
 
     private void Start()
     {
+        // Encontra a referencia do ShopManager
         shopManager = FindObjectOfType<ShopManager>();
     }
 
+    /// <summary>
+    /// Confirma a compra do item escolhido
+    /// </summary>
     public void ConfirmBuy()
     {
         shopManager.ConfirmTrade();

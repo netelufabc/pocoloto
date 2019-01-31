@@ -10,11 +10,13 @@ public class ShopManager : MonoBehaviour {
 
     #region Variáveis Globais
     [Tooltip("Lista dos avatares vendidos na loja")]
-    public ItemInfo[] avatarsToSell;
+    private ItemInfo[] avatarsToSell;
     [Tooltip("Lista das cores vendidas na loja")]
-    public ItemInfo[] colorsToSell;
+    private ItemInfo[] colorsToSell;
     [Tooltip("Lista dos extras vendidos na loja")]
-    public ItemInfo[] extrasToSell;
+    private ItemInfo[] extrasToSell;
+    [Tooltip("GameObject que contém a lista dos itens do jogo")]
+    public ItensInfoList itensInfoList;
 
     [Tooltip("Prefab genérico do item da loja (aparência)")]
     public GameObject itemPrefab;
@@ -34,6 +36,11 @@ public class ShopManager : MonoBehaviour {
     #endregion
 
     void Start () {
+        // Pega as informações do prefab itensInfoList e joga nos respectivos vetores
+        avatarsToSell = itensInfoList.avatarsToSell;
+        colorsToSell = itensInfoList.colorsToSell;
+        extrasToSell = itensInfoList.extrasToSell;
+
         // Encontra o painel de seleção e verifica o nome do toggle selecionado
         shopToggleWindow = FindObjectOfType<ShopToggleWindow>();
         toggleSelected = shopToggleWindow.SelectedToggle();

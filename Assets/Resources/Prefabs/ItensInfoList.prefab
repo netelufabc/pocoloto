@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1710936954135792}
+  m_IsPrefabAsset: 1
+--- !u!1 &1710936954135792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4089498777436662}
+  - component: {fileID: 114106027358906986}
+  m_Layer: 0
+  m_Name: ItensInfoList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4089498777436662
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710936954135792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5280253, y: 0.07568361, z: 61.038887}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114106027358906986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1710936954135792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bbcd4e28031384c80735815346f19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarsToSell:
+  - itemInfo: Gosminha
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: 016e40d6448d75b4cbd1c21c5f63c28a, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Zoiudo
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: 90be700e3577c31409b2ac302964bc89, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Perninha
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: f94eb8944eaebd94d83135277ed23a75, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Cobrinha
+    itemPrice: 300
+    itemSprite: {fileID: 21300000, guid: 3d7a24d72aca32b42a86e0e638b9d44a, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Capa
+    itemPrice: 300
+    itemSprite: {fileID: 21300000, guid: e7baf8916524b8d45b8b6e2eb9dae0b7, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: "Aqu\xE1rio"
+    itemPrice: 400
+    itemSprite: {fileID: 21300000, guid: a76e914cd0aca5d4783c15cb9b9b50e9, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Cavalinho
+    itemPrice: 500
+    itemSprite: {fileID: 21300000, guid: 8532a682eeca4064ca22072f43171317, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Asinha
+    itemPrice: 500
+    itemSprite: {fileID: 21300000, guid: 71ebbeceb44659c46ba67a303636d994, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  colorsToSell:
+  - itemInfo: Azul
+    itemPrice: 200
+    itemSprite: {fileID: 0}
+    itemColor: {r: 0, g: 0.6388259, b: 1, a: 0}
+    availableToBuy: 1
+  - itemInfo: Vermelho
+    itemPrice: 200
+    itemSprite: {fileID: 0}
+    itemColor: {r: 1, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Verde
+    itemPrice: 200
+    itemSprite: {fileID: 0}
+    itemColor: {r: 0.019819975, g: 1, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Amarelo
+    itemPrice: 200
+    itemSprite: {fileID: 0}
+    itemColor: {r: 1, g: 0.98745596, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Rosa
+    itemPrice: 300
+    itemSprite: {fileID: 0}
+    itemColor: {r: 1, g: 0.5424528, b: 0.9274669, a: 0}
+    availableToBuy: 1
+  - itemInfo: Roxo
+    itemPrice: 300
+    itemSprite: {fileID: 0}
+    itemColor: {r: 0.6776142, g: 0, b: 1, a: 0}
+    availableToBuy: 1
+  - itemInfo: Laranja
+    itemPrice: 300
+    itemSprite: {fileID: 0}
+    itemColor: {r: 1, g: 0.5851397, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Marrom
+    itemPrice: 400
+    itemSprite: {fileID: 0}
+    itemColor: {r: 0.4056604, g: 0.2944861, b: 0.23153257, a: 0}
+    availableToBuy: 1
+  extrasToSell: []

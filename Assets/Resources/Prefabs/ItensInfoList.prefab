@@ -113,44 +113,39 @@ MonoBehaviour:
     itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   colorsToSell:
+  - itemInfo: Original
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
+    availableToBuy: 0
   - itemInfo: Azul
     itemPrice: 200
-    itemSprite: {fileID: 0}
-    itemColor: {r: 0, g: 0.6388259, b: 1, a: 0}
-    availableToBuy: 1
-  - itemInfo: Vermelho
-    itemPrice: 200
-    itemSprite: {fileID: 0}
-    itemColor: {r: 1, g: 0, b: 0, a: 0}
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 0, g: 0, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Verde
     itemPrice: 200
-    itemSprite: {fileID: 0}
-    itemColor: {r: 0.019819975, g: 1, b: 0, a: 0}
-    availableToBuy: 1
-  - itemInfo: Amarelo
-    itemPrice: 200
-    itemSprite: {fileID: 0}
-    itemColor: {r: 1, g: 0.98745596, b: 0, a: 0}
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 0, g: 1, b: 0, a: 1}
     availableToBuy: 1
   - itemInfo: Rosa
-    itemPrice: 300
-    itemSprite: {fileID: 0}
-    itemColor: {r: 1, g: 0.5424528, b: 0.9274669, a: 0}
-    availableToBuy: 1
-  - itemInfo: Roxo
-    itemPrice: 300
-    itemSprite: {fileID: 0}
-    itemColor: {r: 0.6776142, g: 0, b: 1, a: 0}
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 1, g: 0, b: 0.53333336, a: 1}
     availableToBuy: 1
   - itemInfo: Laranja
     itemPrice: 300
-    itemSprite: {fileID: 0}
-    itemColor: {r: 1, g: 0.5851397, b: 0, a: 0}
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 1, g: 0.4117647, b: 0, a: 1}
     availableToBuy: 1
-  - itemInfo: Marrom
-    itemPrice: 400
-    itemSprite: {fileID: 0}
-    itemColor: {r: 0.4056604, g: 0.2944861, b: 0.23153257, a: 0}
+  - itemInfo: Vermelho
+    itemPrice: 300
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 1, g: 0, b: 0, a: 1}
+    availableToBuy: 1
+  - itemInfo: Preto
+    itemPrice: 300
+    itemSprite: {fileID: 21300000, guid: 645bdb5a66753344c8ce325370b728ac, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 1}
     availableToBuy: 1
   extrasToSell: []

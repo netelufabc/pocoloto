@@ -22,13 +22,11 @@ public class ColorChoice : MonoBehaviour {
             if (SaveManager.player.cores[i])
             {
                 indiceLiberados.Add(i);
-                Debug.Log(i);
             }
         }
 
         foreach (int n in indiceLiberados)
         {
-            Debug.Log(n);
             Create(n);
         }
     }

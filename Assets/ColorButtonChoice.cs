@@ -14,10 +14,10 @@ public class ColorButtonChoice : MonoBehaviour {
         {
             if (selectable.CompareTag("ShopItem"))
             {
-                selectable.colors = AvatarChoice.defaultColor;
+                selectable.colors = ColorChoice.defaultColor;
             }
         }
-        this.GetComponent<Button>().colors = AvatarChoice.highlightedColor;
+        this.GetComponent<Button>().colors = ColorChoice.highlightedColor;
 
         SaveManager.player.colorSelecionadoIndex = index;
         GameObject.Find("Main Camera").GetComponent<CustomizeScreen>().UpdateScreen();

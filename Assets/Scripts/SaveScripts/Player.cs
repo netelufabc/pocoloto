@@ -12,6 +12,7 @@ public class Player
     public int idade = 0;
     public int serie = 0;
     public int avatarSelecionadoIndex = -1;
+    public int colorSelecionadoIndex = 0;
     public int dinheiro;
     public int totalEstrelas;
     // Lista de itens que podem ser comprados na loja do jogo

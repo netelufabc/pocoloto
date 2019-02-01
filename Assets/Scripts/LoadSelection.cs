@@ -13,6 +13,7 @@ public class LoadSelection : MonoBehaviour {
     public static string slotsDataPath = string.Empty;
     public static SlotsList list = new SlotsList();
     public static Player player = new Player();
+    public ItensInfoList itensinfoList;
 
     void Start () {
 
@@ -38,7 +39,7 @@ public class LoadSelection : MonoBehaviour {
                 //loadSlotButton.GetComponentInChildren<Text>().text =  " "+SaveManager.player.nome +  " Idade: " +SaveManager.player.idade + " Série: "+SaveManager.player.serie;
                 loadSlotButton.GetComponentInChildren<UnityEngine.UI.Button>().interactable = true;
                 // Carrega a imagem do avatar para colocar no botão
-                Sprite avatar = Resources.Load<Image>("Prefabs/Avatar/Avatar0" + (SaveManager.player.avatarSelecionadoIndex + 1).ToString()).sprite;
+                Sprite avatar = itensinfoList.avatarsToSell[SaveManager.player.avatarSelecionadoIndex].itemSprite;
                 // Encontra a imagem do botão e muda para o avatar selecionado
                 GameObject buttonImage = loadSlotButton.transform.GetChild(1).gameObject;
                 buttonImage.GetComponent<Image>().sprite = avatar;

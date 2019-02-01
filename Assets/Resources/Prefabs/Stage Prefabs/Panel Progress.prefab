@@ -345,6 +345,8 @@ MonoBehaviour:
   numPlanetaRSAnterior: 0
   imagemIniciarPlaneta: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
     type: 2}
+  itensInfoList: {fileID: 114106027358906986, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
+    type: 2}
 --- !u!114 &114490057704437006
 MonoBehaviour:
   m_ObjectHideFlags: 1

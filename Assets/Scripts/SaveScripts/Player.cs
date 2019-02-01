@@ -18,7 +18,7 @@ public class Player
     // Lista de itens que podem ser comprados na loja do jogo
     public int numAvataresLiberadso = 2;
     public bool[] avatares = new bool[12] { true, true, false, false, false, false, false, false, false, false, false, false };
-    public bool[] cores = new bool[7] { false, false, false, false, false, false, false };
+    public bool[] cores = new bool[7] { true, false, false, false, false, false, false };
     public bool[] extras = new bool[5] { true, false, false, false, false };
     public bool sistemaLiberado = false;
     public int[] estrelaSistema = new int[5] { 0, 0, 0, 0, 0 };

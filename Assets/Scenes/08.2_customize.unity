@@ -1590,6 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073bfe70f6cd2bd4fa37f8fd1431e29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 1378384171562712, guid: b080957c71354354cbe53eba34d7b292, type: 2}
 --- !u!114 &1238321096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1641,7 +1642,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1238321095}
-        m_MethodName: OpenAvatarSelect
+        m_MethodName: OpenWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2031,7 +2032,7 @@ GameObject:
   - component: {fileID: 1859478071}
   - component: {fileID: 1859478070}
   - component: {fileID: 1859478069}
-  - component: {fileID: 1859478068}
+  - component: {fileID: 1859478073}
   m_Layer: 5
   m_Name: MudarCor
   m_TagString: Untagged
@@ -2058,17 +2059,6 @@ RectTransform:
   m_AnchoredPosition: {x: 61, y: -7.2}
   m_SizeDelta: {x: 119, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1859478068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1859478066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e35cd8c873b7534fb01a731c158bf8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1859478069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2119,9 +2109,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1859478068}
-        m_MethodName: LoadSceneWithFade
-        m_Mode: 5
+      - m_Target: {fileID: 1859478073}
+        m_MethodName: OpenWindow
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2166,6 +2156,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1859478066}
   m_CullTransparentMesh: 0
+--- !u!114 &1859478073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859478066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073bfe70f6cd2bd4fa37f8fd1431e29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  window: {fileID: 1691685481953740, guid: ddebb306328b7e146aa8e67e2e81ec07, type: 2}
 --- !u!1 &1924912493
 GameObject:
   m_ObjectHideFlags: 0

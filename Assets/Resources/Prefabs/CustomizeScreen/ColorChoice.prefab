@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114680381648494300}
   - component: {fileID: 114776411069143316}
   m_Layer: 0
-  m_Name: AvatarPanel
+  m_Name: ColorPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 114949751946327648}
   - component: {fileID: 222952736631900978}
   - component: {fileID: 114252827857222330}
-  - component: {fileID: 114710590305744616}
+  - component: {fileID: 114890790895917598}
   m_Layer: 0
   m_Name: ColorChoice
   m_TagString: Untagged
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 073bfe70f6cd2bd4fa37f8fd1431e29b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 0}
 --- !u!114 &114236166551704830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,26 +392,11 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 10, y: 20}
+  m_StartAxis: 1
+  m_CellSize: {x: 100, y: 80}
+  m_Spacing: {x: 8, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 3
---- !u!114 &114710590305744616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1691685481953740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390148a086059714d96b6ae622b4c5f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itensInfoList: {fileID: 1710936954135792, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
-    type: 2}
-  avatarButton: {fileID: 1258606959700096, guid: 208b8ebd3781f5b4cb8e144bd2ca5a67,
-    type: 2}
+  m_ConstraintCount: 2
 --- !u!114 &114711632201200038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -530,6 +516,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114890790895917598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691685481953740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0057ed90d28ea634996fb4f8335edb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itensInfoList: {fileID: 1710936954135792, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
+    type: 2}
+  button: {fileID: 1546576376614852, guid: f915106499123ea4eb00201b148d876d, type: 2}
 --- !u!114 &114949751946327648
 MonoBehaviour:
   m_ObjectHideFlags: 1

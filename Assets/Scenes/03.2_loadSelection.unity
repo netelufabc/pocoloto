@@ -715,6 +715,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadSlotButton: {fileID: 1914468309782122, guid: 82a3a99b81f1d6a428873a548d44538e,
     type: 2}
+  itensinfoList: {fileID: 114106027358906986, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
+    type: 2}
 --- !u!156049354 &435476954
 Grid:
   m_ObjectHideFlags: 0

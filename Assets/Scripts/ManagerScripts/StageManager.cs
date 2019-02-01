@@ -106,12 +106,12 @@ public class StageManager : MonoBehaviour
         // Define se a palavra deve ser separada em sílabas ou letras
         LevelController.eSilaba = eSilaba;
         
-        /*
-        LevelController.CharLimitForLevel = CharLimitForThisLevel;//define limite de caracteres para o nível atual
-        LevelController.NumeroDeSilabasDaPalavra = NumeroDeSilabasDaPalavra;
-        */
-
         LevelController.InitializeVars();
+
+        GameObject itensInfoList = Resources.Load("Prefabs/ItensInfoList") as GameObject;
+        GameObject tecladoHolografico = GameObject.Find("teclado_holografico");
+        tecladoHolografico.GetComponent<SpriteRenderer>().sprite = itensInfoList.GetComponent<ItensInfoList>().colorsToSell[SaveManager.player.colorSelecionadoIndex].itemSprite;
+        tecladoHolografico.GetComponent<SpriteRenderer>().color = itensInfoList.GetComponent<ItensInfoList>().colorsToSell[SaveManager.player.colorSelecionadoIndex].itemColor;
     }
 
     void Start()

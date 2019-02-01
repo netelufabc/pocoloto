@@ -940,7 +940,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Confirmar
+  m_Text: "Customiza\xE7\xE3o"
 --- !u!222 &393995935
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 668732134}
   - component: {fileID: 668732138}
   m_Layer: 5
-  m_Name: Voltar
+  m_Name: "Gal\xE1xia"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 767817879}
   - component: {fileID: 767817884}
   m_Layer: 5
-  m_Name: Confirma
+  m_Name: "Customiza\xE7\xE3o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1592,22 +1592,11 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 767817882}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 767817884}
-        m_MethodName: LoadSelectedSlot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 06_stageSelect
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 767817880}
         m_MethodName: LoadSceneWithFade
         m_Mode: 5
@@ -1616,7 +1605,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 06_systemSelect
+          m_StringArgument: 08.2_customize
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2275,7 +2264,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Voltar
+  m_Text: "Gal\xE1xia"
 --- !u!222 &1269564587
 CanvasRenderer:
   m_ObjectHideFlags: 0

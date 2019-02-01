@@ -95,12 +95,13 @@ public class ShopManager : MonoBehaviour {
             // Passa as informações do item que está sendo criado para atualizar na instância
             ShopItem shopItemPrefab = itemPrefabInstace.GetComponent<ShopItem>();
             shopItemPrefab.itemInfo = itemsToShow[i];
+            //shopItemPrefab.GetComponent<ShopItem>().itemInfo.itemSprite = itemsToShow[i].itemSprite;
 
             // Verifica se o item já foi vendido
             // Se o item já foi vendido, chama a função ItemSold
             // Se o item não foi vendido, verifica se o player tem dinheiro pra comprar
             // Se não tiver dinheiro, muda o valor para vermelho e desabilita o botão
-            if (toggleSelected.Contains("Avatar") && SaveManager.player.avatares[i + SaveManager.player.numAvataresLiberadso])
+            if (toggleSelected.Contains("Avatar") && SaveManager.player.avatares[i])
             {
                 shopItemPrefab.ItemSold();
             }

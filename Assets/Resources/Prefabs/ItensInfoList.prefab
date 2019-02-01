@@ -55,62 +55,62 @@ MonoBehaviour:
   - itemInfo: Aries
     itemPrice: 200
     itemSprite: {fileID: 21300000, guid: 5977f6dbb50af6041ba12101c3f3e119, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 0
   - itemInfo: Touro
     itemPrice: 200
     itemSprite: {fileID: 21300000, guid: d7b88982a82fbc945afadcc77baec23d, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 0
   - itemInfo: Gemeos
     itemPrice: 200
     itemSprite: {fileID: 21300000, guid: d40cdf1da4b181e429d504e26993f135, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Cancer
     itemPrice: 300
     itemSprite: {fileID: 21300000, guid: e95ea6efc03e71b4c8d80a9704093a6f, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Leao
     itemPrice: 300
     itemSprite: {fileID: 21300000, guid: ebd14d8ca74a07d4c9adb07adc865d27, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Virgem
     itemPrice: 400
     itemSprite: {fileID: 21300000, guid: c9a7dbc341293dd4e8dccaf762d54450, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Libra
     itemPrice: 500
     itemSprite: {fileID: 21300000, guid: 614268586d7aabe4d8785139e3c8d8e3, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Escorpiao
     itemPrice: 500
     itemSprite: {fileID: 21300000, guid: ae0215029a42e1741813d04c285fc0fe, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Sagitario
     itemPrice: 1000
     itemSprite: {fileID: 21300000, guid: b9cff067386ed2c48a4d0c6f9c92fafa, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Capricornio
     itemPrice: 600
     itemSprite: {fileID: 21300000, guid: 004fc1aa09824cb4491e21bb5a840395, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Aquario
     itemPrice: 600
     itemSprite: {fileID: 21300000, guid: 1ff00e0b756c0214d9a1e9743d98a6b1, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   - itemInfo: Peixes
     itemPrice: 600
     itemSprite: {fileID: 21300000, guid: d099f4525c16d04499059f95682f8f6b, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
   colorsToSell:
   - itemInfo: Azul

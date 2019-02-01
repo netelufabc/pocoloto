@@ -251,7 +251,7 @@ MonoBehaviour:
     itemInfo: 
     itemPrice: 200
     itemSprite: {fileID: 0}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    itemColor: {r: 1, g: 1, b: 1, a: 1}
     availableToBuy: 1
 --- !u!114 &114644972440765802
 MonoBehaviour:

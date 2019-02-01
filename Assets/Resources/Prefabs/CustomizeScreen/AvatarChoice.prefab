@@ -432,6 +432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itensInfoList: {fileID: 1710936954135792, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
     type: 2}
+  avatarButton: {fileID: 1258606959700096, guid: 208b8ebd3781f5b4cb8e144bd2ca5a67,
+    type: 2}
 --- !u!114 &114916453672964080
 MonoBehaviour:
   m_ObjectHideFlags: 1

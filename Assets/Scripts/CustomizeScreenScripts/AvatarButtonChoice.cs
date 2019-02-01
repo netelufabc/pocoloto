@@ -10,13 +10,14 @@ public class AvatarButtonChoice : MonoBehaviour {
 
     public void OnClick()
     {
-        foreach (Button button in Selectable.allSelectables)
+        foreach (Selectable selectable in Selectable.allSelectables)
         {
-            if (button.CompareTag("Shopitem"))
+            if (selectable.CompareTag("ShopItem"))
             {
-                button.colors = button.colors;
+                selectable.colors = AvatarChoice.defaultColor;
             }
         }
+        this.GetComponent<Button>().colors = AvatarChoice.highlightedColor;
 
         SaveManager.player.avatarSelecionadoIndex = index;
         GameObject.Find("Main Camera").GetComponent<CustomizeScreen>().UpdateScreen();

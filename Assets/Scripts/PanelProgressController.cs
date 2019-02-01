@@ -21,6 +21,7 @@ public class PanelProgressController : MonoBehaviour {
     public GameObject imagemIniciarPlaneta;
     // Var para instanciar a imagem
     private GameObject initImage;
+    public ItensInfoList itensInfoList;
 
     private void Awake()
     {
@@ -37,9 +38,9 @@ public class PanelProgressController : MonoBehaviour {
     void Start () {
         // Encontra o painel
         infoPanel = GameObject.Find("Panel Progress");
-        
+
         // Carrega a imagem do avatar para colocar no painel
-        Sprite avatar = Resources.Load<Image>("Prefabs/Avatar/Avatar0" + (SaveManager.player.avatarSelecionadoIndex + 1).ToString()).sprite;
+        Sprite avatar = itensInfoList.avatarsToSell[SaveManager.player.avatarSelecionadoIndex].itemSprite;
         // Encontra a imagem do painel e muda para o avatar selecionado
         GameObject panelImage = infoPanel.transform.GetChild(1).gameObject;
         panelImage.GetComponent<Image>().sprite = avatar;

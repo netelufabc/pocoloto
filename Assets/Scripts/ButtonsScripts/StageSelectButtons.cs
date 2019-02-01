@@ -64,12 +64,12 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             if (planeta.interactable == false)
             {
-                //panelProgressController.UpdateInfoText(GetText());
+                panelProgressController.UpdateInfoText(GetText());
             }
             else
             {
-                //panelProgressController.DestroyStars();
-                //panelProgressController.UpdateInfoText(GetText(), planetNumber);
+                panelProgressController.DestroyStars();
+                panelProgressController.UpdateInfoText(GetText(), planetNumber);
                 if (planeta.interactable == true)
                 {
                     StartPlanetAnimation();
@@ -98,10 +98,10 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
         else
         {
-            //planetNumber = System.Int32.Parse(planeta.name.Substring(7));            
-            //return "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";           
-            panelProgressController.DestroyStars();
-            return "";
+            planetNumber = System.Int32.Parse(planeta.name.Substring(7));            
+            return "Para acessar o Planeta " + planetNumber + ", primeiro passe pelo Planeta " + (planetNumber - 1) + "!";           
+            //panelProgressController.DestroyStars();
+            //return "";
         }
     }
 

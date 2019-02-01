@@ -639,18 +639,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2899f9a421ca62f41ac6d6a71e54c0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numAvatarTotal: 10
-  avatarImage:
-  - {fileID: 1537903796721194, guid: 708124d26e115ab4189d27f43b524443, type: 2}
-  - {fileID: 1900759857931090, guid: 5127681064fa80e4d9bdb8f26e0112d5, type: 2}
-  - {fileID: 1537903796721194, guid: 708124d26e115ab4189d27f43b524443, type: 2}
-  - {fileID: 1900759857931090, guid: 5127681064fa80e4d9bdb8f26e0112d5, type: 2}
-  - {fileID: 1900759857931090, guid: 5127681064fa80e4d9bdb8f26e0112d5, type: 2}
-  - {fileID: 1537903796721194, guid: 708124d26e115ab4189d27f43b524443, type: 2}
-  - {fileID: 1537903796721194, guid: 708124d26e115ab4189d27f43b524443, type: 2}
-  - {fileID: 1537903796721194, guid: 708124d26e115ab4189d27f43b524443, type: 2}
-  - {fileID: 1900759857931090, guid: 5127681064fa80e4d9bdb8f26e0112d5, type: 2}
-  - {fileID: 1900759857931090, guid: 5127681064fa80e4d9bdb8f26e0112d5, type: 2}
+  avatarImagePrefab: {fileID: 1537903796721194, guid: 708124d26e115ab4189d27f43b524443,
+    type: 2}
+  itensInfoList: {fileID: 114106027358906986, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
+    type: 2}
 --- !u!156049354 &917686780
 Grid:
   m_ObjectHideFlags: 0

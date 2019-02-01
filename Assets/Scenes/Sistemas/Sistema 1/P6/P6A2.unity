@@ -263,7 +263,7 @@ Prefab:
     - target: {fileID: 224018666902821444, guid: 3ec35e889a5eeeb40a06e70ea278d78f,
         type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 224018666902821444, guid: 3ec35e889a5eeeb40a06e70ea278d78f,
         type: 2}
@@ -1443,6 +1443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 6
   currentAct: 2
+  moneyModifier: 0
   planetLetters:
   - A
   - E
@@ -1468,7 +1469,10 @@ MonoBehaviour:
     avatarSelecionadoIndex: -1
     dinheiro: 0
     totalEstrelas: 0
-    avatarBloqueado: 00000101010101010101
+    numAvataresLiberadso: 2
+    avatares: 010100000000000000000000
+    cores: 0000000000000000
+    extras: 0000000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
     planeta: []
@@ -1840,6 +1844,25 @@ Prefab:
     - target: {fileID: 4290004856975816, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 212083314101620120, guid: 006c0ce098af7ce46b93fd19d2fb87e9,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212083314101620120, guid: 006c0ce098af7ce46b93fd19d2fb87e9,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212083314101620120, guid: 006c0ce098af7ce46b93fd19d2fb87e9,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582491164952324, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006c0ce098af7ce46b93fd19d2fb87e9, type: 2}

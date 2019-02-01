@@ -143,7 +143,7 @@ public class ShopManager : MonoBehaviour {
         if (toggleSelected.Contains("Avatar"))
         {
             chosenItemPrice = avatarsToSell[chosenItem].itemPrice;
-            SaveManager.player.avatares[chosenItem + SaveManager.player.numAvataresLiberadso] = true;
+            SaveManager.player.avatares[chosenItem] = true;
             avatarsToSell[chosenItem].availableToBuy = false;
         }
         else if (toggleSelected.Contains("Cores"))

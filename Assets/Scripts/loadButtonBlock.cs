@@ -20,7 +20,7 @@ public class loadButtonBlock : MonoBehaviour, IPointerClickHandler {
         {
             if (button.CompareTag("Button"))
             {
-                button.colors = ToggleButton.defaulColor;
+                button.colors = ToggleButton.defaultColor;
             }
         }
     }

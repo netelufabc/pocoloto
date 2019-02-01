@@ -8,6 +8,7 @@ public class CustomizeScreen : MonoBehaviour {
     Text nameText;
     Text starsText;
     Text moneyText;
+    public GameObject itensInfoList;
     Image avatarImage; //Ou como é guardado o avatar
 
     private void Awake()
@@ -15,7 +16,7 @@ public class CustomizeScreen : MonoBehaviour {
         nameText = GameObject.Find("Nome").GetComponent<Text>();
         ChangeToName();
         starsText = GameObject.Find("EstrelaText").GetComponent<Text>();
-        moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
+        moneyText = GameObject.Find("PlayerMoney").GetComponent<Text>();
         avatarImage = GameObject.Find("Avatar").GetComponent<Image>(); //Pode mudar;
         UpdateScreen();
     }
@@ -44,7 +45,8 @@ public class CustomizeScreen : MonoBehaviour {
 
     private void UpdateAvatar()
     {
-        Sprite avatar = Resources.Load<Image>("Prefabs/Avatar/Avatar0" + (SaveManager.player.avatarSelecionadoIndex + 1).ToString()).sprite;
+        //Sprite avatar = Resources.Load<Image>("Prefabs/Avatar/Avatar0" + (SaveManager.player.avatarSelecionadoIndex + 1).ToString()).sprite;
+        Sprite avatar = itensInfoList.GetComponent<ItensInfoList>().avatarsToSell[SaveManager.player.avatarSelecionadoIndex].itemSprite;
         avatarImage.sprite = avatar;
     }
 

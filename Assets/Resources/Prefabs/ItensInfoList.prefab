@@ -52,44 +52,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatarsToSell:
-  - itemInfo: Gosminha
+  - itemInfo: Aries
     itemPrice: 200
-    itemSprite: {fileID: 21300000, guid: 016e40d6448d75b4cbd1c21c5f63c28a, type: 3}
+    itemSprite: {fileID: 21300000, guid: 5977f6dbb50af6041ba12101c3f3e119, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 0
+  - itemInfo: Touro
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: d7b88982a82fbc945afadcc77baec23d, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 0
+  - itemInfo: Gemeos
+    itemPrice: 200
+    itemSprite: {fileID: 21300000, guid: d40cdf1da4b181e429d504e26993f135, type: 3}
     itemColor: {r: 0, g: 0, b: 0, a: 0}
     availableToBuy: 1
-  - itemInfo: Zoiudo
-    itemPrice: 200
-    itemSprite: {fileID: 21300000, guid: 90be700e3577c31409b2ac302964bc89, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
-    availableToBuy: 1
-  - itemInfo: Perninha
-    itemPrice: 200
-    itemSprite: {fileID: 21300000, guid: f94eb8944eaebd94d83135277ed23a75, type: 3}
-    itemColor: {r: 0, g: 0, b: 0, a: 0}
-    availableToBuy: 1
-  - itemInfo: Cobrinha
+  - itemInfo: Cancer
     itemPrice: 300
-    itemSprite: {fileID: 21300000, guid: 3d7a24d72aca32b42a86e0e638b9d44a, type: 3}
+    itemSprite: {fileID: 21300000, guid: e95ea6efc03e71b4c8d80a9704093a6f, type: 3}
     itemColor: {r: 0, g: 0, b: 0, a: 0}
     availableToBuy: 1
-  - itemInfo: Capa
+  - itemInfo: Leao
     itemPrice: 300
-    itemSprite: {fileID: 21300000, guid: e7baf8916524b8d45b8b6e2eb9dae0b7, type: 3}
+    itemSprite: {fileID: 21300000, guid: ebd14d8ca74a07d4c9adb07adc865d27, type: 3}
     itemColor: {r: 0, g: 0, b: 0, a: 0}
     availableToBuy: 1
-  - itemInfo: "Aqu\xE1rio"
+  - itemInfo: Virgem
     itemPrice: 400
-    itemSprite: {fileID: 21300000, guid: a76e914cd0aca5d4783c15cb9b9b50e9, type: 3}
+    itemSprite: {fileID: 21300000, guid: c9a7dbc341293dd4e8dccaf762d54450, type: 3}
     itemColor: {r: 0, g: 0, b: 0, a: 0}
     availableToBuy: 1
-  - itemInfo: Cavalinho
+  - itemInfo: Libra
     itemPrice: 500
-    itemSprite: {fileID: 21300000, guid: 8532a682eeca4064ca22072f43171317, type: 3}
+    itemSprite: {fileID: 21300000, guid: 614268586d7aabe4d8785139e3c8d8e3, type: 3}
     itemColor: {r: 0, g: 0, b: 0, a: 0}
     availableToBuy: 1
-  - itemInfo: Asinha
+  - itemInfo: Escorpiao
     itemPrice: 500
-    itemSprite: {fileID: 21300000, guid: 71ebbeceb44659c46ba67a303636d994, type: 3}
+    itemSprite: {fileID: 21300000, guid: ae0215029a42e1741813d04c285fc0fe, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Sagitario
+    itemPrice: 1000
+    itemSprite: {fileID: 21300000, guid: b9cff067386ed2c48a4d0c6f9c92fafa, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Capricornio
+    itemPrice: 600
+    itemSprite: {fileID: 21300000, guid: 004fc1aa09824cb4491e21bb5a840395, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Aquario
+    itemPrice: 600
+    itemSprite: {fileID: 21300000, guid: 1ff00e0b756c0214d9a1e9743d98a6b1, type: 3}
+    itemColor: {r: 0, g: 0, b: 0, a: 0}
+    availableToBuy: 1
+  - itemInfo: Peixes
+    itemPrice: 600
+    itemSprite: {fileID: 21300000, guid: d099f4525c16d04499059f95682f8f6b, type: 3}
     itemColor: {r: 0, g: 0, b: 0, a: 0}
     availableToBuy: 1
   colorsToSell:

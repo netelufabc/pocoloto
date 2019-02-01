@@ -6,13 +6,13 @@ using UnityEngine;
 public class ToggleButton : MonoBehaviour {
 
     Button button;
-    public static ColorBlock defaulColor;
+    public static ColorBlock defaultColor;
 
     private void Start()
     {
         button = gameObject.GetComponent<Button>();
         button.onClick.AddListener(BlankAllTheOthers);
-        defaulColor = button.colors;
+        defaultColor = button.colors;
     }
 
     public void BlankAllTheOthers()
@@ -21,7 +21,7 @@ public class ToggleButton : MonoBehaviour {
         {
             if (button.CompareTag("Button"))
             {
-                button.colors = defaulColor;
+                button.colors = defaultColor;
             }
         }
         ChangeColor();

@@ -49,7 +49,8 @@ public class Player
         planeta[15].initRow(3);
         planeta[16].initRow(3);
         planeta[17].initRow(3);
-        planeta[18].initRow(1);
+
+
         planeta[19].initRow(3);
         planeta[20].initRow(3);
         planeta[21].initRow(3);
@@ -97,6 +98,53 @@ public class Player
 
     /*ARRUMAR: colocar em relação a quantidfade de planetas que o sistema tem*/
 
+
+    int[] numeroPlanetasPorSistema = new int[5] { 3, 8, 13, 18, 23 };
+
+    public bool CompletouSistema(int s)
+    {
+        int i;
+        if (s == 0)
+        {
+            i = 0;
+        }
+        else
+        {
+            i = numeroPlanetasPorSistema[s - 1] + 1; 
+
+        }
+        for (i = i ; i < numeroPlanetasPorSistema[s]; i++)
+        {
+            if (!CompletouPlaneta(i+1))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public bool ZerouSistema(int s)
+    {
+        int i;
+        if (s == 0)
+        {
+            i = 0;
+        }
+        else
+        {
+            i = numeroPlanetasPorSistema[s - 1] + 1;
+
+        }
+        for (i = i; i < numeroPlanetasPorSistema[s]; i++)
+        {
+            if (!ZerouPlaneta(i+1))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    /*
     public bool CompletouSistema(int s)
     {
         if (s == 0)
@@ -107,6 +155,8 @@ public class Player
             }
             else
             {
+
+
                 return false;
             }
         }
@@ -122,8 +172,8 @@ public class Player
                 return false;
             }
         }
-    }
-
+    }*/
+    /*
     public bool ZerouSistema(int s)
     {
         if (s == 0)
@@ -149,7 +199,7 @@ public class Player
                 return false;
             }
         }
-    }
+    }*/
 }
 
 [Serializable]

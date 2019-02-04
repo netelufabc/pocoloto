@@ -21,7 +21,6 @@ public class Score: MonoBehaviour {
     StageManager stageManager;
 
     private float timePlaying = 0; //Quanto tempo total até o ponto X que o jogador gastou
-    private int numberErrors; //Quantos erros foram feitos pelo jogador.
     private Timer timer;
     private int stars; //Numero de estrelas que irão ser ganhas
 
@@ -328,12 +327,12 @@ public class Score: MonoBehaviour {
     private int CheckError()
     {
 
-        if (numberErrors > errorStar1)
+        if (scoreNegative > errorStar1)
         {
             return 1;
         }
         
-        else if (numberErrors > errorStar2)
+        else if (scoreNegative > errorStar2)
         {
             return 2;
         }

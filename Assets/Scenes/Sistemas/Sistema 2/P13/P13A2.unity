@@ -1518,13 +1518,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 13
   currentAct: 2
+  moneyModifier: 0
   planetLetters:
   - A
   - I
   - U
   - E
   - O
+  - M
+  - C
   - J
+  - N
   textSlots: 4
   NextLevel: P13A3
   PreviousLevel: P13A2
@@ -1541,9 +1545,13 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    colorSelecionadoIndex: 0
     dinheiro: 0
     totalEstrelas: 0
-    avatarBloqueado: 00000101010101010101
+    numAvataresLiberadso: 2
+    avatares: 010100000000000000000000
+    cores: 01000000000000
+    extras: 0100000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
     planeta: []

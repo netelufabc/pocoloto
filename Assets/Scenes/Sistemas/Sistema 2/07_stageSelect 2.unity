@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoPlanetaLiberado: 
-  planetFirstScene: P6A1
+  planetFirstScene: P11A1
   goToPlanet: 0
 --- !u!114 &485138934
 MonoBehaviour:
@@ -1431,7 +1431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoPlanetaLiberado: 
-  planetFirstScene: P8A1
+  planetFirstScene: P13A1
   goToPlanet: 0
 --- !u!114 &520719458
 MonoBehaviour:
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoPlanetaLiberado: 
-  planetFirstScene: P7A1
+  planetFirstScene: P12A1
   goToPlanet: 0
 --- !u!114 &2080675207
 MonoBehaviour:

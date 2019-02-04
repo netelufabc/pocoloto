@@ -94,7 +94,6 @@ public class SoundManager : MonoBehaviour {
         {
             audioBackground.Stop();
             gameSoundMuted = true;
-            Debug.Log(gameSoundMuted);
         }
     }
 

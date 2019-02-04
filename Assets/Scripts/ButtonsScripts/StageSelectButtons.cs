@@ -62,13 +62,13 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (!panelProgressController.IsPlanetChosen(planetNumber))
         {
+            panelProgressController.DestroyStars();
             if (planeta.interactable == false)
             {
                 panelProgressController.UpdateInfoText(GetText());
             }
             else
             {
-                panelProgressController.DestroyStars();
                 panelProgressController.UpdateInfoText(GetText(), planetNumber);
                 if (planeta.interactable == true)
                 {

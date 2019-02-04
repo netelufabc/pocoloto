@@ -95,6 +95,8 @@ public class Player
         return true;
     }
 
+    /*ARRUMAR: colocar em relação a quantidfade de planetas que o sistema tem*/
+
     public bool CompletouSistema(int s)
     {
         if (s == 0)

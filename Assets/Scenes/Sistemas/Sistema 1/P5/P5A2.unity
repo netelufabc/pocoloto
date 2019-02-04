@@ -1516,8 +1516,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 687b6fd78a1f51741ae2abe79968fc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlanet: 1
+  currentPlanet: 5
   currentAct: 2
+  moneyModifier: 0
   planetLetters:
   - A
   - E
@@ -1526,9 +1527,9 @@ MonoBehaviour:
   - U
   - F
   textSlots: 4
-  NextLevel: P1A3
-  PreviousLevel: P1A1_explicacao
-  soundsDirectory: Sounds\Sistema 0\P5\P5A2
+  NextLevel: P5A3
+  PreviousLevel: P5A2
+  soundsDirectory: Sounds\Sistema 1\P5\P5A2
   eSilaba: 0
   blockTextSlot: 1
   eRevisao: 0
@@ -1541,9 +1542,13 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    colorSelecionadoIndex: 0
     dinheiro: 0
     totalEstrelas: 0
-    avatarBloqueado: 00000101010101010101
+    numAvataresLiberadso: 2
+    avatares: 010100000000000000000000
+    cores: 01000000000000
+    extras: 0100000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
     planeta: []

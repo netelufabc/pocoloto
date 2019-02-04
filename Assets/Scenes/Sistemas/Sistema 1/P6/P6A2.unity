@@ -1451,6 +1451,7 @@ MonoBehaviour:
   - O
   - U
   - L
+  - F
   textSlots: 4
   NextLevel: P6A3
   PreviousLevel: P6A2
@@ -1467,6 +1468,7 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    colorSelecionadoIndex: 0
     dinheiro: 0
     totalEstrelas: 0
     numAvataresLiberadso: 2

@@ -1592,6 +1592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 23
   currentAct: 1
+  moneyModifier: 0
   planetLetters:
   - A
   - E
@@ -1609,9 +1610,9 @@ MonoBehaviour:
   blockTextSlot: 0
   eRevisao: 1
   pathAct:
-  - /P20/920A3
-  - /P21/921A3
-  - /P22/922A3
+  - /P20/P20A3
+  - /P21/P21A3
+  - /P22/P22A3
   palavraSelecionada: 
   player:
     slot: -1
@@ -1620,9 +1621,13 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    colorSelecionadoIndex: 0
     dinheiro: 0
     totalEstrelas: 0
-    avatarBloqueado: 00000101010101010101
+    numAvataresLiberadso: 2
+    avatares: 010100000000000000000000
+    cores: 01000000000000
+    extras: 0100000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
     planeta: []

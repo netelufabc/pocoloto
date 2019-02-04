@@ -1487,6 +1487,7 @@ MonoBehaviour:
   - O
   - U
   - L
+  - F
   textSlots: 4
   NextLevel: 07_stageSelect 1
   PreviousLevel: P6A3

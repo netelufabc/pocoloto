@@ -188,7 +188,7 @@ public class StageManager : MonoBehaviour
 
         //AnimationController.PlayTransitionSceneAnimation(levelClear);
         AnimationManager.instance.PlayTransitionSceneAnimation(levelClear, levelName);
-        if (levelName == "06_stageSelect")
+        if (levelName.Contains("stageSelect"))
         {
             animTime = 2.5f;
         }

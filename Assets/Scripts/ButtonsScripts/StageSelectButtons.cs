@@ -42,7 +42,7 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         if (SaveManager.player.CompletouPlaneta(planetNumber))
         {
             GameObject newLevelDoneFlag;
-            newLevelDoneFlag = Instantiate(levelDoneFlag, GameObject.Find("Canvas").transform); //Instancia o distrador como filho do canvas
+            newLevelDoneFlag = Instantiate(levelDoneFlag, GameObject.FindGameObjectWithTag("Canvas").transform); //Instancia o distrador como filho do canvas
             newLevelDoneFlag.transform.position = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z); //E na posição do planeta
             if (SaveManager.player.ZerouPlaneta(planetNumber))
             {

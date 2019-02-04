@@ -1287,7 +1287,7 @@ MonoBehaviour:
   - N
   textSlots: 2
   NextLevel: P13A2
-  PreviousLevel: 07_stageSelect 2
+  PreviousLevel: P13A1
   soundsDirectory: Sounds\Sistema 2\P13\P13A1
   eSilaba: 0
   blockTextSlot: 0
@@ -1310,6 +1310,7 @@ MonoBehaviour:
     extras: 0100000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
+    jaConcluiuJogo: 0
     planeta: []
 --- !u!1 &1347510376
 GameObject:

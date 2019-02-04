@@ -152,8 +152,8 @@ public class Score: MonoBehaviour {
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
         {
-            GiveStars();
             GiveMoney();
+            GiveStars();
             ResetTimePlaying();
 
             resultado = Resources.Load("Prefabs/Feedback/Level Clear Message") as GameObject;

@@ -1694,6 +1694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPlanet: 19
   currentAct: 1
+  moneyModifier: 0
   planetLetters:
   - A
   - I
@@ -1705,8 +1706,8 @@ MonoBehaviour:
   - R
   - T
   textSlots: 4
-  NextLevel: 08_stageSelect3
-  PreviousLevel: 08_stageSelect3
+  NextLevel: 07_stageSelect 3
+  PreviousLevel: 07_stageSelect 3
   soundsDirectory: Sounds\Sistema 3
   eSilaba: 0
   blockTextSlot: 0
@@ -1724,9 +1725,13 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    colorSelecionadoIndex: 0
     dinheiro: 0
     totalEstrelas: 0
-    avatarBloqueado: 00000101010101010101
+    numAvataresLiberadso: 2
+    avatares: 010100000000000000000000
+    cores: 01000000000000
+    extras: 0100000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
     planeta: []

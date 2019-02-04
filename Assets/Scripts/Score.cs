@@ -34,7 +34,6 @@ public class Score: MonoBehaviour {
     [Tooltip("Se errou mais que esse número de perguntas, ganha duas estrela")]
     public int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
 
-
     //Construtores e função para manter o Singleton
 
     private void Awake()
@@ -165,11 +164,23 @@ public class Score: MonoBehaviour {
             {
                 SaveManager.player.planeta[stageManager.currentPlanet].liberado = true;
             }
-            // Caso seja a revisão do sistema 0, libera todos os outros sistemas
-            if (!SaveManager.player.sistemaLiberado && stageManager.eRevisao)
+            // Caso seja a revisão verifica se é do sistema 0
+            if (stageManager.eRevisao)
             {
-                SaveManager.player.sistemaLiberado = true;
+                // Se for do sistema 0, libera todos os outros
+                if (!SaveManager.player.sistemaLiberado)
+                {
+                    SaveManager.player.sistemaLiberado = true;
+                }
+                // Se não for o 0, verifica se concluiu todos os sistemas pela primeira vez
+                else if (SaveManager.player.CompletouTodosSistemas() && !SaveManager.player.jaConcluiuJogo)
+                {
+                    SaveManager.player.jaConcluiuJogo = true;
+                    Debug.Log("Parabéns!");
+                    //NextLevel = nome da scene de conclusão;
+                }
             }
+
 
             //// Se ganhar uma fase de revisão e for o último ato (caso tenha mais que um), libera o próximo sistema
             //if (stageManager.NextLevel.Contains("stageSelect") && stageManager.eRevisao)

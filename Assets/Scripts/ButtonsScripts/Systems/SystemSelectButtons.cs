@@ -34,7 +34,7 @@ public class SystemSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointer
             GameObject newLevelDoneFlag;
             newLevelDoneFlag = Instantiate(levelDoneFlag, GameObject.Find("Canvas").transform); //Instancia o distrador como filho do canvas
             newLevelDoneFlag.transform.position = new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z); //E na posição do planeta
-            Instantiate(levelDoneFlag, new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z),new Quaternion(0,0,0,0), GameObject.Find("Canvas").transform);
+            //Instantiate(levelDoneFlag, new Vector3(this.transform.position.x + 0.9f, this.transform.position.y + 0.55f, this.transform.position.z),new Quaternion(0,0,0,0), GameObject.Find("Canvas").transform);
             if (SaveManager.player.ZerouSistema(systemNumber))
             {
                 newLevelDoneFlag.transform.GetChild(1).gameObject.SetActive(true);

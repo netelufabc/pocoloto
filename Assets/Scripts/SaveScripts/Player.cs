@@ -23,6 +23,8 @@ public class Player
     public bool sistemaLiberado = false;
     public int[] estrelaSistema = new int[5] { 0, 0, 0, 0, 0 };
 
+    public bool jaConcluiuJogo = false;
+
     public Row[] planeta;
 
     public void CriarPontuacaoInicial()
@@ -149,6 +151,23 @@ public class Player
                 return false;
             }
         }
+    }
+
+    /// <summary>
+    /// Função que verifica se todos os sistemas foram completados (passou em todos, não importa com quantas estrelas)
+    /// </summary>
+    /// <returns></returns>
+    public bool CompletouTodosSistemas()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (!CompletouSistema(i))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 

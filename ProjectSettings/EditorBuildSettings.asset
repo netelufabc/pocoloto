@@ -239,4 +239,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/08.2_customize.unity
     guid: dcd3cef03b2767741874f8ed48c6dc24
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P18/P18A1.unity
+    guid: 94ed0eeb135fda54d8b7b59392a4d1ec
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P18/P18A2.unity
+    guid: d0449781d5f4b2f448d811ecc37a4937
+  - enabled: 1
+    path: Assets/Scenes/Sistemas/Sistema 3/P18/P18A3.unity
+    guid: c488e2351426c0141a729b8afa258521
   m_configObjects: {}

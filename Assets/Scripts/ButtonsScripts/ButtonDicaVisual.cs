@@ -31,13 +31,20 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
         stageManager = StageManager.instance;
         TelaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
         silabaControl = SilabaControl.instance;
+
+        if (SaveManager.player.CompletouPlaneta(stageManager.currentPlanet))
+        {
+            DeactiveButton();
+        }
     }
 
 
     public void ActiveButton()
     {
+        if (!SaveManager.player.CompletouPlaneta(stageManager.currentPlanet)) { 
         BotaoDicaVisual = GameObject.FindGameObjectWithTag("Button Eye").GetComponent<UnityEngine.UI.Button>(); //Como o canvas é destruído entre as scenes, é necessário reestabelecer a referência.
         BotaoDicaVisual.interactable = true;
+        }
     }
 
     public void DeactiveButton()

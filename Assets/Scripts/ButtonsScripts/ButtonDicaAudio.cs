@@ -9,6 +9,7 @@ public class ButtonDicaAudio : MonoBehaviour
 
     public static ButtonDicaAudio instance = null;
     private Button botaoDicaAudio;
+    private StageManager stageManager;
     private SilabaControl silabaControl;
 
     private void Awake()
@@ -27,12 +28,21 @@ public class ButtonDicaAudio : MonoBehaviour
     private void Start()
     {
         silabaControl = SilabaControl.instance;
+        stageManager = StageManager.instance;
+
+        if (SaveManager.player.CompletouPlaneta(stageManager.currentPlanet))
+        {
+            DeactiveButton();
+        }
     }
 
-    public void ActiveButton()
+    public void ActiveButton() 
     {
-        botaoDicaAudio = GameObject.FindGameObjectWithTag("Button Sound").GetComponent<UnityEngine.UI.Button>(); //Como o canvas é destruído entre as scenes, é necessário reestabelecer a referência.
-        botaoDicaAudio.interactable = true;
+        if (!SaveManager.player.CompletouPlaneta(stageManager.currentPlanet))
+        {
+            botaoDicaAudio = GameObject.FindGameObjectWithTag("Button Sound").GetComponent<UnityEngine.UI.Button>(); //Como o canvas é destruído entre as scenes, é necessário reestabelecer a referência.
+            botaoDicaAudio.interactable = true;
+        }
     }
 
     public void DeactiveButton()

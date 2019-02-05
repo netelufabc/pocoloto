@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 114886727335432394}
   - component: {fileID: 114636281519708970}
   - component: {fileID: 114009951849757498}
+  - component: {fileID: 114889253621531626}
   m_Layer: 5
   m_Name: AvatarImage
   m_TagString: Untagged
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starPoint: {fileID: 114642955314401974, guid: 3bfeec44d77d3264aa627e65eac2ae85,
     type: 2}
-  numPlanetaRSAnterior: 0
+  numPlanetaRSAnterior: 19
   imagemIniciarPlaneta: {fileID: 1354810506999268, guid: 94cb368156bf8a44c94919fc6b599fb7,
     type: 2}
   itensInfoList: {fileID: 114106027358906986, guid: 1a96cd56c3dd15d4eab9e62a825ed56b,
@@ -459,6 +460,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114889253621531626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165408768980776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114987030537860900
 MonoBehaviour:
   m_ObjectHideFlags: 1

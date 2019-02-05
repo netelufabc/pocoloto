@@ -314,7 +314,7 @@ public class Score: MonoBehaviour {
     private int CheckTime()
     {
         timer = Timer.instance;
-        float totalTime = (/*scoreNegative +*/ scorePositive) * timer.totalTime; //Esse é o 100% do tempo gasto do jogador;
+        float totalTime = (scoreNegative + scorePositive) * timer.totalTime; //Esse é o 100% do tempo gasto do jogador;
         float myTimePorCent = (timePlaying * 100) / totalTime;
 
         if (timeLimit1 < myTimePorCent)

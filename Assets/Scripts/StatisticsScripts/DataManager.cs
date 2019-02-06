@@ -10,17 +10,9 @@ public class DataManager : MonoBehaviour {
     private static string statisticsDataPath;
     private static string fileHeaderCSV = "NumSistema,NumPlaneta,AtoPlaneta,RespostaCorreta,PalavraSelecionada,PalavraEscrita,Tempo,UtilizouDicaisual,UtiizouDicaAuditiva,DataHora\n";
     
-    /*private void Awake()
-    {
-        statisticsDataPath = Application.persistentDataPath + "/" + SaveManager.player.nome + ".csv";
-        if (!File.Exists(statisticsDataPath))
-        {
-            StreamWriter sw = File.CreateText(statisticsDataPath);
-            sw.Close();
-            File.AppendAllText(statisticsDataPath, fileHeaderCSV);
-        }
-    }*/
-
+    /// <summary>
+    /// Verifica se o arquivo existe, se não existir cria
+    /// </summary>
     public static void SelectProperFile()
     {
         statisticsDataPath = Application.persistentDataPath + "/" + SaveManager.player.nome + ".csv";
@@ -32,6 +24,10 @@ public class DataManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Adiciona os dados no arquivo 
+    /// </summary>
+    /// <param name="data"></param>
     public static void SaveStatistics(StatisticsData data)
     {
         if (File.Exists(statisticsDataPath))
@@ -44,6 +40,9 @@ public class DataManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Adiciona os dados no arquivo
+    /// </summary>
     public static void SaveStatistics()
     {
         if (File.Exists(statisticsDataPath))
@@ -54,12 +53,5 @@ public class DataManager : MonoBehaviour {
         {
             Debug.Log("Arquivo não encontrado");
         }
-    }
-
-    public void TestScript()
-    {
-        Debug.Log(DateTime.Now);
-        statisticsData.SetTime();
-        SaveStatistics(statisticsData);
     }
 }

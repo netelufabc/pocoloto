@@ -20,15 +20,14 @@ public class StatisticsData
     private string lineSeparator = "\n";
     private string fieldSeparator = ",";
 
+    /// <summary>
+    /// Coloca todos os dados em uma única string
+    /// </summary>
+    /// <returns></returns>
     public override string ToString()
     {
         return sistema + fieldSeparator + planeta + fieldSeparator + ato + fieldSeparator + respostaCorreta + fieldSeparator +
              palavraSelecionada + fieldSeparator + palavraEscrita + fieldSeparator + tempoUtiizado + fieldSeparator +
              dicaVisual + fieldSeparator + dicaAuditiva + fieldSeparator + dataHora + lineSeparator;
-    }
-
-    public void SetTime()
-    {
-        dataHora = DateTime.Now;
     }
 }

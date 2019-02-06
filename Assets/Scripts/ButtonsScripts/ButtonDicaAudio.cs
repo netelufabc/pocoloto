@@ -30,6 +30,9 @@ public class ButtonDicaAudio : MonoBehaviour
         silabaControl = SilabaControl.instance;
         stageManager = StageManager.instance;
 
+        // Reseta a marcação da dica auditiva nas estatísticas
+        DataManager.statisticsData.dicaAuditiva = false;
+
         if (SaveManager.player.CompletouPlaneta(stageManager.currentPlanet))
         {
             DeactiveButton();
@@ -54,6 +57,8 @@ public class ButtonDicaAudio : MonoBehaviour
     {
         if (!LevelController.bloqueiaBotao)
         {
+            // Marca que o jogador utilizou a dica auditiva na palavra
+            DataManager.statisticsData.dicaAuditiva = true;
             silabaControl.TocarSilabaAtual();//toca silaba atual
             DeactiveButton();
         }

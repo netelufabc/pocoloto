@@ -32,6 +32,9 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
         TelaSilabaDigitada = stageManager.GetTelaSilabaDigitada();
         silabaControl = SilabaControl.instance;
 
+        // Reseta a marcação da dica visual nas estatísticas
+        DataManager.statisticsData.dicaVisual = false;
+
         if (SaveManager.player.CompletouPlaneta(stageManager.currentPlanet))
         {
             DeactiveButton();
@@ -56,6 +59,8 @@ public class ButtonDicaVisual : MonoBehaviour/*, IPointerEnterHandler, IPointerE
     {
         if(!LevelController.bloqueiaBotao)
         {
+            // Marca que o jogador utilizou a dica visual na palavra
+            DataManager.statisticsData.dicaVisual = true;
             BotaoDicaVisual.interactable = false;//desabilita dica visual
             StartCoroutine(MostraDica());
         }

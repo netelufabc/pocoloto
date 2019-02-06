@@ -57,6 +57,7 @@ public class ButtonLoadSlotSelect : MonoBehaviour {
     public void LoadSelectedSlot()
     {
         SaveManager.Load(SaveManager.selectedSlot);
+        DataManager.SelectProperFile();
     }
 
     /// <summary>

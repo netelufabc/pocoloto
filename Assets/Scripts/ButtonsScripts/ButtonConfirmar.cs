@@ -130,7 +130,7 @@ public class ButtonConfirmar : MonoBehaviour
             //Instancia o objeto e o coloca no lugar certo
             respostaFeedbackTemp = Instantiate(respostaCertaFeedback, GameObject.Find("Canvas").transform);
             respostaFeedbackTemp.transform.position = telaSilabaDigitada[BlockIndex].transform.position;
-            respostaFeedbackTemp.transform.rotation = telaSilabaDigitada[BlockIndex].transform.rotation;             
+            respostaFeedbackTemp.transform.rotation = telaSilabaDigitada[BlockIndex].transform.rotation;  
         }
 
         else//caso a resposta esteja errada...
@@ -150,6 +150,8 @@ public class ButtonConfirmar : MonoBehaviour
                 respostaFeedbackTemp.transform.rotation = Quaternion.Euler(new Vector3(0f,0f,-10.87f));
             }               
         }
+
+        respostaFeedbackTemp.transform.SetSiblingIndex(GameObject.Find("Canvas").transform.childCount - 5);
     }
 
     public void ActiveButton()

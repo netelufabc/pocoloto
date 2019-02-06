@@ -102,6 +102,7 @@ public class SilabaControl : MonoBehaviour {
         }
         yield return new WaitForSeconds(seconds);
         stageManager.ResetColorSilabaDigitada();
+        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("PauseMenu") == false); //Se o menu está aberto, espera ele ser fechado
         TocarSilaba();
         StartCoroutine(stageManager.BloquearMenu(wordTime));
     }
@@ -134,7 +135,7 @@ public class SilabaControl : MonoBehaviour {
         StartCoroutine(timer.SetTimeIsRunning(silabaAtual));
 
         buttonDicaAudio.ActiveButton();
-        buttonDicaVisual.ActiveButton();
+        buttonDicaVisual.ActiveButton();        
 
         if (stageManager.blockTextSlot)
         {

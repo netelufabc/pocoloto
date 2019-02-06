@@ -1523,7 +1523,7 @@ MonoBehaviour:
   - A
   - O
   textSlots: 4
-  NextLevel: P1A3_explicacao
+  NextLevel: P1A3
   PreviousLevel: P1A2
   soundsDirectory: Sounds\Sistema 0\P1\P1A2
   eSilaba: 0
@@ -1538,11 +1538,16 @@ MonoBehaviour:
     idade: 0
     serie: 0
     avatarSelecionadoIndex: -1
+    colorSelecionadoIndex: 0
     dinheiro: 0
     totalEstrelas: 0
-    avatarBloqueado: 00000101010101010101
+    numAvataresLiberadso: 2
+    avatares: 010100000000000000000000
+    cores: 01000000000000
+    extras: 0100000000
     sistemaLiberado: 0
     estrelaSistema: 0000000000000000000000000000000000000000
+    jaConcluiuJogo: 0
     planeta: []
 --- !u!1 &1655799490
 GameObject:

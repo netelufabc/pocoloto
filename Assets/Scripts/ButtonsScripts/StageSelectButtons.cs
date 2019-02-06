@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.EventSystems;
 
 public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler{
-    
+
+    public VideoClip video;
     private Button planeta;
     private string toolTipText;
     private Animator planetaMouseOverAnimation;
@@ -115,7 +117,14 @@ public class StageSelectButtons : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             if (goToPlanet)
             {
-                panelProgressController.GoToPlanet();
+                if (video == null)
+                {
+                    panelProgressController.GoToPlanet();
+                }
+                else
+                {
+                    panelProgressController.GoToPlanet(video);
+                }
             }
             else
             {

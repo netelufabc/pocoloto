@@ -12,6 +12,7 @@ public class TeachingScenes : MonoBehaviour {
     public Button button;
     public float pitch;
     private VideoManager videoManager;
+    public static string nextScene;
 
     private void Start()
     {
@@ -23,9 +24,20 @@ public class TeachingScenes : MonoBehaviour {
     {
         rawImage.enabled = false;
         button.interactable = false;
-        StartCoroutine(videoManager.PlayVideo(videoClip, explicacao, rawImage, pitch));
-        yield return new WaitForSeconds((float)videoClip.length);
+        StartCoroutine(videoManager.PlayVideo(rawImage));
+        yield return new WaitForSeconds(videoManager.VideoLength());
         rawImage.enabled = false;
         button.interactable = true;
     }
+
+    /*
+private IEnumerator BlockButtonPlayVideo()
+{
+    rawImage.enabled = false;
+    button.interactable = false;
+    StartCoroutine(videoManager.PlayVideo(videoClip, explicacao, rawImage, pitch));
+    yield return new WaitForSeconds((float)videoClip.length);
+    rawImage.enabled = false;
+    button.interactable = true;
+}*/
 }

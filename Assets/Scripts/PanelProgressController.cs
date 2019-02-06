@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.EventSystems;
 
 public class PanelProgressController : MonoBehaviour {
@@ -190,12 +191,25 @@ public class PanelProgressController : MonoBehaviour {
     /// <summary>
     /// Carrega a scene do planeta selecionado
     /// </summary>
+    public void GoToPlanet(VideoClip video)
+    {
+        for (int i = 0; i < chosenPlanet.Length; i++)
+        {
+            if (chosenPlanet[i])
+            {
+                //loadScene.LoadSceneWithFade(planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
+                loadScene.LoadSceneWithFade(video, planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
+            }
+        }
+    }
+
     public void GoToPlanet()
     {
         for (int i = 0; i < chosenPlanet.Length; i++)
         {
             if (chosenPlanet[i])
             {
+                //loadScene.LoadSceneWithFade(planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
                 loadScene.LoadSceneWithFade(planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
             }
         }

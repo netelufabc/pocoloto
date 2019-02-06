@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -63,6 +64,12 @@ public class ButtonConfirmar : MonoBehaviour
 
     public IEnumerator ConfirmaResposta()
     {
+        // Pega o tempo utilizado pelo jogador para a última palavra
+        DataManager.statisticsData.tempoUtiizado = timer.GetTimeUntilHere();
+        // Reseta a palavra escrita
+        DataManager.statisticsData.palavraEscrita = "";
+        DataManager.statisticsData.dataHora = DateTime.Now;
+
         score.AddTimePlaying(timer.GetTimeUntilHere()); //Adiciona tempo corrido desde de que o tempo começou até apertar o botão confirma.
         timer.ResetTimeProgressBar();
 
@@ -78,6 +85,9 @@ public class ButtonConfirmar : MonoBehaviour
         int temp = 0;
         for (int i = 0; i < LevelController.textSlots; i++)
         {
+            // Pega a palavra escrita pelo jogador
+            DataManager.statisticsData.palavraEscrita += LevelController.inputText[i];
+
             if (silabaControl.isPlanetLetter[i])
             {
                 StartCoroutine(VerificaRespostaCertaOuErrada(LevelController.inputText[i], LevelController.originalText[i], i, temp * 1.5f)); //Para cada silaba, verifica se ela está certa ou errada

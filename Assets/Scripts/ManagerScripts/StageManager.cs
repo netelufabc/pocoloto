@@ -139,6 +139,11 @@ public class StageManager : MonoBehaviour
 
         //AnimationController = LevelChangerAnimController.control;
 
+        // Pega a informação do sistema, planeta e do ato
+        DataManager.statisticsData.sistema = (currentPlanet / 5).ToString();
+        DataManager.statisticsData.planeta = currentPlanet.ToString();
+        DataManager.statisticsData.ato = currentAct.ToString();
+
         StartCoroutine(silabaControl.CallSilaba(1f)); //Começa a chamar as silabas
 
     }

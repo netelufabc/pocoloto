@@ -115,6 +115,8 @@ public class SilabaControl : MonoBehaviour {
         //randomNumber = Random.Range(0, silabasNivelAtual.Length);
         randomNumber = RandomNotSoRandom();
         LevelController.PalavraSelecionada = silabasNivelAtual[randomNumber].name.ToUpper();//pega a sílaba (nome do arquivo sem a extensão) aleatóriamente
+        // Guarda a palavra selecionada para o jogador
+        DataManager.statisticsData.palavraSelecionada = LevelController.PalavraSelecionada;
 
         // Verifica se a PalavraSelecionada deve ser separada em sílabas ou letras
         if (LevelController.eSilaba)

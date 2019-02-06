@@ -4,24 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class StatisticsData {
-
+public class StatisticsData
+{
     public string sistema;
     public string planeta;
+    public string ato;
     public string palavraSelecionada;
     public string palavraEscrita;
     public bool respostaCorreta;
     public bool dicaVisual;
     public bool dicaAuditiva;
     public float tempoUtiizado;
+    public DateTime dataHora;
 
     private string lineSeparator = "\n";
     private string fieldSeparator = ",";
 
     public override string ToString()
     {
-        return sistema + fieldSeparator + planeta + fieldSeparator + respostaCorreta + fieldSeparator +
-            palavraSelecionada + fieldSeparator + palavraEscrita + fieldSeparator + tempoUtiizado + fieldSeparator +
-            dicaVisual + fieldSeparator + dicaAuditiva + lineSeparator;
+        return sistema + fieldSeparator + planeta + fieldSeparator + ato + fieldSeparator + respostaCorreta + fieldSeparator +
+             palavraSelecionada + fieldSeparator + palavraEscrita + fieldSeparator + tempoUtiizado + fieldSeparator +
+             dicaVisual + fieldSeparator + dicaAuditiva + fieldSeparator + dataHora + lineSeparator;
+    }
+
+    public void SetTime()
+    {
+        dataHora = DateTime.Now;
     }
 }

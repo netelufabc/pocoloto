@@ -124,10 +124,14 @@ public class Score: MonoBehaviour {
         yield return new WaitForSeconds(seconds);
         if (LevelController.AlgumaSilabaErrada)
         {
+            // Marca que o jogador errou a palavra
+            DataManager.statisticsData.respostaCorreta = false;
             UpdateNegativeScore(1);
         }
         else
         {
+            // Marca que o jogador acertou a palavra
+            DataManager.statisticsData.respostaCorreta = true;
             UpdateScorePositive(1);
         }
         LevelController.AlgumaSilabaErrada = false;
@@ -146,6 +150,10 @@ public class Score: MonoBehaviour {
 
         yield return new WaitForSeconds(seconds + 0.2f);
         stageManager = StageManager.instance; //Pega a atual instância do Stage Manager
+
+        DataManager.SelectProperFile();
+        // Salva as estatísticas atuais do jogador
+        DataManager.SaveStatistics();
 
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)

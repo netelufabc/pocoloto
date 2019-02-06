@@ -30,14 +30,8 @@ public class TeachingScenes : MonoBehaviour {
         button.interactable = true;
     }
 
-    /*
-private IEnumerator BlockButtonPlayVideo()
-{
-    rawImage.enabled = false;
-    button.interactable = false;
-    StartCoroutine(videoManager.PlayVideo(videoClip, explicacao, rawImage, pitch));
-    yield return new WaitForSeconds((float)videoClip.length);
-    rawImage.enabled = false;
-    button.interactable = true;
-}*/
+    private void OnDestroy()
+    {
+        videoManager.StopVideo();
+    }
 }

@@ -16,7 +16,6 @@ public class Timer: MonoBehaviour {
 
     public float GetTimeUntilHere()
     {
-        Debug.Log(ProgressBarTime);
         return ProgressBarTime;
     }
 

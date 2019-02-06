@@ -197,7 +197,6 @@ public class PanelProgressController : MonoBehaviour {
         {
             if (chosenPlanet[i])
             {
-                //loadScene.LoadSceneWithFade(planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
                 loadScene.LoadSceneWithFade(video, planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
             }
         }
@@ -209,7 +208,6 @@ public class PanelProgressController : MonoBehaviour {
         {
             if (chosenPlanet[i])
             {
-                //loadScene.LoadSceneWithFade(planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
                 loadScene.LoadSceneWithFade(planets[i].GetComponent<StageSelectButtons>().GetPlanetLevel());
             }
         }

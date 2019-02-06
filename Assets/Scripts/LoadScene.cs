@@ -66,4 +66,10 @@ public class LoadScene : MonoBehaviour {
         TeachingScenes.nextScene = scene;
         LoadSceneWithFade("09_explicacao");
     }
+
+    public void LoadSceneOnExplanation()
+    {
+        LoadSceneWithFade(TeachingScenes.nextScene);
+    }
+
 }

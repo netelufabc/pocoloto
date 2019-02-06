@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 32900000, guid: 6dc2a794e4c04294c88cb18ec96e9a3a, type: 3}
   textoPlanetaLiberado: 
   planetFirstScene: P2A1
   goToPlanet: 0
@@ -816,6 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
   textoPlanetaLiberado: 
   planetFirstScene: P3A1
   goToPlanet: 0
@@ -2185,8 +2187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 32900000, guid: 43be5a410e99b08498cac705f8d2b3a5, type: 3}
   textoPlanetaLiberado: 
-  planetFirstScene: P1A1_explicacao
+  planetFirstScene: P1A1
   goToPlanet: 0
 --- !u!95 &1897724139
 Animator:

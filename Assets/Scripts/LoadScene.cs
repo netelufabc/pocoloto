@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
@@ -55,5 +56,14 @@ public class LoadScene : MonoBehaviour {
         StopAllCoroutines();
         animManager = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         StartCoroutine(animManager.Fade(scene));
+    }
+
+    public void LoadSceneWithFade(VideoClip video, string scene)
+    {
+        VideoManager videoManager;
+        videoManager = VideoManager.instance;
+        videoManager.TakeVideo(video);
+        TeachingScenes.nextScene = scene;
+        LoadSceneWithFade("09_explicacao");
     }
 }

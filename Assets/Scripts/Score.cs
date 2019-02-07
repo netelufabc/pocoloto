@@ -33,6 +33,8 @@ public class Score: MonoBehaviour {
     [Tooltip("Se errou mais que esse número de perguntas, ganha duas estrela")]
     public int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
 
+    private string conclusionVideoName = "Videos/Nome do Video de Conclusao";
+
     //Construtores e função para manter o Singleton
 
     private void Awake()
@@ -154,6 +156,7 @@ public class Score: MonoBehaviour {
         DataManager.SelectProperFile();
         // Salva as estatísticas atuais do jogador
         DataManager.SaveStatistics();
+        bool playConclusionVideo = false;
 
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
@@ -183,8 +186,7 @@ public class Score: MonoBehaviour {
                 else if (SaveManager.player.CompletouTodosSistemas() && !SaveManager.player.jaConcluiuJogo)
                 {
                     SaveManager.player.jaConcluiuJogo = true;
-                    Debug.Log("Parabéns!");
-                    //NextLevel = nome da scene de conclusão;
+                    playConclusionVideo = true;
                 }
             }
 
@@ -220,7 +222,17 @@ public class Score: MonoBehaviour {
                 yield return new WaitForSeconds(2);
             }
 
-            StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
+            if (playConclusionVideo)
+            {
+                UnityEngine.Video.VideoClip videoClip = Resources.Load<UnityEngine.Video.VideoClip>(conclusionVideoName);
+                GameObject loadScene = new GameObject();
+                loadScene.AddComponent<LoadScene>();
+                loadScene.GetComponent<LoadScene>().LoadSceneWithFade(videoClip, NextLevel);
+            }
+            else
+            {
+                StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
+            }
         }
 
         //Caso o resultado esteja errado

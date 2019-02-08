@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
   textoPlanetaLiberado: 
   planetFirstScene: P5A1
   goToPlanet: 0
@@ -985,6 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
   textoPlanetaLiberado: 
   planetFirstScene: P6A1
   goToPlanet: 0
@@ -1166,6 +1168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
   textoPlanetaLiberado: 
   planetFirstScene: P8A1
   goToPlanet: 0
@@ -2021,7 +2024,8 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114398563875144806, guid: 84242b1090547be4992f839433382ea4, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 84242b1090547be4992f839433382ea4, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1615775540
@@ -2714,6 +2718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd32507b0531adb41a6567e9af57851b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  video: {fileID: 0}
   textoPlanetaLiberado: 
   planetFirstScene: P7A1
   goToPlanet: 0

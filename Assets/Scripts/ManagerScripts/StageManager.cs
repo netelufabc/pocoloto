@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
@@ -51,6 +52,7 @@ public class StageManager : MonoBehaviour
     // Para testes
     public string palavraSelecionada;
     public Player player;
+    public VideoClip video;
 
     public Text[] GetTelaSilabaDigitada()
     {
@@ -204,6 +206,17 @@ public class StageManager : MonoBehaviour
 
         yield return new WaitForSeconds(animTime);
 
-        SceneManager.LoadScene(levelName);
+        if (video != null)
+        {
+            VideoManager videoManager;
+            videoManager = VideoManager.instance;
+            videoManager.TakeVideo(video);
+            TeachingScenes.nextScene = levelName;
+            SceneManager.LoadScene("09_explicacao");
+        }
+        else
+        {
+            SceneManager.LoadScene(levelName);
+        }
     }
 }

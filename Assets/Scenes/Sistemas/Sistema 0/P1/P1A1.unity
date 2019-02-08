@@ -1300,6 +1300,7 @@ MonoBehaviour:
     estrelaSistema: 0000000000000000000000000000000000000000
     jaConcluiuJogo: 0
     planeta: []
+  video: {fileID: 32900000, guid: 43be5a410e99b08498cac705f8d2b3a5, type: 3}
 --- !u!1 &1347510376
 GameObject:
   m_ObjectHideFlags: 0

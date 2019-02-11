@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 2}
-  gravityScale: 0.2
+  gravityScale: 0.17
 --- !u!222 &222966030906959384
 CanvasRenderer:
   m_ObjectHideFlags: 1

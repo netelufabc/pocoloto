@@ -12,7 +12,7 @@ public class MeteorRain : MonoBehaviour {
     private void Awake()
     {
         animator = this.GetComponent<Animator>();
-        SpinningSpeed = Random.Range(-1f, 1f);
+        SpinningSpeed = Random.Range(-1f, 2f);
         animator.SetFloat("SpeedMultiplier", SpinningSpeed);        
     }
 
@@ -34,7 +34,7 @@ public class MeteorRain : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 gravity = globalGravity * gravityScale * Vector3.up;
+        Vector3 gravity = globalGravity * gravityScale * new Vector3(-0.4f,1,0);
         m_rb.AddForce(gravity, ForceMode.Acceleration);
     }
     //END GRAVITY SCALE

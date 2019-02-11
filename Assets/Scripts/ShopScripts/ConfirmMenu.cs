@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShopConfirmMenu : MonoBehaviour {
+public class ConfirmMenu : MonoBehaviour {
 
     #region Variáveis Globais
     private ShopManager shopManager;

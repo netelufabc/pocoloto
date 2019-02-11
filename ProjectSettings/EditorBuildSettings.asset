@@ -29,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sistemas/Sistema 0/07_stageSelect 0.unity
     guid: d1a60afbb89f0704595ac0979b13cbb0
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Sistemas/Sistema 0/P1/P1A1.unity
     guid: 5e8d9894cc2fce543981e4764d1a71f8
@@ -230,12 +227,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sistemas/09_nivel05.unity
     guid: d38e0692dca242d43a9a1411644226bc
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/08.2_customize.unity
     guid: dcd3cef03b2767741874f8ed48c6dc24

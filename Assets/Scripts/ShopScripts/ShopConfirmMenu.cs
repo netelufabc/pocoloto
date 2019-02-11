@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConfirmMenu : MonoBehaviour {
+public class ShopConfirmMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

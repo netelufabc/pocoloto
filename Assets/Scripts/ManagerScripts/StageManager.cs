@@ -45,7 +45,7 @@ public class StageManager : MonoBehaviour
     private Color telaSilabaDigitadaDefaulColor;
     private Score score;
     private ButtonConfirmar buttonConfirmar;
-    private GameObject closeButton;
+    //private GameObject closeButton;
     private SilabaControl silabaControl;
     //private AnimationController levelChangerAnimController;
 
@@ -137,7 +137,7 @@ public class StageManager : MonoBehaviour
         score.UpdateTextMoney();
 
         buttonConfirmar = ButtonConfirmar.instance;
-        closeButton = GameObject.Find("Button - Fechar");
+        //closeButton = GameObject.Find("Button - Fechar");
 
         //AnimationController = LevelChangerAnimController.control;
 

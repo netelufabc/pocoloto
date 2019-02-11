@@ -174,6 +174,7 @@ public class ShopManager : MonoBehaviour {
     /// </summary>
     public void CallConfirmMenu()
     {
-        GameObject confirmMenuInstance = Instantiate(confirmMenu, GameObject.Find("Canvas").transform);
+        //GameObject confirmMenuInstance = 
+        Instantiate(confirmMenu, GameObject.Find("Canvas").transform);
     }
 }

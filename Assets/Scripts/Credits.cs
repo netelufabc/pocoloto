@@ -8,16 +8,14 @@ public class Credits : MonoBehaviour {
     AudioClip creditsSong;
     bool isFading;
 
-	// Use this for initialization
 	void Start () {
         creditsSong = Resources.Load("Sounds/Music/random silly chip song") as AudioClip;
         soundManager = SoundManager.instance;
         soundManager.PlayBackground(creditsSong);
 	}
 	
-	// Update is called once per frame
 	void Update () {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isFading)
             {

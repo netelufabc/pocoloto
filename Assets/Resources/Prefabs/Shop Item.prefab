@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 222498210373331870}
   - component: {fileID: 114117027501176720}
   - component: {fileID: 114884997313039550}
+  - component: {fileID: 114063787521188316}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -149,6 +150,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114063787521188316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192763038985712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48abcc85de8259a42ab78aaf7202a4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114083800110921674
 MonoBehaviour:
   m_ObjectHideFlags: 1

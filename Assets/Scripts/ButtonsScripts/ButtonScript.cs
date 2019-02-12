@@ -97,6 +97,9 @@ public class ButtonScript : CursorChange {
                 LevelController.BotaoConfirmaResposta = true;
             }
         }
+
+        SetaIndicadora.DestroiSeta();
+        SetaIndicadora.IndicarPos();
     }
 
     // Botões não utilizados

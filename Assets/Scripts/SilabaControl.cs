@@ -143,17 +143,25 @@ public class SilabaControl : MonoBehaviour {
         StartCoroutine(timer.SetTimeIsRunning(silabaAtual));
 
         buttonDicaAudio.ActiveButton();
-        buttonDicaVisual.ActiveButton();        
+        buttonDicaVisual.ActiveButton();
 
         if (stageManager.blockTextSlot)
         {
             BloqueiaEmptyTextSlots();
             StartCoroutine(WaitAndWriteEmptySlots());
         }
+
+        // Se não for o caso de ter distratores, instancia a seta agora (se tiver distratodres, instancia no script Distractor)
+        if (!GameObject.Find("Distractor Creator"))
+        {
+            SetaIndicadora.SetaSetup();
+            SetaIndicadora.DestroiSeta();
+            SetaIndicadora.IndicarPos();
+        }
     }
 
     /// <summary>
-    /// Aguarda um tempo antes de completar as lacunas em ranco com as letras que não são o foco do planeta
+    /// Aguarda um tempo antes de completar as lacunas em branco com as letras que não são o foco do planeta
     /// </summary>
     /// <returns></returns>
     private IEnumerator WaitAndWriteEmptySlots()

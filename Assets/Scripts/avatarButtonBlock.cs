@@ -16,7 +16,6 @@ public class avatarButtonBlock : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.pointerPress.tag != "AvatarButton" || !eventData.pointerPress.GetComponent<UnityEngine.UI.Button>().interactable)
         {
-
             GameObject.Find("Confirma").GetComponent<UnityEngine.UI.Button>().interactable = false;
         }
     }

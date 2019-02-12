@@ -52,7 +52,9 @@ public class LoadScene : MonoBehaviour {
     public void LoadSceneWithFade(string scene)
     {
         soundManager = SoundManager.instance;
-        StopAllCoroutines();
+        //SilabaControl silabaControl = SilabaControl.instance;
+        //silabaControl.StopCoroutines();
+        //StopAllCoroutines();
         soundManager.SoundManagerOnTransition();
         animManager = GameObject.FindGameObjectWithTag("AnimationManager").GetComponent<AnimationManager>();
         StartCoroutine(animManager.Fade(scene));

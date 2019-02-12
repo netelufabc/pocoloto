@@ -151,7 +151,8 @@ public class ButtonConfirmar : MonoBehaviour
             }               
         }
 
-        respostaFeedbackTemp.transform.SetSiblingIndex(GameObject.Find("Canvas").transform.childCount - 5);
+        // Coloca o objeto como um filho algumas posições atrás na hierarquia
+        respostaFeedbackTemp.transform.SetSiblingIndex(GameObject.Find("Canvas").transform.childCount - 2);
     }
 
     public void ActiveButton()

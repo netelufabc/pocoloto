@@ -94,16 +94,22 @@ public class SilabaControl : MonoBehaviour {
     /// <returns></returns>
     public IEnumerator CallSilaba(float seconds)
     {
-        if (GameObject.Find("Distractor Creator"))
+        yield return new WaitForSeconds(seconds);
+        stageManager.ResetColorSilabaDigitada();
+        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("PauseMenu") == false); //Se o menu está aberto, espera ele ser fechado
+
+        if (GameObject.Find("Main Camera").GetComponent<StageManager>() != null) //Só toca silaba se ele encontra o componente StageManager na Camera
+        {
+            TocarSilaba();
+        }
+
+        if (GameObject.Find("Distractor Creator")) //Procura se há um Distractor Creator na scene
         {
             DistractorCreator distractorCreator;
             distractorCreator = DistractorCreator.instance;
             StartCoroutine(distractorCreator.StartDistractors());
         }
-        yield return new WaitForSeconds(seconds);
-        stageManager.ResetColorSilabaDigitada();
-        yield return new WaitUntil(() => GameObject.FindGameObjectWithTag("PauseMenu") == false); //Se o menu está aberto, espera ele ser fechado
-        TocarSilaba();
+
         StartCoroutine(stageManager.BloquearMenu(wordTime));
     }
 

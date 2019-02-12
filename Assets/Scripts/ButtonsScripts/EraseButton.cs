@@ -5,14 +5,6 @@ using UnityEngine.UI;
 
 public class EraseButton : CursorChange {
 
-    //Button currentButton;
-    AudioSource click;
-
-    void Start()
-    {
-        click = GetComponent<AudioSource>();
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -29,7 +21,8 @@ public class EraseButton : CursorChange {
         // Verifica se os botões não estão bloqueados
         if (!LevelController.bloqueiaBotao)
         {
-            click.Play(0);
+            //click.Play(0);
+            
 
             // Encontra o máximo de sílabas existentes menos 1 - vetor inicia em 0
             int i = LevelController.textSlots - 1;
@@ -59,6 +52,9 @@ public class EraseButton : CursorChange {
 
             // Bloqueia o botão de confirmar resposta, pois todas as sílabas não foram digitadas
             LevelController.BotaoConfirmaResposta = false;
+
         }
+        SetaIndicadora.DestroiSeta();
+        SetaIndicadora.IndicarPos();
     }
 }

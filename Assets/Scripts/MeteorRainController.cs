@@ -21,7 +21,7 @@ public class MeteorRainController : MonoBehaviour {
         yield return new WaitForSeconds(1);
         while(true)
         {           
-            Instantiate(meteoro, new Vector3(Random.Range(-9, 9), 7, 0), Quaternion.identity, GameObject.Find("Canvas").transform);
+            Instantiate(meteoro, new Vector3(Random.Range(-13, 6), 7, 0), Quaternion.identity, GameObject.Find("Canvas").transform);
             yield return new WaitForSeconds(1);
         }
     }

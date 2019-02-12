@@ -10,19 +10,16 @@ public class EraseButton : CursorChange {
 
     void Start()
     {
-       // currentButton = this.GetComponent<Button>();
         click = GetComponent<AudioSource>();
     }
 
-    //public void buttonPressed1()
-    //{
-    //    click.Play(0);
-    //    if (LevelController.SilabaDigitada.Length >= 1)
-    //    {
-    //        LevelController.SilabaDigitada = LevelController.SilabaDigitada.Remove(LevelController.SilabaDigitada.Length - 1);
-    //        LevelController.BotaoConfirmaResposta = false;
-    //    }       
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            buttonPressed();
+        }
+    }
 
     /// <summary>
     /// Verifica se tem alguma silaba escrita e apaga somente a ultima silaba escrita

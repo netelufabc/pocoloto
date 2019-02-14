@@ -60,7 +60,7 @@ public class Distractor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
             // Instancia a seta indicadora quando todos os distratores são destruidos
             SetaIndicadora.SetaSetup();
-            SetaIndicadora.DestroiSeta();
+            //SetaIndicadora.DestroiSeta();
             SetaIndicadora.IndicarPos();
         }
         gameObjectPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);

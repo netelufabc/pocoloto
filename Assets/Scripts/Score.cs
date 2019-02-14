@@ -254,6 +254,8 @@ public class Score: MonoBehaviour {
                 LevelController.inputText[i] = "";//reset var after confirm button is clicked
             }
 
+            SetaIndicadora.DestroiSeta();
+
             StartCoroutine(silabaControl.CallSilaba(0));//chama nova sílaba            
         }
     }

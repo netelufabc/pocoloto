@@ -16,6 +16,7 @@ public class Score: MonoBehaviour {
     private Animator estrelaPositivo;
     private Animator estrelaNegativo;
     private int maxScore; //Número de acertos ou erros necessário para passar de fase
+    private bool firstTimeBeatingRev1 = false;
 
     SilabaControl silabaControl;
     StageManager stageManager;
@@ -34,6 +35,7 @@ public class Score: MonoBehaviour {
     public int errorStar2 = 2; //Se tem mais que 2 erros, ganha duas estrelas
 
     private string conclusionVideoName = "Videos/Nome do Video de Conclusao";
+    private string caminhoVideoSystem = "Videos/04_explicacao";
 
     //Construtores e função para manter o Singleton
 
@@ -68,6 +70,8 @@ public class Score: MonoBehaviour {
     }
 
     //Funções:
+
+
 
     public int getScorePositive()
     {
@@ -161,6 +165,11 @@ public class Score: MonoBehaviour {
         //Se o resultado estiver correto
         if (getScorePositive() == maxScore)
         {
+            if (stageManager.currentPlanet == 4 && !SaveManager.player.CompletouPlaneta(4))
+            {
+                firstTimeBeatingRev1 = true;
+            }
+
             GiveMoney();
             GiveStars();
             ResetTimePlaying();
@@ -231,7 +240,18 @@ public class Score: MonoBehaviour {
             }
             else
             {
-                StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
+                if (firstTimeBeatingRev1)
+                {
+                    UnityEngine.Video.VideoClip videoClip = Resources.Load(caminhoVideoSystem) as UnityEngine.Video.VideoClip;
+                    stageManager.video = videoClip;
+                    firstTimeBeatingRev1 = false;
+                    StartCoroutine(stageManager.CallAnotherLevel(3, "06_systemSelect", true));
+                }
+                else
+                {
+                    UnityEngine.Video.VideoClip videoClip = Resources.Load<UnityEngine.Video.VideoClip>(conclusionVideoName);
+                    StartCoroutine(stageManager.CallAnotherLevel(3, NextLevel, true));//espera o dobro do tempo pois esta funcao é chamada ao mesmo tempo que a da linha de cima
+                }
             }
         }
 

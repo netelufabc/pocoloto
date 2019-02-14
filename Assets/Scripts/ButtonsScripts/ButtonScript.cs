@@ -55,9 +55,9 @@ public class ButtonScript : CursorChange {
             {
                 LevelController.BotaoConfirmaResposta = true;
             }
-        }
 
-        SetaIndicadora.DestroiSeta();
-        SetaIndicadora.IndicarPos();
+            SetaIndicadora.DestroiSeta();
+            SetaIndicadora.IndicarPos();
+        }
     }
 }

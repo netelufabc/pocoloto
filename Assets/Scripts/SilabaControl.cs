@@ -155,7 +155,7 @@ public class SilabaControl : MonoBehaviour {
         if (!GameObject.Find("Distractor Creator"))
         {
             SetaIndicadora.SetaSetup();
-            SetaIndicadora.DestroiSeta();
+            //SetaIndicadora.DestroiSeta();
             SetaIndicadora.IndicarPos();
         }
     }

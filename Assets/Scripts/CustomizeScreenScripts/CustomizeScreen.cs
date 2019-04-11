@@ -49,5 +49,4 @@ public class CustomizeScreen : MonoBehaviour {
         Sprite avatar = itensInfoList.GetComponent<ItensInfoList>().avatarsToSell[SaveManager.player.avatarSelecionadoIndex].itemSprite;
         avatarImage.sprite = avatar;
     }
-
 }
